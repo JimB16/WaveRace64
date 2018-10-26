@@ -7,8 +7,8 @@
 .set noreorder
 
 
-.globl Function_0x802c5800
-Function_0x802c5800: # 0x802c5800
+.globl Function_1_0x802c5800
+Function_1_0x802c5800: # 0x802c5800
     lui     $v0, 0x801d
     addiu   $v0, $v0, 0xe39c
     lw      $t6, 0x0($v0)
@@ -26,12 +26,12 @@ Function_0x802c5800: # 0x802c5800
     nop
     sw      $t8, 0x6bec($at)
 branch_0x802c5840:
-    jal     0x800939e4
+    jal     Function_0x800939e4
     or      $a0, $s0, $zero
     b       branch_0x802c5a64
     lw      $ra, 0x44($sp)
 branch_0x802c5850:
-    jal     0x8009302c
+    jal     Function_0x8009302c
     or      $a0, $s0, $zero
     lui     $v1, 0x600
     lui     $t9, 0x806
@@ -221,7 +221,7 @@ branch_0x802c5af0:
     lui     $at, 0x802c
     sw      $a2, 0x6bc0($at)
 branch_0x802c5afc:
-    jal     0x8009302c
+    jal     Function_0x8009302c
     or      $a0, $s0, $zero
     lui     $v1, 0x802c
     lw      $v1, 0x6be0($v1)
@@ -304,7 +304,7 @@ branch_0x802c5c24:
     sw      $t9, 0x10($sp)
     addiu   $a2, $zero, 0x58
     addiu   $a3, $zero, 0x5f
-    jal     0x801e3c40
+    jal     Function_0x801e3c40
     sw      $v1, 0x48($sp)
     lw      $v1, 0x48($sp)
     lui     $t5, 0x708
@@ -407,7 +407,7 @@ branch_0x802c5c24:
     or      $a0, $v0, $zero
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x56
-    jal     0x801e3c40
+    jal     Function_0x801e3c40
     addiu   $a3, $zero, 0x5e
     lui     $t0, 0x802c
     addiu   $t0, $t0, 0x6be4
@@ -416,8 +416,8 @@ branch_0x802c5c24:
 branch_0x802c5df0:
     addiu   $t3, $v1, 0x1
 
-.globl Function_0x802c5df4
-Function_0x802c5df4: # 0x802c5df4
+.globl Function_1_0x802c5df4
+Function_1_0x802c5df4: # 0x802c5df4
     slti    $at, $t3, 0x1e
     bnez    $at, branch_0x802c5e04
     sw      $t3, 0x0($t0)
@@ -739,7 +739,7 @@ branch_0x802c6278:
     sw      $t8, 0x10($sp)
     or      $a0, $s2, $zero
     addiu   $a1, $zero, 0x1
-    jal     0x801e3c40
+    jal     Function_0x801e3c40
     addu    $a3, $t6, $fp
     lui     $v1, 0x802c
     lw      $v1, 0x6f0c($v1)
@@ -794,7 +794,7 @@ branch_0x802c62bc:
     sw      $zero, 0x14($sp)
     sw      $t4, 0x10($sp)
     addiu   $a1, $zero, 0x1
-    jal     0x801e3c40
+    jal     Function_0x801e3c40
     addu    $a3, $t1, $fp
     jal     0x801e52b4
     or      $a0, $v0, $zero
@@ -1238,7 +1238,7 @@ Function_0x802c6944: # 0x802c6944
     nop
     sw      $zero, 0x0($v0)
 branch_0x802c6964:
-    jal     0x8009302c
+    jal     Function_0x8009302c
     nop
     addiu   $t7, $v0, 0x8
     sw      $t7, 0x18($sp)
@@ -1385,7 +1385,7 @@ Function_0x802c6b38: # 0x802c6b38
     addiu   $t1, $zero, 0x6
     sw      $t1, 0x14($sp)
     sw      $t0, 0x10($sp)
-    jal     0x801e3c40
+    jal     Function_0x801e3c40
     addiu   $a1, $zero, 0x3
     b       branch_0x802c6b68
     or      $s3, $v0, $zero
@@ -1415,5 +1415,3 @@ branch_0x802c6b90:
 
 
 .incbin "./roms/Wave Race 64 (USA).z64", 0x1b5034, ROM_0x1b5360 - 0x1b5034
-
-.incbin "./roms/Wave Race 64 (USA).z64", ROM_0x1b5360, ROM_0x800000 - ROM_0x1b5360

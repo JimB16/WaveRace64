@@ -7,6 +7,10 @@
 .set noreorder
 
 
+.globl _start
+_start:
+
+
 # ROM HEADER
 .byte 0x80, 0x37, 0x12, 0x40
 .word 0xf # ClockRate
