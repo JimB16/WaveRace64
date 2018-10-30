@@ -7,7 +7,7 @@
 .set noreorder
 
 
-.incbin "./roms/Wave Race 64 (USA).z64", ROM_0x1b9200, ROM_0x1d0f90 - ROM_0x1b9200 # Rest of Overlays
+.incbin "./roms/Wave Race 64 (USA).z64", ROM_0x1c6490, ROM_0x1d0f90 - ROM_0x1c6490 # Rest of Overlays
 
 
 .incbin "data/data_1d0f90.mio0" # 0x1d0f90
@@ -128,56 +128,79 @@
 .incbin "data/data_362BA0.mio0" # 0x362BA0
 .incbin "data/data_363B20.mio0" # 0x363B20
 .incbin "data/data_364710.mio0" # 0x364710
-#ROM_0x3652B0
-#ROM_0x365C80
-#ROM_0x366900
-#ROM_0x367790
-#ROM_0x368270
-#ROM_0x3686D0
-#ROM_0x368D70
-#ROM_0x369280
-#ROM_0x369710
-#ROM_0x369CA0
-#ROM_0x36A270
-#ROM_0x36A790
-#ROM_0x36AC40
-#ROM_0x36B3B0
-#ROM_0x36B990
-#ROM_0x36BFD0
-#ROM_0x36CB80
-#ROM_0x36D5E0
-#ROM_0x36DDE0
-#ROM_0x36E770
-#ROM_0x36F070
-#ROM_0x36FB00
-#ROM_0x370CE0
-#ROM_0x371670
-#ROM_0x371F70
-#ROM_0x372870
-#ROM_0x373170
-#ROM_0x373690
+.incbin "data/data_3652B0.mio0" # 0x3652B0
+.incbin "data/data_365C80.mio0" # 0x365C80
+.incbin "data/data_366900.mio0" # 0x366900
+.incbin "data/data_367790.mio0" # 0x367790
+.incbin "data/data_368270.mio0" # 0x368270
+.incbin "data/data_3686D0.mio0" # 0x3686D0
+.incbin "data/data_368D70.mio0" # 0x368D70
+.incbin "data/data_369280.mio0" # 0x369280
+.incbin "data/data_369710.mio0" # 0x369710
+.incbin "data/data_369CA0.mio0" # 0x369CA0
+.incbin "data/data_36A270.mio0" # 0x36A270
+.incbin "data/data_36A790.mio0" # 0x36A790
+.incbin "data/data_36AC40.mio0" # 0x36AC40
+.incbin "data/data_36B3B0.mio0" # 0x36B3B0
+.incbin "data/data_36B990.mio0" # 0x36B990
+.incbin "data/data_36BFD0.mio0" # 0x36BFD0
+.incbin "data/data_36CB80.mio0" # 0x36CB80
+.incbin "data/data_36D5E0.mio0" # 0x36D5E0
+.incbin "data/data_36DDE0.mio0" # 0x36DDE0
+.incbin "data/data_36E770.mio0" # 0x36E770
+.incbin "data/data_36F070.mio0" # 0x36F070
+.incbin "data/data_36FB00.mio0" # 0x36FB00
+.incbin "data/data_370CE0.mio0" # 0x370CE0
+.incbin "data/data_371670.mio0" # 0x371670
+.incbin "data/data_371F70.mio0" # 0x371F70
+.incbin "data/data_372870.mio0" # 0x372870
+.incbin "data/data_373170.mio0" # 0x373170
+.incbin "data/data_373690.mio0" # 0x373690
 
 
-#ROM_0x373ec0
-#ROM_0x37cdc0
-#ROM_0x381800
-#ROM_0x38a6c0
-#ROM_0x38f670
-#ROM_0x3985f0
-#ROM_0x39d0c0
-#ROM_0x3a6300
-#ROM_0x3aae20
-#ROM_0x3b3c70
-#ROM_0x3b86c0
-#ROM_0x3c13b0
-#ROM_0x3c6350
-#ROM_0x3cee60
-#ROM_0x3d3850
-#ROM_0x3dcab0
+.incbin "data/data_373ec0.mio0" # 0x373ec0
+.incbin "data/data_37cdc0.mio0" # 0x37cdc0
+.incbin "data/data_381800.mio0" # 0x381800
+.incbin "data/data_38a6c0.mio0" # 0x38a6c0
+.incbin "data/data_38f670.mio0" # 0x38f670
+.incbin "data/data_3985f0.mio0" # 0x3985f0
+.incbin "data/data_39d0c0.mio0" # 0x39d0c0
+.incbin "data/data_3a6300.mio0" # 0x3a6300
+.incbin "data/data_3aae20.mio0" # 0x3aae20
+.incbin "data/data_3b3c70.mio0" # 0x3b3c70
+.incbin "data/data_3b86c0.mio0" # 0x3b86c0
+.incbin "data/data_3c13b0.mio0" # 0x3c13b0
+.incbin "data/data_3c6350.mio0" # 0x3c6350
+.incbin "data/data_3cee60.mio0" # 0x3cee60
+.incbin "data/data_3d3850.mio0" # 0x3d3850
+.incbin "data/data_3dcab0.mio0" # 0x3dcab0
 
 
-#ROM_0x3e1560
+.incbin "data/data_3e1560.mio0" # 0x3e1560
+.incbin "data/data_3E8CA0.mio0" # 0x3E8CA0
+.incbin "data/data_3EAAB0.mio0" # 0x3EAAB0
+.incbin "data/data_3ECA20.mio0" # 0x3ECA20
+.incbin "data/data_3EE5F0.mio0" # 0x3EE5F0
+.incbin "data/data_3EEDF0.mio0" # 0x3EEDF0
+.incbin "data/data_3EF680.mio0" # 0x3EF680
+.incbin "data/data_3F1190.mio0" # 0x3F1190
+.incbin "data/data_3F44B0.mio0" # 0x3F44B0
 
-.incbin "./roms/Wave Race 64 (USA).z64", ROM_0x3652B0, ROM_0x800000 - ROM_0x3652B0
+
+.incbin "data/data_3F57F0.mio0" # 0x3F57F0
+
+
+.incbin "data/data_4055d0.mio0" # 0x4055d0
+
+
+.incbin "data/data_40b2f0.bin" # 0x40b2f0
+.incbin "data/data_4289f0.bin" # 0x4289f0
+.incbin "data/data_7ae670.bin" # 0x7ae670
+.incbin "data/data_7c4930.bin" # 0x7c4930
+
+#.equ ROM_0x7c4930,				0x7c4930 # seems to be the last file
+
+
+.incbin "./roms/Wave Race 64 (USA).z64", ROM_0x7c49d0, ROM_0x800000 - ROM_0x7c49d0
 
 

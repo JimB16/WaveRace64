@@ -560,8 +560,8 @@ branch_0x84000730:
     sw      $t1, 0x8($t0)
 
 # Init SP_DMEM
-    lui     $t0, %hi(SP_DMEM)
-    addiu   $t0, $t0, %lo(SP_DMEM)
+    lui     $t0, %hi(SP_DMEM_a)
+    addiu   $t0, $t0, %lo(SP_DMEM_a)
     addi    $t1, $t0, 0x1000 # End of SP_DMEM
 branch_0x84000740:
     addiu   $t0, $t0, 0x4
@@ -569,8 +569,8 @@ branch_0x84000740:
     sw      $zero, -0x4($t0)
 
 # Init SP_IMEM
-    lui     $t0, %hi(SP_BASE_REG)
-    addiu   $t0, $t0, %lo(SP_IMEM)
+    lui     $t0, %hi(SP_IMEM_a)
+    addiu   $t0, $t0, %lo(SP_IMEM_a)
     addi    $t1, $t0, 0x1000 # End of SP_IMEM
 branch_0x84000758:
     addiu   $t0, $t0, 0x4

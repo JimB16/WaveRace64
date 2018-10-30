@@ -121,7 +121,6 @@ branch_0x802c5994:
     b       branch_0x802c59ac
     addiu   $t1, $zero, 0xffff
 
-.globl Function_0x802c599c
 Function_0x802c599c: # 0x802c599c
     mfc1    $t1, $a0
 branch_0x802c59a0:
@@ -290,8 +289,8 @@ branch_0x802c5b9c:
     jr      $ra
     nop
 
-.globl Function_0x802c5ba4
-Function_0x802c5ba4: # 0x802c5ba4
+.globl Function_0_0x802c5ba4
+Function_0_0x802c5ba4: # 0x802c5ba4
     lui     $v0, 0x801d
     addiu   $v0, $v0, 0xe39c
     lw      $t6, 0x0($v0)
@@ -301,9 +300,9 @@ Function_0x802c5ba4: # 0x802c5ba4
     beqz    $t6, branch_0x802c5bec
     sw      $ra, 0x24($sp)
     sw      $zero, 0x0($v0)
-    lui     $t7, %hi(Unknown_0x800da8a4)
-    lw      $t7, %lo(Unknown_0x800da8a4)($t7)
-    addiu   $at, $zero, 0x5
+    lui     $t7, %hi(Unknown_0x800da8a4_mainState)
+    lw      $t7, %lo(Unknown_0x800da8a4_mainState)($t7)
+    addiu   $at, $zero, MainState_5
     bne     $t7, $at, branch_0x802c5bec
     nop
     jal     Function_0x802c73b0
@@ -386,9 +385,9 @@ branch_0x802c5bec:
     or      $s0, $v0, $zero
 
 branch_0x802c5d0c:
-    lui     $v1, 0x800e
-    lw      $v1, -0x575c($v1)
-    addiu   $at, $zero, 0x6
+    lui     $v1, %hi(Unknown_0x800da8a4_mainState)
+    lw      $v1, %lo(Unknown_0x800da8a4_mainState)($v1)
+    addiu   $at, $zero, MainState_6
     or      $a0, $s0, $zero
     bne     $v1, $at, branch_0x802c5d50
     addiu   $a1, $zero, 0x40
@@ -400,12 +399,12 @@ branch_0x802c5d0c:
     addiu   $a3, $zero, 0x240
     jal     Function_0x802c7578
     sw      $t7, 0x14($sp)
-    lui     $v1, 0x800e
-    lw      $v1, -0x575c($v1)
+    lui     $v1, %hi(Unknown_0x800da8a4_mainState)
+    lw      $v1, %lo(Unknown_0x800da8a4_mainState)($v1)
     or      $s0, $v0, $zero
 branch_0x802c5d50:
     lui     $a0, 0x802c
-    addiu   $at, $zero, 0x5
+    addiu   $at, $zero, MainState_5
     bne     $v1, $at, branch_0x802c5d70
     addiu   $a0, $a0, 0x76f0
     jal     Function_0_0x802c5df4
@@ -442,7 +441,7 @@ branch_0x802c5dc4:
     slti    $at, $t2, 0xe
     bnezl   $at, branch_0x802c5de0
     or      $v0, $s0, $zero
-    jal     Function_0x801eaf10
+    jal     Function_0x801eaf10_ChangeStateTo2
     nop
     or      $v0, $s0, $zero
 
@@ -542,11 +541,11 @@ branch_0x802c5f28:
     sw      $a1, 0x0($t1)
     sw      $t2, 0x0($a0)
 branch_0x802c5f38:
-    lui     $v0, 0x801d
-    lhu     $v0, -0x1c46($v0)
+    lui     $v0, %hi(Unknown_0x801ce3ba)
+    lhu     $v0, %lo(Unknown_0x801ce3ba)($v0)
     lui     $a0, 0x802c
     lui     $t3, 0x802c
-    andi    $t4, $v0, 0xb000
+    andi    $t4, $v0, JOY_START|JOY_Z|JOY_A
     addiu   $t3, $t3, 0x7724
     addiu   $a0, $a0, 0x7660
     addiu   $a1, $zero, 0x3
@@ -2051,18 +2050,18 @@ branch_0x802c74b0:
 
 .globl Function_0x802c7510
 Function_0x802c7510: # 0x802c7510
-    lui     $v0, 0x800e
-    addiu   $v0, $v0, 0xa8a4
+    lui     $v0, %hi(Unknown_0x800da8a4_mainState)
+    addiu   $v0, $v0, %lo(Unknown_0x800da8a4_mainState)
     lw      $t6, 0x0($v0)
     lui     $at, 0x801d
-    addiu   $t7, $zero, 0x6
+    addiu   $t7, $zero, MainState_6
     sw      $t6, -0x1c6c($at)
-    lui     $at, 0x801d
-    sw      $zero, -0x1c70($at)
+    lui     $at, %hi(Unknown_0x801ce390)
+    sw      $zero, %lo(Unknown_0x801ce390)($at)
     sw      $t7, 0x0($v0)
-    lui     $at, 0x801d
+    lui     $at, %hi(Unknown_0x801ce398)
     addiu   $t8, $zero, 0x13
-    sw      $t8, -0x1c68($at)
+    sw      $t8, %lo(Unknown_0x801ce398)($at)
     lui     $at, 0x801d
     addiu   $t9, $zero, 0x1
     sw      $t9, -0x1c64($at)

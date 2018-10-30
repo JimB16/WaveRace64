@@ -239,13 +239,13 @@ osViSwapBuffer: # 0x800c5750
     jal     __osDisableInt
     sw      $a0, 0x20($sp)
 
-    lui     $t7, 0x800f
-    lw      $t7, -0x71cc($t7)
+    lui     $t7, %hi(ViBufferPtr)
+    lw      $t7, %lo(ViBufferPtr)($t7)
     lw      $t6, 0x20($sp)
     sw      $v0, 0x1c($sp)
-    lui     $t8, 0x800f
+    lui     $t8, %hi(ViBufferPtr)
     sw      $t6, 0x4($t7)
-    lw      $t8, -0x71cc($t8)
+    lw      $t8, %lo(ViBufferPtr)($t8)
     lhu     $t9, 0x0($t8)
     ori     $t0, $t9, 0x10
     sh      $t0, 0x0($t8)
@@ -548,11 +548,13 @@ Function_0x800c5b38: # 0x800c5b38
     nop
     nop
 
+
 .globl osDpGetStatus
 osDpGetStatus: # 0x800c5b40
-    lui     $t6, 0xa410
+    lui     $t6, %hi(DPC_STATUS_REG)
     jr      $ra
-    lw      $v0, 0xc($t6)
+    lw      $v0, %lo(DPC_STATUS_REG)($t6)
+
 
 .globl Function_0x800c5b4c
 Function_0x800c5b4c: # 0x800c5b4c
@@ -569,17 +571,17 @@ osViSetMode: # 0x800c5b50
     jal     __osDisableInt
     sw      $s0, 0x18($sp)
 
-    lui     $t7, %hi(Unknown_0x800E8E34)
-    lw      $t7, %lo(Unknown_0x800E8E34)($t7)
+    lui     $t7, %hi(ViBufferPtr)
+    lw      $t7, %lo(ViBufferPtr)($t7)
     lw      $t6, 0x28($sp)
-    lui     $t9, %hi(Unknown_0x800E8E34)
+    lui     $t9, %hi(ViBufferPtr)
     addiu   $t8, $zero, 0x1
     sw      $t6, 0x8($t7)
-    lw      $t9, %lo(Unknown_0x800E8E34)($t9)
-    lui     $t0, %hi(Unknown_0x800E8E34)
+    lw      $t9, %lo(ViBufferPtr)($t9)
+    lui     $t0, %hi(ViBufferPtr)
     or      $s0, $v0, $zero
     sh      $t8, 0x0($t9)
-    lw      $t0, %lo(Unknown_0x800E8E34)($t0)
+    lw      $t0, %lo(ViBufferPtr)($t0)
     or      $a0, $s0, $zero
     lw      $t1, 0x8($t0)
     lw      $t2, 0x4($t1)
@@ -612,8 +614,8 @@ osViSetSpecialFeatures: # 0x800c5bc0
     andi    $t7, $t6, 0x1
     beqz    $t7, branch_0x800c5bfc
     nop
-    lui     $t8, %hi(Unknown_0x800E8E34)
-    lw      $t8, %lo(Unknown_0x800E8E34)($t8)
+    lui     $t8, %hi(ViBufferPtr)
+    lw      $t8, %lo(ViBufferPtr)($t8)
     lw      $t9, 0xc($t8)
     ori     $t0, $t9, 0x8
     sw      $t0, 0xc($t8)
@@ -622,8 +624,8 @@ branch_0x800c5bfc:
     andi    $t2, $t1, 0x2
     beqz    $t2, branch_0x800c5c24
     nop
-    lui     $t3, %hi(Unknown_0x800E8E34)
-    lw      $t3, %lo(Unknown_0x800E8E34)($t3)
+    lui     $t3, %hi(ViBufferPtr)
+    lw      $t3, %lo(ViBufferPtr)($t3)
     addiu   $at, $zero, 0xfff7
     lw      $t4, 0xc($t3)
     and     $t5, $t4, $at
@@ -633,8 +635,8 @@ branch_0x800c5c24:
     andi    $t7, $t6, 0x4
     beqz    $t7, branch_0x800c5c48
     nop
-    lui     $t9, %hi(Unknown_0x800E8E34)
-    lw      $t9, %lo(Unknown_0x800E8E34)($t9)
+    lui     $t9, %hi(ViBufferPtr)
+    lw      $t9, %lo(ViBufferPtr)($t9)
     lw      $t0, 0xc($t9)
     ori     $t8, $t0, 0x4
     sw      $t8, 0xc($t9)
@@ -643,8 +645,8 @@ branch_0x800c5c48:
     andi    $t2, $t1, 0x8
     beqz    $t2, branch_0x800c5c70
     nop
-    lui     $t4, %hi(Unknown_0x800E8E34)
-    lw      $t4, %lo(Unknown_0x800E8E34)($t4)
+    lui     $t4, %hi(ViBufferPtr)
+    lw      $t4, %lo(ViBufferPtr)($t4)
     addiu   $at, $zero, 0xfffb
     lw      $t5, 0xc($t4)
     and     $t3, $t5, $at
@@ -654,8 +656,8 @@ branch_0x800c5c70:
     andi    $t7, $t6, 0x10
     beqz    $t7, branch_0x800c5c94
     nop
-    lui     $t0, %hi(Unknown_0x800E8E34)
-    lw      $t0, %lo(Unknown_0x800E8E34)($t0)
+    lui     $t0, %hi(ViBufferPtr)
+    lw      $t0, %lo(ViBufferPtr)($t0)
     lw      $t8, 0xc($t0)
     ori     $t9, $t8, 0x10
     sw      $t9, 0xc($t0)
@@ -664,8 +666,8 @@ branch_0x800c5c94:
     andi    $t2, $t1, 0x20
     beqz    $t2, branch_0x800c5cbc
     nop
-    lui     $t5, %hi(Unknown_0x800E8E34)
-    lw      $t5, %lo(Unknown_0x800E8E34)($t5)
+    lui     $t5, %hi(ViBufferPtr)
+    lw      $t5, %lo(ViBufferPtr)($t5)
     addiu   $at, $zero, 0xffef
     lw      $t3, 0xc($t5)
     and     $t4, $t3, $at
@@ -675,14 +677,14 @@ branch_0x800c5cbc:
     andi    $t7, $t6, 0x40
     beqz    $t7, branch_0x800c5cfc
     nop
-    lui     $t8, %hi(Unknown_0x800E8E34)
-    lw      $t8, %lo(Unknown_0x800E8E34)($t8)
+    lui     $t8, %hi(ViBufferPtr)
+    lw      $t8, %lo(ViBufferPtr)($t8)
     lui     $at, 0x1
-    lui     $t1, %hi(Unknown_0x800E8E34)
+    lui     $t1, %hi(ViBufferPtr)
     lw      $t9, 0xc($t8)
     or      $t0, $t9, $at
     sw      $t0, 0xc($t8)
-    lw      $t1, %lo(Unknown_0x800E8E34)($t1)
+    lw      $t1, %lo(ViBufferPtr)($t1)
     addiu   $at, $zero, 0xfcff
     lw      $t2, 0xc($t1)
     and     $t3, $t2, $at
@@ -692,15 +694,15 @@ branch_0x800c5cfc:
     andi    $t5, $t4, 0x80
     beqz    $t5, branch_0x800c5d48
     nop
-    lui     $t6, %hi(Unknown_0x800E8E34)
-    lw      $t6, %lo(Unknown_0x800E8E34)($t6)
+    lui     $t6, %hi(ViBufferPtr)
+    lw      $t6, %lo(ViBufferPtr)($t6)
     lui     $at, 0xfffe
     ori     $at, $at, 0xffff
     lw      $t7, 0xc($t6)
-    lui     $t0, %hi(Unknown_0x800E8E34)
+    lui     $t0, %hi(ViBufferPtr)
     and     $t9, $t7, $at
     sw      $t9, 0xc($t6)
-    lw      $t0, %lo(Unknown_0x800E8E34)($t0)
+    lw      $t0, %lo(ViBufferPtr)($t0)
     lw      $t2, 0x8($t0)
     lw      $t8, 0xc($t0)
     lw      $t3, 0x4($t2)
@@ -708,8 +710,8 @@ branch_0x800c5cfc:
     or      $t4, $t8, $t1
     sw      $t4, 0xc($t0)
 branch_0x800c5d48:
-    lui     $t5, %hi(Unknown_0x800E8E34)
-    lw      $t5, %lo(Unknown_0x800E8E34)($t5)
+    lui     $t5, %hi(ViBufferPtr)
+    lw      $t5, %lo(ViBufferPtr)($t5)
     or      $a0, $s0, $zero
     lhu     $t7, 0x0($t5)
     ori     $t9, $t7, 0x8
@@ -730,195 +732,226 @@ Function_0x800c5d78: # 0x800c5d78
 
 .globl osSpTaskYield2
 osSpTaskYield2: # 0x800c5d80
-    addiu   $sp, $sp, 0xffe8
+    addiu   $sp, $sp, -0x18
     sw      $ra, 0x14($sp)
+
     jal     __osSpSetStatus
-    addiu   $a0, $zero, 0x400
+    addiu   $a0, $zero, SP_SET_SIG0
+
     lw      $ra, 0x14($sp)
     addiu   $sp, $sp, 0x18
     jr      $ra
     nop
 
+/* Input:
+a0:
+*/
 .globl osSpTaskYield
 osSpTaskYield: # 0x800c5da0
-    addiu   $sp, $sp, 0xffe0
-    lui     $t6, 0x801e
+    addiu   $sp, $sp, -0x20
+    lui     $t6, %hi(Unknown_0x801d8410)
     sw      $ra, 0x14($sp)
     sw      $a0, 0x20($sp)
-    addiu   $t6, $t6, 0x8410
+    addiu   $t6, $t6, %lo(Unknown_0x801d8410)
     sw      $t6, 0x1c($sp)
+
     or      $a1, $t6, $zero
     lw      $a0, 0x20($sp)
     jal     bcopy
-    addiu   $a2, $zero, 0x40
+    addiu   $a2, $zero, SpTask_Size
+
     lw      $t7, 0x1c($sp)
-    lw      $t8, 0x10($t7)
+    lw      $t8, SpTask_10($t7)
     beqz    $t8, branch_0x800c5de8
     nop
     jal     osVirtualToPhysical
     or      $a0, $t8, $zero
     lw      $t9, 0x1c($sp)
-    sw      $v0, 0x10($t9)
+    sw      $v0, SpTask_10($t9)
 branch_0x800c5de8:
+
     lw      $t0, 0x1c($sp)
-    lw      $t1, 0x18($t0)
+    lw      $t1, SpTask_18($t0)
     beqz    $t1, branch_0x800c5e08
     nop
     jal     osVirtualToPhysical
     or      $a0, $t1, $zero
     lw      $t2, 0x1c($sp)
-    sw      $v0, 0x18($t2)
+    sw      $v0, SpTask_18($t2)
 branch_0x800c5e08:
+
     lw      $t3, 0x1c($sp)
-    lw      $t4, 0x20($t3)
+    lw      $t4, SpTask_20($t3)
     beqz    $t4, branch_0x800c5e28
     nop
     jal     osVirtualToPhysical
     or      $a0, $t4, $zero
     lw      $t5, 0x1c($sp)
-    sw      $v0, 0x20($t5)
+    sw      $v0, SpTask_20($t5)
 branch_0x800c5e28:
+
     lw      $t6, 0x1c($sp)
-    lw      $t7, 0x28($t6)
+    lw      $t7, SpTask_28($t6)
     beqz    $t7, branch_0x800c5e48
     nop
     jal     osVirtualToPhysical
     or      $a0, $t7, $zero
     lw      $t8, 0x1c($sp)
-    sw      $v0, 0x28($t8)
+    sw      $v0, SpTask_28($t8)
 branch_0x800c5e48:
+
     lw      $t9, 0x1c($sp)
-    lw      $t0, 0x2c($t9)
+    lw      $t0, SpTask_2c($t9)
     beqz    $t0, branch_0x800c5e68
     nop
     jal     osVirtualToPhysical
     or      $a0, $t0, $zero
     lw      $t1, 0x1c($sp)
-    sw      $v0, 0x2c($t1)
+    sw      $v0, SpTask_2c($t1)
 branch_0x800c5e68:
+
     lw      $t2, 0x1c($sp)
-    lw      $t3, 0x30($t2)
+    lw      $t3, SpTask_30($t2)
     beqz    $t3, branch_0x800c5e88
     nop
     jal     osVirtualToPhysical
     or      $a0, $t3, $zero
     lw      $t4, 0x1c($sp)
-    sw      $v0, 0x30($t4)
+    sw      $v0, SpTask_30($t4)
 branch_0x800c5e88:
+
     lw      $t5, 0x1c($sp)
-    lw      $t6, 0x38($t5)
+    lw      $t6, SpTask_38($t5)
     beqz    $t6, branch_0x800c5ea8
     nop
     jal     osVirtualToPhysical
     or      $a0, $t6, $zero
     lw      $t7, 0x1c($sp)
-    sw      $v0, 0x38($t7)
+    sw      $v0, SpTask_38($t7)
 branch_0x800c5ea8:
+
     lw      $ra, 0x14($sp)
     lw      $v0, 0x1c($sp)
     addiu   $sp, $sp, 0x20
     jr      $ra
     nop
 
-.globl Function_0x800c5ebc
-Function_0x800c5ebc: # 0x800c5ebc
+
+/* Input:
+a0:
+*/
+.globl osSpTaskLoad
+osSpTaskLoad: # 0x800c5ebc
     addiu   $sp, $sp, 0xffe0
     sw      $ra, 0x14($sp)
     sw      $a0, 0x20($sp)
     jal     osSpTaskYield
     lw      $a0, 0x20($sp)
-    sw      $v0, 0x1c($sp)
-    lw      $t6, 0x1c($sp)
-    lw      $t7, 0x4($t6)
+    sw      $v0, 0x1c($sp) # Ptr to SpTask
+    lw      $t6, 0x1c($sp) # Ptr to SpTask
+    lw      $t7, SpTask_4($t6)
     andi    $t8, $t7, 0x1
     beqz    $t8, branch_0x800c5f10
     nop
-    lw      $t9, 0x38($t6)
+
+    lw      $t9, SpTask_38($t6)
     addiu   $at, $zero, 0xfffe
-    sw      $t9, 0x18($t6)
-    lw      $t0, 0x1c($sp)
-    lw      $t1, 0x3c($t0)
-    sw      $t1, 0x1c($t0)
+    sw      $t9, SpTask_18($t6)
+    lw      $t0, 0x1c($sp) # Ptr to SpTask
+    lw      $t1, SpTask_3c($t0)
+    sw      $t1, SpTask_1c($t0)
     lw      $t2, 0x20($sp)
     lw      $t3, 0x4($t2)
     and     $t4, $t3, $at
     sw      $t4, 0x4($t2)
+
 branch_0x800c5f10:
-    lw      $a0, 0x1c($sp)
+    lw      $a0, 0x1c($sp) # Ptr to SpTask
     jal     osWritebackDCache
-    addiu   $a1, $zero, 0x40
+    addiu   $a1, $zero, SpTask_Size
+
     jal     __osSpSetStatus
-    addiu   $a0, $zero, 0x2b00
-    lui     $a0, 0x400
+    addiu   $a0, $zero, SP_SET_INTR_BREAK|SP_CLR_SIG0|SP_CLR_SIG1|SP_CLR_SIG2
+
+    lui     $a0, %hi(SP_IMEM)
     jal     __osSpSetPc
-    ori     $a0, $a0, 0x1000
-    addiu   $at, $zero, 0xffff
+    ori     $a0, $a0, %lo(SP_IMEM)
+
+    addiu   $at, $zero, -1
     bne     $v0, $at, branch_0x800c5f54
     nop
+
 branch_0x800c5f3c:
-    lui     $a0, 0x400
+    lui     $a0, %hi(SP_IMEM)
     jal     __osSpSetPc
-    ori     $a0, $a0, 0x1000
-    addiu   $at, $zero, 0xffff
+    ori     $a0, $a0, %lo(SP_IMEM)
+    addiu   $at, $zero, -1
     beq     $v0, $at, branch_0x800c5f3c
     nop
+
 branch_0x800c5f54:
-    lui     $a1, 0x400
-    ori     $a1, $a1, 0xfc0
-    addiu   $a0, $zero, 0x1
-    lw      $a2, 0x1c($sp)
+    lui     $a1, %hi(SP_DMEM+0xfc0)		# SP_MEM_ADDR
+    ori     $a1, $a1,  %lo(SP_DMEM+0xfc0)
+    addiu   $a0, $zero, 0x1				# Read
+    lw      $a2, 0x1c($sp)				# SP_DRAM_ADDR # Ptr to SpTask
     jal     __osSpRawStartDma
-    addiu   $a3, $zero, 0x40
-    addiu   $at, $zero, 0xffff
+    addiu   $a3, $zero, SpTask_Size		# length
+    addiu   $at, $zero, -1
     bne     $v0, $at, branch_0x800c5f9c
     nop
+
 branch_0x800c5f78:
-    lui     $a1, 0x400
-    ori     $a1, $a1, 0xfc0
-    addiu   $a0, $zero, 0x1
-    lw      $a2, 0x1c($sp)
+    lui     $a1, %hi(SP_DMEM+0xfc0)		# SP_MEM_ADDR
+    ori     $a1, $a1, %lo(SP_DMEM+0xfc0)
+    addiu   $a0, $zero, 0x1				# Read
+    lw      $a2, 0x1c($sp)				# SP_DRAM_ADDR # Ptr to SpTask
     jal     __osSpRawStartDma
-    addiu   $a3, $zero, 0x40
-    addiu   $at, $zero, 0xffff
+    addiu   $a3, $zero, SpTask_Size		# length
+    addiu   $at, $zero, -1
     beq     $v0, $at, branch_0x800c5f78
     nop
+
 branch_0x800c5f9c:
     jal     __osSpDeviceBusy
     nop
     beqz    $v0, branch_0x800c5fbc
     nop
-branch_0x800c5fac:
+waitForSpDevice:
     jal     __osSpDeviceBusy
     nop
-    bnez    $v0, branch_0x800c5fac
+    bnez    $v0, waitForSpDevice
     nop
+
 branch_0x800c5fbc:
-    lw      $t5, 0x1c($sp)
-    lui     $a1, 0x400
-    ori     $a1, $a1, 0x1000
-    addiu   $a0, $zero, 0x1
-    lw      $a2, 0x8($t5)
+    lw      $t5, 0x1c($sp)				# Ptr to SpTask
+    lui     $a1, %hi(SP_IMEM)			# SP_MEM_ADDR
+    ori     $a1, $a1, %lo(SP_IMEM)
+    addiu   $a0, $zero, 0x1				# Read
+    lw      $a2, SpTask_DRAM($t5)		# SP_DRAM_ADDR
     jal     __osSpRawStartDma
-    lw      $a3, 0xc($t5)
-    addiu   $at, $zero, 0xffff
+    lw      $a3, SpTask_length($t5)		# length
+    addiu   $at, $zero, -1
     bne     $v0, $at, branch_0x800c600c
     nop
+
 branch_0x800c5fe4:
-    lw      $t7, 0x1c($sp)
-    lui     $a1, 0x400
-    ori     $a1, $a1, 0x1000
-    addiu   $a0, $zero, 0x1
-    lw      $a2, 0x8($t7)
+    lw      $t7, 0x1c($sp)				# Ptr to SpTask
+    lui     $a1, %hi(SP_IMEM)			# SP_MEM_ADDR
+    ori     $a1, $a1, %lo(SP_IMEM)
+    addiu   $a0, $zero, 0x1				# Read
+    lw      $a2, SpTask_DRAM($t7)		# SP_DRAM_ADDR
     jal     __osSpRawStartDma
-    lw      $a3, 0xc($t7)
-    addiu   $at, $zero, 0xffff
+    lw      $a3, SpTask_length($t7)		# length
+    addiu   $at, $zero, -1
     beq     $v0, $at, branch_0x800c5fe4
     nop
+
 branch_0x800c600c:
     lw      $ra, 0x14($sp)
     addiu   $sp, $sp, 0x20
     jr      $ra
     nop
+
 
 .globl Function_0x800c601c
 Function_0x800c601c: # 0x800c601c
@@ -1260,7 +1293,7 @@ branch_0x800c6404:
 
 .globl osSpTaskYielded
 osSpTaskYielded: # 0x800c6420
-    addiu   $sp, $sp, 0xffe0
+    addiu   $sp, $sp, -0x20
     sw      $ra, 0x14($sp)
     jal     __osSpGetStatus
     sw      $a0, 0x20($sp)
@@ -1274,6 +1307,7 @@ osSpTaskYielded: # 0x800c6420
     sw      $t8, 0x18($sp)
 branch_0x800c6450:
     sw      $zero, 0x18($sp)
+
 branch_0x800c6454:
     lw      $t9, 0x1c($sp)
     andi    $t0, $t9, 0x80
@@ -1290,11 +1324,13 @@ branch_0x800c6454:
     and     $t7, $t6, $at
     sw      $t7, 0x4($t5)
 branch_0x800c648c:
+
     lw      $ra, 0x14($sp)
     lw      $v0, 0x18($sp)
     addiu   $sp, $sp, 0x20
     jr      $ra
     nop
+
 
 .globl osWritebackDCacheAll
 osWritebackDCacheAll: # 0x800c64a0
@@ -6253,9 +6289,9 @@ Function_0x800ca6e8: # 0x800ca6e8
 
 .globl osAiGetLength
 osAiGetLength: # 0x800ca6f0
-    lui     $t6, 0xa450
+    lui     $t6, %hi(AI_LEN_REG)
     jr      $ra
-    lw      $v0, 0x4($t6)
+    lw      $v0, %lo(AI_LEN_REG)($t6)
 
 .globl Function_0x800ca6fc
 Function_0x800ca6fc: # 0x800ca6fc
@@ -6299,17 +6335,18 @@ branch_0x800ca760:
 branch_0x800ca778:
     jal     osVirtualToPhysical
     lw      $a0, 0x1c($sp)
-    lui     $t4, 0xa450
-    sw      $v0, 0x0($t4)
+    lui     $t4, %hi(AI_DRAM_ADDR_REG)
+    sw      $v0, %lo(AI_DRAM_ADDR_REG)($t4)
     lw      $t5, 0x24($sp)
-    lui     $t7, 0xa450
+    lui     $t7, %hi(AI_LEN_REG)
     or      $v0, $zero, $zero
-    sw      $t5, 0x4($t7)
+    sw      $t5, %lo(AI_LEN_REG)($t7)
 branch_0x800ca798:
     lw      $ra, 0x14($sp)
     addiu   $sp, $sp, 0x20
     jr      $ra
     nop
+
 
 .globl Function_0x800ca7a8
 Function_0x800ca7a8: # 0x800ca7a8
@@ -6641,20 +6678,20 @@ branch_0x800cabd4:
 
 .globl Function_0x800cabe8
 Function_0x800cabe8: # 0x800cabe8
-    lui     $s1, 0xa430
-    lw      $s1, 0x8($s1)
+    lui     $s1, %hi(MI_INTR_REG)
+    lw      $s1, %lo(MI_INTR_REG)($s1)
     andi    $s1, $s1, 0x3f
     andi    $t1, $s1, 0x1
     beqz    $t1, branch_0x800cac48
     nop
-    lui     $t4, 0xa404
-    lw      $t4, 0x10($t4)
+    lui     $t4, %hi(SP_STATUS_REG)
+    lw      $t4, %lo(SP_STATUS_REG)($t4)
     addiu   $t1, $zero, 0x8
-    lui     $at, 0xa404
+    lui     $at, %hi(SP_STATUS_REG)
     andi    $t4, $t4, 0x300
     andi    $s1, $s1, 0x3e
     beqz    $t4, branch_0x800cac38
-    sw      $t1, 0x10($at)
+    sw      $t1, %lo(SP_STATUS_REG)($at)
     jal     Function_0x800cae48
     addiu   $a0, $zero, 0x20
     beqz    $s1, branch_0x800cad0c
@@ -7524,9 +7561,9 @@ Function_0x800cb7ec: # 0x800cb7ec
 
 .globl __osSpSetStatus
 __osSpSetStatus: # 0x800cb7f0
-    lui     $t6, 0xa404
+    lui     $t6, %hi(SP_STATUS_REG)
     jr      $ra
-    sw      $a0, 0x10($t6)
+    sw      $a0, %lo(SP_STATUS_REG)($t6)
 
 .globl Function_0x800cb7fc
 Function_0x800cb7fc: # 0x800cb7fc
@@ -7813,8 +7850,8 @@ Function_0x800cbb84: # 0x800cbb84
 
 .globl __osSpSetPc
 __osSpSetPc: # 0x800cbb90
-    lui     $t6, 0xa404
-    lw      $a1, 0x10($t6)
+    lui     $t6, %hi(SP_STATUS_REG)
+    lw      $a1, %lo(SP_STATUS_REG)($t6)
     addiu   $sp, $sp, 0xfff8
     andi    $t7, $a1, 0x1
     bnez    $t7, branch_0x800cbbb0
@@ -7835,6 +7872,13 @@ Function_0x800cbbc4: # 0x800cbbc4
     nop
     nop
 
+
+/* Input:
+a0: 0 (Write), 1 (Read)
+a1: SP_MEM_ADDR
+a2: SP_DRAM_ADDR
+a3: length
+*/
 .globl __osSpRawStartDma
 __osSpRawStartDma: # 0x800cbbd0
     addiu   $sp, $sp, 0xffe8
@@ -7844,38 +7888,43 @@ __osSpRawStartDma: # 0x800cbbd0
     sw      $a2, 0x20($sp)
     jal     __osSpDeviceBusy
     sw      $a3, 0x24($sp)
-    beqz    $v0, branch_0x800cbbfc
+    beqz    $v0, startSpDma
     nop
-    b       branch_0x800cbc4c
+    b       spIsBusy
     addiu   $v0, $zero, 0xffff
-branch_0x800cbbfc:
+
+startSpDma:
     lw      $t6, 0x1c($sp)
-    lui     $t7, 0xa404
-    sw      $t6, 0x0($t7)
+    lui     $t7, %hi(SP_MEM_ADDR_REG)
+    sw      $t6, %lo(SP_MEM_ADDR_REG)($t7)
     jal     osVirtualToPhysical
     lw      $a0, 0x20($sp)
-    lui     $t8, 0xa404
-    sw      $v0, 0x4($t8)
+    lui     $t8, %hi(SP_DRAM_ADDR_REG)
+    sw      $v0, %lo(SP_DRAM_ADDR_REG)($t8)
     lw      $t9, 0x18($sp)
-    bnez    $t9, branch_0x800cbc38
+    bnez    $t9, readSpMem
     nop
+
     lw      $t0, 0x24($sp)
-    lui     $t2, 0xa404
-    addiu   $t1, $t0, 0xffff
+    lui     $t2, %hi(SP_WR_LEN_REG)
+    addiu   $t1, $t0, -1
     b       branch_0x800cbc48
-    sw      $t1, 0xc($t2)
-branch_0x800cbc38:
+    sw      $t1, %lo(SP_WR_LEN_REG)($t2)
+
+readSpMem:
     lw      $t3, 0x24($sp)
-    lui     $t5, 0xa404
+    lui     $t5, %hi(SP_RD_LEN_REG)
     addiu   $t4, $t3, 0xffff
-    sw      $t4, 0x8($t5)
+    sw      $t4, %lo(SP_RD_LEN_REG)($t5)
 branch_0x800cbc48:
     or      $v0, $zero, $zero
-branch_0x800cbc4c:
+
+spIsBusy:
     lw      $ra, 0x14($sp)
     addiu   $sp, $sp, 0x18
     jr      $ra
     nop
+
 
 .globl Function_0x800cbc5c
 Function_0x800cbc5c: # 0x800cbc5c
@@ -7883,8 +7932,8 @@ Function_0x800cbc5c: # 0x800cbc5c
 
 .globl __osSpDeviceBusy
 __osSpDeviceBusy: # 0x800cbc60
-    lui     $t6, 0xa404
-    lw      $a0, 0x10($t6)
+    lui     $t6, %hi(SP_STATUS_REG)
+    lw      $a0, %lo(SP_STATUS_REG)($t6)
     addiu   $sp, $sp, 0xfff8
     andi    $t7, $a0, 0x1c
     beqz    $t7, branch_0x800cbc80
@@ -7903,9 +7952,9 @@ Function_0x800cbc8c: # 0x800cbc8c
 
 .globl __osSpGetStatus
 __osSpGetStatus: # 0x800cbc90
-    lui     $t6, 0xa404
+    lui     $t6, %hi(SP_STATUS_REG)
     jr      $ra
-    lw      $v0, 0x10($t6)
+    lw      $v0, %lo(SP_STATUS_REG)($t6)
 
 .globl Function_0x800cbc9c
 Function_0x800cbc9c: # 0x800cbc9c

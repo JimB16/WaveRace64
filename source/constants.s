@@ -2,7 +2,7 @@
 
 .equ ROM_0x0,					0x0 # ROM Header - 0x1000
 .equ ROM_0x1000,				0x1000 # Main Code - 99330
-.equ ROM_0xa9330,				0xa9330
+.equ ROM_0xa9330,				0xa9330 # Main2 Code 
 .equ ROM_0xf5e50,				0xf5e50
 .equ ROM_0xfe0e0,				0xfe0e0
 .equ ROM_0x1659c0,				0x1659c0
@@ -184,6 +184,7 @@
 
 .equ ROM_0x7c4930,				0x7c4930 # seems to be the last file
 
+.equ ROM_0x7c49d0,				0x7c49d0
 .equ ROM_0x800000,				0x800000
 
 
@@ -196,16 +197,76 @@
 
 
 .equ Unknown_0x80001000,		0x80001000
+.equ Unknown_0x8003ecb8,		0x8003ecb8
+.equ Unknown_0x8003ecb9,		0x8003ecb9
+.equ Unknown_0x80044688,		0x80044688
+.equ Unknown_0x80045520,		0x80045520
+.equ Unknown_0x80045558,		0x80045558
+.equ Unknown_0x80045550,		0x80045550
+.equ Unknown_0x80045554,		0x80045554
+.equ Unknown_0x8004555c,		0x8004555c
+.equ Unknown_0x80045560,		0x80045560
+.equ Unknown_0x80045568,		0x80045568
+.equ Unknown_0x8004556c,		0x8004556c
+.equ Unknown_0x80045570,		0x80045570
+.equ Unknown_0x80045618,		0x80045618
+.equ Unknown_0x80045624,		0x80045624
+.equ Unknown_0x8004562c,		0x8004562c
 .equ Unkonwn_0x80045650,		0x80045650
 
-.equ Unknown_0x800da89c,		0x800da89c
-.equ Unknown_0x800da8a4,		0x800da8a4
+# Unknown_0x800da8a4_mainState
+.equ NrOfMainStates, 			0x68
+.equ MainState_0,	 			0x0
+.equ MainState_2,	 			0x2 # Title Screen
+.equ MainState_3,	 			0x3 # Main Menu (Overlay1)
+.equ MainState_4,	 			0x4
+.equ MainState_5,	 			0x5
+.equ MainState_6,	 			0x6 # (Overlay0)
+.equ MainState_7,	 			0x7
+.equ MainState_8,	 			0x8 # (Overlay18)
+.equ MainState_a,	 			0xa # Driver Selection Screen (Overlay2)
+.equ MainState_b,	 			0xb
+.equ MainState_14,	 			0x14 # Course Selection Screen
+.equ MainState_1e,	 			0x1e
+.equ MainState_28,	 			0x28 # Racing (Time Trial)
+.equ MainState_29,	 			0x29 # (Overlay18)
+.equ MainState_2a,	 			0x2a
+.equ MainState_2b,	 			0x2b
+.equ MainState_2c,	 			0x2c
+.equ MainState_2d,	 			0x2d
+.equ MainState_32,	 			0x32
+.equ MainState_34,	 			0x34
+.equ MainState_36,	 			0x36
+.equ MainState_38,	 			0x38
+.equ MainState_39,	 			0x39
+.equ MainState_3c,	 			0x3c # Options Menu
+.equ MainState_3e,	 			0x3e
+.equ MainState_40,	 			0x40
+.equ MainState_42,	 			0x42
+.equ MainState_44,	 			0x44
+.equ MainState_46,	 			0x46
+.equ MainState_48,	 			0x48
+.equ MainState_50,	 			0x50
+.equ MainState_5a,	 			0x5a
+.equ MainState_64,	 			0x64
+.equ MainState_65,	 			0x65
+.equ MainState_66,	 			0x66
 
+.equ Unknown_0x8011eb40,		0x8011eb40
+.equ Unknown_0x8011f580,		0x8011f580
+.equ Unknown_0x8011f640,		0x8011f640
+.equ Unknown_0x8011f648,		0x8011f648
+
+.equ Unknown_0x80151618,		0x80151618
+.equ Unknown_0x80151620,		0x80151620
 .equ Unknown_0x801516a0,		0x801516a0
+.equ Unknown_0x801516a4,		0x801516a4
 .equ Unknown_0x801516a8,		0x801516a8
 .equ Unknown_0x801516ac,		0x801516ac
 .equ Unknown_0x801516b0,		0x801516b0
 .equ Unknown_0x801516b4,		0x801516b4
+.equ Unknown_0x801516b8,		0x801516b8
+.equ Unknown_0x801516bc,		0x801516bc
 .equ Unknown_0x801516c0,		0x801516c0
 .equ Unknown_0x801516c4,		0x801516c4
 .equ Unknown_0x801516c8,		0x801516c8
@@ -220,8 +281,13 @@
 .equ Unknown_0x801516ec,		0x801516ec
 .equ Unknown_0x801516f0,		0x801516f0
 .equ Unknown_0x801516f4,		0x801516f4
+.equ Unknown_0x801516f8,		0x801516f8
+.equ Unknown_0x801516fc,		0x801516fc
+.equ Unknown_0x80151700,		0x80151700
 .equ Unknown_0x80151704,		0x80151704 # osVirtualToPhysical(Unknown_0x80001000)
 .equ Unknown_0x80151708,		0x80151708 # osVirtualToPhysical(Unkonwn_0x80045650)
+.equ Unknown_0x8015170c,		0x8015170c
+.equ Unknown_0x80151710,		0x80151710
 .equ Unknown_0x80151714,		0x80151714
 .equ Unknown_0x80151718,		0x80151718
 .equ Unknown_0x8015171c,		0x8015171c
@@ -232,33 +298,93 @@
 .equ Unknown_0x80151730,		0x80151730
 .equ Unknown_0x80151734,		0x80151734
 .equ Unknown_0x80151940,		0x80151940 # Stackpointer
+.equ Unknown_0x80151b40,		0x80151b40
+.equ Unknown_0x80151f40,		0x80151f40
+.equ Unknown_0x80152f40,		0x80152f40
 .equ Unknown_0x80153740,		0x80153740
+.equ Unknown_0x801538f0,		0x801538f0
 
+.equ Unknown_0x80153aa0,		0x80153aa0
+.equ Unknown_0x80153c50,		0x80153c50
 .equ Unknown_0x80153e00,		0x80153e00 # PiManager?
 .equ Unknown_0x80153e18,		0x80153e18 # MesgQueue?
 .equ Unknown_0x80153e18_8,		0x8
 .equ Unknown_0x80153e18_10,		0x10
 .equ Unknown_0x80153e30,		0x80153e30
+.equ Unknown_0x80153e48,		0x80153e48
 .equ Unknown_0x80153e60,		0x80153e60
 .equ Unknown_0x80153e78,		0x80153e78
 .equ Unknown_0x80153e90,		0x80153e90
 .equ Unknown_0x80153ea8,		0x80153ea8 # PiManager?
 .equ Unknown_0x80153fa8,		0x80153fa8 # MesgQueue?
+.equ Unknown_0x80153fac,		0x80153fac
+.equ Unknown_0x80153fb0,		0x80153fb0
+.equ Unknown_0x80153fb4,		0x80153fb4
+.equ Unknown_0x80153fb8,		0x80153fb8
+.equ Unknown_0x80153fc0,		0x80153fc0
 .equ Unknown_0x80154000,		0x80154000
+.equ Unknown_0x80154014,		0x80154014
+.equ Unknown_0x80154018,		0x80154018
+.equ Unknown_0x80154020,		0x80154020
+.equ Unknown_0x80154030,		0x80154030
 
+
+#
+.equ Unknown_0x801c27cc,		0x801c27cc
+.equ Unknown_0x801ce368,		0x801ce368
+.equ Unknown_0x801ce38a,		0x801ce38a
+.equ Unknown_0x801ce390,		0x801ce390 # MainState_#
+.equ Unknown_0x801ce398,		0x801ce398
 .equ Unknown_0x801ce39c,		0x801ce39c
+
+.equ Unknown_0x801ce3b8,		0x801ce3b8 # Controller Input
+.equ Unknown_0x801ce3b8_2,		0x2
+.equ Unknown_0x801ce3b8_1c,		0x1c # Size of Structure
+.equ Unknown_0x801ce3b8_1e,		0x1e
+.equ Unknown_0x801ce3ba,		0x801ce3ba # Player1 Buttons
+.equ Unknown_0x801ce40c,		0x801ce40c # End of Controller Input
+
+.equ Unknown_0x801ce410,		0x801ce410
 .equ Unknown_0x801ce718,		0x801ce718
 
+.equ Unknown_0x801d7b20,		0x801d7b20
+.equ Unknown_0x801d7b2c,		0x801d7b2c
+.equ Unknown_0x801d7b5a,		0x801d7b5a
+.equ Unknown_0x801d7b7c,		0x801d7b7c
+.equ Unknown_0x801d8410,		0x801d8410
 .equ Unknown_0x801d96e0,		0x801d96e0 # OSThread *
 .equ Unknown_0x801da8c0,		0x801da8c0
 .equ Unknown_0x801da8fc,		0x801da8fc
 .equ Unknown_0x801da900,		0x801da900
 .equ Unknown_0x801da9f8,		0x801da9f8
 
+.equ Unknown_0x80228A98,		0x80228A98
+.equ Unknown_0x80228AC8,		0x80228AC8
+.equ Unknown_0x80228bc0,		0x80228bc0
+
 .equ Unknown_0x802a0000,		0x802a0000
+
+
+.equ Unknown_1_0x802c6ee0,		0x802c6ee0
+.equ Unknown_1_0x802c6ee4,		0x802c6ee4
+.equ Unknown_1_0x802c6ee8,		0x802c6ee8
+.equ Unknown_1_0x802c6ef8,		0x802c6ef8
+.equ Unknown_1_0x802c6f08,		0x802c6f08
+.equ Unknown_1_0x802c6f0c,		0x802c6f0c
+.equ Unknown_1_0x802c6f10,		0x802c6f10
+.equ Unknown_1_0x802c6f14,		0x802c6f14
+.equ Unknown_2_0x802c8bc0,		0x802c8bc0
+.equ Unknown_2_0x802c8c58,		0x802c8c58
+.equ Unknown_0x802c96d0,		0x802c96d0
+
+.equ Unknown_0x802d4000,		0x802d4000
 .equ Unknown_0x802d6800,		0x802d6800
+.equ Unknown_0x80306800,		0x80306800
 .equ Unknown_0x80316800,		0x80316800
+.equ Unknown_0x8036a000,		0x8036a000
 .equ Unknown_0x8038f800,		0x8038f800
+.equ Unknown_0x803b5000,		0x803b5000
+.equ Unknown_0x803da800,		0x803da800
 .equ Unknown_0x80400000,		0x80400000
 
 .equ OSMesgQueue_mtqueue,		0x0 # OSThread *
@@ -277,11 +403,16 @@
 .equ RDRAM_RAS_INTERVAL_REG, 0xa3f00018
 .equ RDRAM_DEVICE_MANUF_REG, 0xa3f00024
 
-.equ SP_BASE_REG,           0xa4000000
-.equ SP_DMEM,               0xa4000000
-.equ SP_IMEM,               0xa4001000
+# SP registers
+.equ SP_DMEM,               0x04000000
+.equ SP_IMEM,               0x04001000
+.equ SP_DMEM_a,             0xa4000000
+.equ SP_IMEM_a,             0xa4001000
 
 .equ SP_MEM_ADDR_REG,		0xa4040000
+.equ SP_DRAM_ADDR_REG,		0xa4040004
+.equ SP_RD_LEN_REG,			0xa4040008
+.equ SP_WR_LEN_REG,			0xa404000c
 .equ SP_STATUS_REG,         0xa4040010
 # Values to clear/set bit in status reg (SP_STATUS_REG - write)
 .equ SP_CLR_HALT,		0x00001	    # Bit  0: clear halt */
@@ -304,14 +435,44 @@
 .equ SP_CLR_SIG4,		0x20000	    # Bit 17: clear signal 4 */
 .equ SP_SET_SIG4,		0x40000	    # Bit 18: set signal 4 */
 .equ SP_CLR_SIG5,		0x80000	    # Bit 19: clear signal 5 */
-.equ SP_SET_SIG5,	       0x100000	    # Bit 20: set signal 5 */
-.equ SP_CLR_SIG6,	       0x200000	    # Bit 21: clear signal 6 */
-.equ SP_SET_SIG6,	       0x400000	    # Bit 22: set signal 6 */
-.equ SP_CLR_SIG7,	       0x800000	    # Bit 23: clear signal 7 */
-.equ SP_SET_SIG7,	      0x1000000	    # Bit 24: set signal 7 */
-.equ SP_PC_REG,             0xa4080000
+.equ SP_SET_SIG5,	    0x100000	    # Bit 20: set signal 5 */
+.equ SP_CLR_SIG6,	    0x200000	    # Bit 21: clear signal 6 */
+.equ SP_SET_SIG6,	    0x400000	    # Bit 22: set signal 6 */
+.equ SP_CLR_SIG7,	    0x800000	    # Bit 23: clear signal 7 */
+.equ SP_SET_SIG7,	    0x1000000	    # Bit 24: set signal 7 */
+.equ SP_PC_REG,         0xa4080000
+
+.equ SpTask_Size,		0x40
+.equ SpTask_0,			0x0
+.equ SpTask_4,			0x4
+.equ SpTask_DRAM,		0x8
+.equ SpTask_length,		0xc
+.equ SpTask_10,			0x10
+.equ SpTask_14,			0x14
+.equ SpTask_18,			0x18
+.equ SpTask_1c,			0x1c
+.equ SpTask_20,			0x20
+.equ SpTask_24,			0x24
+.equ SpTask_28,			0x28
+.equ SpTask_2c,			0x2c
+.equ SpTask_30,			0x30
+.equ SpTask_34,			0x34
+.equ SpTask_38,			0x38
+.equ SpTask_3c,			0x3c
 
 .equ DPC_STATUS_REG,        0xa410000c
+# DPC_STATUS_REG read bits
+.equ DPC_STATUS_XBUS_DMEM_DMA,		0x001
+.equ DPC_STATUS_FREEZE,				0x002
+.equ DPC_STATUS_FLUSH,				0x004
+.equ DPC_STATUS_START_GCLK,			0x008	# Bit  3: start gclk
+.equ DPC_STATUS_TMEM_BUSY,			0x010	# Bit  4: tmem busy
+.equ DPC_STATUS_PIPE_BUSY,			0x020	# Bit  5: pipe busy
+.equ DPC_STATUS_CMD_BUSY,			0x040	# Bit  6: cmd busy
+.equ DPC_STATUS_CBUF_READY,			0x080	# Bit  7: cbuf ready
+.equ DPC_STATUS_DMA_BUSY,			0x100	# Bit  8: dma busy
+.equ DPC_STATUS_END_VALID,			0x200	# Bit  9: end valid
+.equ DPC_STATUS_START_VALID,		0x400	# Bit 10: start valid
 
 # MIPS Interface (MI) Registers 
 .equ MI_INIT_MODE_REG,      0xa4300000
@@ -324,8 +485,11 @@
 .equ MI_CLR_RDRAM,          0x1000		# Bit 12: clear RDRAM reg
 .equ MI_SET_RDRAM,          0x2000		# Bit 13: set RDRAM reg mode
 .equ MI_VERSION_REG,        0xa4300004
+.equ MI_INTR_REG,			0xa4300008
 .equ MI_INTR_MASK_REG,      0xa430000c
 
+.equ AI_DRAM_ADDR_REG,      0xa4500000
+.equ AI_LEN_REG,            0xa4500004
 .equ AI_STATUS_REG,         0xa450000c
 
 .equ PI_BASE_REG,           0xa4600000
@@ -355,3 +519,17 @@
 .equ BOOT_ADDRESS_OFFSET,   0xb0000008
 .equ CRC1,                  0xb0000010
 .equ CRC2,                  0xb0000014
+
+
+.equ JOY_CRIGHT,			0x1
+.equ JOY_CLEFT,				0x2
+.equ JOY_CDOWN,				0x4
+.equ JOY_CUP,				0x8
+.equ JOY_RIGHT,				0x100
+.equ JOY_LEFT,				0x200
+.equ JOY_DOWN,				0x400
+.equ JOY_UP,				0x800
+.equ JOY_START,				0x1000
+.equ JOY_Z,					0x2000
+.equ JOY_B,					0x4000
+.equ JOY_A,					0x8000
