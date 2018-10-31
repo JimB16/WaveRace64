@@ -282,7 +282,6 @@ Function_0x802c5bd8: # 0x802c5bd8
     jr      $t6
     nop
 
-.globl Function_0x802c5c10
 Function_0x802c5c10: # 0x802c5c10
     addiu   $t7, $zero, 0x1
     b       branch_0x802c5cf0

@@ -217,7 +217,6 @@ branch_0x802c5ac4:
     jr      $ra
     nop
 
-.globl Function_0x802c5ae4
 Function_0x802c5ae4: # 0x802c5ae4
     lui     $v0, 0x801d
     addiu   $v0, $v0, 0xe39c
@@ -573,7 +572,6 @@ branch_0x802c5f68:
     b       branch_0x802c5f90
     or      $a0, $a3, $zero
 
-.globl Function_0x802c5f7c
 Function_0x802c5f7c: # 0x802c5f7c
     lw      $t4, 0x0($v1)
 branch_0x802c5f80:
@@ -1864,7 +1862,6 @@ branch_0x802c7178:
     b       branch_0x802c71fc
     sw      $t2, 0x0($v0)
 
-.globl Function_0x802c7194
 Function_0x802c7194: # 0x802c7194
     addiu   $at, $zero, 0x3
 branch_0x802c7198:

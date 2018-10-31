@@ -7,8 +7,6 @@
 .set noreorder
 
 
-.incbin "./roms/Wave Race 64 (USA).z64", ROM_0x1c6490, ROM_0x1d0f90 - ROM_0x1c6490 # Rest of Overlays
-
 
 .incbin "data/data_1d0f90.mio0" # 0x1d0f90
 .incbin "data/data_1e5620.mio0" # 0x1e5620

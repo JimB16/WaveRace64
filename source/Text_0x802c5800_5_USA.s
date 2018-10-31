@@ -220,7 +220,6 @@ Function_0x802c5a98: # 0x802c5a98
     b       branch_0x802c5b98
     sb      $t3, 0x0($v0)
 
-.globl Function_0x802c5b24
 Function_0x802c5b24: # 0x802c5b24
     addiu   $at, $zero, 0x1
 branch_0x802c5b28:
@@ -233,7 +232,6 @@ branch_0x802c5b28:
     b       branch_0x802c5b98
     sb      $t5, 0x0($v0)
 
-.globl Function_0x802c5b48
 Function_0x802c5b48: # 0x802c5b48
     addiu   $at, $zero, 0x2
 branch_0x802c5b4c:
@@ -1706,7 +1704,6 @@ branch_0x802c703c:
     b       branch_0x802c7078
     lw      $ra, 0x14($sp)
 
-.globl Function_0x802c7060
 Function_0x802c7060: # 0x802c7060
     addiu   $at, $zero, 0x1e
 branch_0x802c7064:

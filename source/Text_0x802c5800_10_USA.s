@@ -550,7 +550,6 @@ branch_0x802c5f98:
     b       branch_0x802c5ff0
     nop
 
-.globl Function_0x802c5fcc
 Function_0x802c5fcc: # 0x802c5fcc
     addiu   $t2, $zero, 0x1
 branch_0x802c5fd0:

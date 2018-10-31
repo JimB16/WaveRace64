@@ -946,7 +946,6 @@ branch_0x802c65b0:
     b       branch_0x802c668c
     or      $s3, $v0, $zero
 
-.globl Function_0x802c65d4
 Function_0x802c65d4: # 0x802c65d4
     lw      $t0, 0x8($s2)
 branch_0x802c65d8:

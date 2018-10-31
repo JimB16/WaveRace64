@@ -336,7 +336,6 @@ Function_0x802c5c4c: # 0x802c5c4c
     b       branch_0x802c5d38
     lw      $ra, 0x14($sp)
 
-.globl Function_0x802c5ce8
 Function_0x802c5ce8: # 0x802c5ce8
     addiu   $at, $zero, 0xa
 branch_0x802c5cec:

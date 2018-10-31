@@ -694,7 +694,6 @@ branch_0x802c6114:
     b       branch_0x802c62d8
     lw      $ra, 0x1c($sp)
 
-.globl Function_0x802c6138
 Function_0x802c6138: # 0x802c6138
     andi    $t5, $v0, 0x100
 branch_0x802c613c:
@@ -1439,7 +1438,6 @@ branch_0x802c69fc:
     jr      $ra
     or      $v0, $a0, $zero
 
-.globl Function_0x802c6c1c
 Function_0x802c6c1c: # 0x802c6c1c
     addiu   $sp, $sp, 0xffc8
     lui     $t5, 0x801d
