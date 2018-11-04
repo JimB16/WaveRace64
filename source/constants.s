@@ -1,11 +1,15 @@
 
 
 .equ ROM_0x0,					0x0 # ROM Header - 0x1000
-.equ ROM_0x1000,				0x1000 # Main Code - 99330
-.equ ROM_0xa9330,				0xa9330 # Main2 Code 
-.equ ROM_0xf5e50,				0xf5e50
+.equ ROM_0x1000,				0x1000 # Main Code - 99330 (0x80046800)
+.equ ROM_0xa9330,				0xa9330 # Main2 Code (0x801dad00)
+.equ ROM_0xa9330_End,			0xf5e50
+.equ ROM_0xf5e50,				0xf5e50 # (0x228bd0)
+.equ ROM_0xf5e50_End,			0xfe0e0
 .equ ROM_0xfe0e0,				0xfe0e0
+.equ ROM_0xfe0e0_End,			0x1659c0
 .equ ROM_0x1659c0,				0x1659c0
+
 .equ ROM_0x1ae420,				0x1ae420
 
 .equ ROM_0x1b1d70,				0x1b1d70 # Overlay 0
@@ -27,66 +31,8 @@
 .equ ROM_0x1cb8b0,				0x1cb8b0
 .equ ROM_0x1cef40,				0x1cef40
 .equ ROM_0x1cf920,				0x1cf920
-.equ ROM_0x1d0f90,				0x1d0f90
-.equ ROM_0x1e5620,				0x1e5620
-.equ ROM_0x1efab0,				0x1efab0
-.equ ROM_0x1fb030,				0x1fb030
-.equ ROM_0x208740,				0x208740
-.equ ROM_0x20f700,				0x20f700
-.equ ROM_0x2173f0,				0x2173f0
-.equ ROM_0x221820,				0x221820
-.equ ROM_0x2291a0,				0x2291a0
-.equ ROM_0x2341e0,				0x2341e0
-.equ ROM_0x240e30,				0x240e30
-.equ ROM_0x243300,				0x243300
-.equ ROM_0x2451f0,				0x2451f0
-.equ ROM_0x2479e0,				0x2479e0
-.equ ROM_0x24b200,				0x24b200
-.equ ROM_0x24e330,				0x24e330
-.equ ROM_0x250a70,				0x250a70
-.equ ROM_0x254d30,				0x254d30
-.equ ROM_0x257b00,				0x257b00
-.equ ROM_0x262f90,				0x262f90
-.equ ROM_0x267e00,				0x267e00
-.equ ROM_0x271bc0,				0x271bc0
-.equ ROM_0x2787a0,				0x2787a0
-.equ ROM_0x282760,				0x282760
-.equ ROM_0x289330,				0x289330
-.equ ROM_0x295b70,				0x295b70
 
-.equ ROM_0x29c8c0,				0x29c8c0
-.equ ROM_0x29F5A0,				0x29F5A0
-.equ ROM_0x2A1F10,				0x2A1F10
 
-.equ ROM_0x2a4c90,				0x2a4c90
-.equ ROM_0x2a9d30,				0x2a9d30
-.equ ROM_0x2b3440,				0x2b3440
-.equ ROM_0x2b76e0,				0x2b76e0
-.equ ROM_0x2be960,				0x2be960
-.equ ROM_0x2c1f20,				0x2c1f20
-.equ ROM_0x2c5870,				0x2c5870
-.equ ROM_0x2c8db0,				0x2c8db0
-.equ ROM_0x2d33b0,				0x2d33b0
-.equ ROM_0x2de950,				0x2de950
-.equ ROM_0x2e2800,				0x2e2800
-.equ ROM_0x2e5d70,				0x2e5d70
-.equ ROM_0x2f99a0,				0x2f99a0
-.equ ROM_0x30ba10,				0x30ba10
-.equ ROM_0x30e9e0,				0x30e9e0
-.equ ROM_0x313850,				0x313850
-.equ ROM_0x317030,				0x317030
-.equ ROM_0x31cd00,				0x31cd00
-.equ ROM_0x320ad0,				0x320ad0
-.equ ROM_0x327c50,				0x327c50
-.equ ROM_0x32b680,				0x32b680
-
-.equ ROM_0x32B6A0,				0x32B6A0
-.equ ROM_0x330750,				0x330750
-.equ ROM_0x331EA0,				0x331EA0
-.equ ROM_0x333100,				0x333100
-.equ ROM_0x333720,				0x333720
-.equ ROM_0x333C20,				0x333C20
-.equ ROM_0x336550,				0x336550
 .equ ROM_0x337540,				0x337540
 .equ ROM_0x338230,				0x338230
 .equ ROM_0x339460,				0x339460
@@ -96,16 +42,7 @@
 .equ ROM_0x340CE0,				0x340CE0
 
 .equ ROM_0x3421A0,				0x3421A0
-.equ ROM_0x345B30,				0x345B30
-.equ ROM_0x351020,				0x351020
-.equ ROM_0x352A60,				0x352A60
-.equ ROM_0x354050,				0x354050
-.equ ROM_0x3565B0,				0x3565B0
-.equ ROM_0x358AA0,				0x358AA0
-.equ ROM_0x35A840,				0x35A840
-.equ ROM_0x35C280,				0x35C280
-.equ ROM_0x35E130,				0x35E130
-.equ ROM_0x35FA70,				0x35FA70
+
 .equ ROM_0x361850,				0x361850
 .equ ROM_0x361960,				0x361960
 .equ ROM_0x3619F0,				0x3619F0
@@ -188,10 +125,17 @@
 .equ ROM_0x800000,				0x800000
 
 
+.equ FileData_Size,				0x10
+.equ FileData_Start,			0x0 # raw ROM addr
+.equ FileData_End,				0x4 # raw ROM addr
+.equ FileData_8,				0x8
+.equ FileData_c,				0xc
+
 .equ Code_0x801dad00,			0x801dad00
 .equ Code_0x801fc600,			0x801fc600
 .equ Code_0x80227820,			0x80227820
 .equ Code_0x80228bd0,			0x80228bd0
+.equ Code_0x8028a200,			0x8028a200
 .equ Code_0x802c5800,			0x802c5800
 
 
@@ -220,7 +164,7 @@
 .equ MainState_2,	 			0x2 # Title Screen
 .equ MainState_3,	 			0x3 # Main Menu (Overlay1)
 .equ MainState_4,	 			0x4
-.equ MainState_5,	 			0x5
+.equ MainState_5_BootUp,	 	0x5
 .equ MainState_6,	 			0x6 # (Overlay0)
 .equ MainState_7,	 			0x7
 .equ MainState_8,	 			0x8 # (Overlay18)
@@ -246,6 +190,7 @@
 .equ MainState_44,	 			0x44
 .equ MainState_46,	 			0x46
 .equ MainState_48,	 			0x48
+.equ MainState_49,	 			0x49
 .equ MainState_50,	 			0x50
 .equ MainState_5a,	 			0x5a
 .equ MainState_64,	 			0x64
@@ -278,6 +223,7 @@
 .equ Unknown_0x801516e0,		0x801516e0
 .equ Unknown_0x801516e4,		0x801516e4
 .equ Unknown_0x801516e8,		0x801516e8
+
 .equ Unknown_0x801516ec,		0x801516ec
 .equ Unknown_0x801516f0,		0x801516f0
 .equ Unknown_0x801516f4,		0x801516f4
@@ -327,25 +273,127 @@
 .equ Unknown_0x80154018,		0x80154018
 .equ Unknown_0x80154020,		0x80154020
 .equ Unknown_0x80154030,		0x80154030
+.equ Unknown_0x80154068,		0x80154068
+.equ Unknown_0x80154090,		0x80154090
 
+
+.equ Unknown_0x80192370,		0x80192370
+.equ Unknown_0x80192390,		0x80192390
+.equ Unknown_0x801923f0,		0x801923f0 # GameStruct
+
+.equ Unknown_0x80193ab8,		0x80193ab8
+.equ Unknown_0x80198050,		0x80198050
+.equ Unknown_0x80198070,		0x80198070
+.equ Unknown_0x801980b0,		0x801980b0
+.equ Unknown_0x801980c8,		0x801980c8
+.equ Unknown_0x801980c8_5140,	0x5140
+.equ Unknown_0x801980c8_51c0,	0x51c0
+.equ Unknown_0x801980c8_81c0,	0x81c0
+.equ Unknown_0x801980c8_8dc0,	0x8dc0
+.equ Unknown_0x801980c8_91c0,	0x91c0
+.equ Unknown_0x801980c8_b1c0,	0xb1c0
+.equ Unknown_0x801980c8_b200,	0xb200
+.equ Unknown_0x801980c8_b240,	0xb240
+.equ Unknown_0x801980c8_b280,	0xb280
+.equ Unknown_0x801980c8_b2f0,	0xb2f0 # size of something
+.equ Unknown_0x801ae6a8,		0x801ae6a8 # 2 pointers: 1. to displaylist 2. to displaylist?
+.equ Unknown_0x801ae6b0,		0x801ae6b0
+.equ Unknown_0x801ae778,		0x801ae778
+.equ Unknown_0x801ae77c,		0x801ae77c
+.equ Unknown_0x801ae781,		0x801ae781
+.equ Unknown_0x801ae784,		0x801ae784
+.equ Unknown_0x801ae788,		0x801ae788 # Copy of Driver Names
+.equ Unknown_0x801ae790,		0x801ae790
+.equ Unknown_0x801ae7a0,		0x801ae7a0
+.equ Unknown_0x801ae7ff,		0x801ae7ff
+.equ Unknown_0x801ae950,		0x801ae950
+.equ Unknown_0x801ae978,		0x801ae978
+.equ Unknown_0x801ae97a,		0x801ae97a
+
+.equ Unknown_0x801aeb80,		0x801aeb80 # Track Object Data (Buoy, Start/Finish Line coordinates)
+
+.equ Unknown_0x801b2c80,		0x801b2c80
+.equ Unknown_0x801b6d80,		0x801b6d80
+.equ Unknown_0x801bae80,		0x801bae80
 
 #
-.equ Unknown_0x801c27cc,		0x801c27cc
+.equ Unknown_0x801c1d2c,		0x801c1d2c
+.equ Unknown_0x801c1d30,		0x801c1d30
+.equ Unknown_0x801c1d34,		0x801c1d34
+.equ Unknown_0x801c1d3c,		0x801c1d3c
+.equ Unknown_0x801c1d44,		0x801c1d44
+.equ Unknown_0x801c1d48,		0x801c1d48
+.equ Unknown_0x801c1d50,		0x801c1d50
+.equ Unknown_0x801c2020,		0x801c2020
+.equ Unknown_0x801c2110,		0x801c2110
+.equ Unknown_0x801c23b8,		0x801c23b8
+.equ Unknown_0x801c2448,		0x801c2448
+.equ Unknown_0x801c2698,		0x801c2698 # RaceStruct
+.equ Unknown_0x801c27cc_BuoyMisses,		0x801c27cc # (Unknown_0x801c2698+RaceStruct_BuoyMisses)
+.equ Unknown_0x801c3770,		0x801c3770
+.equ Unknown_0x801c39b4,		0x801c39b4
+.equ Unknown_0x801cafe0,		0x801cafe0
+.equ Unknown_0x801cafe8,		0x801cafe8
+.equ Unknown_0x801cb068,		0x801cb068
+.equ Unknown_0x801cb090,		0x801cb090
+.equ Unknown_0x801cb094,		0x801cb094
+.equ Unknown_0x801cb098,		0x801cb098
+.equ Unknown_0x801cb0b0,		0x801cb0b0
+.equ Unknown_0x801cb150,		0x801cb150
+.equ Unknown_0x801cb160,		0x801cb160
+.equ Unknown_0x801cb428,		0x801cb428
+.equ Unknown_0x801ce358,		0x801ce358
+.equ Unknown_0x801ce360,		0x801ce360
 .equ Unknown_0x801ce368,		0x801ce368
+.equ Unknown_0x801ce368_0,		0x0
+.equ Unknown_0x801ce368_4,		0x4
+.equ Unknown_0x801ce36c,		0x801ce36c
+.equ Unknown_0x801ce37c,		0x801ce37c
+.equ Unknown_0x801ce380,		0x801ce380
+.equ Unknown_0x801ce384,		0x801ce384
+.equ Unknown_0x801ce388,		0x801ce388
 .equ Unknown_0x801ce38a,		0x801ce38a
-.equ Unknown_0x801ce390,		0x801ce390 # MainState_#
+.equ Unknown_0x801ce38e,		0x801ce38e
+.equ Unknown_0x801ce390_MainState,		0x801ce390 # MainState_#
+.equ Unknown_0x801ce394_oldMainState,		0x801ce394
 .equ Unknown_0x801ce398,		0x801ce398
 .equ Unknown_0x801ce39c,		0x801ce39c
+.equ Unknown_0x801ce3a0,		0x801ce3a0
+.equ Unknown_0x801ce3a4,		0x801ce3a4
+.equ Unknown_0x801ce3a8,		0x801ce3a8
+.equ Unknown_0x801ce3ac,		0x801ce3ac
+.equ Unknown_0x801ce3b0,		0x801ce3b0
 
 .equ Unknown_0x801ce3b8,		0x801ce3b8 # Controller Input
 .equ Unknown_0x801ce3b8_2,		0x2
 .equ Unknown_0x801ce3b8_1c,		0x1c # Size of Structure
 .equ Unknown_0x801ce3b8_1e,		0x1e
-.equ Unknown_0x801ce3ba,		0x801ce3ba # Player1 Buttons
+.equ Unknown_0x801ce3ba_Input,	0x801ce3ba # Player1 Buttons
 .equ Unknown_0x801ce40c,		0x801ce40c # End of Controller Input
 
 .equ Unknown_0x801ce410,		0x801ce410
+.equ Unknown_0x801ce450,		0x801ce450
+.equ Unknown_0x801ce454,		0x801ce454
+.equ Unknown_0x801ce458,		0x801ce458
+.equ Unknown_0x801ce45c,		0x801ce45c
+.equ Unknown_0x801ce488,		0x801ce488
+.equ Unknown_0x801ce49c,		0x801ce49c
+.equ Unknown_0x801ce4a0,		0x801ce4a0
+.equ Unknown_0x801ce4a2,		0x801ce4a2
+.equ Unknown_0x801ce4a4,		0x801ce4a4
+.equ Unknown_0x801ce4a6,		0x801ce4a6
+.equ Unknown_0x801ce4a8,		0x801ce4a8
+.equ Unknown_0x801ce4aa,		0x801ce4aa
+.equ Unknown_0x801ce4ac,		0x801ce4ac
+.equ Unknown_0x801ce4ae,		0x801ce4ae
+.equ Unknown_0x801ce4c0,		0x801ce4c0
+.equ Unknown_0x801ce4c0_0,		0x0
+.equ Unknown_0x801ce4c0_4,		0x4
+.equ Unknown_0x801ce6f8,		0x801ce6f8
+
+
 .equ Unknown_0x801ce718,		0x801ce718
+
 
 .equ Unknown_0x801d7b20,		0x801d7b20
 .equ Unknown_0x801d7b2c,		0x801d7b2c
@@ -358,6 +406,20 @@
 .equ Unknown_0x801da900,		0x801da900
 .equ Unknown_0x801da9f8,		0x801da9f8
 
+.equ Unknown_0x80227820,		0x80227820
+.equ Unknown_0x80227864,		0x80227864
+.equ Unknown_0x802278a8,		0x802278a8
+.equ Unknown_0x802278ec,		0x802278ec
+.equ Unknown_0x80227930,		0x80227930
+.equ Unknown_0x80227974,		0x80227974
+.equ Unknown_0x802279b8,		0x802279b8
+.equ Unknown_0x80227a40,		0x80227a40
+.equ Unknown_0x802287d6,		0x802287d6
+.equ Unknown_0x80228808,		0x80228808
+.equ Unknown_0x80228818,		0x80228818
+.equ Unknown_0x80228828,		0x80228828
+.equ Unknown_0x80228910,		0x80228910
+.equ Unknown_0x8022891c,		0x8022891c
 .equ Unknown_0x80228A98,		0x80228A98
 .equ Unknown_0x80228AC8,		0x80228AC8
 .equ Unknown_0x80228bc0,		0x80228bc0
@@ -376,11 +438,27 @@
 .equ Unknown_2_0x802c8bc0,		0x802c8bc0
 .equ Unknown_2_0x802c8c58,		0x802c8c58
 .equ Unknown_0x802c96d0,		0x802c96d0
+.equ Unknown_4_0x802c76a4,		0x802c76a4
+.equ Unknown_4_0x802c76a8,		0x802c76a8
+.equ Unknown_4_0x802c76ac,		0x802c76ac
+.equ Unknown_4_0x802c76b0,		0x802c76b0
+.equ Unknown_4_0x802c76b4,		0x802c76b4
+.equ Unknown_4_0x802c76b8,		0x802c76b8
+.equ Unknown_4_0x802c76bc,		0x802c76bc
+.equ Unknown_4_0x802c76c0,		0x802c76c0
+.equ Unknown_4_0x802c76c4,		0x802c76c4
+.equ Unknown_4_0x802c76c8,		0x802c76c8
+.equ Unknown_4_0x802c76cc,		0x802c76cc
+.equ Unknown_4_0x802c76d0,		0x802c76d0
+.equ Unknown_18_0x802c9440,		0x802c9440
+.equ Unknown_18_0x802c9508,		0x802c9508
 
 .equ Unknown_0x802d4000,		0x802d4000
 .equ Unknown_0x802d6800,		0x802d6800
 .equ Unknown_0x80306800,		0x80306800
 .equ Unknown_0x80316800,		0x80316800
+.equ Unknown_0x80316800_0x23930,	0x23930
+.equ Unknown_0x80360000,		0x80360000
 .equ Unknown_0x8036a000,		0x8036a000
 .equ Unknown_0x8038f800,		0x8038f800
 .equ Unknown_0x803b5000,		0x803b5000
@@ -394,6 +472,27 @@
 .equ OSMesgQueue_msgCount,		0x10
 .equ OSMesgQueue_msg,			0x14 # OSMesg *
 
+
+.equ NrOfTracks,				9
+.equ Track_0,					0
+.equ Track_1,					1
+.equ Track_2,					2
+.equ Track_3,					3
+.equ Track_4,					4
+.equ Track_5,					5
+.equ Track_7,					7
+.equ Track_6,					6
+.equ Track_8,					8
+.equ Track_9,					9
+
+.equ LoadingStruct_0,			0x0
+.equ LoadingStruct_4,			0x4
+.equ LoadingStruct_TrackFiles,	0x8
+.equ LoadingStruct_c,			0xc
+.equ LoadingStruct_Textures,	0x10
+.equ LoadingStruct_14,			0x14
+.equ LoadingStruct_18,			0x18 # TrackPreview
+.equ LoadingStruct_1c,			0x1c
 
 
 
@@ -533,3 +632,137 @@
 .equ JOY_Z,					0x2000
 .equ JOY_B,					0x4000
 .equ JOY_A,					0x8000
+
+
+
+.equ FLOAT_0_5,				0x3f000000
+.equ FLOAT_5,				0x40a00000
+.equ FLOAT_50,				0x42480000
+.equ FLOAT_53,				0x42540000
+.equ FLOAT_71,				0x428e0000
+.equ FLOAT_106,				0x42d40000
+.equ FLOAT_142,				0x430e0000
+
+
+# GameStruct at Unknown_0x801923f0
+.equ GameStruct_44,			0x44
+.equ GameStruct_4c,			0x4c
+.equ GameStruct_7c,			0x7c
+.equ GameStruct_668,		0x668
+.equ GameStruct_b50,		0xb50
+.equ GameStruct_b52,		0xb52
+.equ GameStruct_b53,		0xb53
+.equ GameStruct_b56,		0xb56
+.equ GameStruct_b58,		0xb58 # Input
+.equ GameStruct_b5a,		0xb5a
+.equ GameStruct_b5c,		0xb5c
+.equ GameStruct_b5e,		0xb5e
+.equ GameStruct_b5f,		0xb5f
+.equ GameStruct_b60,		0xb60
+.equ GameStruct_b68,		0xb68
+.equ GameStruct_b6c,		0xb6c
+.equ GameStruct_b70,		0xb70
+.equ GameStruct_b74,		0xb74
+.equ GameStruct_b78,		0xb78
+.equ GameStruct_b7c,		0xb7c
+.equ GameStruct_b90,		0xb90
+.equ GameStruct_bfc,		0xbfc
+.equ GameStruct_c54,		0xc54
+.equ GameStruct_c58,		0xc58
+.equ GameStruct_c66,		0xc66
+.equ GameStruct_c78,		0xc78
+.equ GameStruct_c7c,		0xc7c
+.equ GameStruct_c7e,		0xc7e
+.equ GameStruct_1444,		0x1444
+.equ GameStruct_1578,		0x1578
+.equ GameStruct_1598,		0x1598
+.equ GameStruct_159c,		0x159c
+.equ GameStruct_15a0,		0x15a0
+.equ GameStruct_15a4,		0x15a4
+.equ GameStruct_15a8,		0x15a8
+.equ GameStruct_15dc,		0x15dc
+.equ GameStruct_15f0,		0x15f0
+.equ GameStruct_15f8,		0x15f8
+.equ GameStruct_15fa,		0x15fa
+.equ GameStruct_1600,		0x1600
+.equ GameStruct_1602,		0x1602
+.equ GameStruct_1608,		0x1608
+.equ GameStruct_16cc,		0x16cc
+.equ GameStruct_16e0,		0x16e0
+.equ GameStruct_16f4,		0x16f4
+
+
+#801C269B 
+#801C27C7 
+# RaceStruct at Unknown_0x801c2698
+.equ RaceStruct_0,		0x0
+.equ RaceStruct_4,		0x4
+.equ RaceStruct_8,		0x8
+.equ RaceStruct_c,		0xc
+.equ RaceStruct_10,		0x10
+.equ RaceStruct_1c,		0x1c
+.equ RaceStruct_20,		0x20
+.equ RaceStruct_24,		0x24
+.equ RaceStruct_28,		0x28
+.equ RaceStruct_12c,	0x12c
+.equ RaceStruct_130,	0x130
+.equ RaceStruct_BuoyMisses,	0x134 # BuoyMisses
+.equ RaceStruct_138,	0x138
+.equ RaceStruct_13c,	0x13c
+.equ RaceStruct_160,	0x160
+.equ RaceStruct_164,	0x164
+.equ RaceStruct_168,	0x168
+.equ RaceStruct_16c,	0x16c
+.equ RaceStruct_170,	0x170
+.equ RaceStruct_174,	0x174
+.equ RaceStruct_178,	0x178
+.equ RaceStruct_198,	0x198
+.equ RaceStruct_19c,	0x19c
+.equ RaceStruct_2c4,	0x2c4
+.equ RaceStruct_2c8,	0x2c8
+.equ RaceStruct_2cc,	0x2cc
+.equ RaceStruct_2d0,	0x2d0
+.equ RaceStruct_2d4,	0x2d4
+.equ RaceStruct_2d8,	0x2d8
+.equ RaceStruct_2dc,	0x2dc
+.equ RaceStruct_2e0,	0x2e0
+.equ RaceStruct_2e4,	0x2e4
+.equ RaceStruct_2e8,	0x2e8 # 801C2980 Out of course timer
+.equ RaceStruct_2ec,	0x2ec
+.equ RaceStruct_2f0,	0x2f0
+.equ RaceStruct_2f4,	0x2f4
+.equ RaceStruct_2f8,	0x2f8
+.equ RaceStruct_2fc,	0x2fc
+.equ RaceStruct_300,	0x300
+.equ RaceStruct_304,	0x304
+.equ RaceStruct_308,	0x308
+.equ RaceStruct_30c,	0x30c
+.equ RaceStruct_310,	0x310
+.equ RaceStruct_314,	0x314
+.equ RaceStruct_318,	0x318
+.equ RaceStruct_31c,	0x31c
+.equ RaceStruct_320,	0x320
+.equ RaceStruct_324,	0x324
+.equ RaceStruct_328,	0x328
+.equ RaceStruct_32c,	0x32c
+.equ RaceStruct_330,	0x330
+.equ RaceStruct_334,	0x334
+.equ RaceStruct_338,	0x338
+.equ RaceStruct_33c,	0x33c
+.equ RaceStruct_350,	0x350
+.equ RaceStruct_378,	0x378 # size of structure
+
+
+# ObjsStruct at Unknown_0x801aeb80
+.equ ObjsStruct_0,		0x0
+.equ ObjsStruct_4,		0x4
+.equ ObjsStruct_8,		0x8
+.equ ObjsStruct_24,		0x24
+.equ ObjsStruct_28,		0x28
+.equ ObjsStruct_3c,		0x3c
+.equ ObjsStruct_40,		0x40
+.equ ObjsStruct_44,		0x44
+.equ ObjsStruct_98,		0x98
+.equ ObjsStruct_9c,		0x9c
+.equ ObjsStruct_c4,		0xc4
+.equ ObjsStruct_104,	0x104 # size of structure

@@ -71,8 +71,8 @@ Function_0x800474a4: # 0x800474a4
     addiu   $sp, $sp, 0x18
 
 
-.globl Fnct2
-Fnct2: # 0x800474f0
+.globl Thread3_Main
+Thread3_Main: # 0x800474f0
     addiu   $sp, $sp, 0xffb0
     sw      $a0, 0x50($sp)
     sw      $ra, 0x3c($sp)
@@ -158,10 +158,10 @@ Fnct2: # 0x800474f0
     lui     $t6, %hi(Unknown_0x80153740)
     addiu   $s0, $s0, %lo(Unknown_0x80153aa0)
     addiu   $t6, $t6, %lo(Unknown_0x80153740)
-    lui     $a2, %hi(Function_0x80047ac0)
+    lui     $a2, %hi(Thread4_Main)
     addiu   $t7, $zero, 0x14
     sw      $t7, 0x14($sp)
-    addiu   $a2, $a2, %lo(Function_0x80047ac0)
+    addiu   $a2, $a2, %lo(Thread4_Main)
     sw      $t6, 0x10($sp)
     or      $a0, $s0, $zero
     addiu   $a1, $zero, 0x4
@@ -181,10 +181,10 @@ branch_0x80047650:
     lui     $t9, %hi(Unknown_0x80152f40)
     addiu   $s0, $s0, %lo(Unknown_0x80153c50)
     addiu   $t9, $t9, %lo(Unknown_0x80152f40)
-    lui     $a2, %hi(Function_0x80046da0)
+    lui     $a2, %hi(Thread5_Main)
     addiu   $t0, $zero, 0xa
     sw      $t0, 0x14($sp)
-    addiu   $a2, $a2, %lo(Function_0x80046da0)
+    addiu   $a2, $a2, %lo(Thread5_Main)
     sw      $t9, 0x10($sp)
     or      $a0, $s0, $zero
     addiu   $a1, $zero, 0x5
@@ -394,8 +394,8 @@ Function_0x800478ac: # 0x800478ac
 
 
 
-.globl Fnct1
-Fnct1: # 0x800478dc
+.globl Thread1_Main
+Thread1_Main: # 0x800478dc
     addiu   $sp, $sp, 0xffd8
     sw      $s0, 0x20($sp)
 
@@ -462,6 +462,7 @@ branch_0x80047988:
 branch_0x8004799c:
     jal     osViBlack
     or      $a0, $zero, $zero
+
     jal     osViSetSpecialFeatures
     addiu   $a0, $zero, 0x66
 
@@ -477,10 +478,10 @@ branch_0x8004799c:
     lui     $t3, %hi(Unknown_0x80151f40)
     addiu   $s0, $s0, %lo(Unknown_0x801538f0)
     addiu   $t3, $t3, %lo(Unknown_0x80151f40)
-    lui     $a2, %hi(Fnct2)
+    lui     $a2, %hi(Thread3_Main)
     addiu   $t4, $zero, 0x64
     sw      $t4, 0x14($sp)
-    addiu   $a2, $a2, %lo(Fnct2)
+    addiu   $a2, $a2, %lo(Thread3_Main)
     sw      $t3, 0x10($sp)
     or      $a0, $s0, $zero
     addiu   $a1, $zero, 0x3
@@ -497,7 +498,7 @@ branch_0x8004799c:
 
     or      $a0, $zero, $zero
 branch_0x80047a18:
-    jal     osSetThreadPri
+    jal     osSetThreadPri					# set current thread to idle
     or      $a1, $zero, $zero
 
 branch_0x80047a20:
@@ -527,10 +528,10 @@ main: # 0x80047a44
     lui     $t6, %hi(Unknown_0x80151b40)
     addiu   $t6, $t6, %lo(Unknown_0x80151b40)
     lui     $a0, %hi(Unknown_0x80153740)
-    lui     $a2, %hi(Fnct1)
+    lui     $a2, %hi(Thread1_Main)
     addiu   $t7, $zero, 0x64
     sw      $t7, 0x14($sp)
-    addiu   $a2, $a2, %lo(Fnct1)
+    addiu   $a2, $a2, %lo(Thread1_Main)
     addiu   $a0, $a0, %lo(Unknown_0x80153740)
     sw      $t6, 0x10($sp)
     addiu   $a1, $zero, 0x1

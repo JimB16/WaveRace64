@@ -2,15 +2,15 @@
 .globl Function_0x80096700
 Function_0x80096700: # 0x80096700
     addiu   $sp, $sp, 0xff90
-    lui     $t1, 0x801d
-    lui     $v0, 0x801d
+    lui     $t1, %hi(Unknown_0x801ce4a0)
+    lui     $v0, %hi(Unknown_0x801ce4a0+0x20)
     sw      $s0, 0x4($sp)
     sw      $a0, 0x70($sp)
     sw      $a1, 0x74($sp)
     sw      $a2, 0x78($sp)
     sw      $a3, 0x7c($sp)
-    addiu   $v0, $v0, 0xe4c0
-    addiu   $t1, $t1, 0xe4a0
+    addiu   $v0, $v0, %lo(Unknown_0x801ce4a0+0x20)
+    addiu   $t1, $t1, %lo(Unknown_0x801ce4a0)
     or      $t0, $zero, $zero
     addiu   $t4, $zero, 0x1
 branch_0x80096730:
@@ -18,15 +18,16 @@ branch_0x80096730:
     sltu    $at, $t1, $v0
     bnez    $at, branch_0x80096730
     sh      $t4, -0x2($t1)
+
     lw      $t8, 0x70($sp)
-    lui     $v0, 0x801d
-    lui     $a2, 0x801d
-    addiu   $a2, $a2, 0xe4c0
-    addiu   $v0, $v0, 0xe49c
+    lui     $v0, %hi(Unknown_0x801ce49c)
+    lui     $a2, %hi(Unknown_0x801ce4c0)
+    addiu   $a2, $a2, %lo(Unknown_0x801ce4c0)
+    addiu   $v0, $v0, %lo(Unknown_0x801ce49c)
     addiu   $t6, $zero, 0xffff
     sltiu   $at, $t8, 0x5
-    sw      $t6, 0x4($a2)
-    sw      $t6, 0x0($a2)
+    sw      $t6, Unknown_0x801ce4c0_4($a2)
+    sw      $t6, Unknown_0x801ce4c0_0($a2)
     beqz    $at, branch_0x80096854
     sw      $t8, 0x0($v0)
     sll     $t9, $t8, 2
@@ -36,20 +37,18 @@ branch_0x80096730:
     jr      $t9
     nop
 
-.globl Function_0x80096784
-Function_0x80096784: # 0x80096784
+branch_0x80096784:
     addiu   $s0, $zero, 0x4
     addiu   $t6, $zero, 0x7
-    lui     $at, 0x801d
+    lui     $at, %hi(Unknown_0x801ce4a2)
     sw      $t6, 0x64($sp)
-    sh      $zero, -0x1b5e($at)
+    sh      $zero, %lo(Unknown_0x801ce4a2)($at)
     b       branch_0x80096854
     sw      $s0, 0x68($sp)
 
-.globl Function_0x800967a0
-Function_0x800967a0: # 0x800967a0
-    lui     $v1, 0x801d
-    addiu   $v1, $v1, 0xe4a0
+branch_0x800967a0:
+    lui     $v1, %hi(Unknown_0x801ce4a0)
+    addiu   $v1, $v1, %lo(Unknown_0x801ce4a0)
     sh      $zero, 0x6($v1)
     lh      $t8, 0x6($v1)
     addiu   $s0, $zero, 0x2
@@ -59,26 +58,24 @@ Function_0x800967a0: # 0x800967a0
     b       branch_0x80096854
     sh      $t8, 0x2($v1)
 
-.globl Function_0x800967c8
-Function_0x800967c8: # 0x800967c8
-    lui     $at, 0x801d
-    sh      $zero, -0x1b5e($at)
-    sh      $zero, -0x1b5a($at)
-    lui     $at, 0x801d
+branch_0x800967c8:
+    lui     $at, %hi(Unknown_0x801ce4a2)
+    sh      $zero, %lo(Unknown_0x801ce4a2)($at)
+    sh      $zero, %lo(Unknown_0x801ce4a6)($at)
+    lui     $at, %hi(Unknown_0x801ce4aa)
     addiu   $s0, $zero, 0x4
     addiu   $t9, $zero, 0x4
-    sh      $zero, -0x1b56($at)
-    sh      $zero, -0x1b52($at)
+    sh      $zero, %lo(Unknown_0x801ce4aa)($at)
+    sh      $zero, %lo(Unknown_0x801ce4ae)($at)
     sw      $t9, 0x64($sp)
     b       branch_0x80096854
     sw      $s0, 0x68($sp)
 
-.globl Function_0x800967f4
-Function_0x800967f4: # 0x800967f4
-    lui     $t1, 0x801d
-    lui     $v1, 0x801d
-    addiu   $v1, $v1, 0xe4c0
-    addiu   $t1, $t1, 0xe4a0
+branch_0x800967f4:
+    lui     $t1, %hi(Unknown_0x801ce4c0)
+    lui     $v1, %hi(Unknown_0x801ce4a0)
+    addiu   $v1, $v1, %lo(Unknown_0x801ce4c0)
+    addiu   $t1, $t1, %lo(Unknown_0x801ce4a0)
 branch_0x80096804:
     addiu   $t1, $t1, 0x10
     sh      $zero, -0xe($t1)
@@ -92,11 +89,9 @@ branch_0x80096804:
     b       branch_0x80096854
     sw      $s0, 0x68($sp)
 
-
-.globl Function_0x80096830
-Function_0x80096830: # 0x80096830
-    lui     $v1, 0x801d
-    addiu   $v1, $v1, 0xe4a0
+branch_0x80096830:
+    lui     $v1, %hi(Unknown_0x801ce4a0)
+    addiu   $v1, $v1, %lo(Unknown_0x801ce4a0)
     sh      $zero, 0x6($v1)
     lh      $t8, 0x6($v1)
     addiu   $s0, $zero, 0x4
@@ -106,12 +101,12 @@ Function_0x80096830: # 0x80096830
     sh      $t8, 0x2($v1)
 branch_0x80096854:
     lw      $s0, 0x68($sp)
-    lui     $a1, 0x800e
-    addiu   $a1, $a1, 0xb0b0
+    lui     $a1, %hi(Unknown_0x800db0b0)
+    addiu   $a1, $a1, %lo(Unknown_0x800db0b0)
     blez    $s0, branch_0x800969ac
     or      $t0, $zero, $zero
-    lui     $t1, 0x801d
-    addiu   $t1, $t1, 0xe4a0
+    lui     $t1, %hi(Unknown_0x801ce4a0)
+    addiu   $t1, $t1, %lo(Unknown_0x801ce4a0)
     or      $a3, $zero, $zero
     addiu   $t3, $zero, 0x3
     addiu   $t2, $zero, 0x2
@@ -126,11 +121,11 @@ branch_0x80096880:
 branch_0x80096898:
     beqz    $v0, branch_0x800968c0
     lui     $t6, %hi(FileList_0x800da950)
-    beq     $v0, $t4, branch_0x800968c8
+    beq     $v0, $t4, branch_0x800968c8 # == 1
     nop
-    beq     $v0, $t2, branch_0x800968d0
+    beq     $v0, $t2, branch_0x800968d0 # == 2
     nop
-    beql    $v0, $t3, branch_0x800968dc
+    beql    $v0, $t3, branch_0x800968dc # == 3
     lw      $a0, 0x80($sp)
     b       branch_0x800968dc
     nop
@@ -170,43 +165,43 @@ branch_0x80096900:
     addiu   $v0, $v0, 0x80
 
 branch_0x8009691c:
-    lw      $at, 0x0($v0) # FileStart
-    lw      $t9, 0x4($v0) # FileEnd
-    lui     $v1, 0x801d
-    sw      $at, 0x0($a1)
-    lw      $at, 0x8($v0) # ?
-    sw      $t9, 0x4($a1)
-    lw      $t9, 0xc($v0) # ?
-    sw      $at, 0x8($a1)
+    lw      $at, FileData_Start($v0) # FileStart
+    lw      $t9, FileData_End($v0) # FileEnd
+    lui     $v1, %hi(Unknown_0x801ce49c)
+    sw      $at, FileData_Start($a1)
+    lw      $at, FileData_8($v0) # ?
+    sw      $t9, FileData_End($a1)
+    lw      $t9, FileData_c($v0) # ?
+    sw      $at, FileData_8($a1)
     sw      $t6, 0x8($a1)
-    sw      $t9, 0xc($a1)
-    lw      $v1, -0x1b64($v1)
-    lui     $t7, 0x800e
+    sw      $t9, FileData_c($a1)
+    lw      $v1, %lo(Unknown_0x801ce49c)($v1)
+    lui     $t7, %hi(Unknown_0x800da920)
     addiu   $t1, $t1, 0x4
     beq     $t3, $v1, branch_0x80096960
     addu    $t7, $t7, $a3
     bne     $t2, $v1, branch_0x8009696c
     addiu   $at, $zero, 0x4
 branch_0x80096960:
-    lw      $t7, -0x56e0($t7)
+    lw      $t7, %lo(Unknown_0x800da920)($t7)
     b       branch_0x80096994
-    sw      $t7, 0xc($a1)
+    sw      $t7, FileData_c($a1)
 branch_0x8009696c:
     bne     $v1, $at, branch_0x80096988
-    lui     $t9, 0x800e
-    lui     $t8, 0x800e
+    lui     $t9, %hi(Unknown_0x800da910)
+    lui     $t8, %hi(Unknown_0x800da940)
     addu    $t8, $t8, $a3
-    lw      $t8, -0x56c0($t8)
+    lw      $t8, %lo(Unknown_0x800da940)($t8)
     b       branch_0x80096994
-    sw      $t8, 0xc($a1)
+    sw      $t8, FileData_c($a1)
 branch_0x80096988:
     addu    $t9, $t9, $a3
-    lw      $t9, -0x56f0($t9)
-    sw      $t9, 0xc($a1)
+    lw      $t9, %lo(Unknown_0x800da910)($t9)
+    sw      $t9, FileData_c($a1)
 branch_0x80096994:
     addiu   $a3, $a3, 0x4
     bne     $t0, $s0, branch_0x80096880
-    addiu   $a1, $a1, 0x10
+    addiu   $a1, $a1, FileData_Size
 
     sw      $a0, 0x60($sp)
     or      $t0, $zero, $zero
@@ -238,16 +233,15 @@ branch_0x800969d4:
     jr      $t7
     nop
 
-.globl Function_0x80096a0c
-Function_0x80096a0c: # 0x80096a0c
-    lui     $v0, 0x801d
-    lh      $v0, -0x1b60($v0)
+branch_0x80096a0c: # 0x80096a0c
+    lui     $v0, %hi(Unknown_0x801ce4a0)
+    lh      $v0, %lo(Unknown_0x801ce4a0)($v0)
     addiu   $a1, $zero, 0x44
     lui     $a0, %hi(Unknown_0x800daa50)
     multu   $v0, $t3
     addiu   $a0, $a0, %lo(Unknown_0x800daa50)
-    lui     $t8, 0x8022
-    addiu   $t8, $t8, 0x7820
+    lui     $t8, %hi(Unknown_0x80227820)
+    addiu   $t8, $t8, %lo(Unknown_0x80227820)
     mflo    $t9
     nop
     nop
@@ -266,13 +260,13 @@ branch_0x80096a48:
     bne     $t7, $t6, branch_0x80096a48
     sw      $at, -0x4($t8)
     lw      $at, 0x0($t7)
-    lui     $t1, 0x801d
+    lui     $t1, %hi(Unknown_0x801ce4a4)
     sw      $at, 0x0($t8)
     lw      $t6, 0x4($t7)
-    lui     $t7, 0x8022
-    addiu   $t7, $t7, 0x7864
+    lui     $t7, %hi(Unknown_0x80227864)
+    addiu   $t7, $t7, %lo(Unknown_0x80227864)
     sw      $t6, 0x4($t8)
-    lh      $t1, -0x1b5c($t1)
+    lh      $t1, %lo(Unknown_0x801ce4a4)($t1)
     multu   $t1, $t3
     mflo    $t9
     nop
@@ -293,8 +287,8 @@ branch_0x80096ab0:
     bne     $t9, $t6, branch_0x80096ab0
     sw      $at, -0x4($t7)
     lw      $at, 0x44($t9)
-    lui     $t8, 0x8022
-    addiu   $t8, $t8, 0x78a8
+    lui     $t8, %hi(Unknown_0x802278a8)
+    addiu   $t8, $t8, %lo(Unknown_0x802278a8)
     sw      $at, 0x0($t7)
     lw      $t6, 0x48($t9)
     or      $t9, $v1, $zero
@@ -311,13 +305,13 @@ branch_0x80096af4:
     bne     $t9, $t7, branch_0x80096af4
     sw      $at, -0x4($t8)
     lw      $at, 0x88($t9)
-    lui     $t4, 0x801d
+    lui     $t4, %hi(Unknown_0x801ce4a8)
     sw      $at, 0x0($t8)
     lw      $t7, 0x8c($t9)
-    lui     $t9, 0x8022
-    addiu   $t9, $t9, 0x78ec
+    lui     $t9, %hi(Unknown_0x802278ec)
+    addiu   $t9, $t9, %lo(Unknown_0x802278ec)
     sw      $t7, 0x4($t8)
-    lh      $t4, -0x1b58($t4)
+    lh      $t4, %lo(Unknown_0x801ce4a8)($t4)
     multu   $t4, $t3
     mflo    $t6
     nop
@@ -338,8 +332,8 @@ branch_0x80096b5c:
     bne     $t6, $t7, branch_0x80096b5c
     sw      $at, -0x4($t9)
     lw      $at, 0x44($t6)
-    lui     $t8, 0x8022
-    addiu   $t8, $t8, 0x7930
+    lui     $t8, %hi(Unknown_0x80227930)
+    addiu   $t8, $t8, %lo(Unknown_0x80227930)
     sw      $at, 0x0($t9)
     lw      $t7, 0x48($t6)
     or      $t6, $a3, $zero
@@ -356,14 +350,14 @@ branch_0x80096ba0:
     bne     $t6, $t9, branch_0x80096ba0
     sw      $at, -0x4($t8)
     lw      $at, 0x88($t6)
-    lui     $t5, 0x801d
+    lui     $t5, %hi(Unknown_0x801ce4ac)
     addiu   $a3, $zero, 0x6
     sw      $at, 0x0($t8)
     lw      $t9, 0x8c($t6)
-    lui     $t6, 0x8022
-    addiu   $t6, $t6, 0x7974
+    lui     $t6, %hi(Unknown_0x80227974)
+    addiu   $t6, $t6, %lo(Unknown_0x80227974)
     sw      $t9, 0x4($t8)
-    lh      $t5, -0x1b54($t5)
+    lh      $t5, %lo(Unknown_0x801ce4ac)($t5)
     multu   $t5, $t3
     mflo    $t7
     nop
@@ -384,8 +378,8 @@ branch_0x80096c0c:
     bne     $t7, $t9, branch_0x80096c0c
     sw      $at, -0x4($t6)
     lw      $at, 0x44($t7)
-    lui     $t8, 0x8022
-    addiu   $t8, $t8, 0x79b8
+    lui     $t8, %hi(Unknown_0x802279b8)
+    addiu   $t8, $t8, %lo(Unknown_0x802279b8)
     sw      $at, 0x0($t6)
     lw      $t9, 0x48($t7)
     or      $t7, $t0, $zero
@@ -453,8 +447,8 @@ branch_0x80096d14:
     or      $t0, $zero, $zero
     beqz    $v0, branch_0x80096d8c
     or      $v1, $v0, $zero
-    lui     $t8, 0x801d
-    addiu   $t8, $t8, 0xe4a0
+    lui     $t8, %hi(Unknown_0x801ce4a0)
+    addiu   $t8, $t8, %lo(Unknown_0x801ce4a0)
     sll     $t7, $zero, 2
     addu    $t1, $t7, $t8
 branch_0x80096d34:
@@ -486,8 +480,8 @@ branch_0x80096d80:
     addiu   $t1, $t1, 0x4
     beq     $t0, $s0, branch_0x80097a08
 branch_0x80096d8c:
-    lui     $t6, 0x801d
-    addiu   $t6, $t6, 0xe4a0
+    lui     $t6, %hi(Unknown_0x801ce4a0)
+    addiu   $t6, $t6, %lo(Unknown_0x801ce4a0)
     sll     $t9, $t0, 2
     addu    $t1, $t9, $t6
     addiu   $a1, $zero, 0xffff
@@ -598,17 +592,16 @@ branch_0x80096ee4:
     b       branch_0x80097a0c
     lw      $t8, 0x64($sp)
 
-.globl Function_0x80096ef4
-Function_0x80096ef4: # 0x80096ef4
-    lui     $v1, 0x801d
-    addiu   $v1, $v1, 0xe4a0
+branch_0x80096ef4: # 0x80096ef4
+    lui     $v1, %hi(Unknown_0x801ce4a0)
+    addiu   $v1, $v1, %lo(Unknown_0x801ce4a0)
     lh      $v0, 0x0($v1)
     addiu   $a1, $zero, 0x44
     lui     $a0, %hi(Unknown_0x800daa50)
     multu   $v0, $t3
     addiu   $a0, $a0, %lo(Unknown_0x800daa50)
-    lui     $t9, 0x8022
-    addiu   $t9, $t9, 0x7820
+    lui     $t9, %hi(Unknown_0x80227820)
+    addiu   $t9, $t9, %lo(Unknown_0x80227820)
     addiu   $a3, $zero, 0x6
     mflo    $t6
     nop
@@ -628,8 +621,8 @@ branch_0x80096f38:
     bne     $t8, $t7, branch_0x80096f38
     sw      $at, -0x4($t9)
     lw      $at, 0x0($t8)
-    lui     $t6, 0x8022
-    addiu   $t6, $t6, 0x7864
+    lui     $t6, %hi(Unknown_0x80227864)
+    addiu   $t6, $t6, %lo(Unknown_0x80227864)
     sw      $at, 0x0($t9)
     lw      $t7, 0x4($t8)
     sw      $t7, 0x4($t9)
@@ -680,8 +673,8 @@ branch_0x80097008:
     andi    $v0, $s0, 0x3
     beqz    $v0, branch_0x8009705c
     or      $v1, $v0, $zero
-    lui     $t6, 0x801d
-    addiu   $t6, $t6, 0xe4a0
+    lui     $t6, %hi(Unknown_0x801ce4a0)
+    addiu   $t6, $t6, %lo(Unknown_0x801ce4a0)
     sll     $t9, $zero, 2
     addu    $t1, $t9, $t6
 branch_0x8009702c:
@@ -701,8 +694,8 @@ branch_0x80097050:
     addiu   $t1, $t1, 0x4
     beq     $t0, $s0, branch_0x80097a08
 branch_0x8009705c:
-    lui     $t8, 0x801d
-    addiu   $t8, $t8, 0xe4a0
+    lui     $t8, %hi(Unknown_0x801ce4a0)
+    addiu   $t8, $t8, %lo(Unknown_0x801ce4a0)
     sll     $t7, $t0, 2
     addu    $t1, $t7, $t8
 branch_0x8009706c:
@@ -756,17 +749,16 @@ branch_0x800970f8:
     b       branch_0x80097a0c
     lw      $t8, 0x64($sp)
 
-.globl Function_0x8009710c
-Function_0x8009710c: # 0x8009710c
-    lui     $v1, 0x801d
-    addiu   $v1, $v1, 0xe4a0
+branch_0x8009710c: # 0x8009710c
+    lui     $v1, %hi(Unknown_0x801ce4a0)
+    addiu   $v1, $v1, %lo(Unknown_0x801ce4a0)
     lh      $v0, 0x0($v1)
     addiu   $a1, $zero, 0x44
     lui     $a0, %hi(Unknown_0x800daa50)
     multu   $v0, $t3
     addiu   $a0, $a0, %lo(Unknown_0x800daa50)
-    lui     $t7, 0x8022
-    addiu   $t7, $t7, 0x7820
+    lui     $t7, %hi(Unknown_0x80227820)
+    addiu   $t7, $t7, %lo(Unknown_0x80227820)
     addiu   $a3, $zero, 0x6
     mflo    $t8
     nop
@@ -786,8 +778,8 @@ branch_0x80097150:
     bne     $t6, $t9, branch_0x80097150
     sw      $at, -0x4($t7)
     lw      $at, 0x0($t6)
-    lui     $t8, 0x8022
-    addiu   $t8, $t8, 0x7864
+    lui     $t8, %hi(Unknown_0x80227864)
+    addiu   $t8, $t8, %lo(Unknown_0x80227864)
     sw      $at, 0x0($t7)
     lw      $t9, 0x4($t6)
     sw      $t9, 0x4($t7)
@@ -811,8 +803,8 @@ branch_0x800971b0:
     bne     $t7, $t6, branch_0x800971b0
     sw      $at, -0x4($t8)
     lw      $at, 0x0($t7)
-    lui     $t9, 0x8022
-    addiu   $t9, $t9, 0x78a8
+    lui     $t9, %hi(Unknown_0x802278a8)
+    addiu   $t9, $t9, %lo(Unknown_0x802278a8)
     sw      $at, 0x0($t8)
     lw      $t6, 0x4($t7)
     sw      $t6, 0x4($t8)
@@ -836,8 +828,8 @@ branch_0x80097210:
     bne     $t8, $t7, branch_0x80097210
     sw      $at, -0x4($t9)
     lw      $at, 0x0($t8)
-    lui     $t6, 0x8022
-    addiu   $t6, $t6, 0x78ec
+    lui     $t6, %hi(Unknown_0x802278ec)
+    addiu   $t6, $t6, %lo(Unknown_0x802278ec)
     sw      $at, 0x0($t9)
     lw      $t7, 0x4($t8)
     sw      $t7, 0x4($t9)
@@ -906,8 +898,8 @@ branch_0x80097318:
     andi    $v0, $s0, 0x3
     beqz    $v0, branch_0x8009736c
     or      $v1, $v0, $zero
-    lui     $t8, 0x801d
-    addiu   $t8, $t8, 0xe4a0
+    lui     $t8, %hi(Unknown_0x801ce4a0)
+    addiu   $t8, $t8, %lo(Unknown_0x801ce4a0)
     sll     $t7, $zero, 2
     addu    $t1, $t7, $t8
 branch_0x8009733c:
@@ -927,8 +919,8 @@ branch_0x80097360:
     addiu   $t1, $t1, 0x4
     beq     $t0, $s0, branch_0x80097a08
 branch_0x8009736c:
-    lui     $t6, 0x801d
-    addiu   $t6, $t6, 0xe4a0
+    lui     $t6, %hi(Unknown_0x801ce4a0)
+    addiu   $t6, $t6, %lo(Unknown_0x801ce4a0)
     sll     $t9, $t0, 2
     addu    $t1, $t9, $t6
 branch_0x8009737c:
@@ -982,17 +974,16 @@ branch_0x80097408:
     b       branch_0x80097a0c
     lw      $t8, 0x64($sp)
 
-.globl Function_0x8009741c
-Function_0x8009741c: # 0x8009741c
-    lui     $v1, 0x801d
-    addiu   $v1, $v1, 0xe4a0
+branch_0x8009741c: # 0x8009741c
+    lui     $v1, %hi(Unknown_0x801ce4a0)
+    addiu   $v1, $v1, %lo(Unknown_0x801ce4a0)
     lh      $v0, 0x0($v1)
     addiu   $a1, $zero, 0x44
     lui     $a0, %hi(Unknown_0x800daa50)
     multu   $v0, $t3
     addiu   $a0, $a0, %lo(Unknown_0x800daa50)
-    lui     $t9, 0x8022
-    addiu   $t9, $t9, 0x7820
+    lui     $t9, %hi(Unknown_0x80227820)
+    addiu   $t9, $t9, %lo(Unknown_0x80227820)
     mflo    $t6
     nop
     nop
@@ -1011,8 +1002,8 @@ branch_0x8009745c:
     bne     $t8, $t7, branch_0x8009745c
     sw      $at, -0x4($t9)
     lw      $at, 0x0($t8)
-    lui     $t6, 0x8022
-    addiu   $t6, $t6, 0x7864
+    lui     $t6, %hi(Unknown_0x80227864)
+    addiu   $t6, $t6, %lo(Unknown_0x80227864)
     sw      $at, 0x0($t9)
     lw      $t7, 0x4($t8)
     sw      $t7, 0x4($t9)
@@ -1038,8 +1029,8 @@ branch_0x800974bc:
     lw      $at, 0x0($t9)
     sw      $at, 0x0($t6)
     lw      $t8, 0x4($t9)
-    lui     $t9, 0x8022
-    addiu   $t9, $t9, 0x78a8
+    lui     $t9, %hi(Unknown_0x802278a8)
+    addiu   $t9, $t9, %lo(Unknown_0x802278a8)
     sw      $t8, 0x4($t6)
     lh      $t4, 0x8($v1)
     multu   $t4, $t3
@@ -1064,8 +1055,8 @@ branch_0x80097520:
     lw      $at, 0x44($t8)
     sw      $at, 0x0($t9)
     lw      $t7, 0x48($t8)
-    lui     $t8, 0x8022
-    addiu   $t8, $t8, 0x78ec
+    lui     $t8, %hi(Unknown_0x802278ec)
+    addiu   $t8, $t8, %lo(Unknown_0x802278ec)
     sw      $t7, 0x4($t9)
     lh      $t5, 0xc($v1)
     multu   $t5, $t3
@@ -1088,8 +1079,8 @@ branch_0x80097584:
     bne     $t7, $t6, branch_0x80097584
     sw      $at, -0x4($t8)
     lw      $at, 0x44($t7)
-    lui     $t9, 0x8022
-    addiu   $t9, $t9, 0x7930
+    lui     $t9, %hi(Unknown_0x80227930)
+    addiu   $t9, $t9, %lo(Unknown_0x80227930)
     sw      $at, 0x0($t8)
     lw      $t6, 0x48($t7)
     addiu   $t7, $a3, 0x3c
@@ -1106,8 +1097,8 @@ branch_0x800975c8:
     bne     $t8, $t7, branch_0x800975c8
     sw      $at, -0x4($t9)
     lw      $at, 0x88($t8)
-    lui     $t6, 0x8022
-    addiu   $t6, $t6, 0x7974
+    lui     $t6, %hi(Unknown_0x80227974)
+    addiu   $t6, $t6, %lo(Unknown_0x80227974)
     sw      $at, 0x0($t9)
     lw      $t7, 0x8c($t8)
     addiu   $t8, $t0, 0x3c
@@ -1150,7 +1141,7 @@ branch_0x8009767c:
     sh      $t2, 0x42($sp)
 branch_0x80097688:
     bne     $t2, $t4, branch_0x8009769c
-    lui     $t1, 0x801d
+    lui     $t1, %hi(Unknown_0x801ce4a0)
     sh      $t9, 0x44($sp)
     b       branch_0x800976ac
     sh      $t9, 0x48($sp)
@@ -1161,7 +1152,7 @@ branch_0x8009769c:
     sh      $t2, 0x48($sp)
 branch_0x800976ac:
     bne     $t2, $t5, branch_0x800976c4
-    addiu   $t1, $t1, 0xe4a0
+    addiu   $t1, $t1, %lo(Unknown_0x801ce4a0)
     addiu   $v1, $zero, 0x1
     sh      $v1, 0x46($sp)
     b       branch_0x800976d4
@@ -1189,21 +1180,20 @@ branch_0x800976f8:
     b       branch_0x80097a0c
     lw      $t8, 0x64($sp)
 
-.globl Function_0x80097708
-Function_0x80097708: # 0x80097708
+branch_0x80097708: # 0x80097708
     lw      $t9, 0x64($sp)
     or      $t0, $zero, $zero
     blez    $t9, branch_0x8009790c
     andi    $v0, $t9, 0x1
     beqz    $v0, branch_0x800977b4
-    lui     $v0, 0x801d
-    lh      $v0, -0x1b60($v0)
+    lui     $v0, %hi(Unknown_0x801ce4a0)
+    lh      $v0, %lo(Unknown_0x801ce4a0)($v0)
     addiu   $a1, $zero, 0x44
     lui     $a0, %hi(Unknown_0x800daa50)
     multu   $v0, $t3
     addiu   $a0, $a0, %lo(Unknown_0x800daa50)
-    lui     $t6, 0x8022
-    addiu   $t6, $t6, 0x7820
+    lui     $t6, %hi(Unknown_0x80227820)
+    addiu   $t6, $t6, %lo(Unknown_0x80227820)
     addiu   $a3, $zero, 0x6
     mflo    $t7
     nop
@@ -1241,11 +1231,11 @@ branch_0x800977ac:
 branch_0x800977b4:
     sll     $t6, $t0, 4
     addu    $t6, $t6, $t0
-    lui     $t7, 0x8022
-    addiu   $t7, $t7, 0x7820
+    lui     $t7, %hi(Unknown_0x80227820)
+    addiu   $t7, $t7, %lo(Unknown_0x80227820)
     sll     $t6, $t6, 2
-    lui     $t9, 0x801d
-    addiu   $t9, $t9, 0xe4a0
+    lui     $t9, %hi(Unknown_0x801ce4a0)
+    addiu   $t9, $t9, %lo(Unknown_0x801ce4a0)
     addu    $v1, $t6, $t7
     lui     $a0, %hi(Unknown_0x800daa50)
     sll     $t8, $t0, 2
@@ -1339,8 +1329,8 @@ branch_0x8009790c:
     andi    $v0, $s0, 0x3
     beqz    $v0, branch_0x80097960
     or      $v1, $v0, $zero
-    lui     $t6, 0x801d
-    addiu   $t6, $t6, 0xe4a0
+    lui     $t6, %hi(Unknown_0x801ce4a0)
+    addiu   $t6, $t6, %lo(Unknown_0x801ce4a0)
     sll     $t7, $t0, 2
     addu    $t1, $t7, $t6
 branch_0x80097930:
@@ -1360,8 +1350,8 @@ branch_0x80097954:
     addiu   $t1, $t1, 0x4
     beq     $t0, $s0, branch_0x80097a08
 branch_0x80097960:
-    lui     $t9, 0x801d
-    addiu   $t9, $t9, 0xe4a0
+    lui     $t9, %hi(Unknown_0x801ce4a0)
+    addiu   $t9, $t9, %lo(Unknown_0x801ce4a0)
     sll     $t8, $t0, 2
     addu    $t1, $t8, $t9
 branch_0x80097970:
@@ -1418,12 +1408,12 @@ branch_0x80097a0c:
     or      $t0, $zero, $zero
     addiu   $v0, $sp, 0x40
     blez    $t8, branch_0x80097bfc
-    lui     $v1, 0x8022
-    lui     $a3, 0x800e
-    lui     $a2, 0x800e
-    addiu   $a2, $a2, 0xa910
-    addiu   $a3, $a3, 0xa940
-    addiu   $v1, $v1, 0x7820
+    lui     $v1, %hi(Unknown_0x80227820)
+    lui     $a3, %hi(Unknown_0x800da940)
+    lui     $a2, %hi(Unknown_0x800da910)
+    addiu   $a2, $a2, %lo(Unknown_0x800da910)
+    addiu   $a3, $a3, %lo(Unknown_0x800da940)
+    addiu   $v1, $v1, %lo(Unknown_0x80227820)
     lw      $t2, 0x1c($sp)
     addiu   $t1, $zero, 0x4
     lw      $a0, 0x58($sp)
@@ -1437,8 +1427,7 @@ branch_0x80097a3c:
     jr      $t9
     nop
 
-.globl Function_0x80097a5c
-Function_0x80097a5c: # 0x80097a5c
+branch_0x80097a5c: # 0x80097a5c
     bnez    $t0, branch_0x80097a6c
     addiu   $t7, $t0, 0xffff
     b       branch_0x80097adc
@@ -1454,15 +1443,13 @@ branch_0x80097a7c:
     b       branch_0x80097adc
     lw      $a0, 0x4($t9)
 
-.globl Function_0x80097a8c
-Function_0x80097a8c: # 0x80097a8c
+branch_0x80097a8c: # 0x80097a8c
     sll     $t7, $t0, 2
     addu    $t6, $a2, $t7
     b       branch_0x80097adc
     lw      $a0, 0x0($t6)
 
-.globl Function_0x80097a9c
-Function_0x80097a9c: # 0x80097a9c
+branch_0x80097a9c: # 0x80097a9c
     slti    $at, $t0, 0x4
     beqz    $at, branch_0x80097ab4
     sll     $t8, $t0, 2
@@ -1478,12 +1465,11 @@ branch_0x80097ac4:
     b       branch_0x80097adc
     lw      $a0, 0xc($a3)
 
-.globl Function_0x80097acc
-Function_0x80097acc: # 0x80097acc
+branch_0x80097acc: # 0x80097acc
     sll     $t7, $t0, 2
-    lui     $a0, 0x800e
+    lui     $a0, %hi(Unknown_0x800da920)
     addu    $a0, $a0, $t7
-    lw      $a0, -0x56e0($a0)
+    lw      $a0, %lo(Unknown_0x800da920)($a0)
 branch_0x80097adc:
     lw      $t6, 0x0($v1)
     lw      $t9, 0x4($v1)
@@ -1574,9 +1560,9 @@ Function_0x80097c08: # 0x80097c08
     sw      $s0, 0x18($sp)
     sw      $s2, 0x20($sp)
     sw      $s1, 0x1c($sp)
-    lui     $s0, 0x800e
+    lui     $s0, %hi(Unknown_0x800da8b8)
     sw      $ra, 0x24($sp)
-    addiu   $s0, $s0, 0xa8b8
+    addiu   $s0, $s0, %lo(Unknown_0x800da8b8)
     or      $s1, $zero, $zero
     addiu   $s2, $zero, 0x5
 branch_0x80097c2c:
@@ -1596,3 +1582,4 @@ branch_0x80097c48:
     lw      $s2, 0x20($sp)
     jr      $ra
     addiu   $sp, $sp, 0x28
+

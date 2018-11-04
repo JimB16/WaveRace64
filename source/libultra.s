@@ -1421,13 +1421,13 @@ branch_0x800c6598:
     addiu   $t5, $t5, 0x8680
     lui     $at, 0x800f
     addiu   $t6, $t5, 0x1000
-    lui     $a2, 0x800c
+    lui     $a2, %hi(ThreadVi_Main)
     lui     $a3, 0x800f
     sw      $v0, 0x2c($sp)
     sw      $zero, -0x72e0($at)
     sw      $zero, -0x72dc($at)
     addiu   $a3, $a3, 0x8d10
-    addiu   $a2, $a2, 0x6654
+    addiu   $a2, $a2, %lo(ThreadVi_Main)
     sw      $t6, 0x10($sp)
     or      $a0, $t3, $zero
     or      $a1, $zero, $zero
@@ -1453,8 +1453,8 @@ branch_0x800c6644:
     jr      $ra
     nop
 
-.globl Function_0x800c6654
-Function_0x800c6654: # 0x800c6654
+.globl ThreadVi_Main
+ThreadVi_Main: # 0x800c6654
     addiu   $sp, $sp, 0xffc8
     sw      $ra, 0x1c($sp)
     sw      $a0, 0x38($sp)
@@ -1730,13 +1730,13 @@ branch_0x800c6994:
     addiu   $t5, $t5, %lo(Unknown_0x801da9f8)
     addiu   $t6, $t6, %lo(osPiRawStartDma)
     addiu   $t8, $t7, 0x1000
-    lui     $a2, %hi(Function_0x800cc1d0)
+    lui     $a2, %hi(ThreadPi_Main)
     lui     $a3, %hi(Unknown_0x800e8d30)
     sw      $v0, 0x2c($sp)
     sw      $t5, %lo(Unknown_0x800e8d30_10)($at)
     sw      $t6, %lo(Unknown_0x800e8d30_14)($at)
     addiu   $a3, $a3, %lo(Unknown_0x800e8d30_0)
-    addiu   $a2, $a2, %lo(Function_0x800cc1d0)
+    addiu   $a2, $a2, %lo(ThreadPi_Main)
     sw      $t8, 0x10($sp)
 
     or      $a0, $t2, $zero
@@ -8374,8 +8374,8 @@ branch_0x800cc1bc:
 /* Input:
 a0
 */
-.globl Function_0x800cc1d0
-Function_0x800cc1d0: # 0x800cc1d0
+.globl ThreadPi_Main
+ThreadPi_Main: # 0x800cc1d0
     addiu   $sp, $sp, 0xffc8
     sw      $a0, 0x38($sp)
     lw      $t6, 0x38($sp)

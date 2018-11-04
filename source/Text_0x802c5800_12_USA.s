@@ -126,7 +126,7 @@ Function_0x802c5968: # 0x802c5968
     addiu   $at, $zero, 0x44
     bne     $t7, $at, branch_0x802c59a8
     nop
-    jal     0x800939e4
+    jal     Function_0x800939e4
     nop
     b       branch_0x802c5a04
     lw      $ra, 0x14($sp)
@@ -149,9 +149,9 @@ branch_0x802c59dc:
     addiu   $at, $zero, 0x1
     bnel    $t9, $at, branch_0x802c5a00
     lw      $v0, 0x18($sp)
-    jal     0x8007c4ac
+    jal     Function_0x8007c4ac
     nop
-    jal     0x801ec094
+    jal     Function_0x801ec094_ChangeStateTo3c
     nop
     lw      $v0, 0x18($sp)
 branch_0x802c5a00:
@@ -211,8 +211,8 @@ branch_0x802c5ab8:
     addiu   $t1, $zero, 0x1
     lui     $a2, 0x801d
     lui     $a1, 0x800e
-    lui     $t0, 0x800e
-    addiu   $t0, $t0, 0xa72c
+    lui     $t0, %hi(Unknown_0x800da72c)
+    addiu   $t0, $t0, %lo(Unknown_0x800da72c)
     addiu   $a1, $a1, 0xa708
     addiu   $a2, $a2, 0xb068
 branch_0x802c5ad8:
@@ -256,7 +256,7 @@ branch_0x802c5b4c:
 branch_0x802c5b50:
     beqz    $t4, branch_0x802c61f0
     addiu   $a0, $zero, 0x11
-    jal     0x800c3594
+    jal     Function_0x800c3594
     or      $a1, $zero, $zero
     b       branch_0x802c61f4
     lw      $ra, 0x14($sp)
@@ -307,7 +307,7 @@ branch_0x802c5bec:
 branch_0x802c5bf8:
     beqz    $t4, branch_0x802c61f0
     addiu   $a0, $zero, 0x16
-    jal     0x800c3594
+    jal     Function_0x800c3594
     or      $a1, $zero, $zero
     b       branch_0x802c61f4
     lw      $ra, 0x14($sp)
@@ -403,7 +403,7 @@ branch_0x802c5d34:
 branch_0x802c5d48:
     beqz    $t4, branch_0x802c61f0
     addiu   $a0, $zero, 0x10
-    jal     0x800c3594
+    jal     Function_0x800c3594
     or      $a1, $zero, $zero
     b       branch_0x802c61f4
     lw      $ra, 0x14($sp)
@@ -498,7 +498,7 @@ branch_0x802c5e88:
 branch_0x802c5e9c:
     beqz    $t4, branch_0x802c61f0
     addiu   $a0, $zero, 0x10
-    jal     0x800c3594
+    jal     Function_0x800c3594
     or      $a1, $zero, $zero
     b       branch_0x802c61f4
     lw      $ra, 0x14($sp)
@@ -615,7 +615,7 @@ branch_0x802c5fb0:
 branch_0x802c6034:
     beqz    $t4, branch_0x802c61f0
     addiu   $a0, $zero, 0x10
-    jal     0x800c3594
+    jal     Function_0x800c3594
     or      $a1, $zero, $zero
     b       branch_0x802c61f4
     lw      $ra, 0x14($sp)
@@ -736,7 +736,7 @@ branch_0x802c615c:
 branch_0x802c61e0:
     beqz    $t4, branch_0x802c61f0
     addiu   $a0, $zero, 0x10
-    jal     0x800c3594
+    jal     Function_0x800c3594
     or      $a1, $zero, $zero
 branch_0x802c61f0:
     lw      $ra, 0x14($sp)
@@ -795,7 +795,7 @@ branch_0x802c62a4:
     or      $a0, $s2, $zero
     or      $a1, $zero, $zero
     addiu   $a3, $zero, 0x45
-    jal     0x800940d8
+    jal     Function_0x800940d8
     sw      $a2, 0x80($sp)
     lw      $a2, 0x80($sp)
     or      $s2, $v0, $zero
@@ -810,7 +810,7 @@ branch_0x802c62a4:
     or      $a0, $v0, $zero
     or      $a1, $zero, $zero
     addiu   $a2, $zero, 0xa4
-    jal     0x800940d8
+    jal     Function_0x800940d8
     addiu   $a3, $zero, 0x5a
     addiu   $t7, $zero, 0x56
     addiu   $t8, $zero, 0x10
@@ -819,7 +819,7 @@ branch_0x802c62a4:
     or      $a0, $v0, $zero
     or      $a1, $zero, $zero
     addiu   $a2, $zero, 0x46
-    jal     0x800940d8
+    jal     Function_0x800940d8
     addiu   $a3, $zero, 0x5a
     or      $s2, $v0, $zero
     addiu   $s1, $zero, 0x7d
@@ -832,7 +832,7 @@ branch_0x802c6330:
     or      $a0, $s2, $zero
     or      $a1, $zero, $zero
     addiu   $a2, $zero, 0x1c
-    jal     0x800940d8
+    jal     Function_0x800940d8
     or      $a3, $s1, $zero
     addiu   $t2, $zero, 0x69
     addiu   $t3, $zero, 0x10
@@ -841,7 +841,7 @@ branch_0x802c6330:
     or      $a0, $v0, $zero
     or      $a1, $zero, $zero
     addiu   $a2, $zero, 0xbb
-    jal     0x800940d8
+    jal     Function_0x800940d8
     or      $a3, $s0, $zero
     addiu   $s0, $s0, 0x14
     slti    $at, $s0, 0xb8
@@ -870,7 +870,7 @@ branch_0x802c6330:
     or      $a0, $v0, $zero
     or      $a1, $zero, $zero
     addiu   $a2, $zero, 0xff
-    jal     0x801e91f4
+    jal     Function_0x801e91f4_changePalette
     addiu   $a3, $zero, 0xff
     addiu   $t5, $zero, 0x27
     sw      $t5, 0x10($sp)
@@ -878,7 +878,7 @@ branch_0x802c6330:
     addiu   $a1, $zero, 0x2
     addiu   $a2, $zero, 0x10
     addiu   $a3, $zero, 0x26
-    jal     0x801e3c40
+    jal     Function_0x801e3c40_DrawCourseNames
     sw      $zero, 0x14($sp)
     lui     $t6, 0x802c
     lw      $t6, 0x6b34($t6)
@@ -934,7 +934,7 @@ branch_0x802c6488:
     sw      $t7, 0x18($sp)
     sw      $t6, 0x14($sp)
     sw      $t5, 0x34($sp)
-    jal     0x801e91f4
+    jal     Function_0x801e91f4_changePalette
     or      $a1, $s0, $zero
     bne     $s3, $s4, branch_0x802c6510
     or      $s2, $v0, $zero
@@ -944,7 +944,7 @@ branch_0x802c6488:
     sw      $zero, 0x14($sp)
     or      $a0, $v0, $zero
     addiu   $a1, $zero, 0x1
-    jal     0x801e3c40
+    jal     Function_0x801e3c40_DrawCourseNames
     addiu   $a3, $zero, 0xc1
     b       branch_0x802c6574
     or      $s2, $v0, $zero
@@ -957,7 +957,7 @@ branch_0x802c6510:
     sw      $t7, 0x10($sp)
     sw      $zero, 0x14($sp)
     addiu   $a1, $zero, 0x1
-    jal     0x801e3c40
+    jal     Function_0x801e3c40_DrawCourseNames
     addiu   $a3, $zero, 0x50
     b       branch_0x802c6574
     or      $s2, $v0, $zero
@@ -972,7 +972,7 @@ branch_0x802c6540:
     addiu   $a1, $zero, 0x1
     mflo    $t8
     addu    $a3, $t8, $t9
-    jal     0x801e3c40
+    jal     Function_0x801e3c40_DrawCourseNames
     addiu   $a3, $a3, 0x2c
     or      $s2, $v0, $zero
 branch_0x802c6574:
@@ -1054,7 +1054,7 @@ branch_0x802c663c:
     sw      $t4, 0x18($sp)
     sw      $t3, 0x14($sp)
     sw      $t2, 0x34($sp)
-    jal     0x801e91f4
+    jal     Function_0x801e91f4_changePalette
     or      $a1, $s0, $zero
     lw      $t3, 0x6c($sp)
     or      $a0, $v0, $zero
@@ -1062,14 +1062,14 @@ branch_0x802c663c:
     lw      $a2, 0x0($fp)
     addiu   $a3, $zero, 0x29
     sw      $zero, 0x14($sp)
-    jal     0x801e3c40
+    jal     Function_0x801e3c40_DrawCourseNames
     sw      $t3, 0x10($sp)
     lui     $a2, 0x802c
     addiu   $a2, $a2, 0x6b20
     or      $a0, $v0, $zero
     addiu   $a1, $zero, 0x2
     addiu   $a3, $zero, 0xa7
-    jal     0x801e95e0
+    jal     Function_0x801e95e0
     sw      $s6, 0x10($sp)
     lui     $t4, 0x801d
     lw      $t4, -0x1c60($t4)
@@ -1137,7 +1137,7 @@ branch_0x802c67a8:
     or      $a2, $v0, $zero
 branch_0x802c67ac:
     lui     $a1, 0x802c
-    jal     0x800c9f70
+    jal     Function_0x800c9f70
     addiu   $a1, $a1, 0x6b24
     b       branch_0x802c6820
     addiu   $t5, $zero, 0x80
@@ -1154,7 +1154,7 @@ branch_0x802c67dc:
 branch_0x802c67e0:
     lui     $a1, 0x802c
     addiu   $a1, $a1, 0x6b28
-    jal     0x800c9f70
+    jal     Function_0x800c9f70
     addiu   $a0, $sp, 0x94
     b       branch_0x802c6820
     addiu   $t5, $zero, 0x80
@@ -1195,7 +1195,7 @@ branch_0x802c6820:
     or      $a0, $s2, $zero
     or      $a1, $s0, $zero
     addiu   $a2, $zero, 0x80
-    jal     0x801e91f4
+    jal     Function_0x801e91f4_changePalette
     addiu   $a3, $zero, 0x80
     bnez    $s1, branch_0x802c68ac
     or      $s2, $v0, $zero
@@ -1204,7 +1204,7 @@ branch_0x802c6820:
     lw      $a2, 0xb8($sp)
     addiu   $a3, $zero, 0xc6
     sw      $s6, 0x10($sp)
-    jal     0x801e3c40
+    jal     Function_0x801e3c40_DrawCourseNames
     sw      $zero, 0x14($sp)
     b       branch_0x802c68c8
     or      $s2, $v0, $zero
@@ -1213,7 +1213,7 @@ branch_0x802c68ac:
     addiu   $a1, $zero, 0x2
     addiu   $a2, $sp, 0x94
     addiu   $a3, $zero, 0xc6
-    jal     0x801e95e0
+    jal     Function_0x801e95e0
     sw      $s6, 0x10($sp)
     or      $s2, $v0, $zero
 branch_0x802c68c8:
@@ -1264,7 +1264,7 @@ branch_0x802c6924:
     sw      $t4, 0x34($sp)
     or      $a1, $zero, $zero
     addiu   $a2, $zero, 0xff
-    jal     0x801e91f4
+    jal     Function_0x801e91f4_changePalette
     addiu   $a3, $zero, 0xff
     addiu   $t5, $zero, 0xca
     sw      $t5, 0x10($sp)
@@ -1272,7 +1272,7 @@ branch_0x802c6924:
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x41
     addiu   $a3, $zero, 0x1c
-    jal     0x801e3c40
+    jal     Function_0x801e3c40_DrawCourseNames
     sw      $zero, 0x14($sp)
     addiu   $t6, $zero, 0xca
     sw      $t6, 0x10($sp)
@@ -1280,7 +1280,7 @@ branch_0x802c6924:
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x44
     addiu   $a3, $zero, 0x62
-    jal     0x801e3c40
+    jal     Function_0x801e3c40_DrawCourseNames
     sw      $zero, 0x14($sp)
     or      $s2, $v0, $zero
 branch_0x802c69cc:
@@ -1329,10 +1329,10 @@ Function_0x802c6a00: # 0x802c6a00
     sw      $t0, 0x439c($at)
     addiu   $a0, $zero, 0x1
     addiu   $a1, $zero, 0x4
-    jal     0x801e6d10
+    jal     Function_0x801e6d10
     or      $a2, $zero, $zero
     or      $a0, $zero, $zero
-    jal     0x801e67ac
+    jal     Function_0x801e67ac
     or      $a1, $zero, $zero
     lw      $ra, 0x14($sp)
     addiu   $sp, $sp, 0x18
