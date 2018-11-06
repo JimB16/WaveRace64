@@ -1,0 +1,298 @@
+
+OUTPUT_FORMAT("elf32-bigmips", "elf32-bigmips", "elf32-littlemips")
+OUTPUT_ARCH(mips)
+ENTRY(_start)
+
+MEMORY {
+
+	ram1	: ORIGIN = 0x228bd0, LENGTH = 4M
+	ram2	: ORIGIN = 0x230e60, LENGTH = 4M
+	rom0	: ORIGIN = 0x84000000, LENGTH = 4K
+	rom		: ORIGIN = 0x80046800, LENGTH = 8M
+	rom2	: ORIGIN = 0x801dad00, LENGTH = 8M
+	overlay0	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay1	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay2	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay3	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay4	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay5	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay6	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay7	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay8	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay9	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay10	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay11	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay12	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay13	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay14	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay15	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay16	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay17	: ORIGIN = 0x802c5800, LENGTH = 8M
+	overlay18	: ORIGIN = 0x802c5800, LENGTH = 8M
+	cartridge	: ORIGIN = 0x1d0f90, LENGTH = 8M
+	data	: ORIGIN = 0x802c5800, LENGTH = 8M
+	iwram	: ORIGIN = 0x03000000, LENGTH = 32K
+	ewram	: ORIGIN = 0x02000000, LENGTH = 256K
+}
+
+
+SECTIONS
+{
+.text0 : AT (0x0) {
+	_start_text0 = .;
+	/* Executable code */
+	*(.text0)
+	_end_text0 = .;
+} > rom0
+.textmain : AT (0x1000) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > rom
+.data ALIGN(64) : {
+	_start_data = .;
+	*(.data)
+	_end_data = .;
+} > rom
+.bss : {
+	_start_bss = .;
+	*(.bss)
+	*(COMMON)
+	_end_bss = .;
+} > rom
+.textmain2 : AT (0xa9330) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > rom2
+.textoverlay0 : AT (0x1b1d70) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay0
+.textoverlay1 : AT (0x1b3c80) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay1
+.textoverlay18 : AT (0x1b5360) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay18
+.textoverlay2 : AT (0x1b9200) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay2
+.textoverlay3 : AT (0x1bc650) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay3
+.textoverlay4 : AT (0x1bde70) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay4
+.textoverlay5 : AT (0x1bfd10) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay5
+.textoverlay7 : AT (0x1c2010) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay7
+.textoverlay8 : AT (0x1c3540) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay8
+.textoverlay6 : AT (0x1c3ac0) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay6
+.textoverlay9 : AT (0x1c41b0) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay9
+.textoverlay10 : AT (0x1c4760) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay10
+.textoverlay11 : AT (0x1c6490) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay11
+.textoverlay12 : AT (0x1c8f10) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay12
+.textoverlay13 : AT (0x1ca240) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay13
+.textoverlay14 : AT (0x1cac00) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay14
+.textoverlay15 : AT (0x1cb8b0) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay15
+.textoverlay16 : AT (0x1cef40) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay16
+.textoverlay17 : AT (0x1cf920) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > overlay17
+.cartridge : AT (0x1d0f90) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > cartridge
+.data_228bd0 : AT (0xf5e50) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > ram1
+.data_230e60 : AT (0xfe0e0) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > ram2
+_end_prog = ALIGN(64);}
