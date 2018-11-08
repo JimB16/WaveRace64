@@ -1,0 +1,32 @@
+
+OUTPUT_FORMAT("elf32-bigmips", "elf32-bigmips", "elf32-littlemips")
+OUTPUT_ARCH(mips)
+ENTRY(_start)
+
+MEMORY {
+
+	sp_dmem	: ORIGIN = 0x04000000, LENGTH = 4K
+	sp_imem	: ORIGIN = 0x04001000, LENGTH = 4K
+}
+
+
+SECTIONS
+{
+.text : {
+	_start_text = .;
+	/* Executable code */
+	*(.text)
+	_end_text = .;
+} > sp_imem
+/*.data ALIGN(4) : {
+	_start_data = .;
+	*(.data)
+	_end_data = .;
+} > sp_dmem*/
+/*.bss : {
+	_start_bss = .;
+	*(.bss)
+	*(COMMON)
+	_end_bss = .;
+} > sp_dmem*/
+_end_prog = ALIGN(64);}
