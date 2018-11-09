@@ -188,8 +188,8 @@ Function_0x802c5a98: # 0x802c5a98
     lui     $a0, 0x801d
     lw      $v0, -0x4f68($v0)
     lw      $a0, -0x4f6c($a0)
-    lui     $a2, 0x800d
-    lw      $a2, 0x465c($a2)
+    lui     $a2, %hi(Unknown_0x800d465c)
+    lw      $a2, %lo(Unknown_0x800d465c)($a2)
     sll     $t7, $v0, 4
     sll     $t8, $a0, 1
     addu    $t9, $t7, $t8
@@ -317,9 +317,9 @@ branch_0x802c5c68:
     jal     Function_0x80093d18
     lw      $a0, 0x18($sp)
     lui     $at, 0x800e
-    lui     $a1, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $a1, %hi(TrackNr_0x800d7ef0)
     sw      $zero, -0x5754($at)
-    lw      $a1, %lo(Unknown_0x800d7ef0_TrackNr)($a1)
+    lw      $a1, %lo(TrackNr_0x800d7ef0)($a1)
     jal     Function_0x80094758
     or      $a0, $v0, $zero
     jal     Function_0x8008f914
@@ -772,9 +772,9 @@ branch_0x802c62e0:
     addu    $t5, $t5, $v1
     lw      $t5, -0x58d0($t5)
     lw      $t7, -0x4f6c($t7)
-    lui     $t2, 0x800d
+    lui     $t2, %hi(Unknown_0x800d465c)
     sll     $t1, $t5, 3
-    lw      $t2, 0x465c($t2)
+    lw      $t2, %lo(Unknown_0x800d465c)($t2)
     lui     $t6, 0x801d
     subu    $t1, $t1, $t5
     sll     $t8, $t7, 4
@@ -839,11 +839,11 @@ branch_0x802c63cc:
     lw      $a2, 0xfc($sp)
     lw      $a0, 0x0($s3)
     lui     $t9, 0x800e
-    lui     $a1, 0x800d
+    lui     $a1, %hi(Unknown_0x800d465c)
     sll     $v1, $a0, 2
     addu    $t9, $t9, $v1
     lw      $t9, -0x58d0($t9)
-    lw      $a1, 0x465c($a1)
+    lw      $a1, %lo(Unknown_0x800d465c)($a1)
     lui     $t5, 0x801d
     sll     $t2, $t9, 3
     subu    $t2, $t2, $t9
@@ -1029,10 +1029,10 @@ branch_0x802c6544:
     or      $a1, $s4, $zero
     lw      $t3, 0x90($sp)
     lui     $t7, 0x801d
-    lui     $t8, %hi(Unknown_0x801c2698)
+    lui     $t8, %hi(Unknown_0x801c2698_RaceStruct)
     addu    $t7, $t7, $t3
     lw      $t7, -0x1b88($t7)
-    addiu   $t8, $t8, %lo(Unknown_0x801c2698)
+    addiu   $t8, $t8, %lo(Unknown_0x801c2698_RaceStruct)
     or      $a0, $s6, $zero
     sll     $t9, $t7, 3
     subu    $t9, $t9, $t7
@@ -1665,9 +1665,9 @@ Function_0x802c6f84: # 0x802c6f84
     sw      $zero, -0x1c5c($at)
     lui     $at, 0x800e
     sw      $zero, -0x5764($at)
-    lui     $at, 0x800d
+    lui     $at, %hi(Unknown_0x800d439c)
     addiu   $t0, $zero, 0x2
-    sw      $t0, 0x439c($at)
+    sw      $t0, %lo(Unknown_0x800d439c)($at)
     lw      $v0, 0x0($a3)
     addiu   $sp, $sp, 0xffe8
     addiu   $at, $zero, 0x66
@@ -1740,10 +1740,10 @@ Function_0x802c7084: # 0x802c7084
     lui     $t7, 0x800e
     lw      $t7, -0x575c($t7)
     addiu   $at, $zero, 0x5a
-    lui     $t8, 0x800d
+    lui     $t8, %hi(Unknown_0x800d465c)
     bne     $t7, $at, branch_0x802c729c
     lui     $t4, 0x801d
-    lw      $t8, 0x465c($t8)
+    lw      $t8, %lo(Unknown_0x800d465c)($t8)
     lui     $t5, 0x801d
     lui     $t7, 0x801d
     sll     $t9, $t8, 2
@@ -1991,8 +1991,9 @@ branch_0x802c73b4:
     jr      $ra
     addiu   $sp, $sp, 0x98
 
-.globl Function_0x802c7484
-Function_0x802c7484: # 0x802c7484
+
+.globl Function_5_0x802c7484
+Function_5_0x802c7484: # 0x802c7484
     lui     $v0, 0x801d
     addiu   $v0, $v0, 0xe39c
     lw      $t6, 0x0($v0)
@@ -2005,9 +2006,9 @@ branch_0x802c74a4:
     jal     Function_0x80093d18
     nop
     lui     $at, 0x800e
-    lui     $a1, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $a1, %hi(TrackNr_0x800d7ef0)
     sw      $zero, -0x5754($at)
-    lw      $a1, %lo(Unknown_0x800d7ef0_TrackNr)($a1)
+    lw      $a1, %lo(TrackNr_0x800d7ef0)($a1)
     jal     Function_0x80094758
     or      $a0, $v0, $zero
     jal     Function_0x8008f914
@@ -2034,10 +2035,10 @@ branch_0x802c7504:
     ori     $t7, $t7, 0x40
     sw      $t7, 0x0($v0)
     sw      $t8, 0x4($v0)
-    lui     $a1, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $a1, %hi(TrackNr_0x800d7ef0)
     addiu   $a0, $a0, 0x8
     jal     Function_0x800947e4
-    lw      $a1, %lo(Unknown_0x800d7ef0_TrackNr)($a1)
+    lw      $a1, %lo(TrackNr_0x800d7ef0)($a1)
     jal     Function_0x80090cf8_DrawWaterBG
     or      $a0, $v0, $zero
     jal     Function_0x802c7698

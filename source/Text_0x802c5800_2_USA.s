@@ -28,8 +28,8 @@ Function_2_0x802c5800: # 0x802c5800
     sdc1    $22, 0x40($29)
     beqz    $t6, branch_0x802c5868
     sdc1    $20, 0x38($29)
-    lui     $t7, %hi(Unknown_0x800da8a4_mainState)
-    lw      $t7, %lo(Unknown_0x800da8a4_mainState)($t7)
+    lui     $t7, %hi(MainState_0x800da8a4)
+    lw      $t7, %lo(MainState_0x800da8a4)($t7)
     addiu   $at, $zero, MainState_a
     bnel    $t7, $at, branch_0x802c586c
     lui     $at, 0x3f80
@@ -249,8 +249,8 @@ Function_2_0x802c5b4c: # 0x802c5b4c
     beqz    $t6, branch_0x802c5b94
     sw      $ra, 0x1c($sp)
     sw      $zero, 0x0($v0)
-    lui     $t7, %hi(Unknown_0x800da8a4_mainState)
-    lw      $t7, %lo(Unknown_0x800da8a4_mainState)($t7)
+    lui     $t7, %hi(MainState_0x800da8a4)
+    lw      $t7, %lo(MainState_0x800da8a4)($t7)
     addiu   $at, $zero, MainState_a
     bne     $t7, $at, branch_0x802c5b94
     nop
@@ -383,8 +383,8 @@ branch_0x802c5d40:
     addiu   $s0, $s0, 0x8
     sw      $t3, 0x0($v0)
 branch_0x802c5d64:
-    lui     $t5, %hi(Unknown_0x800da8a4_mainState)
-    lw      $t5, %lo(Unknown_0x800da8a4_mainState)($t5)
+    lui     $t5, %hi(MainState_0x800da8a4)
+    lw      $t5, %lo(MainState_0x800da8a4)($t5)
     addiu   $at, $zero, MainState_a
     lui     $t8, 0x8023
     bne     $t5, $at, branch_0x802c5da4
@@ -1112,12 +1112,12 @@ branch_0x802c6694:
     sll     $t5, $t5, 2
     lui     $t2, %hi(String_DriverNames)
     subu    $t9, $t9, $a0
-    lui     $t4, %hi(Unknown_0x801923f0)
+    lui     $t4, %hi(Unknown_0x801923f0_GameStruct)
     sll     $t9, $t9, 1
     addiu   $t2, $t2, %lo(String_DriverNames)
     subu    $t5, $t5, $t3
     sll     $t5, $t5, 3
-    addiu   $t4, $t4, %lo(Unknown_0x801923f0)
+    addiu   $t4, $t4, %lo(Unknown_0x801923f0_GameStruct)
     addu    $v1, $t9, $t2
     addu    $v0, $t5, $t4
     lb      $t1, 0xb($v1)
@@ -1270,13 +1270,13 @@ branch_0x802c690c:
     lui     $v1, 0x800e
     addiu   $v1, $v1, 0xa740
     lw      $t3, 0x0($v1)
-    lui     $t4, 0x800d
+    lui     $t4, %hi(Unknown_0x800d465c)
     lui     $a3, 0x800e
     addu    $t7, $sp, $t3
     sb      $ra, 0x34($t7)
     lui     $t1, 0x802d
     addiu   $t1, $t1, 0x8bd8
-    lw      $t4, 0x465c($t4)
+    lw      $t4, %lo(Unknown_0x800d465c)($t4)
     addiu   $a3, $a3, 0xa730
     addiu   $t5, $zero, 0xc
 branch_0x802c694c:
@@ -1288,12 +1288,12 @@ branch_0x802c694c:
     subu    $t8, $t8, $a2
     sll     $t8, $t8, 3
     addu    $t8, $t8, $a2
-    lui     $t6, %hi(Unknown_0x800d7ef0_TrackNr)
-    lw      $t6, %lo(Unknown_0x800d7ef0_TrackNr)($t6)
+    lui     $t6, %hi(TrackNr_0x800d7ef0)
+    lw      $t6, %lo(TrackNr_0x800d7ef0)($t6)
     sll     $t8, $t8, 2
     subu    $t8, $t8, $a2
-    lui     $t9, %hi(Unknown_0x801923f0)
-    addiu   $t9, $t9, %lo(Unknown_0x801923f0)
+    lui     $t9, %hi(Unknown_0x801923f0_GameStruct)
+    addiu   $t9, $t9, %lo(Unknown_0x801923f0_GameStruct)
     sll     $t8, $t8, 3
     addu    $a1, $t8, $t9
     sll     $t7, $t6, 2
@@ -3151,8 +3151,8 @@ branch_0x802c8080:
     nop
 
 Function_0x802c84ec_ChangeStateToB: # 0x802c84ec
-    lui     $v0, %hi(Unknown_0x800da8a4_mainState)
-    addiu   $v0, $v0, %lo(Unknown_0x800da8a4_mainState)
+    lui     $v0, %hi(MainState_0x800da8a4)
+    addiu   $v0, $v0, %lo(MainState_0x800da8a4)
     lw      $t6, 0x0($v0)
     lui     $at, 0x801d
     addiu   $t7, $zero, MainState_b
@@ -3175,27 +3175,27 @@ Function_0x802c84ec_ChangeStateToB: # 0x802c84ec
     lui     $at, 0x800e
     addiu   $sp, $sp, 0xffe0
     sw      $zero, -0x5764($at)
-    lui     $at, 0x800d
+    lui     $at, %hi(Unknown_0x800d439c)
     addiu   $t6, $zero, 0x3
     sw      $ra, 0x1c($sp)
     sw      $s1, 0x18($sp)
     sw      $s0, 0x14($sp)
-    sw      $t6, 0x439c($at)
+    sw      $t6, %lo(Unknown_0x800d439c)($at)
     blez    $t2, branch_0x802c8660
     or      $v1, $zero, $zero
     lui     $a3, 0x800e
     lui     $a2, 0x800e
     lui     $s1, 0x801d
-    lui     $s0, 0x800d
-    lui     $t5, %hi(Unknown_0x801923f0)
-    lui     $t4, 0x800d
+    lui     $s0, %hi(Unknown_0x800d4660)
+    lui     $t5, %hi(Unknown_0x801923f0_GameStruct)
+    lui     $t4, %hi(Unknown_0x800d465c)
     lui     $t3, %hi(String_DriverNames)
     lui     $t0, 0x802d
     addiu   $t0, $t0, 0x8bd8
     addiu   $t3, $t3, %lo(String_DriverNames)
-    addiu   $t4, $t4, 0x465c
-    addiu   $t5, $t5, %lo(Unknown_0x801923f0)
-    addiu   $s0, $s0, 0x4660
+    addiu   $t4, $t4, %lo(Unknown_0x800d465c)
+    addiu   $t5, $t5, %lo(Unknown_0x801923f0_GameStruct)
+    addiu   $s0, $s0, %lo(Unknown_0x800d4660)
     addiu   $s1, $s1, 0xaff8
     addiu   $a2, $a2, 0xa740
     addiu   $a3, $a3, 0xa748

@@ -25,8 +25,9 @@ branch_0x802c5834:
     jr      $ra
     nop
 
-.globl Function_0x802c583c
-Function_0x802c583c: # 0x802c583c
+
+.globl Function_8_0x802c583c
+Function_8_0x802c583c: # 0x802c583c
     lui     $v0, 0x801d
     addiu   $v0, $v0, 0xe39c
     lw      $t6, 0x0($v0)
@@ -52,8 +53,8 @@ branch_0x802c588c:
     sw      $zero, -0x5754($at)
     jal     Function_0x8008f914
     or      $a0, $a1, $zero
-    lui     $a1, %hi(Unknown_0x800d7ef0_TrackNr)
-    lw      $a1, %lo(Unknown_0x800d7ef0_TrackNr)($a1)
+    lui     $a1, %hi(TrackNr_0x800d7ef0)
+    lw      $a1, %lo(TrackNr_0x800d7ef0)($a1)
     jal     Function_0x80094758
     or      $a0, $v0, $zero
     jal     Function_0x80090cf8_DrawWaterBG
@@ -168,8 +169,8 @@ Function_0x802c58f4: # 0x802c58f4
     addiu   $a2, $zero, 0xff
     jal     Function_0x801e91f4_changePalette
     addiu   $a3, $zero, 0xff
-    lui     $v1, %hi(Unknown_0x800d7ef0_TrackNr)
-    lw      $v1, %lo(Unknown_0x800d7ef0_TrackNr)($v1)
+    lui     $v1, %hi(TrackNr_0x800d7ef0)
+    lw      $v1, %lo(TrackNr_0x800d7ef0)($v1)
     lui     $t9, 0x802c
     lw      $t0, 0x0($s1)
     sll     $t8, $v1, 2

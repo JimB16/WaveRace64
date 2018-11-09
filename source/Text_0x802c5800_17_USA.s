@@ -378,9 +378,9 @@ branch_0x802c5d00:
     addu    $t2, $t2, $t9
     lw      $t2, 0x6d54($t2)
     addiu   $a0, $a0, 0x6e7c
-    lui     $t3, 0x800d
+    lui     $t3, %hi(Unknown_0x800d465c)
     sw      $t2, 0x0($a0)
-    lw      $t3, 0x465c($t3)
+    lw      $t3, %lo(Unknown_0x800d465c)($t3)
     lui     $v1, 0x801c
     addiu   $a1, $zero, 0x3
     sll     $t4, $t3, 3
@@ -530,8 +530,9 @@ branch_0x802c5f48:
     jr      $ra
     nop
 
-.globl Function_0x802c5f50
-Function_0x802c5f50: # 0x802c5f50
+
+.globl Function_17_0x802c5f50
+Function_17_0x802c5f50: # 0x802c5f50
     lui     $v0, 0x801d
     addiu   $v0, $v0, 0xe39c
     lw      $t6, 0x0($v0)
@@ -879,10 +880,10 @@ branch_0x802c6414:
     addiu   $t8, $zero, 0xff
     lw      $t8, -0x4f68($t8)
     addiu   $at, $zero, 0x2
-    lui     $t9, 0x800d
+    lui     $t9, %hi(Unknown_0x800d465c)
     bne     $t8, $at, branch_0x802c64b4
     addiu   $v0, $zero, 0x1
-    lw      $t9, 0x465c($t9)
+    lw      $t9, %lo(Unknown_0x800d465c)($t9)
     lui     $t1, 0x801c
     sll     $t0, $t9, 3
     subu    $t0, $t0, $t9
@@ -996,10 +997,10 @@ branch_0x802c6510:
     addiu   $t2, $zero, 0xff
     lw      $t7, -0x4f68($t7)
     addiu   $at, $zero, 0x2
-    lui     $t8, 0x800d
+    lui     $t8, %hi(Unknown_0x800d465c)
     bne     $t7, $at, branch_0x802c6678
     addiu   $v0, $zero, 0x1
-    lw      $t8, 0x465c($t8)
+    lw      $t8, %lo(Unknown_0x800d465c)($t8)
     lui     $t0, 0x801c
     sll     $t9, $t8, 3
     subu    $t9, $t9, $t8
@@ -1128,11 +1129,11 @@ branch_0x802c6800:
     lw      $a2, 0x11c($sp)
     lw      $a0, 0x0($s3)
     lui     $t9, 0x800e
-    lui     $a1, 0x800d
+    lui     $a1, %hi(Unknown_0x800d465c)
     sll     $v1, $a0, 2
     addu    $t9, $t9, $v1
     lw      $t9, -0x58d0($t9)
-    lw      $a1, 0x465c($a1)
+    lw      $a1, %lo(Unknown_0x800d465c)($a1)
     lui     $t1, 0x801d
     sll     $t0, $t9, 3
     lui     $s1, 0x801d
@@ -1467,9 +1468,9 @@ Function_0x802c6cac: # 0x802c6cac
     addiu   $sp, $sp, 0xffe8
     sw      $zero, -0x5764($at)
     sw      $ra, 0x14($sp)
-    lui     $at, 0x800d
+    lui     $at, %hi(Unknown_0x800d439c)
     addiu   $t0, $zero, 0x3
-    sw      $t0, 0x439c($at)
+    sw      $t0, %lo(Unknown_0x800d439c)($at)
     addiu   $a0, $zero, 0x3
     addiu   $a1, $zero, 0x14
     jal     Function_0x801e6d10

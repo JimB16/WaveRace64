@@ -1172,8 +1172,8 @@ branch_0x802c6860:
 
 .globl Function_0x802c6878
 Function_0x802c6878: # 0x802c6878
-    lui     $v0, %hi(Unknown_0x800da8a4_mainState)
-    addiu   $v0, $v0, %lo(Unknown_0x800da8a4_mainState)
+    lui     $v0, %hi(MainState_0x800da8a4)
+    addiu   $v0, $v0, %lo(MainState_0x800da8a4)
     lw      $t6, 0x0($v0)
     lui     $at, 0x801d
     addiu   $v1, $zero, MainState_3
@@ -1194,8 +1194,8 @@ Function_0x802c6878: # 0x802c6878
     sw      $zero, -0x5764($at)
     lui     $t8, 0x800e
     lw      $t8, -0x58a8($t8)
-    lui     $at, 0x800d
-    sw      $v1, 0x439c($at)
+    lui     $at, %hi(Unknown_0x800d439c)
+    sw      $v1, %lo(Unknown_0x800d439c)($at)
     lui     $at, %hi(Unknown_1_0x802c6ee4)
     addiu   $sp, $sp, 0xffe8
     sw      $t8, %lo(Unknown_1_0x802c6ee4)($at)
@@ -1300,8 +1300,8 @@ a0: MainState_#
 */
 .globl Function_0x802c6a1c_ChangeStateTo4
 Function_0x802c6a1c_ChangeStateTo4: # 0x802c6a1c
-    lui     $v0, %hi(Unknown_0x800da8a4_mainState)
-    addiu   $v0, $v0, %lo(Unknown_0x800da8a4_mainState)
+    lui     $v0, %hi(MainState_0x800da8a4)
+    addiu   $v0, $v0, %lo(MainState_0x800da8a4)
     lw      $t6, 0x0($v0)
     lui     $at, 0x801d
     addiu   $t7, $zero, MainState_4
@@ -1322,9 +1322,9 @@ Function_0x802c6a1c_ChangeStateTo4: # 0x802c6a1c
     addiu   $sp, $sp, 0xffe8
     sw      $zero, -0x5764($at)
     sw      $ra, 0x14($sp)
-    lui     $at, 0x800d
+    lui     $at, %hi(Unknown_0x800d439c)
     addiu   $t9, $zero, 0x3
-    sw      $t9, 0x439c($at)
+    sw      $t9, %lo(Unknown_0x800d439c)($at)
     addiu   $a0, $zero, 0x1
     addiu   $a1, $zero, 0x4
     jal     Function_0x801e6d10

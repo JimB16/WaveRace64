@@ -744,15 +744,18 @@ osSpTaskYield2: # 0x800c5d80
     nop
 
 /* Input:
-a0:
+a0: Ptr to SpTask
+
+Return:
+v0: Ptr to SpTask (Unknown_0x801d8410_SpTaskPtr)
 */
 .globl osSpTaskYield
 osSpTaskYield: # 0x800c5da0
     addiu   $sp, $sp, -0x20
-    lui     $t6, %hi(Unknown_0x801d8410)
+    lui     $t6, %hi(Unknown_0x801d8410_SpTaskPtr)
     sw      $ra, 0x14($sp)
     sw      $a0, 0x20($sp)
-    addiu   $t6, $t6, %lo(Unknown_0x801d8410)
+    addiu   $t6, $t6, %lo(Unknown_0x801d8410_SpTaskPtr)
     sw      $t6, 0x1c($sp)
 
     or      $a1, $t6, $zero
@@ -761,23 +764,23 @@ osSpTaskYield: # 0x800c5da0
     addiu   $a2, $zero, SpTask_Size
 
     lw      $t7, 0x1c($sp)
-    lw      $t8, SpTask_10($t7)
+    lw      $t8, SpTask_CodeDRAM($t7)
     beqz    $t8, branch_0x800c5de8
     nop
     jal     osVirtualToPhysical
     or      $a0, $t8, $zero
     lw      $t9, 0x1c($sp)
-    sw      $v0, SpTask_10($t9)
+    sw      $v0, SpTask_CodeDRAM($t9)
 branch_0x800c5de8:
 
     lw      $t0, 0x1c($sp)
-    lw      $t1, SpTask_18($t0)
+    lw      $t1, SpTask_DataDRAM($t0)
     beqz    $t1, branch_0x800c5e08
     nop
     jal     osVirtualToPhysical
     or      $a0, $t1, $zero
     lw      $t2, 0x1c($sp)
-    sw      $v0, SpTask_18($t2)
+    sw      $v0, SpTask_DataDRAM($t2)
 branch_0x800c5e08:
 
     lw      $t3, 0x1c($sp)
@@ -838,11 +841,11 @@ branch_0x800c5ea8:
 
 
 /* Input:
-a0:
+a0: Ptr to SpTask
 */
 .globl osSpTaskLoad
 osSpTaskLoad: # 0x800c5ebc
-    addiu   $sp, $sp, 0xffe0
+    addiu   $sp, $sp, -0x20
     sw      $ra, 0x14($sp)
     sw      $a0, 0x20($sp)
     jal     osSpTaskYield
@@ -856,10 +859,10 @@ osSpTaskLoad: # 0x800c5ebc
 
     lw      $t9, SpTask_38($t6)
     addiu   $at, $zero, 0xfffe
-    sw      $t9, SpTask_18($t6)
+    sw      $t9, SpTask_DataDRAM($t6)
     lw      $t0, 0x1c($sp) # Ptr to SpTask
     lw      $t1, SpTask_3c($t0)
-    sw      $t1, SpTask_1c($t0)
+    sw      $t1, SpTask_DataSize($t0)
     lw      $t2, 0x20($sp)
     lw      $t3, 0x4($t2)
     and     $t4, $t3, $at
@@ -955,7 +958,7 @@ branch_0x800c600c:
 
 .globl Function_0x800c601c
 Function_0x800c601c: # 0x800c601c
-    addiu   $sp, $sp, 0xffe8
+    addiu   $sp, $sp, -0x18
     sw      $ra, 0x14($sp)
     jal     __osSpDeviceBusy
     sw      $a0, 0x18($sp)
@@ -973,6 +976,7 @@ branch_0x800c6044:
     addiu   $sp, $sp, 0x18
     jr      $ra
     nop
+
 
 .globl Function_0x800c605c
 Function_0x800c605c: # 0x800c605c
@@ -1163,16 +1167,16 @@ osCreateThread: # 0x800c6180
     jal     __osDisableInt
     sh      $zero, 0x12($t1)
 
-    lui     $t2, %hi(0x800e8d8c)
-    lw      $t2, %lo(0x800e8d8c)($t2)
+    lui     $t2, %hi(Unknown_0x800e8d8c)
+    lw      $t2, %lo(Unknown_0x800e8d8c)($t2)
     lw      $t3, 0x28($sp) # a0
     or      $s0, $v0, $zero
-    lui     $at, %hi(0x800e8d8c)
+    lui     $at, %hi(Unknown_0x800e8d8c)
     sw      $t2, 0xc($t3)
     lw      $t9, 0x28($sp) # a0
     or      $a0, $s0, $zero
     jal     __osRestoreInt
-    sw      $t9, %lo(0x800e8d8c)($at)
+    sw      $t9, %lo(Unknown_0x800e8d8c)($at)
 
     lw      $ra, 0x1c($sp)
     lw      $s0, 0x18($sp)
@@ -1210,11 +1214,11 @@ osStartThread: # 0x800c62d0
 
     lw      $t8, 0x28($sp) # a0
     addiu   $t7, $zero, 0x2
-    lui     $a0, %hi(0x800e8d88)
+    lui     $a0, %hi(Unknown_0x800e8d88)
     sh      $t7, 0x10($t8)
     lw      $a1, 0x28($sp) # a0
     jal     Function_0x800cafc0
-    addiu   $a0, $a0, %lo(0x800e8d88)
+    addiu   $a0, $a0, %lo(Unknown_0x800e8d88)
     b       branch_0x800c63ac
     nop
 
@@ -1223,19 +1227,19 @@ branch_0x800c632c:
     lw      $t0, 0x8($t9)
     beqz    $t0, branch_0x800c634c
     nop
-    lui     $t1, %hi(0x800e8d88)
-    addiu   $t1, $t1, %lo(0x800e8d88)
+    lui     $t1, %hi(Unknown_0x800e8d88)
+    addiu   $t1, $t1, %lo(Unknown_0x800e8d88)
     bne     $t0, $t1, branch_0x800c6370
     nop
 
 branch_0x800c634c:
     lw      $t3, 0x28($sp) # a0
     addiu   $t2, $zero, 0x2
-    lui     $a0, %hi(0x800e8d88)
+    lui     $a0, %hi(Unknown_0x800e8d88)
     sh      $t2, 0x10($t3)
     lw      $a1, 0x28($sp) # a0
     jal     Function_0x800cafc0
-    addiu   $a0, $a0, %lo(0x800e8d88)
+    addiu   $a0, $a0, %lo(Unknown_0x800e8d88)
     b       branch_0x800c63ac
     nop
 
@@ -1251,8 +1255,8 @@ branch_0x800c6370:
     jal     Function_0x800cb008
     lw      $a0, 0x8($t7)
     or      $s1, $v0, $zero
-    lui     $a0, %hi(0x800e8d88)
-    addiu   $a0, $a0, %lo(0x800e8d88)
+    lui     $a0, %hi(Unknown_0x800e8d88)
+    addiu   $a0, $a0, %lo(Unknown_0x800e8d88)
     jal     Function_0x800cafc0
     or      $a1, $s1, $zero
 branch_0x800c63ac:
@@ -1631,8 +1635,8 @@ osViGetNextFramebuffer: # 0x800c68a0
 
     jal     __osDisableInt
     sw      $s0, 0x18($sp)
-    lui     $t6, %hi(0x800e8e30)
-    lw      $t6, %lo(0x800e8e30)($t6)
+    lui     $t6, %hi(Unknown_0x800e8e30)
+    lw      $t6, %lo(Unknown_0x800e8e30)($t6)
     or      $s0, $v0, $zero
     or      $a0, $s0, $zero
     lw      $t7, 0x4($t6)
@@ -1670,10 +1674,10 @@ osCreatePiManager: # 0x800c68e0
     jal     osCreateMesgQueue
     lw      $a2, 0x3c($sp) # a3: s32 msgCount
 
-    lui     $a0, %hi(0x801da890) # OSMesgQueue *
-    lui     $a1, %hi(0x801da8a8) # OSMesg *msg
-    addiu   $a1, $a1, %lo(0x801da8a8)
-    addiu   $a0, $a0, %lo(0x801da890)
+    lui     $a0, %hi(Unknown_0x801da890) # OSMesgQueue *
+    lui     $a1, %hi(Unknown_0x801da8a8) # OSMesg *msg
+    addiu   $a1, $a1, %lo(Unknown_0x801da8a8)
+    addiu   $a0, $a0, %lo(Unknown_0x801da890)
     jal     osCreateMesgQueue
     addiu   $a2, $zero, 0x1 # s32 msgCount
 
@@ -1685,10 +1689,10 @@ osCreatePiManager: # 0x800c68e0
     nop
 
 branch_0x800c6944:
-    lui     $a1, %hi(0x801da890)
+    lui     $a1, %hi(Unknown_0x801da890)
     lui     $a2, %hi(0x22222222)
     ori     $a2, $a2, %lo(0x22222222)
-    addiu   $a1, $a1, %lo(0x801da890)
+    addiu   $a1, $a1, %lo(Unknown_0x801da890)
     jal     osSetEventMesg
     addiu   $a0, $zero, 0x8
     addiu   $t8, $zero, 0xffff
@@ -1713,18 +1717,18 @@ branch_0x800c6994:
     lui     $at, %hi(0x800f0000)
     lw      $t3, 0x34($sp) # a1
     lui     $t2, %hi(Unknown_0x801d96e0)
-    lui     $t4, %hi(0x801da890)
+    lui     $t4, %hi(Unknown_0x801da890)
     addiu   $t1, $zero, 0x1
     addiu   $t2, $t2, %lo(Unknown_0x801d96e0)
-    addiu   $t4, $t4, %lo(0x801da890)
-    lui     $t7, %hi(0x801d9890)
+    addiu   $t4, $t4, %lo(Unknown_0x801da890)
+    lui     $t7, %hi(Unknown_0x801d9890)
     lw      $t9, 0x30($sp) # a0
     sw      $t1, %lo(Unknown_0x800e8d30_0)($at)
     sw      $t2, %lo(Unknown_0x800e8d30_4)($at)
     sw      $t4, %lo(Unknown_0x800e8d30_c)($at)
     lui     $t5, %hi(Unknown_0x801da9f8)
     lui     $t6, %hi(osPiRawStartDma)
-    addiu   $t7, $t7, %lo(0x801d9890)
+    addiu   $t7, $t7, %lo(Unknown_0x801d9890)
     sw      $t3, %lo(Unknown_0x800e8d30_8)($at)
     lui     $at, %hi(0x800f0000)
     addiu   $t5, $t5, %lo(Unknown_0x801da9f8)
@@ -1840,14 +1844,14 @@ osInitialize: # 0x800c6b40
     sw      $ra, 0x1c($sp)
 
     addiu   $t6, $zero, 0x1
-    lui     $at, %hi(0x801da8b0)
+    lui     $at, %hi(Unknown_0x801da8b0)
     sw      $s0, 0x18($sp)
     sw      $zero, 0x30($sp)
     jal     __osGetSR
-    sw      $t6, %lo(0x801da8b0)($at)
+    sw      $t6, %lo(Unknown_0x801da8b0)($at)
 
     or      $s0, $v0, $zero
-    lui     $at, 0x2000
+    lui     $at, %hi(0x20000000)
     jal     __osSetSR
     or      $a0, $s0, $at
 
@@ -1891,31 +1895,31 @@ branch_0x800c6bcc:
     nop
 
 branch_0x800c6bec:
-    lui     $t0, %hi(0x800ca8f0)
-    addiu   $t0, $t0, %lo(0x800ca8f0)
+    lui     $t0, %hi(Unknown_0x800ca8f0)
+    addiu   $t0, $t0, %lo(Unknown_0x800ca8f0)
     lw      $at, 0x0($t0)
     lui     $t9, %hi(0x80000000)
-    lui     $t5, %hi(0x800ca8f0)
+    lui     $t5, %hi(Unknown_0x800ca8f0)
     sw      $at, %lo(0x80000000)($t9)
     lw      $t3, 0x4($t0)
-    addiu   $t5, $t5, %lo(0x800ca8f0)
+    addiu   $t5, $t5, %lo(Unknown_0x800ca8f0)
     lui     $t4, %hi(0x80000080)
     sw      $t3, %lo(0x80000004)($t9)
     lw      $at, 0x8($t0)
     ori     $t4, $t4, %lo(0x80000080)
-    lui     $t1, %hi(0x800ca8f0)
+    lui     $t1, %hi(Unknown_0x800ca8f0)
     sw      $at, %lo(0x80000008)($t9)
     lw      $t3, 0xc($t0)
-    addiu   $t1, $t1, %lo(0x800ca8f0)
+    addiu   $t1, $t1, %lo(Unknown_0x800ca8f0)
     lui     $t2, %hi(0x80000100)
     sw      $t3, %lo(0x8000000c)($t9)
 
     lw      $at, 0x0($t5)
     ori     $t2, $t2, %lo(0x80000100)
-    lui     $t6, %hi(0x800ca8f0)
+    lui     $t6, %hi(Unknown_0x800ca8f0)
     sw      $at, 0x0($t4)
     lw      $t8, 0x4($t5)
-    addiu   $t6, $t6, %lo(0x800ca8f0)
+    addiu   $t6, $t6, %lo(Unknown_0x800ca8f0)
     lui     $t7, %hi(0x80000180)
     sw      $t8, 0x4($t4)
     lw      $at, 0x8($t5)
@@ -1962,14 +1966,14 @@ branch_0x800c6bec:
     lui     $at, %hi(0x800f0000)
     or      $t3, $t9, $zero
     addiu   $t2, $zero, 0x0
-    sw      $t2, %lo(0x800e8d50)($at)
-    sw      $t3, %lo(0x800e8d54)($at)
+    sw      $t2, %lo(Unknown_0x800e8d50)($at)
+    sw      $t3, %lo(Unknown_0x800e8d54)($at)
 
 branch_0x800c6cfc:
-    lui     $a0, %hi(0x800e8d50)
-    lui     $a1, %hi(0x800e8d54)
-    lw      $a1, %lo(0x800e8d54)($a1)
-    lw      $a0, %lo(0x800e8d50)($a0)
+    lui     $a0, %hi(Unknown_0x800e8d50)
+    lui     $a1, %hi(Unknown_0x800e8d54)
+    lw      $a1, %lo(Unknown_0x800e8d54)($a1)
+    lw      $a0, %lo(Unknown_0x800e8d50)($a0)
     addiu   $a2, $zero, 0x0
     jal     Function_0x800cc648
     addiu   $a3, $zero, 0x3
@@ -1985,9 +1989,9 @@ branch_0x800c6cfc:
     lui     $t1, %hi(0x8000030c)
     lw      $t1, %lo(0x8000030c)($t1)
     lui     $at, %hi(0x800f0000)
-    sw      $v0, %lo(0x800e8d50)($at)
+    sw      $v0, %lo(Unknown_0x800e8d50)($at)
     bnez    $t1, branch_0x800c6d5c
-    sw      $v1, %lo(0x800e8d54)($at)
+    sw      $v1, %lo(Unknown_0x800e8d54)($at)
 
     lui     $a0, %hi(0x8000031c)
     addiu   $a0, $a0, %lo(0x8000031c)
@@ -5693,9 +5697,9 @@ Function_0x800c9f70: # 0x800c9f70
     sw      $a2, 0x28($sp)
     sw      $a3, 0x2c($sp)
     addiu   $t7, $t6, 0x4
-    lui     $a0, 0x800d
+    lui     $a0, %hi(Function_0x800c9fdc)
     sw      $t7, 0x18($sp)
-    addiu   $a0, $a0, 0x9fdc
+    addiu   $a0, $a0, %lo(Function_0x800c9fdc)
     or      $a3, $t7, $zero
     lw      $a2, 0x24($sp)
     jal     Function_0x800cf0b0
@@ -6463,15 +6467,15 @@ branch_0x800ca8e8:
 
 .globl __osExceptionPreamble
 __osExceptionPreamble: # 0x800ca8f0
-    lui     $k0, 0x800d
-    addiu   $k0, $k0, 0xa900
+    lui     $k0, %hi(Function_0x800ca900)
+    addiu   $k0, $k0, %lo(Function_0x800ca900)
     jr      $k0
     nop
 
 .globl Function_0x800ca900
 Function_0x800ca900: # 0x800ca900
-    lui     $k0, 0x801e
-    addiu   $k0, $k0, 0xab50
+    lui     $k0, %hi(Unknown_0x801dab50)
+    addiu   $k0, $k0, %lo(Unknown_0x801dab50)
     sd      $at, 0x20($k0)
 
 .globl Function_0x800ca90c
@@ -7446,17 +7450,17 @@ Function_0x800cb680: # 0x800cb680
     addiu   $sp, $sp, 0xffe8
     sw      $ra, 0x14($sp)
     addiu   $t6, $zero, 0x1
-    lui     $at, %hi(0x800e8e40)
+    lui     $at, %hi(Unknown_0x800e8e40)
     lui     $a0, 0x801e
     lui     $a1, 0x801e
-    sw      $t6, %lo(0x800e8e40)($at)
+    sw      $t6, %lo(Unknown_0x800e8e40)($at)
     addiu   $a1, $a1, 0xa9d0
     addiu   $a0, $a0, 0xa9d8
     jal     osCreateMesgQueue
     addiu   $a2, $zero, 0x1
 
-    lui     $a0, %hi(0x801da9d8)
-    addiu   $a0, $a0, %lo(0x801da9d8)
+    lui     $a0, %hi(Unknown_0x801da9d8)
+    addiu   $a0, $a0, %lo(Unknown_0x801da9d8)
     or      $a1, $zero, $zero
     jal     osSendMesg
     or      $a2, $zero, $zero
@@ -7477,8 +7481,8 @@ Function_0x800cb6d0: # 0x800cb6d0
     jal     Function_0x800cb680
     nop
 branch_0x800cb6f0:
-    lui     $a0, 0x801e
-    addiu   $a0, $a0, 0xa9d8
+    lui     $a0, %hi(Unknown_0x801da9d8)
+    addiu   $a0, $a0, %lo(Unknown_0x801da9d8)
     addiu   $a1, $sp, 0x1c
     jal     osRecvMesg
     addiu   $a2, $zero, 0x1
@@ -7492,8 +7496,8 @@ Function_0x800cb714: # 0x800cb714
     addiu   $sp, $sp, 0xffe8
     sw      $ra, 0x14($sp)
 
-    lui     $a0, %hi(0x801da9d8)
-    addiu   $a0, $a0, %lo(0x801da9d8)
+    lui     $a0, %hi(Unknown_0x801da9d8)
+    addiu   $a0, $a0, %lo(Unknown_0x801da9d8)
     or      $a1, $zero, $zero
     jal     osSendMesg
     or      $a2, $zero, $zero
@@ -8227,11 +8231,11 @@ Function_0x800cc030: # 0x800cc030
 
     addiu   $t6, $zero, 0x1
     lui     $at, %hi(Unknown_0x800e8e50)
-    lui     $a0, %hi(0x801da9f8)
-    lui     $a1, %hi(0x801da9f0)
+    lui     $a0, %hi(Unknown_0x801da9f8)
+    lui     $a1, %hi(Unknown_0x801da9f0)
     sw      $t6, %lo(Unknown_0x800e8e50)($at)
-    addiu   $a1, $a1, %lo(0x801da9f0)
-    addiu   $a0, $a0, %lo(0x801da9f8)
+    addiu   $a1, $a1, %lo(Unknown_0x801da9f0)
+    addiu   $a0, $a0, %lo(Unknown_0x801da9f8)
     jal     osCreateMesgQueue
     addiu   $a2, $zero, 0x1
 
@@ -8251,15 +8255,15 @@ Function_0x800cc030: # 0x800cc030
 Function_0x800cc080: # 0x800cc080
     lui     $t6, %hi(Unknown_0x800e8e50)
     lw      $t6, %lo(Unknown_0x800e8e50)($t6)
-    addiu   $sp, $sp, 0xffe0
+    addiu   $sp, $sp, -0x20
     sw      $ra, 0x14($sp)
     bnez    $t6, branch_0x800cc0a0
     nop
     jal     Function_0x800cc030
     nop
 branch_0x800cc0a0:
-    lui     $a0, %hi(0x801da9f8)
-    addiu   $a0, $a0, %lo(0x801da9f8)
+    lui     $a0, %hi(Unknown_0x801da9f8)
+    addiu   $a0, $a0, %lo(Unknown_0x801da9f8)
     addiu   $a1, $sp, 0x1c
     jal     osRecvMesg
     addiu   $a2, $zero, 0x1

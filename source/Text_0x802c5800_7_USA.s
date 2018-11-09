@@ -239,8 +239,9 @@ branch_0x802c5ae4:
     jr      $ra
     addiu   $sp, $sp, 0x1b8
 
-.globl Function_0x802c5b74
-Function_0x802c5b74: # 0x802c5b74
+
+.globl Function_7_0x802c5b74
+Function_7_0x802c5b74: # 0x802c5b74
     lui     $v0, 0x801d
     addiu   $v0, $v0, 0xe39c
     lw      $t6, 0x0($v0)
@@ -266,8 +267,8 @@ branch_0x802c5bc8:
     lui     $at, 0x800e
     jal     Function_0x8008f914
     sw      $zero, -0x5754($at)
-    lui     $a1, %hi(Unknown_0x800d7ef0_TrackNr)
-    lw      $a1, %lo(Unknown_0x800d7ef0_TrackNr)($a1)
+    lui     $a1, %hi(TrackNr_0x800d7ef0)
+    lw      $a1, %lo(TrackNr_0x800d7ef0)($a1)
     jal     Function_0x80094758
     or      $a0, $v0, $zero
     jal     Function_0x80090cf8_DrawWaterBG
@@ -496,7 +497,7 @@ branch_0x802c5eb4:
     lui     $s5, 0x380
     lui     $s0, 0x700
     lui     $s4, 0x700
-    lui     $fp, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $fp, %hi(TrackNr_0x800d7ef0)
     lui     $s7, 0x800e
     lui     $s6, 0x102
     sw      $t4, 0x18($v0)
@@ -505,7 +506,7 @@ branch_0x802c5eb4:
     addiu   $s3, $v0, 0x28
     ori     $s6, $s6, 0x40
     addiu   $s7, $s7, 0xa8e8
-    addiu   $fp, $fp, %lo(Unknown_0x800d7ef0_TrackNr)
+    addiu   $fp, $fp, %lo(TrackNr_0x800d7ef0)
     addiu   $s4, $s4, 0xa80
     addiu   $s0, $s0, 0x1280
     ori     $s5, $s5, 0x10
@@ -591,10 +592,10 @@ branch_0x802c6060:
     addiu   $v1, $s3, 0x8
     sw      $s6, 0x0($v1)
     sw      $s4, 0x4($v1)
-    lui     $t6, 0x800d
+    lui     $t6, %hi(Unknown_0x800d465c)
     lui     $t8, 0x801d
     lw      $t8, -0x1ca8($t8)
-    lw      $t6, 0x465c($t6)
+    lw      $t6, %lo(Unknown_0x800d465c)($t6)
     sll     $t9, $s1, 2
     subu    $t9, $t9, $s1
     sll     $t9, $t9, 6
@@ -1062,8 +1063,8 @@ branch_0x802c6764:
     or      $a2, $s5, $zero
     jal     Function_0x801e95e0
     addiu   $a3, $a3, 0x3b
-    lui     $t8, 0x800d
-    lw      $t8, 0x465c($t8)
+    lui     $t8, %hi(Unknown_0x800d465c)
+    lw      $t8, %lo(Unknown_0x800d465c)($t8)
     lui     $a3, 0x802c
     lw      $a3, 0x6d38($a3)
     sll     $t9, $t8, 3

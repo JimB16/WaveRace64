@@ -56,8 +56,8 @@ branch_0x802c585c:
     nop
     lui     $t8, 0x802c
     lw      $t8, 0x7040($t8)
-    lui     $t5, 0x800d
-    lw      $t5, 0x465c($t5)
+    lui     $t5, %hi(Unknown_0x800d465c)
+    lw      $t5, %lo(Unknown_0x800d465c)($t5)
     sll     $t9, $t8, 2
     addu    $t0, $s0, $t9
     lw      $a0, 0x0($t0)
@@ -71,12 +71,12 @@ branch_0x802c585c:
     addu    $t6, $t6, $t5
     sll     $t6, $t6, 2
     addiu   $t2, $t2, %lo(String_DriverNames)
-    lui     $t7, %hi(Unknown_0x801923f0)
+    lui     $t7, %hi(Unknown_0x801923f0_GameStruct)
     subu    $t6, $t6, $t5
     mflo    $t1
     addu    $v1, $t1, $t2
     sll     $t6, $t6, 3
-    addiu   $t7, $t7, %lo(Unknown_0x801923f0)
+    addiu   $t7, $t7, %lo(Unknown_0x801923f0_GameStruct)
     addu    $v0, $t6, $t7
     lb      $t3, 0xb($v1)
     lb      $t4, 0xc($v1)
@@ -369,8 +369,9 @@ branch_0x802c5d00:
     jr      $ra
     addiu   $sp, $sp, 0x1d8
 
-.globl Function_0x802c5d3c
-Function_0x802c5d3c: # 0x802c5d3c
+
+.globl Function_10_0x802c5d3c
+Function_10_0x802c5d3c: # 0x802c5d3c
     lui     $v0, 0x801d
     addiu   $v0, $v0, 0xe39c
     lw      $t6, 0x0($v0)
@@ -1684,9 +1685,9 @@ Function_0x802c6f4c: # 0x802c6f4c
     addiu   $sp, $sp, 0xffe8
     sw      $zero, -0x5764($at)
     sw      $ra, 0x14($sp)
-    lui     $at, 0x800d
+    lui     $at, %hi(Unknown_0x800d439c)
     addiu   $t0, $zero, 0x3
-    sw      $t0, 0x439c($at)
+    sw      $t0, %lo(Unknown_0x800d439c)($at)
     addiu   $a0, $zero, 0x1
     addiu   $a1, $zero, 0x4
     jal     Function_0x801e6d10

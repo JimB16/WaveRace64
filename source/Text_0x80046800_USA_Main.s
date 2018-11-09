@@ -19,18 +19,18 @@ Function_0x80047430: # 0x80047430
     addiu   $sp, $sp, 0x18
 
 
-.globl Function_0x80047460
-Function_0x80047460: # 0x80047460
+.globl Function_0x80047460_RunSpTask
+Function_0x80047460_RunSpTask: # 0x80047460
     addiu   $sp, $sp, -0x18
     sw      $ra, 0x14($sp)
 
-    lui     $a0, %hi(Unknown_0x80154018)
+    lui     $a0, %hi(Unknown_0x80154018_SpTaskPtr)
     jal     osSpTaskLoad
-    lw      $a0, %lo(Unknown_0x80154018)($a0)
+    lw      $a0, %lo(Unknown_0x80154018_SpTaskPtr)($a0)
 
-    lui     $a0, %hi(Unknown_0x80154018)
+    lui     $a0, %hi(Unknown_0x80154018_SpTaskPtr)
     jal     Function_0x800c601c
-    lw      $a0, %lo(Unknown_0x80154018)($a0)
+    lw      $a0, %lo(Unknown_0x80154018_SpTaskPtr)($a0)
 
     lw      $ra, 0x14($sp)
     addiu   $t6, $zero, 0x2
@@ -44,20 +44,20 @@ Function_0x80047460: # 0x80047460
     addiu   $sp, $sp, 0x18
 
 
-.globl Function_0x800474a4
-Function_0x800474a4: # 0x800474a4
+.globl Function_0x800474a4_RunSpTask
+Function_0x800474a4_RunSpTask: # 0x800474a4
     addiu   $sp, $sp, -0x18
     sw      $ra, 0x14($sp)
     jal     Set_DPC_STATUS_REG
     addiu   $a0, $zero, 0x3c0
 
-    lui     $a0, %hi(Unknown_0x80154014)
+    lui     $a0, %hi(Unknown_0x80154014_SpTaskPtr)
     jal     osSpTaskLoad
-    lw      $a0, %lo(Unknown_0x80154014)($a0)
+    lw      $a0, %lo(Unknown_0x80154014_SpTaskPtr)($a0)
 
-    lui     $a0, %hi(Unknown_0x80154014)
+    lui     $a0, %hi(Unknown_0x80154014_SpTaskPtr)
     jal     Function_0x800c601c
-    lw      $a0, %lo(Unknown_0x80154014)($a0)
+    lw      $a0, %lo(Unknown_0x80154014_SpTaskPtr)($a0)
 
     lw      $ra, 0x14($sp)
     addiu   $t6, $zero, 0x3
@@ -100,10 +100,10 @@ Thread3_Main: # 0x800474f0
     jal     osCreateMesgQueue
     addiu   $a2, $zero, 0x1
 
-    lui     $a0, %hi(0x80153e48)
+    lui     $a0, %hi(Unknown_0x80153e48)
     lui     $a1, %hi(Unknown_0x80153fb0)
     addiu   $a1, $a1, %lo(Unknown_0x80153fb0)
-    addiu   $a0, $a0, %lo(0x80153e48)
+    addiu   $a0, $a0, %lo(Unknown_0x80153e48)
     jal     osCreateMesgQueue
 
     addiu   $a2, $zero, 0x1
@@ -200,20 +200,20 @@ branch_0x80047650:
     or      $a0, $s0, $zero
 
 branch_0x8004769c:
-    lui     $s7, 0x800d
-    lui     $s6, 0x800d
+    lui     $s7, %hi(Unknown_0x800d4398)
+    lui     $s6, %hi(Unknown_0x800d4394)
     lui     $s5, %hi(Unknown_0x800d438c)
-    lui     $s4, 0x800d
-    lui     $s3, 0x800d
-    lui     $s2, 0x800d
+    lui     $s4, %hi(Unknown_0x800d4388)
+    lui     $s3, %hi(Unknown_0x800d4390)
+    lui     $s2, %hi(Unknown_0x800d4384)
     lui     $s0, %hi(Unknown_0x800d4380)
     addiu   $s0, $s0, %lo(Unknown_0x800d4380)
-    addiu   $s2, $s2, 0x4384
-    addiu   $s3, $s3, 0x4390
-    addiu   $s4, $s4, 0x4388
+    addiu   $s2, $s2, %lo(Unknown_0x800d4384)
+    addiu   $s3, $s3, %lo(Unknown_0x800d4390)
+    addiu   $s4, $s4, %lo(Unknown_0x800d4388)
     addiu   $s5, $s5, %lo(Unknown_0x800d438c)
-    addiu   $s6, $s6, 0x4394
-    addiu   $s7, $s7, 0x4398
+    addiu   $s6, $s6, %lo(Unknown_0x800d4394)
+    addiu   $s7, $s7, %lo(Unknown_0x800d4398)
     addiu   $s1, $zero, 0x1
 
 branch_0x800476d8:
@@ -260,7 +260,7 @@ branch_0x80047758:
     addiu   $at, $zero, 0x16
     lw      $v0, 0x0($s0)
     addiu   $at, $zero, 0x2
-    lui     $a0, %hi(Unknown_0x80154014)
+    lui     $a0, %hi(Unknown_0x80154014_SpTaskPtr)
     beq     $v0, $s1, branch_0x80047790
     nop
     beq     $v0, $at, branch_0x800477b4
@@ -272,12 +272,12 @@ branch_0x80047758:
 
 branch_0x80047790:
     jal     osSpTaskYielded
-    lw      $a0, %lo(Unknown_0x80154014)($a0)
+    lw      $a0, %lo(Unknown_0x80154014_SpTaskPtr)($a0)
     beqz    $v0, branch_0x800477a4
     nop
     sw      $s1, 0x0($s4)
 branch_0x800477a4:
-    jal     Function_0x80047460
+    jal     Function_0x80047460_RunSpTask
     nop
     b       branch_0x800476d8
     nop
@@ -286,41 +286,35 @@ branch_0x800477b4:
     lw      $t8, 0x0($s4)
     beqzl   $t8, branch_0x800477d4
     lw      $t9, 0x0($s5)
-    jal     Function_0x800474a4
+    jal     Function_0x800474a4_RunSpTask
     sw      $zero, 0x0($s4)
 
     b       branch_0x800476d8
     nop
 
-
-.globl Function_0x800477d0
-Function_0x800477d0: # 0x800477d0
+# 0x800477d0
     lw      $t9, 0x0($s5)
 branch_0x800477d4:
     beqzl   $t9, branch_0x800477f0
     sw      $zero, 0x0($s0)
-    jal     Function_0x800474a4
+    jal     Function_0x800474a4_RunSpTask
     sw      $zero, 0x0($s5)
     b       branch_0x800476d8
     nop
 
-
-.globl Function_0x800477ec
-Function_0x800477ec: # 0x800477ec
+# 0x800477ec
     sw      $zero, 0x0($s0)
 branch_0x800477f0:
     b       branch_0x800476d8
     sw      $zero, 0x0($s2)
 
-.globl Function_0x800477f8
-Function_0x800477f8: # 0x800477f8
+# 0x800477f8
     sw      $zero, 0x0($s0)
 branch_0x800477fc:
     b       branch_0x800476d8
     sw      $zero, 0x0($s2)
 
-.globl Function_0x80047804
-Function_0x80047804: # 0x80047804
+# 0x80047804
     addiu   $at, $zero, 0x16
 branch_0x80047808:
     bnel    $v1, $at, branch_0x80047854
@@ -338,13 +332,12 @@ branch_0x80047808:
     b       branch_0x800476d8
     nop
 branch_0x80047840:
-    jal     Function_0x80047460
+    jal     Function_0x80047460_RunSpTask
     nop
     b       branch_0x800476d8
     nop
 
-.globl Function_0x80047850
-Function_0x80047850: # 0x80047850
+# 0x80047850
     addiu   $at, $zero, 0x15
 branch_0x80047854:
     bnel    $v1, $at, branch_0x8004788c
@@ -357,14 +350,12 @@ branch_0x80047854:
     b       branch_0x800476d8
     sw      $s1, 0x0($s5)
 branch_0x80047878:
-    jal     Function_0x800474a4
+    jal     Function_0x800474a4_RunSpTask
     nop
     b       branch_0x800476d8
     nop
 
-
-.globl Function_0x80047888
-Function_0x80047888: # 0x80047888
+# 0x80047888
     addiu   $at, $zero, 0x18
 branch_0x8004788c:
     bne     $v1, $at, branch_0x800476d8
@@ -416,9 +407,9 @@ Thread1_Main: # 0x800478dc
     jal     osCreateViManager
     addiu   $a0, $zero, 0xfe
 
-    lui     $a0, %hi(0x800e84f0)
+    lui     $a0, %hi(Unknown_0x800e84f0)
     jal     osViSetMode
-    addiu   $a0, $a0, %lo(0x800e84f0)
+    addiu   $a0, $a0, %lo(Unknown_0x800e84f0)
 
     jal     osViBlack
     addiu   $a0, $zero, 0x1

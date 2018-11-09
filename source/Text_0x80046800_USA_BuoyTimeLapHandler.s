@@ -33,20 +33,20 @@ branch_0x80076878:
     subu    $t9, $t9, $a0
     sll     $t9, $t9, 4
     subu    $t9, $t9, $a0
-    lui     $t6, %hi(Unknown_0x801c2698)
-    addiu   $t6, $t6, %lo(Unknown_0x801c2698)
+    lui     $t6, %hi(Unknown_0x801c2698_RaceStruct)
+    addiu   $t6, $t6, %lo(Unknown_0x801c2698_RaceStruct)
     sll     $t9, $t9, 3
     sw      $v1, 0x10c($sp)
     addu    $s0, $t9, $t6
     lw      $v0, RaceStruct_300($s0)
     sw      $zero, RaceStruct_314($s0)
-    lui     $a3, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $a3, %hi(TrackNr_0x800d7ef0)
     beqz    $v0, branch_0x800768b0
-    addiu   $t7, $v0, 0xffff
+    addiu   $t7, $v0, -1
 
     sw      $t7, RaceStruct_300($s0)
 branch_0x800768b0:
-    lw      $a3, %lo(Unknown_0x800d7ef0_TrackNr)($a3)
+    lw      $a3, %lo(TrackNr_0x800d7ef0)($a3)
     addiu   $at, $zero, 0x4
     lui     $v0, %hi(Unknown_0x801c1d30)
     bne     $a3, $at, branch_0x800768f4
@@ -73,8 +73,8 @@ branch_0x800768f8:
     bne     $a3, $at, branch_0x80076944
     addiu   $ra, $zero, 0x1
 
-    lui     $v0, %hi(Unknown_0x801c1d2c)
-    lw      $v0, %lo(Unknown_0x801c1d2c)($v0)
+    lui     $v0, %hi(Unknown_0x801c1d2c_CurLapNr)
+    lw      $v0, %lo(Unknown_0x801c1d2c_CurLapNr)($v0)
     lui     $t6, %hi(Unknown_0x801b6d80)
     addiu   $t6, $t6, %lo(Unknown_0x801b6d80)
     slti    $at, $v0, 0x2
@@ -82,9 +82,9 @@ branch_0x800768f8:
     nop
 
     sw      $t6, RaceStruct_350($s0)
-    lui     $a3, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $a3, %hi(TrackNr_0x800d7ef0)
     b       branch_0x80076944
-    lw      $a3, %lo(Unknown_0x800d7ef0_TrackNr)($a3)
+    lw      $a3, %lo(TrackNr_0x800d7ef0)($a3)
 
 branch_0x8007692c:
     blez    $v0, branch_0x80076944
@@ -92,8 +92,8 @@ branch_0x8007692c:
 
     addiu   $t7, $t7, %lo(Unknown_0x801b2c80)
     sw      $t7, RaceStruct_350($s0)
-    lui     $a3, %hi(Unknown_0x800d7ef0_TrackNr)
-    lw      $a3, %lo(Unknown_0x800d7ef0_TrackNr)($a3)
+    lui     $a3, %hi(TrackNr_0x800d7ef0)
+    lw      $a3, %lo(TrackNr_0x800d7ef0)($a3)
 branch_0x80076944:
     addiu   $at, $zero, 0x9
     bne     $a3, $at, branch_0x8007696c
@@ -166,8 +166,8 @@ branch_0x800769d0:
     lw      $t8, RaceStruct_c($s0)
 
     lw      $t7, RaceStruct_168($s0)
-    lui     $v0, 0x9
-    ori     $v0, $v0, 0x27bf
+    lui     $v0, %hi(0x927bf)
+    ori     $v0, $v0, %lo(0x927bf)
     addiu   $t8, $t7, 0x32
     slt     $at, $t8, $v0
     bnez    $at, branch_0x80076a34
@@ -176,14 +176,14 @@ branch_0x800769d0:
     sw      $v0, RaceStruct_168($s0)
 branch_0x80076a34:
     lw      $t6, RaceStruct_19c($s0)
-    lui     $t9, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $t9, %hi(TrackNr_0x800d7ef0)
     addiu   $t7, $t6, 0x32
     slt     $at, $t7, $v0
     bnez    $at, branch_0x80076a6c
     sw      $t7, RaceStruct_19c($s0)
 
     sw      $v0, RaceStruct_19c($s0)
-    lw      $t9, %lo(Unknown_0x800d7ef0_TrackNr)($t9)
+    lw      $t9, %lo(TrackNr_0x800d7ef0)($t9)
     beqz    $t9, branch_0x80076a6c
     nop
 
@@ -200,44 +200,44 @@ branch_0x80076a6c:
     lw      $t8, RaceStruct_c($s0)
 branch_0x80076a80:
     lui     $at, %hi(FLOAT_0_5)
-    lui     $t7, %hi(Unknown_0x801aeb80)
+    lui     $t7, %hi(Unknown_0x801aeb80_ObjsStruct)
     sll     $t6, $t8, 6
     addu    $t6, $t6, $t8
     mtc1    $at, $zero
     sll     $t6, $t6, 2
-    addiu   $t7, $t7, %lo(Unknown_0x801aeb80)
+    addiu   $t7, $t7, %lo(Unknown_0x801aeb80_ObjsStruct)
     addu    $t0, $t6, $t7
     lui     $at, %hi(FLOAT_50)
     mtc1    $at, $a2
-    lwc1    $f4, 0x80($t0)
-    lwc1    $f14, 0x0($t0)
-    lwc1    $f16, 0x8($t0)
+    lwc1    $f4, ObjsStruct_80($t0)
+    lwc1    $f14, ObjsStruct_0($t0)
+    lwc1    $f16, ObjsStruct_8($t0)
     mul.s   $f8, $f4, $f6
-    lwc1    $f6, 0x84($t0)
+    lwc1    $f6, ObjsStruct_84($t0)
     sw      $t8, 0x104($sp)
-    lw      $t8, 0x9c($t0)
+    lw      $t8, ObjsStruct_9c($t0)
     mul.s   $f10, $f8, $f0
     mtc1    $at, $t0
     sub.s   $f4, $f14, $f10
     mul.s   $f10, $f6, $f8
-    swc1    $f4, 0x70($29)
+    swc1    $f4, 0x70($sp)
     mul.s   $f4, $f10, $f0
     sub.s   $f6, $f16, $f4
     bne     $ra, $t8, branch_0x80076bfc
-    swc1    $f6, 0x6c($29)
+    swc1    $f6, 0x6c($sp)
 
-    lwc1    $f8, 0xc($t0)
-    lwc1    $f10, 0x18($t0)
-    lwc1    $f4, 0x14($t0)
-    lwc1    $f6, 0x20($t0)
+    lwc1    $f8, ObjsStruct_c($t0)
+    lwc1    $f10, ObjsStruct_18($t0)
+    lwc1    $f4, ObjsStruct_14($t0)
+    lwc1    $f6, ObjsStruct_20($t0)
     sub.s   $f14, $f8, $f10
     sw      $a0, 0x120($sp)
     sw      $t0, 0x38($sp)
     sub.s   $f16, $f4, $f6
     mul.s   $f8, $f14, $f14
-    swc1    $f14, 0x60($29)
+    swc1    $f14, 0x60($sp)
     mul.s   $f10, $f16, $f16
-    swc1    $f16, 0x5c($29)
+    swc1    $f16, 0x5c($sp)
     jal     sqrtf
     add.s   $f12, $f8, $f10
     mtc1    $zero, $a0
@@ -254,11 +254,11 @@ branch_0x80076a80:
     div.s   $f16, $f16, $f0
 branch_0x80076b4c:
     lwc1    $f6, 0x34e0($at)
-    lwc1    $f8, 0x18($t0)
+    lwc1    $f8, ObjsStruct_18($t0)
     lui     $at, 0x801c
     lwc1    $f10, 0x34e8($at)
     sub.s   $f2, $f6, $f8
-    lwc1    $f4, 0x20($t0)
+    lwc1    $f4, ObjsStruct_20($t0)
     lui     $at, 0x801c
     sub.s   $f12, $f10, $f4
     mul.s   $f6, $f2, $f14
@@ -277,9 +277,9 @@ branch_0x80076b8c:
 
     lui     $at, %hi(0x40000000)
     mtc1    $at, $a2
-    lwc1    $f4, 0x8c($t0)
-    lui     $at, 0x801c
-    lwc1    $f10, 0x3724($at)
+    lwc1    $f4, ObjsStruct_8c($t0)
+    lui     $at, %hi(Unknown_0x801c3724)
+    lwc1    $f10, %lo(Unknown_0x801c3724)($at)
     mul.s   $f8, $f4, $f6
     or      $t6, $zero, $zero
     add.s   $f4, $f8, $f10
@@ -287,7 +287,6 @@ branch_0x80076b8c:
     nop
     bc1f    branch_0x80076bcc
     nop
-
     addiu   $t6, $zero, 0x1				# Collision Detection returns true for Buoy passing and Start/Finish line crossing
 branch_0x80076bcc:
     b       branch_0x80076c78
@@ -308,7 +307,7 @@ branch_0x80076bf4:
     sw      $t7, 0xf4($sp)
 
 branch_0x80076bfc:
-    lw      $v1, 0x98($t0)
+    lw      $v1, ObjsStruct_98($t0)
     addiu   $at, $zero, 0x8
     beq     $v1, $at, branch_0x80076c14
     addiu   $at, $zero, 0x9
@@ -318,23 +317,23 @@ branch_0x80076bfc:
 branch_0x80076c14:
     lui     $at, 0x801c
     lwc1    $f10, 0x34e0($at)
-    lwc1    $f6, 0x78($t0)
+    lwc1    $f6, ObjsStruct_78($t0)
     lui     $at, 0x801c
     sub.s   $f4, $f10, $f14
     lwc1    $f10, 0x34e8($at)
     mul.s   $f8, $f4, $f6
     sub.s   $f4, $f10, $f16
-    lwc1    $f6, 0x7c($t0)
+    lwc1    $f6, ObjsStruct_7c($t0)
     mul.s   $f10, $f4, $f6
     mtc1    $zero, $a0
     add.s   $f0, $f8, $f10
     c.le.s $f4, $f0
     nop
     bc1tl   branch_0x80076c5c
-    lwc1    $f6, 0x8c($t0)
+    lwc1    $f6, ObjsStruct_8c($t0)
 
     neg.s   $f0, $f0
-    lwc1    $f6, 0x8c($t0)
+    lwc1    $f6, ObjsStruct_8c($t0)
 branch_0x80076c5c:
     c.le.s $f0, $f6
     nop
@@ -347,23 +346,23 @@ branch_0x80076c5c:
 # 0x80076c74
     sw      $a0, 0x120($sp)
 branch_0x80076c78:
-    lwc1    $f8, 0x70($t0)
-    lwc1    $f10, 0x74($t0)
+    lwc1    $f8, ObjsStruct_70($t0)
+    lwc1    $f10, ObjsStruct_74($t0)
     lui     $at, 0x801c
     lwc1    $f4, 0x34e0($at)
     lwc1    $f6, 0x70($sp)
     lui     $at, 0x801c
-    swc1    $8, 0x68($29)
-    swc1    $10, 0x64($29)
+    swc1    $f8, 0x68($sp)
+    swc1    $f10, 0x64($sp)
     sub.s   $f2, $f4, $f6
     lwc1    $f10, 0x6c($sp)
     lwc1    $f8, 0x34e8($at)
     sw      $t0, 0x38($sp)
     mul.s   $f4, $f2, $f2
     sub.s   $f16, $f8, $f10
-    swc1    $2, 0x58($29)
+    swc1    $f2, 0x58($sp)
     mul.s   $f6, $f16, $f16
-    swc1    $16, 0x54($29)
+    swc1    $f16, 0x54($sp)
     jal     sqrtf
     add.s   $f12, $f4, $f6
     mtc1    $zero, $s2
@@ -380,10 +379,11 @@ branch_0x80076c78:
     div.s   $f16, $f16, $f0
 branch_0x80076cf0:
     lw      $t8, RaceStruct_1c($s0)
-    addiu   $v0, $zero, 0xffff
+    addiu   $v0, $zero, -1
     lwc1    $f0, 0x68($sp)
     bne     $v0, $t8, branch_0x80076d54
     addiu   $a3, $sp, 0xe8
+
     mul.s   $f8, $f0, $f2
     lwc1    $f10, 0x64($sp)
     mul.s   $f4, $f10, $f16
@@ -397,7 +397,7 @@ branch_0x80076cf0:
     nop
     mul.s   $f4, $f0, $f16
     sub.s   $f6, $f8, $f4
-    c.le.s $f18, $f6
+    c.le.s  $f18, $f6
     nop
     bc1f    branch_0x80076d4c
     nop
@@ -442,11 +442,11 @@ branch_0x80076d9c:
     lw      $t0, 0x38($sp)
     addiu   $a2, $sp, 0xe4
     addiu   $a3, $sp, 0xe0
-    lwc1    $f12, 0x0($t0)
+    lwc1    $f12, ObjsStruct_0($t0)
     jal     Function_0x80074308
-    lwc1    $f14, 0x8($t0)
+    lwc1    $f14, ObjsStruct_8($t0)
     lw      $v0, 0xec($sp)
-    addiu   $at, $zero, 0xffff
+    addiu   $at, $zero, -1
     lw      $t0, 0x38($sp)
     beq     $v0, $at, branch_0x80076dfc
     addiu   $ra, $zero, 0x1
@@ -466,7 +466,7 @@ branch_0x80076df4:
 branch_0x80076dfc:
     lw      $v0, 0xe8($sp)
 branch_0x80076e00:
-    addiu   $at, $zero, 0xffff
+    addiu   $at, $zero, -1
     lw      $t9, 0xe4($sp)
     beq     $v0, $at, branch_0x80076e28
     or      $a2, $zero, $zero
@@ -494,7 +494,7 @@ branch_0x80076e28:
 
     lw      $t9, RaceStruct_320($s0)
     lw      $t6, RaceStruct_0($s0)
-    lw      $v1, 0x98($t0)
+    lw      $v1, ObjsStruct_98($t0)
     beq     $t9, $t6, branch_0x80076e64
     or      $a0, $v1, $zero
 
@@ -502,21 +502,21 @@ branch_0x80076e28:
     sw      $zero, RaceStruct_20($s0)
 
 branch_0x80076e64:
-    lw      $t7, 0x9c($t0)
+    lw      $t7, ObjsStruct_9c($t0)
     lw      $t8, 0xf4($sp)
     bnel    $ra, $t7, branch_0x80076e88
-    lw      $t9, 0xc8($t0)
+    lw      $t9, ObjsStruct_c8($t0)
 
     bnezl   $t8, branch_0x80076e88
-    lw      $t9, 0xc8($t0)
+    lw      $t9, ObjsStruct_c8($t0)
 
     b       branch_0x800772b4
     sw      $zero, RaceStruct_20($s0)
 
 # 0x80076e84
-    lw      $t9, 0xc8($t0)
+    lw      $t9, ObjsStruct_c8($t0)
 branch_0x80076e88:
-    lui     $t6, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $t6, %hi(TrackNr_0x800d7ef0)
     beqz    $t9, branch_0x80076ea4
     nop
 
@@ -527,7 +527,7 @@ branch_0x80076e88:
     sw      $zero, RaceStruct_20($s0)
 
 branch_0x80076ea4:
-    lw      $t6, %lo(Unknown_0x800d7ef0_TrackNr)($t6)
+    lw      $t6, %lo(TrackNr_0x800d7ef0)($t6)
     addiu   $at, $zero, 0x3
     lui     $t7, 0x801d
     bnel    $t6, $at, branch_0x80076ee4
@@ -551,31 +551,31 @@ branch_0x80076ee0:
     sw      $ra, 0xfc($sp)
 branch_0x80076ee4:
     sw      $zero, RaceStruct_2f0($s0)
-    lw      $t8, 0x9c($t0)
+    lw      $t8, ObjsStruct_9c($t0)
     bnezl   $t8, branch_0x80077124
-    lw      $t6, 0xa0($t0)
+    lw      $t6, ObjsStruct_a0($t0)
 
     lw      $t9, RaceStruct_2f4($s0)
     bnezl   $t9, branch_0x80077124
-    lw      $t6, 0xa0($t0)
+    lw      $t6, ObjsStruct_a0($t0)
 
     lw      $t6, RaceStruct_2ec($s0)
     addiu   $at, $zero, 0x8
     bnezl   $t6, branch_0x80077124
-    lw      $t6, 0xa0($t0)
+    lw      $t6, ObjsStruct_a0($t0)
 
     beq     $a0, $at, branch_0x80077120
     addiu   $at, $zero, 0x9
 
     beql    $a0, $at, branch_0x80077124
-    lw      $t6, 0xa0($t0)
+    lw      $t6, ObjsStruct_a0($t0)
 
     bnez    $a0, branch_0x80076f34
     nop
 
     lw      $t7, RaceStruct_1c($s0)
     beqzl   $t7, branch_0x80076f4c
-    lw      $t9, 0xc8($t0)
+    lw      $t9, ObjsStruct_c8($t0)
 
 branch_0x80076f34:
     bne     $a0, $ra, branch_0x80076ff0
@@ -585,10 +585,10 @@ branch_0x80076f34:
     bne     $ra, $t8, branch_0x80076ff0
     nop
 
-    lw      $t9, 0xc8($t0)
+    lw      $t9, ObjsStruct_c8($t0)
 branch_0x80076f4c:
     beqzl   $t9, branch_0x80077124
-    lw      $t6, 0xa0($t0)
+    lw      $t6, ObjsStruct_a0($t0)
 
     lw      $v0, RaceStruct_12c($s0)
     lui     $t8, %hi(Unknown_0x800da8a8)
@@ -602,7 +602,7 @@ branch_0x80076f70:
     sw      $ra, RaceStruct_28($s0)
     lw      $t7, 0x10c($sp)
     beqzl   $t7, branch_0x80077124
-    lw      $t6, 0xa0($t0)
+    lw      $t6, ObjsStruct_a0($t0)
 
     lw      $t8, %lo(Unknown_0x800da8a8)($t8)
     addiu   $at, $zero, 0x2
@@ -645,17 +645,17 @@ branch_0x80076ff0:
     lui     $t7, 0x801d
 
     bnel    $a0, $ra, branch_0x80077124
-    lw      $t6, 0xa0($t0)
+    lw      $t6, ObjsStruct_a0($t0)
 
 branch_0x80077000:
     lhu     $t7, -0x1b72($t7)
     lui     $t8, %hi(Unknown_0x801ce398)
     beqzl   $t7, branch_0x80077124
-    lw      $t6, 0xa0($t0)
+    lw      $t6, ObjsStruct_a0($t0)
     lw      $t8, %lo(Unknown_0x801ce398)($t8)
     bnel    $ra, $t8, branch_0x80077124
-    lw      $t6, 0xa0($t0)
-    lw      $t9, 0xc8($t0)
+    lw      $t6, ObjsStruct_a0($t0)
+    lw      $t9, ObjsStruct_c8($t0)
     lui     $v0, %hi(Unknown_0x800d7ef4)
     lw      $t6, 0x10c($sp)
     beqz    $t9, branch_0x80077120
@@ -694,7 +694,7 @@ branch_0x80077094:
     lw      $t8, 0x10c($sp)
     lui     $t7, %hi(Unknown_0x800da8a8)
     beqzl   $t8, branch_0x80077124
-    lw      $t6, 0xa0($t0)
+    lw      $t6, ObjsStruct_a0($t0)
     lw      $t9, 0x0($v0)
     lw      $t6, RaceStruct_BuoyMisses($s0)
     lw      $t8, 0x120($sp)
@@ -730,9 +730,9 @@ branch_0x80077104:
     lw      $t0, 0x38($sp)
     addiu   $ra, $zero, 0x1
 branch_0x80077120:
-    lw      $t6, 0xa0($t0)
+    lw      $t6, ObjsStruct_a0($t0)
 branch_0x80077124:
-    addiu   $t8, $zero, 0xffff
+    addiu   $t8, $zero, -1
     beqz    $a2, branch_0x80077138
     sw      $t6, RaceStruct_c($s0)
 
@@ -741,8 +741,8 @@ branch_0x80077124:
 branch_0x80077138:
     sw      $t8, RaceStruct_1c($s0)
     sw      $ra, RaceStruct_20($s0)
-    lui     $t9, %hi(Unknown_0x800d7ef0_TrackNr)
-    lw      $t9, %lo(Unknown_0x800d7ef0_TrackNr)($t9)
+    lui     $t9, %hi(TrackNr_0x800d7ef0)
+    lw      $t9, %lo(TrackNr_0x800d7ef0)($t9)
     addiu   $at, $zero, 0x3
     lui     $t6, 0x801d
     bnel    $t9, $at, branch_0x800772b8
@@ -768,7 +768,7 @@ branch_0x80077138:
     bnez    $v0, branch_0x800771a8
     nop
 
-    lw      $t9, 0x98($t0)
+    lw      $t9, ObjsStruct_98($t0)
     addiu   $at, $zero, 0x6
     beq     $t9, $at, branch_0x800771ac
     nop
@@ -859,13 +859,13 @@ branch_0x800772b8:
     bnezl   $t8, branch_0x80077a4c
     lw      $v0, RaceStruct_12c($s0)
     lw      $t9, RaceStruct_2ec($s0)
-    lui     $t6, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $t6, %hi(TrackNr_0x800d7ef0)
     bnezl   $t9, branch_0x80077a4c
     lw      $v0, RaceStruct_12c($s0)
-    lw      $t6, %lo(Unknown_0x800d7ef0_TrackNr)($t6)
+    lw      $t6, %lo(TrackNr_0x800d7ef0)($t6)
     beqzl   $t6, branch_0x80077a4c
     lw      $v0, RaceStruct_12c($s0)
-    lw      $t7, 0x9c($t0)
+    lw      $t7, ObjsStruct_9c($t0)
     bne     $ra, $t7, branch_0x80077538
     nop
     lw      $a0, RaceStruct_0($s0)
@@ -873,12 +873,12 @@ branch_0x800772b8:
     lui     $at, 0x801c
     blez    $a0, branch_0x80077538
     sll     $t9, $t8, 2
-    lwc1    $f14, 0x0($t0)
+    lwc1    $f14, ObjsStruct_0($t0)
     lwc1    $f4, 0x34e0($at)
     lui     $at, 0x801c
     lwc1    $f6, 0x34e8($at)
     sub.s   $f2, $f4, $f14
-    lwc1    $f16, 0x8($t0)
+    lwc1    $f16, ObjsStruct_8($t0)
     lwc1    $f8, 0x68($sp)
     lwc1    $f4, 0x64($sp)
     sub.s   $f12, $f6, $f16
@@ -893,12 +893,12 @@ branch_0x800772b8:
     sll     $t9, $t9, 2
     subu    $t9, $t9, $t8
     add.s   $f18, $f10, $f6
-    lui     $t6, %hi(Unknown_0x801923f0)
-    addiu   $t6, $t6, %lo(Unknown_0x801923f0)
+    lui     $t6, %hi(Unknown_0x801923f0_GameStruct)
+    addiu   $t6, $t6, %lo(Unknown_0x801923f0_GameStruct)
     sll     $t9, $t9, 3
     c.le.s $f8, $f18
     mov.s   $f0, $f18
-    lw      $v1, 0x98($t0)
+    lw      $v1, ObjsStruct_98($t0)
     addu    $v0, $t9, $t6
     bc1tl   branch_0x80077390
     lwc1    $f4, 0xbe4($v0)
@@ -979,11 +979,11 @@ branch_0x80077480:
     bnel    $t9, $a2, branch_0x8007751c
     addiu   $at, $zero, 0x4
     lw      $a0, RaceStruct_0($s0)
-    lui     $t7, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $t7, %hi(TrackNr_0x800d7ef0)
     slti    $at, $a0, 0x3
     beqzl   $at, branch_0x8007751c
     addiu   $at, $zero, 0x4
-    lw      $t7, %lo(Unknown_0x800d7ef0_TrackNr)($t7)
+    lw      $t7, %lo(TrackNr_0x800d7ef0)($t7)
     sll     $t8, $a0, 2
     lui     $v0, 0x801c
     sll     $t6, $t7, 3
@@ -1188,18 +1188,18 @@ branch_0x8007777c:
 branch_0x80077788:
     lw      $t8, 0xac($sp)
 branch_0x8007778c:
-    lui     $a3, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $a3, %hi(TrackNr_0x800d7ef0)
     addiu   $at, $zero, 0x3
     sw      $t8, RaceStruct_168($s0)
-    lw      $a3, %lo(Unknown_0x800d7ef0_TrackNr)($a3)
+    lw      $a3, %lo(TrackNr_0x800d7ef0)($a3)
     lui     $t6, 0x801d
     bnel    $a3, $at, branch_0x800777e8
     addiu   $at, $zero, 0x7
     lw      $t6, -0x4f68($t6)
-    lui     $t7, 0x800d
+    lui     $t7, %hi(Unknown_0x800d7fc0)
     blezl   $t6, branch_0x800777e8
     addiu   $at, $zero, 0x7
-    lw      $t7, 0x7fc0($t7)
+    lw      $t7, %lo(Unknown_0x800d7fc0)($t7)
     bnezl   $t7, branch_0x800777e8
     addiu   $at, $zero, 0x7
     lw      $t9, RaceStruct_0($s0)
@@ -1208,22 +1208,22 @@ branch_0x8007778c:
     blezl   $t9, branch_0x800777e8
     addiu   $at, $zero, 0x7
     sw      $t8, RaceStruct_350($s0)
-    lui     $a3, %hi(Unknown_0x800d7ef0_TrackNr)
-    lw      $a3, %lo(Unknown_0x800d7ef0_TrackNr)($a3)
+    lui     $a3, %hi(TrackNr_0x800d7ef0)
+    lw      $a3, %lo(TrackNr_0x800d7ef0)($a3)
     addiu   $at, $zero, 0x7
 branch_0x800777e8:
     bne     $a3, $at, branch_0x8007781c
     lw      $a0, RaceStruct_0($s0)
     lw      $t6, 0x10c($sp)
-    lui     $v0, %hi(Unknown_0x801c1d2c)
+    lui     $v0, %hi(Unknown_0x801c1d2c_CurLapNr)
     beqzl   $t6, branch_0x80077820
     lw      $t9, 0x10c($sp)
-    lw      $v0, %lo(Unknown_0x801c1d2c)($v0)
+    lw      $v0, %lo(Unknown_0x801c1d2c_CurLapNr)($v0)
     slt     $at, $v0, $a0
     beqz    $at, branch_0x8007781c
     addiu   $t7, $v0, 0x1
-    lui     $at, %hi(Unknown_0x801c1d2c)
-    sw      $t7, %lo(Unknown_0x801c1d2c)($at)
+    lui     $at, %hi(Unknown_0x801c1d2c_CurLapNr)
+    sw      $t7, %lo(Unknown_0x801c1d2c_CurLapNr)($at)
     lw      $a0, RaceStruct_0($s0)
 branch_0x8007781c:
     lw      $t9, 0x10c($sp)
@@ -1265,11 +1265,11 @@ branch_0x8007788c:
 branch_0x8007789c:
     lui     $t6, 0x801d
     lw      $t6, -0x1b78($t6)
-    lui     $t7, 0x800d
+    lui     $t7, %hi(Unknown_0x800d7ef8)
     slt     $at, $a0, $t6
     bnez    $at, branch_0x800779a4
     nop
-    lw      $t7, 0x7ef8($t7)
+    lw      $t7, %lo(Unknown_0x800d7ef8)($t7)
     lui     $t9, %hi(Unknown_0x801c1d34)
     bnez    $t7, branch_0x800779a4
     nop
@@ -1335,8 +1335,8 @@ branch_0x80077994:
     nop
     sw      $zero, RaceStruct_12c($s0)
 branch_0x800779a4:
-    lui     $t7, 0x800d
-    lw      $t7, 0x7ef8($t7)
+    lui     $t7, %hi(Unknown_0x800d7ef8)
+    lw      $t7, %lo(Unknown_0x800d7ef8)($t7)
     lui     $t3, 0x801c
     lw      $a0, RaceStruct_0($s0)
     beqz    $t7, branch_0x800779c0
@@ -1386,18 +1386,20 @@ branch_0x80077a3c:
 branch_0x80077a4c:
     lw      $a0, RaceStruct_138($s0)
     lui     $t7, %hi(Unknown_0x801ce398)
-    lui     $a3, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $a3, %hi(TrackNr_0x800d7ef0)
     beq     $v0, $a0, branch_0x80077a8c
     subu    $v1, $v0, $a0
     bnez    $v1, branch_0x80077a70
     nop
     b       branch_0x80077a84
     or      $v1, $zero, $zero
+
 branch_0x80077a70:
     blez    $v1, branch_0x80077a80
-    addiu   $v0, $zero, 0xffff
+    addiu   $v0, $zero, -1
     b       branch_0x80077a80
     or      $v0, $ra, $zero
+
 branch_0x80077a80:
     or      $v1, $v0, $zero
 branch_0x80077a84:
@@ -1407,11 +1409,11 @@ branch_0x80077a8c:
     lw      $t7, %lo(Unknown_0x801ce398)($t7)
     bnel    $ra, $t7, branch_0x80077ab0
     mtc1    $zero, $zero
-    lw      $a3, %lo(Unknown_0x800d7ef0_TrackNr)($a3)
+    lw      $a3, %lo(TrackNr_0x800d7ef0)($a3)
     lui     $at, 0x801c
     lui     $a2, 0x801c
     bnez    $a3, branch_0x80077ad0
-    lui     $t7, %hi(Unknown_0x801aeb80)
+    lui     $t7, %hi(Unknown_0x801aeb80_ObjsStruct)
     mtc1    $zero, $zero
 branch_0x80077ab0:
     sw      $zero, RaceStruct_8($s0)
@@ -1425,7 +1427,7 @@ branch_0x80077ab0:
 branch_0x80077ad0:
     lwc1    $f10, 0x34e0($at)
     lw      $a2, -0x5174($a2)
-    addiu   $t7, $t7, %lo(Unknown_0x801aeb80)
+    addiu   $t7, $t7, %lo(Unknown_0x801aeb80_ObjsStruct)
     swc1    $10, 0x34($29)
     sll     $t6, $a2, 6
     lw      $a1, RaceStruct_310($s0)
@@ -1532,7 +1534,7 @@ branch_0x80077c50:
     lw      $v0, RaceStruct_320($s0)
     slti    $at, $v0, 0xffcf
     bnez    $at, branch_0x80077c78
-    addiu   $t6, $v0, 0xffff
+    addiu   $t6, $v0, -1
     sw      $t6, RaceStruct_320($s0)
 branch_0x80077c78:
     sw      $t5, RaceStruct_324($s0)
@@ -1546,8 +1548,8 @@ branch_0x80077c7c:
     lui     $at, 0x801c
     lwc1    $f12, 0x34e0($at)
     lui     $at, 0x801c
-    lui     $a3, %hi(Unknown_0x801aeb80)
-    addiu   $a3, $a3, %lo(Unknown_0x801aeb80)
+    lui     $a3, %hi(Unknown_0x801aeb80_ObjsStruct)
+    addiu   $a3, $a3, %lo(Unknown_0x801aeb80_ObjsStruct)
     lwc1    $f14, 0x34e8($at)
     addiu   $t0, $zero, 0x104
 branch_0x80077cb0:
@@ -1571,8 +1573,8 @@ branch_0x80077cb0:
     nop
     bc1t    branch_0x80077e34
     nop
-    lui     $t7, %hi(Unknown_0x800d7ef0_TrackNr)
-    lw      $t7, %lo(Unknown_0x800d7ef0_TrackNr)($t7)
+    lui     $t7, %hi(TrackNr_0x800d7ef0)
+    lw      $t7, %lo(TrackNr_0x800d7ef0)($t7)
     addiu   $at, $zero, 0x3
     lw      $a0, 0xa0($v1)
     bne     $t7, $at, branch_0x80077d78
@@ -1596,14 +1598,15 @@ branch_0x80077cb0:
     lwc1    $f2, 0x58($sp)
     beqz    $v0, branch_0x80077d78
     lwc1    $f16, 0x54($sp)
-    lui     $a3, %hi(Unknown_0x801aeb80)
-    addiu   $a3, $a3, %lo(Unknown_0x801aeb80)
+    lui     $a3, %hi(Unknown_0x801aeb80_ObjsStruct)
+    addiu   $a3, $a3, %lo(Unknown_0x801aeb80_ObjsStruct)
     lw      $a1, 0xa8($v1)
     b       branch_0x80077d88
     addiu   $t0, $zero, 0x104
+
 branch_0x80077d78:
-    lui     $a3, %hi(Unknown_0x801aeb80)
-    addiu   $a3, $a3, %lo(Unknown_0x801aeb80)
+    lui     $a3, %hi(Unknown_0x801aeb80_ObjsStruct)
+    addiu   $a3, $a3, %lo(Unknown_0x801aeb80_ObjsStruct)
     addiu   $t0, $zero, 0x104
     or      $a1, $a2, $zero
 branch_0x80077d88:

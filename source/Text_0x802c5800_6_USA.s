@@ -33,8 +33,8 @@ branch_0x802c5850:
     sw      $zero, -0x5754($at)
     jal     Function_0x8008f914
     lw      $a0, 0x18($sp)
-    lui     $a1, %hi(Unknown_0x800d7ef0_TrackNr)
-    lw      $a1, %lo(Unknown_0x800d7ef0_TrackNr)($a1)
+    lui     $a1, %hi(TrackNr_0x800d7ef0)
+    lw      $a1, %lo(TrackNr_0x800d7ef0)($a1)
     jal     Function_0x80094758
     or      $a0, $v0, $zero
     jal     Function_0x80090cf8_DrawWaterBG
@@ -319,9 +319,9 @@ Function_0x802c5c4c: # 0x802c5c4c
     addiu   $sp, $sp, 0xffe8
     sw      $zero, -0x5764($at)
     sw      $ra, 0x14($sp)
-    lui     $at, 0x800d
+    lui     $at, %hi(Unknown_0x800d439c)
     addiu   $t0, $zero, 0x2
-    sw      $t0, 0x439c($at)
+    sw      $t0, %lo(Unknown_0x800d439c)($at)
     addiu   $a0, $zero, 0x5
     addiu   $a1, $zero, 0x1
     jal     Function_0x801e6d10

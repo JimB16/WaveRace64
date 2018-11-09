@@ -104,8 +104,8 @@ branch_0x802c592c:
     sw      $t5, -0x1b98($at)
     lui     $at, 0x801d
     addiu   $t6, $zero, 0x4
-    lui     $t9, 0x800d
-    lw      $t9, 0x465c($t9)
+    lui     $t9, %hi(Unknown_0x800d465c)
+    lw      $t9, %lo(Unknown_0x800d465c)($t9)
     sw      $t6, -0x1b94($at)
     lui     $at, 0x801d
     addiu   $t7, $zero, 0x4
@@ -163,8 +163,8 @@ branch_0x802c5a0c:
     lw      $t6, -0x1b98($t6)
     sw      $t6, -0x1b9c($at)
 branch_0x802c5a3c:
-    lui     $t7, %hi(Unknown_0x800d7ef0_TrackNr)
-    lw      $t7, %lo(Unknown_0x800d7ef0_TrackNr)($t7)
+    lui     $t7, %hi(TrackNr_0x800d7ef0)
+    lw      $t7, %lo(TrackNr_0x800d7ef0)($t7)
     lui     $a1, %hi(Unknown_0x800da834)
     lui     $a0, %hi(Unknown_0x80198070)
     sll     $t8, $t7, 2
@@ -240,8 +240,8 @@ Function_0x802c5af0: # 0x802c5af0
     jr      $ra
     nop
 
-.globl Function_0x802c5b40
-Function_0x802c5b40: # 0x802c5b40
+.globl Function_3_0x802c5b40
+Function_3_0x802c5b40: # 0x802c5b40
     lui     $v0, 0x801d
     addiu   $v0, $v0, 0xe39c
     lw      $t6, 0x0($v0)
@@ -361,9 +361,9 @@ branch_0x802c5cd8:
     bne     $t1, $at, branch_0x802c5d00
     nop
     lw      $t2, %lo(Unknown_0x801cb090)($t2)
-    lui     $at, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $at, %hi(TrackNr_0x800d7ef0)
     jal     Function_ChangeStateTo28
-    sw      $t2, %lo(Unknown_0x800d7ef0_TrackNr)($at)
+    sw      $t2, %lo(TrackNr_0x800d7ef0)($at)
 branch_0x802c5d00:
     lui     $t3, 0x801d
     lw      $t3, -0x1c68($t3)
@@ -1172,8 +1172,8 @@ branch_0x802c687c:
     addiu   $a3, $zero, 0xcb
     or      $a0, $v0, $zero
 branch_0x802c68d8:
-    lui     $t7, 0x800d
-    lw      $t7, 0x465c($t7)
+    lui     $t7, %hi(Unknown_0x800d465c)
+    lw      $t7, %lo(Unknown_0x800d465c)($t7)
     lui     $a2, 0x801d
     addiu   $t9, $zero, 0xc2
     sll     $t8, $t7, 2
@@ -1312,8 +1312,8 @@ branch_0x802c69b4:
     lui     $t8, 0xb200
     sw      $t8, 0x0($a3)
     sw      $t6, 0x4($a3)
-    lui     $v0, %hi(Unknown_0x800d7ef0_TrackNr)
-    lw      $v0, %lo(Unknown_0x800d7ef0_TrackNr)($v0)
+    lui     $v0, %hi(TrackNr_0x800d7ef0)
+    lw      $v0, %lo(TrackNr_0x800d7ef0)($v0)
     lui     $v1, 0x802c
     lw      $v1, 0x6f8c($v1)
     lui     $t7, %hi(Unknown_0x800DB330)
@@ -1585,10 +1585,10 @@ Function_0x802c6e9c: # 0x802c6e9c
     sw      $t9, -0x1c5c($at)
     lui     $at, 0x800e
     sw      $zero, -0x5764($at)
-    lui     $at, 0x800d
+    lui     $at, %hi(Unknown_0x800d439c)
     addiu   $t0, $zero, 0x3
     addiu   $sp, $sp, 0xffe8
-    sw      $t0, 0x439c($at)
+    sw      $t0, %lo(Unknown_0x800d439c)($at)
     sw      $ra, 0x14($sp)
     lui     $at, 0x802c
     sw      $v1, 0x6fe0($at)

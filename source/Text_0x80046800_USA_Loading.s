@@ -173,8 +173,9 @@ branch_0x8009691c:
     sw      $t9, FileData_End($a1)
     lw      $t9, FileData_c($v0) # ?
     sw      $at, FileData_8($a1)
-    sw      $t6, 0x8($a1)
+    sw      $t6, FileData_8($a1)
     sw      $t9, FileData_c($a1)
+
     lw      $v1, %lo(Unknown_0x801ce49c)($v1)
     lui     $t7, %hi(Unknown_0x800da920)
     addiu   $t1, $t1, 0x4
@@ -1570,12 +1571,13 @@ branch_0x80097c2c:
     beqzl   $t6, branch_0x80097c48
     addiu   $s1, $s1, 0x1
     sh      $zero, 0x0($s0)
-    jal     Function_0x800957c8
+    jal     Function_0x800957c8_LoadUncompressFiles
     lw      $a0, 0x4($s0)
     addiu   $s1, $s1, 0x1
 branch_0x80097c48:
     bne     $s1, $s2, branch_0x80097c2c
     addiu   $s0, $s0, 0x8
+
     lw      $ra, 0x24($sp)
     lw      $s0, 0x18($sp)
     lw      $s1, 0x1c($sp)

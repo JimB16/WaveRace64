@@ -24,16 +24,16 @@ branch_0x80093ea0:
     bne     $a3, $a1, branch_0x80093ec8
     sh      $a1, 0x0($v0)
     sll     $a0, $a2, 2
-    lui     $t7, %hi(FileListList_0x800dc418)
+    lui     $t7, %hi(FileListList_TrackObjects1)
     addu    $t7, $t7, $a0
-    lw      $t7, %lo(FileListList_0x800dc418)($t7)
+    lw      $t7, %lo(FileListList_TrackObjects1)($t7)
     b       branch_0x80093edc
     sw      $t7, 0x4($v0)
 branch_0x80093ec8:
     sll     $a0, $a2, 2
-    lui     $t8, %hi(FileListList_0x800DC43C)
+    lui     $t8, %hi(FileListList_TrackObjects2)
     addu    $t8, $t8, $a0
-    lw      $t8, %lo(FileListList_0x800DC43C)($t8)
+    lw      $t8, %lo(FileListList_TrackObjects2)($t8)
     sw      $t8, 0x4($v0)
 branch_0x80093edc:
     sw      $a0, 0x18($sp)
@@ -773,8 +773,8 @@ Function_0x8009486c: # 0x8009486c
 branch_0x80094890:
     blez    $a0, branch_0x80094918
     or      $v0, $zero, $zero
-    lui     $a1, %hi(Unknown_0x801c2698)
-    addiu   $a1, $a1, %lo(Unknown_0x801c2698)
+    lui     $a1, %hi(Unknown_0x801c2698_RaceStruct)
+    addiu   $a1, $a1, %lo(Unknown_0x801c2698_RaceStruct)
 branch_0x800948a0:
     lw      $t6, RaceStruct_4($a1)
     sll     $a2, $v0, 2
@@ -937,10 +937,10 @@ branch_0x80094ac8:
     bnez    $at, branch_0x80094ac8
     addiu   $a2, $a2, 0x4
     lui     $t2, %hi(Unknown_0x800da76c)
-    lui     $a3, %hi(Unknown_0x801c2698)
+    lui     $a3, %hi(Unknown_0x801c2698_RaceStruct)
     lui     $a1, 0x801d
     addiu   $a1, $a1, 0xb0a0
-    addiu   $a3, $a3, %lo(Unknown_0x801c2698)
+    addiu   $a3, $a3, %lo(Unknown_0x801c2698_RaceStruct)
     addiu   $t2, $t2, %lo(Unknown_0x800da76c)
     or      $v1, $zero, $zero
     addiu   $t1, $zero, 0x1
@@ -1104,8 +1104,8 @@ branch_0x80094d20:
     slti    $at, $v1, 0x3
     bnez    $at, branch_0x80094b04
     addiu   $t1, $t1, 0x1
-    lui     $a0, %hi(Unknown_0x801c2698)
-    addiu   $a0, $a0, %lo(Unknown_0x801c2698)
+    lui     $a0, %hi(Unknown_0x801c2698_RaceStruct)
+    addiu   $a0, $a0, %lo(Unknown_0x801c2698_RaceStruct)
     or      $v1, $zero, $zero
     addiu   $t1, $zero, 0x1
 branch_0x80094d40:
@@ -1133,8 +1133,8 @@ branch_0x80094d68:
 
 .globl Function_0x80094d88
 Function_0x80094d88: # 0x80094d88
-    lui     $v0, %hi(Unknown_0x800da8a4_mainState)
-    addiu   $v0, $v0, %lo(Unknown_0x800da8a4_mainState)
+    lui     $v0, %hi(MainState_0x800da8a4)
+    addiu   $v0, $v0, %lo(MainState_0x800da8a4)
     lw      $t6, 0x0($v0)
     lui     $at, 0x801d
     addiu   $t7, $zero, 0x11
@@ -1164,10 +1164,10 @@ Function_0x80094de4: # 0x80094de4
     nop
 
 
-.globl Function_0x80094df0
-Function_0x80094df0: # 0x80094df0
-    lui     $v0, %hi(Unknown_0x800da8a4_mainState)
-    lw      $v0, %lo(Unknown_0x800da8a4_mainState)($v0)
+.globl Function_0x80094df0_LoadGraphics
+Function_0x80094df0_LoadGraphics: # 0x80094df0
+    lui     $v0, %hi(MainState_0x800da8a4)
+    lw      $v0, %lo(MainState_0x800da8a4)($v0)
     addiu   $sp, $sp, 0xff98
     sw      $ra, 0x14($sp)
     slti    $at, $v0, MainState_65
@@ -1180,7 +1180,7 @@ Function_0x80094df0: # 0x80094df0
     beq     $v0, $at, branch_0x800953e8_loadState66
     nop
 
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     nop
 
 branch_0x80094e28:
@@ -1190,14 +1190,14 @@ branch_0x80094e28:
 
     addiu   $at, $zero, MainState_64
     beq     $v0, $at, branch_0x800952b4
-    lui     $t0, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $t0, %hi(TrackNr_0x800d7ef0)
 
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     nop
 
 branch_0x80094e48_StateLt49:
     sltiu   $at, $t6, MainState_48
-    beqz    $at, branch_0x80095430
+    beqz    $at, branch_0x80095430_loadStateDefault
     sll     $t6, $t6, 2
 
     lui     $at, %hi(SwitchTable_0x800EAEB0)
@@ -1206,25 +1206,28 @@ branch_0x80094e48_StateLt49:
     jr      $t6
     nop
 
+
 branch_0x80094e68_loadState5: # 0x80094e68
     lui     $a3, %hi(FileListList_BasicGraphics)
     addiu   $a3, $a3, %lo(FileListList_BasicGraphics)
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x3
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $a3, 0x48($sp)
 
+
 branch_0x80094e80_loadState2: # 0x80094e80
-    lui     $t0, %hi(Unknown_0x800d7ef0_TrackNr)
-    addiu   $t0, $t0, %lo(Unknown_0x800d7ef0_TrackNr)
+    lui     $t0, %hi(TrackNr_0x800d7ef0)
+    addiu   $t0, $t0, %lo(TrackNr_0x800d7ef0)
     lw      $a0, 0x0($t0)
     lui     $v1, %hi(Unknown_0x800dc4a8_LoadingStruct)
     addiu   $a1, $zero, 0x1
+
     bgez    $a0, branch_0x80094ea0
     addiu   $v1, $v1, %lo(Unknown_0x800dc4a8_LoadingStruct)
-
     or      $a0, $zero, $zero
 branch_0x80094ea0:
+
     slti    $at, $a0, NrOfTracks
     bnez    $at, branch_0x80094eb0
     lui     $t7, %hi(FileListList_TrackFiles)
@@ -1234,10 +1237,10 @@ branch_0x80094eb0:
     sll     $v0, $a0, 2
     addu    $t7, $t7, $v0
     lw      $t7, %lo(FileListList_TrackFiles)($t7)
-    lui     $t8, %hi(FileListList_0x800dc418)
+    lui     $t8, %hi(FileListList_TrackObjects1)
     addu    $t8, $t8, $v0
     sw      $t7, LoadingStruct_TrackFiles($v1)
-    lw      $t8, %lo(FileListList_0x800dc418)($t8)
+    lw      $t8, %lo(FileListList_TrackObjects1)($t8)
     lui     $t9, %hi(FileListList_TrackTextures1)
     addu    $t9, $t9, $v0
     sw      $t8, LoadingStruct_c($v1)
@@ -1254,27 +1257,29 @@ branch_0x80094eb0:
     lui     $at, %hi(Unknown_0x801ce6f8)
     sw      $t2, LoadingStruct_14($v1)
     sw      $t4, %lo(Unknown_0x801ce6f8)($at)
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $v1, 0x48($sp)
 
-branch_0x80094f14_loadState734: # 0x80094f14
-    lui     $t0, %hi(Unknown_0x800d7ef0_TrackNr)
-    addiu   $t0, $t0, %lo(Unknown_0x800d7ef0_TrackNr)
+
+branch_0x80094f14_loadState728: # 0x80094f14
+    lui     $t0, %hi(TrackNr_0x800d7ef0)
+    addiu   $t0, $t0, %lo(TrackNr_0x800d7ef0)
     lw      $a0, 0x0($t0)
     lui     $v1, %hi(Unknown_0x801ce368)
     addiu   $a1, $zero, 0x1
+
     bgez    $a0, branch_0x80094f34
     addiu   $v1, $v1, %lo(Unknown_0x801ce368)
-
     or      $a0, $zero, $zero
 branch_0x80094f34:
+
     slti    $at, $a0, NrOfTracks
     bnezl   $at, branch_0x80094f48
     lh      $t5, Unknown_0x801ce368_4($v1)
-
     addiu   $a0, $zero, 0x8
     lh      $t5, Unknown_0x801ce368_4($v1)
 branch_0x80094f48:
+
     addiu   $at, $zero, 0x1
     bnel    $t5, $at, branch_0x80094fec
     sll     $v0, $a0, 2
@@ -1303,10 +1308,10 @@ branch_0x80094f8c:
     sll     $v0, $a0, 2
     addu    $t6, $t6, $v0
     lw      $t6, %lo(FileListList_TrackFiles)($t6)
-    lui     $t7, %hi(FileListList_0x800dc418)
+    lui     $t7, %hi(FileListList_TrackObjects1)
     addu    $t7, $t7, $v0
     sw      $t6, LoadingStruct_TrackFiles($a3)
-    lw      $t7, %lo(FileListList_0x800dc418)($t7)
+    lw      $t7, %lo(FileListList_TrackObjects1)($t7)
     addu    $t3, $t3, $v0
     sw      $t7, LoadingStruct_c($a3)
     lw      $t8, 0x0($t0)
@@ -1329,7 +1334,7 @@ branch_0x80094fdc:
     b       branch_0x80095024
     sw      $t3, LoadingStruct_Textures($a3)
 
-Function_0x80094fe8: # 0x80094fe8
+# 0x80094fe8
     sll     $v0, $a0, 2
 branch_0x80094fec:
     lui     $t4, %hi(FileListList_0x800DC294)
@@ -1337,10 +1342,10 @@ branch_0x80094fec:
     lw      $t4, %lo(FileListList_0x800DC294)($t4)
     lui     $v1, %hi(Unknown_0x800dc654)
     addiu   $a3, $v1, %lo(Unknown_0x800dc654)
-    lui     $t5, %hi(FileListList_0x800DC43C)
+    lui     $t5, %hi(FileListList_TrackObjects2)
     addu    $t5, $t5, $v0
     sw      $t4, LoadingStruct_TrackFiles($a3)
-    lw      $t5, %lo(FileListList_0x800DC43C)($t5)
+    lw      $t5, %lo(FileListList_TrackObjects2)($t5)
     lui     $t6, %hi(FileListList_TrackTextures2)
     addu    $t6, $t6, $v0
     sw      $t5, LoadingStruct_c($a3)
@@ -1351,22 +1356,25 @@ branch_0x80095024:
     addu    $t7, $t7, $v0
     lw      $t7, %lo(FileListList_0x800dbf0c)($t7)
     sw      $t7, LoadingStruct_14($a3)
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $a3, 0x48($sp)
 
-branch_0x8009503c: # 0x8009503c
+
+branch_0x8009503c_loadState2a: # 0x8009503c
     lui     $a3, %hi(Unknown_0x800dc5e8)
     addiu   $a3, $a3, %lo(Unknown_0x800dc5e8)
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $a3, 0x48($sp)
 
-branch_0x8009504c: # 0x8009504c
+
+branch_0x8009504c_loadState29: # 0x8009504c
     lui     $a3, %hi(Unknown_0x800dc5e8)
     addiu   $a3, $a3, %lo(Unknown_0x800dc5e8)
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $a3, 0x48($sp)
 
-branch_0x8009505c_loadState10: # 0x8009505c
+
+branch_0x8009505c_loadStateA: # 0x8009505c
     lui     $t8, %hi(FileListList_TrackTextures1)
     lw      $t8, %lo(FileListList_TrackTextures1)($t8)
     lui     $v0, %hi(Unknown_0x800dc6bc)
@@ -1374,12 +1382,13 @@ branch_0x8009505c_loadState10: # 0x8009505c
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x2
     sw      $v0, 0x48($sp)
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $t8, 0x4($v0)
 
-branch_0x80095080_loadState20: # 0x80095080
-    lui     $t0, %hi(Unknown_0x800d7ef0_TrackNr)
-    addiu   $t0, $t0, %lo(Unknown_0x800d7ef0_TrackNr)
+
+branch_0x80095080_loadState14: # 0x80095080
+    lui     $t0, %hi(TrackNr_0x800d7ef0)
+    addiu   $t0, $t0, %lo(TrackNr_0x800d7ef0)
     lw      $a0, 0x0($t0)
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x1
@@ -1397,12 +1406,12 @@ branch_0x800950b0:
     addu    $t2, $t2, $t9
     lw      $t2, %lo(FileListList_TrackTextures1)($t2)
     sw      $v0, 0x48($sp)
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $t2, 0x0($v0)
 
 branch_0x800950cc: # 0x800950cc
-    lui     $t0, %hi(Unknown_0x800d7ef0_TrackNr)
-    addiu   $t0, $t0, %lo(Unknown_0x800d7ef0_TrackNr)
+    lui     $t0, %hi(TrackNr_0x800d7ef0)
+    addiu   $t0, $t0, %lo(TrackNr_0x800d7ef0)
     lw      $a0, 0x0($t0)
     lui     $a3, %hi(Unknown_0x800dc7b8)
     addiu   $a1, $zero, 0x1
@@ -1421,16 +1430,16 @@ branch_0x80095100:
     lw      $t4, %lo(FileListList_TrackTextures1)($t4)
     lui     $at, %hi(Unknown_0x800dc7bc)
     sw      $a3, 0x48($sp)
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $t4, %lo(Unknown_0x800dc7bc)($at)
 
-branch_0x8009511c: # 0x8009511c
+branch_0x8009511c_loadState32: # 0x8009511c
     lui     $t5, %hi(Unknown_0x801ce394_oldMainState)
     lw      $t5, %lo(Unknown_0x801ce394_oldMainState)($t5)
     addiu   $at, $zero, 0x64
-    lui     $t0, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $t0, %hi(TrackNr_0x800d7ef0)
     beq     $t5, $at, branch_0x80095174
-    addiu   $t0, $t0, %lo(Unknown_0x800d7ef0_TrackNr)
+    addiu   $t0, $t0, %lo(TrackNr_0x800d7ef0)
     lw      $a0, 0x0($t0)
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x1
@@ -1450,10 +1459,10 @@ branch_0x8009515c:
     sw      $v0, 0x48($sp)
     sw      $t7, 0x4($v0)
 branch_0x80095174:
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     nop
 
-branch_0x8009517c_loadState2a: # 0x8009517c
+branch_0x8009517c_loadState1e: # 0x8009517c
     lui     $a0, %hi(Unknown_0x801cb090)
     lw      $a0, %lo(Unknown_0x801cb090)($a0)
     lui     $v1, %hi(Unknown_0x800dc988_LoadingStruct)
@@ -1470,10 +1479,10 @@ branch_0x800951a8:
     sll     $v0, $a0, 2
     addu    $t8, $t8, $v0
     lw      $t8, %lo(FileListList_TrackFiles)($t8)
-    lui     $t9, %hi(FileListList_0x800dc418)
+    lui     $t9, %hi(FileListList_TrackObjects1)
     addu    $t9, $t9, $v0
     sw      $t8, LoadingStruct_TrackFiles($v1)
-    lw      $t9, %lo(FileListList_0x800dc418)($t9)
+    lw      $t9, %lo(FileListList_TrackObjects1)($t9)
     lui     $t2, %hi(FileListList_TrackTextures1)
     addu    $t2, $t2, $v0
     sw      $t9, LoadingStruct_c($v1)
@@ -1487,7 +1496,7 @@ branch_0x800951a8:
     sw      $t3, LoadingStruct_18($v1)
     lw      $t4, %lo(FileListList_0x800dbf0c)($t4)
     sw      $v1, 0x48($sp)
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $t4, LoadingStruct_14($v1)
 
 branch_0x80095200: # 0x80095200
@@ -1495,7 +1504,7 @@ branch_0x80095200: # 0x80095200
     addiu   $a3, $a3, %lo(Unknown_0x800dc9cc)
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x1
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $a3, 0x48($sp)
 
 branch_0x80095218: # 0x80095218
@@ -1506,7 +1515,7 @@ branch_0x80095218: # 0x80095218
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x1
     sw      $v0, 0x48($sp)
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $t5, 0x4($v0)
 
 branch_0x8009523c: # 0x8009523c
@@ -1514,7 +1523,7 @@ branch_0x8009523c: # 0x8009523c
     addiu   $a3, $a3, %lo(Unknown_0x800dca50)
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x1
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $a3, 0x48($sp)
 
 branch_0x80095254: # 0x80095254
@@ -1522,7 +1531,7 @@ branch_0x80095254: # 0x80095254
     addiu   $a3, $a3, %lo(Unknown_0x800dca78)
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x1
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $a3, 0x48($sp)
 
 branch_0x8009526c: # 0x8009526c
@@ -1530,7 +1539,7 @@ branch_0x8009526c: # 0x8009526c
     addiu   $a3, $a3, %lo(Unknown_0x800dcac8)
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x1
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $a3, 0x48($sp)
 
 branch_0x80095284: # 0x80095284
@@ -1538,7 +1547,7 @@ branch_0x80095284: # 0x80095284
     addiu   $a3, $a3, %lo(Unknown_0x800dca24)
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x1
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $a3, 0x48($sp)
 
 branch_0x8009529c: # 0x8009529c
@@ -1546,11 +1555,11 @@ branch_0x8009529c: # 0x8009529c
     addiu   $a3, $a3, %lo(Unknown_0x800dcaa0)
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x1
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $a3, 0x48($sp)
 
 branch_0x800952b4:
-    addiu   $t0, $t0, %lo(Unknown_0x800d7ef0_TrackNr)
+    addiu   $t0, $t0, %lo(TrackNr_0x800d7ef0)
     lw      $a0, 0x0($t0)
     lui     $v1, %hi(Unknown_0x801ce368)
     addiu   $v1, $v1, %lo(Unknown_0x801ce368)
@@ -1593,12 +1602,12 @@ branch_0x80095320:
     sw      $v0, 0x48($sp)
     sw      $t2, 0x4($v0)
 branch_0x80095348:
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     addiu   $a2, $zero, 0x1
 
 branch_0x80095350: # 0x80095350
-    lui     $t0, %hi(Unknown_0x800d7ef0_TrackNr)
-    addiu   $t0, $t0, %lo(Unknown_0x800d7ef0_TrackNr)
+    lui     $t0, %hi(TrackNr_0x800d7ef0)
+    addiu   $t0, $t0, %lo(TrackNr_0x800d7ef0)
     lw      $a0, 0x0($t0)
     lui     $a3, %hi(Unknown_0x800dcb04)
     addiu   $a1, $zero, 0x1
@@ -1618,12 +1627,12 @@ branch_0x80095384:
     lw      $t4, %lo(FileListList_TrackTextures1)($t4)
     lui     $at, %hi(Unknown_0x800dcb08)
     sw      $a3, 0x48($sp)
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $t4, %lo(Unknown_0x800dcb08)($at)
 
 branch_0x800953a0: # 0x800953a0
-    lui     $t0, %hi(Unknown_0x800d7ef0_TrackNr)
-    addiu   $t0, $t0, %lo(Unknown_0x800d7ef0_TrackNr)
+    lui     $t0, %hi(TrackNr_0x800d7ef0)
+    addiu   $t0, $t0, %lo(TrackNr_0x800d7ef0)
     lw      $a0, 0x0($t0)
     lui     $v0, %hi(Unknown_0x800dcb34)
     addiu   $a1, $zero, 0x1
@@ -1642,22 +1651,24 @@ branch_0x800953d0:
     addu    $t6, $t6, $t5
     lw      $t6, %lo(FileListList_TrackTextures1)($t6)
     sw      $v0, 0x48($sp)
-    b       branch_0x80095430
+    b       branch_0x80095430_loadStateDefault
     sw      $t6, 0x0($v0)
 
 branch_0x800953e8_loadState66:
-    lui     $t0, %hi(Unknown_0x800d7ef0_TrackNr)
-    addiu   $t0, $t0, %lo(Unknown_0x800d7ef0_TrackNr)
+    lui     $t0, %hi(TrackNr_0x800d7ef0)
+    addiu   $t0, $t0, %lo(TrackNr_0x800d7ef0)
     lw      $a0, 0x0($t0)
     addiu   $a1, $zero, 0x1
     addiu   $a2, $zero, 0x4
     bgez    $a0, branch_0x80095408
     lui     $v0, %hi(Unknown_0x800dcb80)
+
     or      $a0, $zero, $zero
 branch_0x80095408:
     slti    $at, $a0, NrOfTracks
     bnez    $at, branch_0x80095418
     lui     $t8, %hi(FileListList_TrackTextures1)
+
     addiu   $a0, $zero, 0x8
 branch_0x80095418:
     sll     $t7, $a0, 2
@@ -1667,9 +1678,11 @@ branch_0x80095418:
     sw      $v0, 0x48($sp)
     sw      $t8, 0xc($v0)
 
-branch_0x80095430:
+
+branch_0x80095430_loadStateDefault:
     beqz    $a1, branch_0x800957b8
     lw      $a3, 0x48($sp)
+
     sll     $t9, $a2, 2
     lui     $t2, %hi(Unknown_0x800dcc04)
     addu    $t2, $t2, $t9
@@ -1682,22 +1695,23 @@ branch_0x80095430:
     sw      $a0, 0x0($v0)
     lui     $at, 0x801d
     sw      $v0, -0x1bd0($at)
-    lui     $at, 0x801d
-    sw      $zero, -0x1b70($at)
+
+    lui     $at, %hi(Unknown_0x801ce490)
+    sw      $zero, %lo(Unknown_0x801ce490)($at)
     lui     $at, 0x801d
     lw      $a3, 0x48($sp)
     sw      $zero, -0x1b6c($at)
     lui     $at, 0x801d
     sw      $zero, -0x1b68($at)
-    lw      $t3, LoadingStruct_0($a3)
+    lw      $t3, LoadingStruct_FileDatas($a3)
     or      $v0, $a3, $zero
     beqz    $t3, branch_0x800954b8
     nop
 
-    lw      $v1, 0x0($a3)
+    lw      $v1, LoadingStruct_FileDatas($a3)
     or      $a0, $v1, $zero
 branch_0x8009549c:
-    jal     Function_0x800957c8
+    jal     Function_0x800957c8_LoadUncompressFiles
     sw      $v0, 0x18($sp)
     lw      $v0, 0x18($sp)
     lw      $v1, LoadingStruct_4($v0)
@@ -1706,10 +1720,10 @@ branch_0x8009549c:
     or      $a0, $v1, $zero
 
 branch_0x800954b8:
-    lui     $t4, 0x801d
-    lw      $t4, -0x1b70($t4)
-    lui     $a3, 0x801d
-    addiu   $a3, $a3, 0xe4c0
+    lui     $t4, %hi(Unknown_0x801ce490)
+    lw      $t4, %lo(Unknown_0x801ce490)($t4)
+    lui     $a3, %hi(Unknown_0x801ce4c0)
+    addiu   $a3, $a3, %lo(Unknown_0x801ce4c0)
     blez    $t4, branch_0x80095724
     lui     $t0, %hi(Unknown_0x801516a4)
 
@@ -1757,45 +1771,45 @@ branch_0x80095544:
     lw      $t8, 0x44($sp)
 
     lw      $t9, 0x40($sp)
-    lui     $at, 0x8022
-    sw      $t8, 0x7894($at)
+    lui     $at, %hi(Unknown_0x80227894)
+    sw      $t8, %lo(Unknown_0x80227894)($at)
     lw      $t2, 0x3c($sp)
-    lui     $at, 0x8022
-    sw      $t9, 0x7898($at)
+    lui     $at, %hi(Unknown_0x80227898)
+    sw      $t9, %lo(Unknown_0x80227898)($at)
     lw      $t3, 0x38($sp)
-    lui     $at, 0x8022
-    sw      $t2, 0x789c($at)
-    lui     $at, 0x8022
+    lui     $at, %hi(Unknown_0x8022789c)
+    sw      $t2, %lo(Unknown_0x8022789c)($at)
+    lui     $at, %hi(Unknown_0x802278a0)
     lw      $t4, 0x34($sp)
-    sw      $t3, 0x78a0($at)
-    lui     $at, 0x8022
+    sw      $t3, %lo(Unknown_0x802278a0)($at)
+    lui     $at, %hi(Unknown_0x802278a4)
     b       branch_0x800955ec
-    sw      $t4, 0x78a4($at)
+    sw      $t4, %lo(Unknown_0x802278a4)($at)
 
 branch_0x800955a4:
     addu    $t5, $t5, $a1
     sll     $t5, $t5, 2
     addu    $v1, $v0, $t5
     lw      $t6, 0x30($v1)
-    lui     $at, 0x8022
-    sw      $t6, 0x7894($at)
+    lui     $at, %hi(Unknown_0x80227894)
+    sw      $t6, %lo(Unknown_0x80227894)($at)
     lw      $t7, 0x34($v1)
-    lui     $at, 0x8022
-    sw      $t7, 0x7898($at)
+    lui     $at, %hi(Unknown_0x80227898)
+    sw      $t7, %lo(Unknown_0x80227898)($at)
     lw      $t8, 0x38($v1)
-    lui     $at, 0x8022
-    sw      $t8, 0x789c($at)
+    lui     $at, %hi(Unknown_0x8022789c)
+    sw      $t8, %lo(Unknown_0x8022789c)($at)
     lw      $t9, 0x3c($v1)
-    lui     $at, 0x8022
-    sw      $t9, 0x78a0($at)
+    lui     $at, %hi(Unknown_0x802278a0)
+    sw      $t9, %lo(Unknown_0x802278a0)($at)
     lw      $t2, 0x40($v1)
-    lui     $at, 0x8022
-    sw      $t2, 0x78a4($at)
+    lui     $at, %hi(Unknown_0x802278a4)
+    sw      $t2, %lo(Unknown_0x802278a4)($at)
 branch_0x800955ec:
-    lui     $t3, 0x801d
-    lw      $t3, -0x1b64($t3)
+    lui     $t3, %hi(Unknown_0x801ce49c)
+    lw      $t3, %lo(Unknown_0x801ce49c)($t3)
     addiu   $at, $zero, 0x4
-    lui     $t2, %hi(Unknown_0x800da8a4_mainState)
+    lui     $t2, %hi(MainState_0x800da8a4)
     bne     $t3, $at, branch_0x80095634
     lui     $a0, %hi(Unknown_0x800dcc18)
     lw      $t4, 0x94($v0)
@@ -1811,32 +1825,32 @@ branch_0x800955ec:
     sw      $t8, 0xd0($v0)
     sw      $t9, 0xd8($v0)
 branch_0x80095634:
-    lw      $t2, %lo(Unknown_0x800da8a4_mainState)($t2)
-    addiu   $at, $zero, 0x66
+    lw      $t2, %lo(MainState_0x800da8a4)($t2)
+    addiu   $at, $zero, MainState_66
     addiu   $a0, $a0, %lo(Unknown_0x800dcc18)
     bne     $t2, $at, branch_0x80095724
     lui     $a1, 0x809
 
-    lui     $t5, 0x8022
-    lw      $t5, 0x7828($t5)
+    lui     $t5, %hi(Unknown_0x80227828)
+    lw      $t5, %lo(Unknown_0x80227828)($t5)
     lui     $t3, %hi(Unknown_0x800da730)
     lw      $t3, %lo(Unknown_0x800da730)($t3)
-    lui     $at, 0x801d
-    sw      $t5, -0x1900($at)
+    lui     $at, %hi(Unknown_0x801ce700)
+    sw      $t5, %lo(Unknown_0x801ce700)($at)
     addiu   $a1, $a1, 0x510
-    lui     $at, 0x8022
+    lui     $at, %hi(Unknown_0x80227828)
     sll     $t4, $t3, 3
     addu    $v0, $a0, $t4
-    sw      $a1, 0x7828($at)
+    sw      $a1, %lo(Unknown_0x80227828)($at)
     lw      $t6, 0x0($v0)
-    lui     $at, 0x8022
-    lui     $v1, 0x8022
-    sw      $t6, 0x782c($at)
+    lui     $at, %hi(Unknown_0x8022782c)
+    lui     $v1, %hi(Unknown_0x80227864)
+    sw      $t6, %lo(Unknown_0x8022782c)($at)
     lw      $t7, 0x4($v0)
-    lui     $at, 0x8022
-    addiu   $v1, $v1, 0x7864
+    lui     $at, %hi(Unknown_0x80227840)
+    addiu   $v1, $v1, %lo(Unknown_0x80227864)
     lui     $t8, %hi(Unknown_0x800da734)
-    sw      $t7, 0x7840($at)
+    sw      $t7, %lo(Unknown_0x80227840)($at)
     lw      $t2, 0x8($v1)
     lw      $t8, %lo(Unknown_0x800da734)($t8)
     lui     $at, 0x801d
@@ -1873,23 +1887,26 @@ branch_0x80095634:
     lw      $t6, 0x4($v0)
     sw      $t6, 0x20($v1)
 branch_0x80095724:
-    lui     $t7, %hi(Unknown_0x800da8a4_mainState)
-    lw      $t7, %lo(Unknown_0x800da8a4_mainState)($t7)
-    addiu   $at, $zero, 0x5
+    lui     $t7, %hi(MainState_0x800da8a4)
+    lw      $t7, %lo(MainState_0x800da8a4)($t7)
+    addiu   $at, $zero, MainState_5_BootUp
     lui     $t8, %hi(Unknown_0x80151618)
     beql    $t7, $at, branch_0x800957bc
     lw      $ra, 0x14($sp)
+
     lw      $t9, 0x50($sp)
     lw      $t8, %lo(Unknown_0x80151618)($t8)
     addiu   $t0, $t0, %lo(Unknown_0x801516a4)
     bnez    $t9, branch_0x80095768
     sw      $t8, 0x0($t0)
+
     jal     Function_0x80093d18
     or      $a0, $t8, $zero
     lui     $t0, %hi(Unknown_0x801516a4)
     addiu   $t0, $t0, %lo(Unknown_0x801516a4)
     b       branch_0x80095788
     sw      $v0, 0x0($t0)
+
 branch_0x80095768:
     lw      $a0, 0x0($t0)
     addiu   $a1, $zero, 0xff
@@ -1901,8 +1918,8 @@ branch_0x80095768:
     sw      $v0, 0x0($t0)
 branch_0x80095788:
     lw      $v0, 0x0($t0)
-    lui     $t3, 0xe900
-    lui     $t5, 0xb800
+    lui     $t3, %hi(0xe9000000)
+    lui     $t5, %hi(0xb8000000)
     addiu   $t2, $v0, 0x8
     sw      $t2, 0x0($t0)
     sw      $zero, 0x4($v0)
@@ -1920,8 +1937,11 @@ branch_0x800957bc:
     nop
 
 
-.globl Function_0x800957c8
-Function_0x800957c8: # 0x800957c8
+/* Input:
+a0: Ptr to FileDatas
+*/
+.globl Function_0x800957c8_LoadUncompressFiles
+Function_0x800957c8_LoadUncompressFiles: # 0x800957c8
     addiu   $sp, $sp, 0xffb0
     sw      $ra, 0x3c($sp)
     sw      $fp, 0x38($sp)
@@ -1934,11 +1954,12 @@ Function_0x800957c8: # 0x800957c8
     sw      $s1, 0x1c($sp)
     sw      $s0, 0x18($sp)
 
-    lw      $v0, 0x8($a0)
+    lw      $v0, FileData_8($a0)
     or      $s2, $a0, $zero
     lui     $s7, %hi(Unknown_0x800d4368)
-    beqz    $v0, branch_0x80095a58
+    beqz    $v0, branch_0x80095a58 # FileData_8_0
     lw      $fp, 0x44($sp)
+
     lui     $s6, 0x801d
     lui     $s5, 0x801d
     lui     $s4, 0x801d
@@ -1948,111 +1969,125 @@ Function_0x800957c8: # 0x800957c8
     addiu   $s7, $s7, %lo(Unknown_0x800d4368)
     addiu   $s3, $zero, 0x1 # MainState_1
     addiu   $s1, $zero, 0x1000
-    lw      $a0, 0x0($s2)
+    lw      $a0, FileData_Start($s2)
 branch_0x80095830:
-    lw      $t6, 0x4($s2)
+    lw      $t6, FileData_End($s2)
     addiu   $at, $zero, 0xfffe
-    lui     $t8, %hi(Unknown_0x800da8a4_mainState)
+    lui     $t8, %hi(MainState_0x800da8a4)
     subu    $a2, $t6, $a0
     addiu   $a2, $a2, 0x1
     and     $t7, $a2, $at
-    addiu   $at, $zero, 0x6
+    addiu   $at, $zero, FileData_8_6
     bne     $v0, $at, branch_0x80095868
     or      $a2, $t7, $zero
-    lui     $a1, %hi(Unknown_0x800d436c)
-    jal     Function_0x80097d14
-    lw      $a1, %lo(Unknown_0x800d436c)($a1)
-    b       branch_0x80095a48
-    lw      $v0, 0x18($s2)
+
+    lui     $a1, %hi(RamAddrForObjFile_0x800d436c)
+    jal     Function_0x80097d14_CopyFromCartToRamInChuncks
+    lw      $a1, %lo(RamAddrForObjFile_0x800d436c)($a1)
+    b       branch_0x80095a48_checkForFileType0
+    lw      $v0, (FileData_Size+FileData_8)($s2)
+
 branch_0x80095868:
-    lw      $t8, %lo(Unknown_0x800da8a4_mainState)($t8)
-    bne     $s3, $t8, branch_0x80095884
+    lw      $t8, %lo(MainState_0x800da8a4)($t8)
+    bne     $s3, $t8, branch_0x80095884 # MainState != 1
     nop
-    jal     Function_0x80097d14
+
+    jal     Function_0x80097d14_CopyFromCartToRamInChuncks
     lui     $a1, %hi(Unknown_0x80360000)
-    b       branch_0x80095890
-    lw      $v0, 0x8($s2)
+    b       branch_0x80095890_checkForFileType5
+    lw      $v0, FileData_8($s2)
 
 branch_0x80095884:
-    jal     Function_0x80097d14
-    lui     $a1, %hi(Unknown_0x802a0000)
-    lw      $v0, 0x8($s2)
-branch_0x80095890:
-    addiu   $at, $zero, 0x5
-    lui     $t9, 0x801d
-    bnel    $v0, $at, branch_0x800958ec
-    addiu   $at, $zero, 0x8
+    jal     Function_0x80097d14_CopyFromCartToRamInChuncks
+    lui     $a1, %hi(RamForCompressedTrackFiles_0x802a0000)
+    lw      $v0, FileData_8($s2)
 
-    lh      $t9, -0x1c94($t9)
-    lui     $s0, %hi(Unknown_0x800d4364)
-    lw      $s0, %lo(Unknown_0x800d4364)($s0)
+
+branch_0x80095890_checkForFileType5: # Handle Track Files
+    addiu   $at, $zero, FileData_8_5
+    lui     $t9, %hi(Unknown_0x801ce36c)
+    bnel    $v0, $at, branch_0x800958ec_checkForFileType8
+    addiu   $at, $zero, FileData_8_8
+
+    lh      $t9, %lo(Unknown_0x801ce36c)($t9)
+    lui     $s0, %hi(RamAddrForTrackFile_0x800d4364)
+    lw      $s0, %lo(RamAddrForTrackFile_0x800d4364)($s0)
     bne     $s3, $t9, branch_0x800958d0
-    lui     $t2, %hi(Unknown_0x800d7ef0_TrackNr)
-    lui     $t0, %hi(Unknown_0x800d7ef0_TrackNr)
-    lw      $t0, %lo(Unknown_0x800d7ef0_TrackNr)($t0)
-    lui     $fp, %hi(Unknown_0x800dcbbc)
+    lui     $t2, %hi(TrackNr_0x800d7ef0)
+
+    lui     $t0, %hi(TrackNr_0x800d7ef0)
+    lw      $t0, %lo(TrackNr_0x800d7ef0)($t0)
+    lui     $fp, %hi(Unknown_0x800dcbbc_UncompressedTrackFileSizes)
     sll     $t1, $t0, 2
     addu    $fp, $fp, $t1
-    b       branch_0x80095930
-    lw      $fp, %lo(Unknown_0x800dcbbc)($fp)
+    b       branch_0x80095930_uncompressData
+    lw      $fp, %lo(Unknown_0x800dcbbc_UncompressedTrackFileSizes)($fp)
 
 branch_0x800958d0:
-    lw      $t2, %lo(Unknown_0x800d7ef0_TrackNr)($t2)
+    lw      $t2, %lo(TrackNr_0x800d7ef0)($t2)
     lui     $fp, %hi(Unknown_0x800dcbe0)
     sll     $t3, $t2, 2
     addu    $fp, $fp, $t3
-    b       branch_0x80095930
+    b       branch_0x80095930_uncompressData
     lw      $fp, %lo(Unknown_0x800dcbe0)($fp)
 
 
-.globl Function_0x800958e8
-Function_0x800958e8: # 0x800958e8
-    addiu   $at, $zero, 0x8
-branch_0x800958ec:
-    bne     $v0, $at, branch_0x80095914
-    lui     $t4, %hi(Unknown_0x800d4364)
-    lw      $t4, %lo(Unknown_0x800d4364)($t4)
-    addu    $a0, $t4, $fp
+# 0x800958e8
+    addiu   $at, $zero, FileData_8_8
+branch_0x800958ec_checkForFileType8: # Handle the file after Track Files
+    bne     $v0, $at, branch_0x80095914_checkForFileType9
+    lui     $t4, %hi(RamAddrForTrackFile_0x800d4364)
+
+    lw      $t4, %lo(RamAddrForTrackFile_0x800d4364)($t4)
+    addu    $a0, $t4, $fp			# add size of uncpmressed track file
     jal     osVirtualToPhysical
     sw      $a0, 0x0($s7)
-    lui     $at, 0x801d
-    sw      $v0, -0x1bb8($at)
-    b       branch_0x80095930
+    lui     $at, %hi(Unknown_0x801ce448)
+    sw      $v0, %lo(Unknown_0x801ce448)($at)
+    b       branch_0x80095930_uncompressData
     lw      $s0, 0x0($s7)
-branch_0x80095914:
-    addiu   $at, $zero, 0x9
+
+
+branch_0x80095914_checkForFileType9:
+    addiu   $at, $zero, FileData_8_9
     bne     $v0, $at, branch_0x8009592c
     lui     $s0, %hi(Unknown_0x800d4370)
 
     lui     $s0, %hi(Code_0x8028a200)
-    b       branch_0x80095930
+    b       branch_0x80095930_uncompressData
     ori     $s0, $s0, %lo(Code_0x8028a200)
+
 
 branch_0x8009592c:
     lw      $s0, %lo(Unknown_0x800d4370)($s0)
-branch_0x80095930:
-    lui     $t7, %hi(Unknown_0x800da8a4_mainState)
-    lw      $t7, %lo(Unknown_0x800da8a4_mainState)($t7)
-    lw      $t6, 0xc($s2)
-    lui     $a0, %hi(Unknown_0x802a0000)
+
+
+branch_0x80095930_uncompressData:
+    lui     $t7, %hi(MainState_0x800da8a4)
+    lw      $t7, %lo(MainState_0x800da8a4)($t7)
+    lw      $t6, FileData_c($s2)
+    lui     $a0, %hi(RamForCompressedTrackFiles_0x802a0000)
     bne     $s3, $t7, branch_0x8009595c_notInState1
     addu    $s0, $s0, $t6
 
     lui     $a0, %hi(Unknown_0x80360000)
-    jal     Function_0x800b4ad0
-    or      $a1, $s0, $zero
-    b       branch_0x80095968
-    lw      $v0, 0x8($s2)
+    jal     Function_0x800b4ad0_UncompressMio0
+    or      $a1, $s0, $zero				# destination of uncompressed data
+    b       branch_0x80095968_checkForFileType3
+    lw      $v0, FileData_8($s2)
 
 branch_0x8009595c_notInState1:
-    jal     Function_0x800b4ad0
-    or      $a1, $s0, $zero
-    lw      $v0, 0x8($s2)
-branch_0x80095968:
-    addiu   $at, $zero, 0x3
+    jal     Function_0x800b4ad0_UncompressMio0
+    or      $a1, $s0, $zero				# destination of uncompressed data
+    lw      $v0, FileData_8($s2)
+
+
+branch_0x80095968_checkForFileType3:
+    addiu   $at, $zero, FileData_8_3
     addiu   $v1, $s0, 0x2000
-    bne     $v0, $at, branch_0x800959b4
+    bne     $v0, $at, branch_0x800959b4_checkforFileType4
     or      $a0, $zero, $zero
+
     or      $v0, $s0, $zero
 branch_0x8009597c:
     lbu     $t8, 0x0($v0)
@@ -2065,14 +2100,16 @@ branch_0x8009597c:
     lbu     $t0, -0x2($v0)
     sb      $t0, -0x2($v1)
     lbu     $t1, -0x1($v0)
-    bne     $a0, $s1, branch_0x8009597c
+    bne     $a0, $s1, branch_0x8009597c # while(a0 != s1 (0x1000))
     sb      $t1, -0x1($v1)
-    b       branch_0x80095a48
-    lw      $v0, 0x18($s2)
-branch_0x800959b4:
-    addiu   $at, $zero, 0x4
-    bnel    $v0, $at, branch_0x800959e8
-    addiu   $at, $zero, 0x7
+    b       branch_0x80095a48_checkForFileType0
+    lw      $v0, (FileData_Size+FileData_8)($s2)
+
+
+branch_0x800959b4_checkforFileType4:
+    addiu   $at, $zero, FileData_8_4
+    bnel    $v0, $at, branch_0x800959e8_checkForFileType7
+    addiu   $at, $zero, FileData_8_7
     jal     osWritebackDCacheAll
     nop
     or      $a0, $s0, $zero
@@ -2083,12 +2120,12 @@ branch_0x800959b4:
     b       branch_0x80095a44
     sw      $t3, 0x0($s4)
 
-.globl Function_0x800959e4
-Function_0x800959e4: # 0x800959e4
-    addiu   $at, $zero, 0x7
-branch_0x800959e8:
-    bnel    $v0, $at, branch_0x80095a18
-    addiu   $at, $zero, 0xa
+
+# 0x800959e4
+    addiu   $at, $zero, FileData_8_7
+branch_0x800959e8_checkForFileType7:
+    bnel    $v0, $at, branch_0x80095a18_checkForFileTypeA
+    addiu   $at, $zero, FileData_8_a
     jal     osWritebackDCacheAll
     nop
     or      $a0, $s0, $zero
@@ -2099,27 +2136,30 @@ branch_0x800959e8:
     b       branch_0x80095a44
     sw      $t5, 0x0($s5)
 
-.globl Function_0x80095a14
-Function_0x80095a14: # 0x80095a14
-    addiu   $at, $zero, 0xa
-branch_0x80095a18:
-    bnel    $v0, $at, branch_0x80095a48
-    lw      $v0, 0x18($s2)
+
+# 0x80095a14
+    addiu   $at, $zero, FileData_8_a
+branch_0x80095a18_checkForFileTypeA:
+    bnel    $v0, $at, branch_0x80095a48_checkForFileType0
+    lw      $v0, (FileData_Size+FileData_8)($s2)
     jal     osWritebackDCacheAll
     nop
     or      $a0, $s0, $zero
-    lw      $a1, 0xc($s2)
+    lw      $a1, FileData_c($s2)
     jal     Function_0x80096434
     lw      $a2, 0x0($s6)
     lw      $t6, 0x0($s6)
     addiu   $t7, $t6, 0x1
     sw      $t7, 0x0($s6)
 branch_0x80095a44:
-    lw      $v0, 0x18($s2)
-branch_0x80095a48:
-    addiu   $s2, $s2, 0x10
-    bnezl   $v0, branch_0x80095830
-    lw      $a0, 0x0($s2)
+    lw      $v0, (FileData_Size+FileData_8)($s2)
+
+
+branch_0x80095a48_checkForFileType0:
+    addiu   $s2, $s2, FileData_Size
+    bnezl   $v0, branch_0x80095830 # FileData_8_0 0 means reached end of file list
+    lw      $a0, FileData_Start($s2)
+
     sw      $fp, 0x44($sp)
 branch_0x80095a58:
     lw      $ra, 0x3c($sp)
@@ -2349,8 +2389,8 @@ branch_0x80095d14:
     nop
     bne     $v0, $at, branch_0x80095d94
 branch_0x80095d30:
-    lui     $v0, 0x801d
-    lw      $v0, -0x1b64($v0)
+    lui     $v0, %hi(Unknown_0x801ce49c)
+    lw      $v0, %lo(Unknown_0x801ce49c)($v0)
     lw      $t7, 0x70($sp)
     lui     $a1, %hi(Unknown_0x800da920)
     beq     $a3, $v0, branch_0x80095d50
@@ -2868,8 +2908,8 @@ branch_0x80096394:
 .globl Function_0x80096434
 Function_0x80096434: # 0x80096434
     addiu   $sp, $sp, 0xffa8
-    lui     $t6, %hi(Unknown_0x800da8a4_mainState)
-    lw      $t6, %lo(Unknown_0x800da8a4_mainState)($t6)
+    lui     $t6, %hi(MainState_0x800da8a4)
+    lw      $t6, %lo(MainState_0x800da8a4)($t6)
     sw      $fp, 0x38($sp)
     sw      $s7, 0x34($sp)
     addiu   $at, $zero, 0x1e
@@ -2884,9 +2924,9 @@ Function_0x80096434: # 0x80096434
     sw      $s1, 0x1c($sp)
     bne     $t6, $at, branch_0x80096484
     sw      $s0, 0x18($sp)
-    lui     $v0, %hi(Unknown_0x800d7ef0_TrackNr)
+    lui     $v0, %hi(TrackNr_0x800d7ef0)
     b       branch_0x80096488
-    lw      $v0, %lo(Unknown_0x800d7ef0_TrackNr)($v0)
+    lw      $v0, %lo(TrackNr_0x800d7ef0)($v0)
 branch_0x80096484:
     or      $v0, $a2, $zero
 branch_0x80096488:

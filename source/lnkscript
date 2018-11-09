@@ -30,9 +30,19 @@ MEMORY {
 	overlay17	: ORIGIN = 0x802c5800, LENGTH = 8M
 	overlay18	: ORIGIN = 0x802c5800, LENGTH = 8M
 	cartridge	: ORIGIN = 0x1d0f90, LENGTH = 8M
+	trackdata0	: ORIGIN = 0x80306800, LENGTH = 8M
+	trackdata1	: ORIGIN = 0x80306800, LENGTH = 8M
+	trackdata2	: ORIGIN = 0x80306800, LENGTH = 8M
+	trackdata3	: ORIGIN = 0x80306800, LENGTH = 8M
+	trackdata4	: ORIGIN = 0x80306800, LENGTH = 8M
+	trackdata5	: ORIGIN = 0x80306800, LENGTH = 8M
+	trackdata6	: ORIGIN = 0x80306800, LENGTH = 8M
+	trackdata7	: ORIGIN = 0x80306800, LENGTH = 8M
+	trackdata8	: ORIGIN = 0x80306800, LENGTH = 8M
+	trackdata9	: ORIGIN = 0x80306800, LENGTH = 8M
+	trackdata10	: ORIGIN = 0x80306800, LENGTH = 8M
+	cartridge2	: ORIGIN = 0x2e5d70, LENGTH = 8M
 	data	: ORIGIN = 0x802c5800, LENGTH = 8M
-	iwram	: ORIGIN = 0x03000000, LENGTH = 32K
-	ewram	: ORIGIN = 0x02000000, LENGTH = 256K
 }
 
 
@@ -275,6 +285,104 @@ SECTIONS
 	*(.glue_7t)
 	_end_text = .;
 } > cartridge
+__trackdata0_start = LOADADDR(.cartridge) + SIZEOF(.cartridge);
+.trackdata0 : AT (0x2a4c90) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	_end_text = .;
+} > trackdata0
+__trackdata0_end = LOADADDR(.trackdata0) + SIZEOF(.trackdata0);
+__trackdata1_start = LOADADDR(.trackdata0) + SIZEOF(.trackdata0);
+.trackdata1 : AT (0x2a9d30) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	_end_text = .;
+} > trackdata1
+__trackdata1_end = LOADADDR(.trackdata1) + SIZEOF(.trackdata1);
+__trackdata2_start = LOADADDR(.trackdata1) + SIZEOF(.trackdata1);
+.trackdata2 : AT (0x2b3440) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	_end_text = .;
+} > trackdata2
+__trackdata2_end = LOADADDR(.trackdata2) + SIZEOF(.trackdata2);
+__trackdata3_start = LOADADDR(.trackdata2) + SIZEOF(.trackdata2);
+.trackdata3 : AT (0x2b76e0) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	_end_text = .;
+} > trackdata3
+__trackdata3_end = LOADADDR(.trackdata3) + SIZEOF(.trackdata3);
+__trackdata4_start = LOADADDR(.trackdata3) + SIZEOF(.trackdata3);
+.trackdata4 : AT (0x2be960) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	_end_text = .;
+} > trackdata4
+__trackdata4_end = LOADADDR(.trackdata4) + SIZEOF(.trackdata4);
+__trackdata5_start = LOADADDR(.trackdata4) + SIZEOF(.trackdata4);
+.trackdata5 : AT (0x2c1f20) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	_end_text = .;
+} > trackdata5
+__trackdata5_end = LOADADDR(.trackdata5) + SIZEOF(.trackdata5);
+__trackdata6_start = LOADADDR(.trackdata5) + SIZEOF(.trackdata5);
+.trackdata6 : AT (0x2c5870) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	_end_text = .;
+} > trackdata6
+__trackdata6_end = LOADADDR(.trackdata6) + SIZEOF(.trackdata6);
+__trackdata7_start = LOADADDR(.trackdata6) + SIZEOF(.trackdata6);
+.trackdata7 : AT (0x2c8db0) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	_end_text = .;
+} > trackdata7
+__trackdata7_end = LOADADDR(.trackdata7) + SIZEOF(.trackdata7);
+__trackdata8_start = LOADADDR(.trackdata7) + SIZEOF(.trackdata7);
+.trackdata8 : AT (0x2d33b0) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	_end_text = .;
+} > trackdata8
+__trackdata8_end = LOADADDR(.trackdata8) + SIZEOF(.trackdata8);
+__trackdata9_start = LOADADDR(.trackdata8) + SIZEOF(.trackdata8);
+.trackdata9 : AT (0x2de950) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	_end_text = .;
+} > trackdata9
+__trackdata9_end = LOADADDR(.trackdata9) + SIZEOF(.trackdata9);
+__trackdata10_start = LOADADDR(.trackdata9) + SIZEOF(.trackdata9);
+.trackdata10 : AT (0x2e2800) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	_end_text = .;
+} > trackdata10
+__trackdata10_end = LOADADDR(.trackdata10) + SIZEOF(.trackdata10);
+.cartridge2 : AT (0x2e5d70) {
+	_start_text = .;
+	/* Executable code */
+	*(.textmain)
+	*(.gnu.warning)
+	*(.gnu.linkonce.t*)
+	*(.glue_7)
+	*(.glue_7t)
+	_end_text = .;
+} > cartridge2
 .data_228bd0 : AT (0xf5e50) {
 	_start_text = .;
 	/* Executable code */
