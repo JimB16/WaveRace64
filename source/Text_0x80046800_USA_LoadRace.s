@@ -50,14 +50,14 @@ Function_0x8006e614: # 0x8006e614
     subu    $t9, $t9, $v0
     lui     $t8, %hi(Unknown_0x801923f0_GameStruct)
     sll     $t9, $t9, 3
-    lui     $s0, %hi(Unknown_0x801c26a4)
+    lui     $s0, %hi(Unknown_0x801c2698_RaceStruct+RaceStruct_c)
     subu    $t7, $t7, $v0
     sll     $t7, $t7, 3
     addiu   $t8, $t8, %lo(Unknown_0x801923f0_GameStruct)
     addu    $s0, $s0, $t9
     addu    $v1, $t7, $t8
     b       branch_0x8006e770
-    lw      $s0, %lo(Unknown_0x801c26a4)($s0)
+    lw      $s0, %lo(Unknown_0x801c2698_RaceStruct+RaceStruct_c)($s0)
 
 branch_0x8006e6f0:
     lui     $t6, %hi(Unknown_0x802236f4)
@@ -85,13 +85,13 @@ branch_0x8006e6f0:
     subu    $t7, $t7, $v0
     lui     $t6, %hi(Unknown_0x801923f0_GameStruct)
     sll     $t7, $t7, 3
-    lui     $s0, %hi(Unknown_0x801c26a4)
+    lui     $s0, %hi(Unknown_0x801c2698_RaceStruct+RaceStruct_c)
     subu    $t9, $t9, $v0
     sll     $t9, $t9, 3
     addiu   $t6, $t6, %lo(Unknown_0x801923f0_GameStruct)
     addu    $s0, $s0, $t7
     addu    $v1, $t9, $t6
-    lw      $s0, %lo(Unknown_0x801c26a4)($s0)
+    lw      $s0, %lo(Unknown_0x801c2698_RaceStruct+RaceStruct_c)($s0)
 branch_0x8006e770:
     sll     $t8, $a1, 4
     addu    $t8, $t8, $a1
@@ -1820,19 +1820,19 @@ branch_0x8006ffb4:
     lui     $t9, %hi(TrackNr_0x800d7ef0)
     addiu   $at, $zero, Track_7
     mul.s   $f6, $f4, $f2
-    swc1    $f6, 0x0($2)
+    swc1    $f6, 0x0($v0)
     lw      $t9, %lo(TrackNr_0x800d7ef0)($t9)
     beql    $t9, $at, branch_0x80070000
-    swc1    $f24, 0x4($2)
+    swc1    $f24, 0x4($v0)
     lwc1    $f10, 0x10($v0)
     lwc1    $f8, 0x1c($v0)
     add.s   $f4, $f10, $f8
     mul.s   $f6, $f4, $f2
     b       branch_0x80070000
-    swc1    $f6, 0x4($2)
+    swc1    $f6, 0x4($v0)
 
 # 0x8006fffc
-    swc1    $f24, 0x4($2)
+    swc1    $f24, 0x4($v0)
 branch_0x80070000:
     lwc1    $f10, 0x14($v0)
     lwc1    $f8, 0x20($v0)
@@ -1848,7 +1848,7 @@ branch_0x80070000:
     li      $at, 0x95c0
     mfc1    $a3, $t8
     addiu   $a1, $sp, 0x4f8
-    swc1    $f0, 0x8($2)
+    swc1    $f0, 0x8($v0)
     swc1    $f24, 0x1c($sp)
     swc1    $f26, 0x18($sp)
     swc1    $f24, 0x14($sp)
@@ -3440,6 +3440,7 @@ branch_0x800717ac:
     lw      $t7, 0x550($sp)
     jal     Function_0x80093e28
     addiu   $a0, $a0, 0xf478
+
     lui     $s2, %hi(Unknown_0x801c0a1c)
     addiu   $s2, $s2, %lo(Unknown_0x801c0a1c)
     lw      $t8, 0x0($s2)
@@ -3455,6 +3456,7 @@ branch_0x800717ac:
     sw      $t8, 0x0($t6)
     jal     Function_0x80093e28
     sw      $s0, 0x4($t6)
+
     lw      $t9, 0x0($s2)
     lw      $t7, 0x550($sp)
     lui     $a0, 0xe01
@@ -3468,6 +3470,7 @@ branch_0x800717ac:
     sw      $t9, 0x0($t7)
     jal     Function_0x80093e28
     sw      $s0, 0x4($t7)
+
     lui     $t6, 0x801c
     lw      $t6, 0xa20($t6)
     lw      $t8, 0x550($sp)

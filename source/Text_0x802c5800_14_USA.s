@@ -8,8 +8,8 @@
 
 
 Function_0x802c5800: # 0x802c5800
-    lui     $v0, 0x801d
-    addiu   $v0, $v0, 0xe39c
+    lui     $v0, %hi(Unknown_0x801ce39c)
+    addiu   $v0, $v0, %lo(Unknown_0x801ce39c)
     lw      $t6, 0x0($v0)
     addiu   $sp, $sp, 0xffe8
     sw      $ra, 0x14($sp)
@@ -208,7 +208,7 @@ branch_0x802c5a0c:
     addiu   $a1, $zero, 0x2
     addiu   $a2, $zero, 0x11
     addiu   $a3, $zero, 0x20
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
     addiu   $t3, $zero, 0xce
     sw      $t3, 0x10($sp)
@@ -216,7 +216,7 @@ branch_0x802c5a0c:
     addiu   $a1, $zero, 0x4
     addiu   $a2, $zero, 0xc
     addiu   $a3, $zero, 0x57
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
     addiu   $t4, $zero, 0xce
     sw      $t4, 0x10($sp)
@@ -224,7 +224,7 @@ branch_0x802c5a0c:
     addiu   $a1, $zero, 0x4
     addiu   $a2, $zero, 0xd
     addiu   $a3, $zero, 0xa9
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
     lui     $s2, 0x802c
     lui     $s3, 0x802c
@@ -275,7 +275,7 @@ branch_0x802c5b78:
     or      $a0, $v0, $zero
     addiu   $a1, $zero, 0x1
     lw      $a2, 0x0($s2)
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
     addiu   $s1, $s1, 0x1
     slti    $at, $s1, 0x3
@@ -410,7 +410,7 @@ branch_0x802c5da8:
     nop
     break   0x6
 branch_0x802c5dc0:
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     nop
     addiu   $s1, $s1, 0x1
     slti    $at, $s1, 0x9
@@ -468,7 +468,7 @@ branch_0x802c5e2c:
     addiu   $a1, $zero, 0x1
     lw      $a2, 0x0($s0)
     or      $a3, $s2, $zero
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
     addiu   $s1, $s1, 0x1
     addiu   $s0, $s0, 0x4
@@ -501,9 +501,9 @@ Function_0x802c5ee4: # 0x802c5ee4
     lui     $at, 0x801d
     addiu   $t8, $zero, 0x10
     sw      $t8, -0x1c68($at)
-    lui     $at, 0x801d
+    lui     $at, %hi(Unknown_0x801ce39c)
     addiu   $t9, $zero, 0x1
-    sw      $t9, -0x1c64($at)
+    sw      $t9, %lo(Unknown_0x801ce39c)($at)
     lui     $at, 0x801d
     sw      $zero, -0x1c60($at)
     lui     $at, 0x801d

@@ -31,6 +31,7 @@
 .equ ROM_0x1cb8b0,				0x1cb8b0
 .equ ROM_0x1cef40,				0x1cef40
 .equ ROM_0x1cf920,				0x1cf920
+.equ ROM_0x1cf920_End,			0x1d0f90
 
 
 .equ ROM_0x337540,				0x337540
@@ -219,7 +220,7 @@
 .equ Unknown_0x80151618_0x13d68,	0x13d68
 .equ Unknown_0x80151618_0x170d8,	0x170d8
 .equ Unknown_0x80151620,		0x80151620
-.equ Unknown_0x801516a0,		0x801516a0
+.equ Unknown_0x801516a0_SpTaskPtr,		0x801516a0
 .equ Unknown_0x801516a4,		0x801516a4
 .equ Unknown_0x801516a8,		0x801516a8
 .equ Unknown_0x801516ac,		0x801516ac
@@ -304,6 +305,12 @@
 .equ Unknown_0x801921f4,		0x801921f4
 .equ Unknown_0x801921f8,		0x801921f8
 .equ Unknown_0x801921fc,		0x801921fc
+.equ Unknown_0x8019220c,		0x8019220c
+.equ Unknown_0x80192210,		0x80192210
+.equ Unknown_0x80192214,		0x80192214
+.equ Unknown_0x80192218,		0x80192218
+.equ Unknown_0x8019221c,		0x8019221c
+.equ Unknown_0x80192220,		0x80192220
 .equ Unknown_0x80192250,		0x80192250
 .equ Unknown_0x80192254,		0x80192254
 .equ Unknown_0x80192258,		0x80192258
@@ -325,6 +332,12 @@
 .equ Unknown_0x80192298,		0x80192298
 .equ Unknown_0x80192370,		0x80192370
 .equ Unknown_0x80192390,		0x80192390
+.equ Unknown_0x801923b0,		0x801923b0
+.equ Unknown_0x801923c0,		0x801923c0
+.equ Unknown_0x801923c4,		0x801923c4
+.equ Unknown_0x801923c8,		0x801923c8
+.equ Unknown_0x801923d0,		0x801923d0
+.equ Unknown_0x801923e0,		0x801923e0
 .equ Unknown_0x801923f0_GameStruct,		0x801923f0 # GameStruct
 
 .equ Unknown_0x80193ab8,		0x80193ab8
@@ -375,7 +388,7 @@
 .equ Unknown_0x801bf7a0,		0x801bf7a0
 .equ Unknown_0x801bf7a8,		0x801bf7a8
 .equ Unknown_0x801bf8c8,		0x801bf8c8
-.equ Unknown_0x801bf8d0,		0x801bf8d0
+.equ Unknown_0x801bf8d0_WaveGenerators,		0x801bf8d0
 .equ Unknown_0x801bfad0,		0x801bfad0
 #
 .equ Unknown_0x801c0320,		0x801c0320
@@ -398,6 +411,7 @@
 .equ Unknown_0x801c1ce4,		0x801c1ce4
 .equ Unknown_0x801c1ce8,		0x801c1ce8
 .equ Unknown_0x801c1cf0,		0x801c1cf0
+.equ Unknown_0x801c1d14,		0x801c1d14
 .equ Unknown_0x801c1d18,		0x801c1d18
 .equ Unknown_0x801c1d1c,		0x801c1d1c
 .equ Unknown_0x801c1d2c_CurLapNr,		0x801c1d2c
@@ -415,13 +429,13 @@
 .equ Unknown_0x801c2124,		0x801c2124
 .equ Unknown_0x801c21c4,		0x801c21c4
 .equ Unknown_0x801c2224,		0x801c2224
+.equ Unknown_0x801c23b0,		0x801c23b0
 .equ Unknown_0x801c23b8,		0x801c23b8
 .equ Unknown_0x801c2448,		0x801c2448
 .equ Unknown_0x801c25f8,		0x801c25f8
 .equ Unknown_0x801c2698_RaceStruct,		0x801c2698 # RaceStruct
-.equ Unknown_0x801c26a4,		0x801c26a4
-# 801C27C4
-.equ Unknown_0x801c27cc_BuoyMisses,		0x801c27cc # (Unknown_0x801c2698_RaceStruct+RaceStruct_BuoyMisses)
+.equ Unknown_0x801c34e0,		0x801c34e0
+.equ Unknown_0x801c34e8,		0x801c34e8
 .equ Unknown_0x801c3724,		0x801c3724
 .equ Unknown_0x801c3770,		0x801c3770
 .equ Unknown_0x801c3830,		0x801c3830
@@ -444,7 +458,12 @@
 .equ Unknown_0x801c38e0,		0x801c38e0
 .equ Unknown_0x801c38e4,		0x801c38e4
 .equ Unknown_0x801c39b4,		0x801c39b4
+.equ Unknown_0x801c3ec0,		0x801c3ec0
+.equ Unknown_0x801c3ec4,		0x801c3ec4
+.equ Unknown_0x801c3ec8,		0x801c3ec8
+.equ Unknown_0x801c4158,		0x801c4158
 .equ Unknown_0x801cadb8,		0x801cadb8
+.equ Unknown_0x801caec0,		0x801caec0
 .equ Unknown_0x801cafe0,		0x801cafe0
 .equ Unknown_0x801cafe8,		0x801cafe8
 .equ Unknown_0x801caff8,		0x801caff8
@@ -456,6 +475,7 @@
 .equ Unknown_0x801cb0b0,		0x801cb0b0
 .equ Unknown_0x801cb150,		0x801cb150
 .equ Unknown_0x801cb160,		0x801cb160
+.equ Unknown_0x801cb161,		0x801cb161
 .equ Unknown_0x801cb428,		0x801cb428
 .equ Unknown_0x801ce358,		0x801ce358
 .equ Unknown_0x801ce35c,		0x801ce35c
@@ -488,12 +508,25 @@
 .equ Unknown_0x801ce40c,		0x801ce40c # End of Controller Input
 
 .equ Unknown_0x801ce410,		0x801ce410
+.equ Unknown_0x801ce410_0,		0x0
+.equ Unknown_0x801ce410_4,		0x4
+.equ Unknown_0x801ce410_8,		0x8
+.equ Unknown_0x801ce410_c,		0xc
+.equ Unknown_0x801ce410_10,		0x10
+.equ Unknown_0x801ce410_14,		0x14
+.equ Unknown_0x801ce410_18,		0x18
+.equ Unknown_0x801ce410_1c,		0x1c
+.equ Unknown_0x801ce410_20,		0x20
+.equ Unknown_0x801ce410_24,		0x24
+.equ Unknown_0x801ce410_34,		0x34
+.equ Unknown_0x801ce410_38,		0x38
 .equ Unknown_0x801ce448,		0x801ce448
 .equ Unknown_0x801ce450,		0x801ce450
 .equ Unknown_0x801ce454,		0x801ce454
 .equ Unknown_0x801ce458,		0x801ce458
 .equ Unknown_0x801ce45c,		0x801ce45c
 .equ Unknown_0x801ce488,		0x801ce488
+.equ Unknown_0x801ce48c,		0x801ce48c
 .equ Unknown_0x801ce490,		0x801ce490
 .equ Unknown_0x801ce49c,		0x801ce49c
 .equ Unknown_0x801ce4a0,		0x801ce4a0
@@ -507,6 +540,7 @@
 .equ Unknown_0x801ce4c0,		0x801ce4c0
 .equ Unknown_0x801ce4c0_0,		0x0
 .equ Unknown_0x801ce4c0_4,		0x4
+.equ Unknown_0x801ce548,		0x801ce548
 .equ Unknown_0x801ce6f8,		0x801ce6f8
 .equ Unknown_0x801ce700,		0x801ce700
 
@@ -535,6 +569,8 @@
 .equ Unknown_0x802236f0,		0x802236f0
 .equ Unknown_0x802236f4,		0x802236f4
 
+.equ Unknown_0x80226180,		0x80226180
+
 .equ Unknown_0x80227820,		0x80227820
 .equ Unknown_0x80227828,		0x80227828
 .equ Unknown_0x8022782c,		0x8022782c
@@ -551,7 +587,9 @@
 .equ Unknown_0x80227974,		0x80227974
 .equ Unknown_0x802279b8,		0x802279b8
 .equ Unknown_0x80227a40,		0x80227a40
+.equ Unknown_0x80227b24,		0x80227b24
 .equ Unknown_0x80227b4c,		0x80227b4c
+.equ Unknown_0x802286bc,		0x802286bc
 .equ Unknown_0x802287d6,		0x802287d6
 .equ Unknown_0x80228808,		0x80228808
 .equ Unknown_0x80228818,		0x80228818
@@ -622,18 +660,6 @@
 .equ OSMesgQueue_msgCount,		0x10
 .equ OSMesgQueue_msg,			0x14 # OSMesg *
 
-
-.equ NrOfTracks,				9
-.equ Track_0,					0 # Dolphin Park
-.equ Track_1,					1 # Sunny Beach
-.equ Track_2,					2 # Sunset Bay
-.equ Track_3,					3 # Marine Fortress
-.equ Track_4,					4 # Drake Lake
-.equ Track_5,					5 # Port Blue
-.equ Track_6,					6 # Twilight City
-.equ Track_7,					7 # Southern Island
-.equ Track_8,					8 # Glacier Coast
-.equ Track_9,					9
 
 .equ LoadingStruct_FileDatas,	0x0
 .equ LoadingStruct_4,			0x4
@@ -787,41 +813,151 @@
 
 .equ FLOAT_0_5,				0x3f000000
 .equ FLOAT_1,				0x3f800000
+.equ FLOAT_1_75,			0x3fe00000
+.equ FLOAT_1_875,			0x3ff00000
+.equ FLOAT_3,				0x40400000
 .equ FLOAT_5,				0x40a00000
+.equ FLOAT_11,				0x41300000
 .equ FLOAT_18,				0x41900000
 .equ FLOAT_50,				0x42480000
 .equ FLOAT_53,				0x42540000
+.equ FLOAT_63_5,			0x427e0000
 .equ FLOAT_64,				0x42800000
+.equ FLOAT_70,				0x428c0000
 .equ FLOAT_71,				0x428e0000
+.equ FLOAT_100,				0x42c80000
 .equ FLOAT_106,				0x42d40000
 .equ FLOAT_142,				0x430e0000
 .equ FLOAT_255,				0x437f0000
 .equ FLOAT_360,				0x43b40000
+.equ FLOAT_4000,			0x457a0000
 .equ FLOAT_4096,			0x45800000
 
 
-# GameStruct at Unknown_0x801923f0_GameStruct
+# value of $a2 for Function_0x801e3c40_DrawStrings
+.equ StringID_3,				0x3
+.equ StringID_4,				0x4
+.equ StringID_6,				0x6
+.equ StringID_7,				0x7
+.equ StringID_9,				0x9
+.equ StringID_a,				0xa
+.equ StringID_b,				0xb
+.equ StringID_c,				0xc
+.equ StringID_d,				0xd
+.equ StringID_e,				0xe
+.equ StringID_16,				0x16
+.equ StringID_1a,				0x1a
+.equ StringID_1d,				0x1d
+.equ StringID_1e,				0x1e
+.equ StringID_1f,				0x1f
+.equ StringID_20,				0x20
+.equ StringID_22,				0x22
+.equ StringID_25,				0x25
+.equ StringID_26,				0x26
+.equ StringID_3e,				0x3e
+.equ StringID_56,				0x56
+.equ StringID_58,				0x58
+
+.equ NrOfTracks,				9
+.equ Track_0,					0 # Dolphin Park
+.equ Track_1,					1 # Sunny Beach
+.equ Track_2,					2 # Sunset Bay
+.equ Track_3,					3 # Marine Fortress
+.equ Track_4,					4 # Drake Lake
+.equ Track_5,					5 # Port Blue
+.equ Track_6,					6 # Twilight City
+.equ Track_7,					7 # Southern Island
+.equ Track_8,					8 # Glacier Coast
+.equ Track_9,					9
+
+.equ Driver_0,					0 # Hayami
+.equ Driver_1,					1 # Mariner
+.equ Driver_2,					2 # Stewart
+.equ Driver_3,					3 # Jeter
+
+# GameStruct at Unknown_0x801923f0_GameStruct GameStruct_1718
+# 0x801923f0, 0x80193b08, 0x80195220, 0x80196938
+# GameStruct_Handling = 0xb6c
+.equ GameStruct_0,			0x0
+.equ GameStruct_4,			0x4
+.equ GameStruct_8,			0x8
+.equ GameStruct_10,			0x10
+.equ GameStruct_14,			0x14
+.equ GameStruct_18,			0x18
+.equ GameStruct_28,			0x28
+.equ GameStruct_2c,			0x2c
 .equ GameStruct_44,			0x44
 .equ GameStruct_48,			0x48
 .equ GameStruct_4c,			0x4c
 .equ GameStruct_50,			0x50
 .equ GameStruct_54,			0x54
 .equ GameStruct_58,			0x58
+.equ GameStruct_5c,			0x5c
+.equ GameStruct_64,			0x64
+.equ GameStruct_68,			0x68
 .equ GameStruct_6c,			0x6c
 .equ GameStruct_70,			0x70
 .equ GameStruct_74,			0x74
 .equ GameStruct_78,			0x78
 .equ GameStruct_7c,			0x7c
 .equ GameStruct_80,			0x80
+.equ GameStruct_84,			0x84
 .equ GameStruct_88,			0x88
+.equ GameStruct_8c,			0x8c
 .equ GameStruct_90,			0x90
+.equ GameStruct_94,			0x94
+.equ GameStruct_98,			0x98
+.equ GameStruct_9c,			0x9c
+.equ GameStruct_a0,			0xa0
+.equ GameStruct_a4,			0xa4
+.equ GameStruct_ac,			0xac
 .equ GameStruct_bc,			0xbc
 .equ GameStruct_c0,			0xc0
 .equ GameStruct_c4,			0xc4
+.equ GameStruct_d0,			0xd0
+.equ GameStruct_d4,			0xd4
+.equ GameStruct_d8,			0xd8
+.equ GameStruct_dc,			0xdc
+.equ GameStruct_e0,			0xe0
+.equ GameStruct_e4,			0xe4
+.equ GameStruct_ec,			0xec
+.equ GameStruct_fc,			0xfc
+.equ GameStruct_100,		0x100
+.equ GameStruct_104,		0x104
 .equ GameStruct_11c,		0x11c
 .equ GameStruct_120,		0x120
 .equ GameStruct_124,		0x124
+.equ GameStruct_13c,		0x13c
+.equ GameStruct_140,		0x140
+.equ GameStruct_144,		0x144
+.equ GameStruct_15c,		0x15c
+.equ GameStruct_160,		0x160
+.equ GameStruct_164,		0x164
+.equ GameStruct_17c,		0x17c
+.equ GameStruct_180,		0x180
+.equ GameStruct_184,		0x184
+.equ GameStruct_190,		0x190
+.equ GameStruct_194,		0x194
+.equ GameStruct_198,		0x198
+.equ GameStruct_1a0,		0x1a0
+.equ GameStruct_1b0,		0x1b0
+.equ GameStruct_1b4,		0x1b4
+.equ GameStruct_1b8,		0x1b8
+.equ GameStruct_1bc,		0x1bc
+.equ GameStruct_1c0,		0x1c0
+.equ GameStruct_1c4,		0x1c4
+.equ GameStruct_1d0,		0x1d0
+.equ GameStruct_1d4,		0x1d4
+.equ GameStruct_1d8,		0x1d8
+.equ GameStruct_1dc,		0x1dc
+.equ GameStruct_1e0,		0x1e0
+.equ GameStruct_1e4,		0x1e4
 .equ GameStruct_1f0,		0x1f0
+.equ GameStruct_1f4,		0x1f4
+.equ GameStruct_1f8,		0x1f8
+.equ GameStruct_1fc,		0x1fc
+.equ GameStruct_200,		0x200
+.equ GameStruct_204,		0x204
 .equ GameStruct_65c,		0x65c
 .equ GameStruct_660,		0x660
 .equ GameStruct_668,		0x668
@@ -839,10 +975,11 @@
 .equ GameStruct_b5e,		0xb5e
 .equ GameStruct_b5f,		0xb5f
 .equ GameStruct_b60,		0xb60
-.equ GameStruct_b68,		0xb68
-.equ GameStruct_b6c,		0xb6c
-.equ GameStruct_b70,		0xb70
-.equ GameStruct_b74,		0xb74
+.equ GameStruct_Driver1,	0xb64 # 0 - 3
+.equ GameStruct_Driver2,	0xb68 # 0 - 3
+.equ GameStruct_Handling,	0xb6c # Handling value 0 - 11
+.equ GameStruct_Engine,		0xb70 # Engine value 0 - 11
+.equ GameStruct_Grip,		0xb74 # Grip value 0 - 11
 .equ GameStruct_b78,		0xb78
 .equ GameStruct_b7c,		0xb7c
 .equ GameStruct_b80,		0xb80
@@ -851,12 +988,35 @@
 .equ GameStruct_b8c,		0xb8c
 .equ GameStruct_b90,		0xb90
 .equ GameStruct_b94,		0xb94
+.equ GameStruct_b98,		0xb98
+.equ GameStruct_b9c,		0xb9c
+.equ GameStruct_ba0,		0xba0
+.equ GameStruct_ba4,		0xba4
+.equ GameStruct_ba8,		0xba8
+.equ GameStruct_bac,		0xbac
+.equ GameStruct_bb0,		0xbb0
+.equ GameStruct_bb4,		0xbb4
+.equ GameStruct_bb8,		0xbb8
+.equ GameStruct_bbc,		0xbbc
+.equ GameStruct_bc0,		0xbc0
+.equ GameStruct_bc4,		0xbc4
+.equ GameStruct_bc8,		0xbc8
+.equ GameStruct_bcc,		0xbcc
+.equ GameStruct_bd0,		0xbd0
+.equ GameStruct_bd4,		0xbd4
+.equ GameStruct_bd8,		0xbd8
+.equ GameStruct_bdc,		0xbdc
+.equ GameStruct_be0,		0xbe0
 .equ GameStruct_be4,		0xbe4
 .equ GameStruct_be8,		0xbe8
 .equ GameStruct_bec,		0xbec
 .equ GameStruct_bf0,		0xbf0
 .equ GameStruct_bf4,		0xbf4
+.equ GameStruct_bf8,		0xbf8
 .equ GameStruct_bfc,		0xbfc
+.equ GameStruct_c00,		0xc00
+.equ GameStruct_c0c,		0xc0c
+.equ GameStruct_c10,		0xc10
 .equ GameStruct_c14,		0xc14
 .equ GameStruct_c18,		0xc18
 .equ GameStruct_c1c,		0xc1c
@@ -866,10 +1026,13 @@
 .equ GameStruct_c2c,		0xc2c
 .equ GameStruct_c30,		0xc30
 .equ GameStruct_c34,		0xc34
+.equ GameStruct_c38,		0xc38
+.equ GameStruct_c3c,		0xc3c
 .equ GameStruct_c40,		0xc40
 .equ GameStruct_c44,		0xc44
 .equ GameStruct_c48,		0xc48
 .equ GameStruct_c4c,		0xc4c
+.equ GameStruct_c50,		0xc50
 .equ GameStruct_c54,		0xc54
 .equ GameStruct_c58,		0xc58
 .equ GameStruct_c66,		0xc66
@@ -883,19 +1046,45 @@
 .equ GameStruct_c82,		0xc82
 .equ GameStruct_c84,		0xc84
 .equ GameStruct_c86,		0xc86
+.equ GameStruct_1420,		0x1420
 .equ GameStruct_1424,		0x1424
+.equ GameStruct_1428,		0x1428
+.equ GameStruct_1434,		0x1434
+.equ GameStruct_1438,		0x1438
+.equ GameStruct_143c,		0x143c
+.equ GameStruct_1440,		0x1440
 .equ GameStruct_1444,		0x1444
+.equ GameStruct_1446,		0x1446
+.equ GameStruct_1568,		0x1568
+.equ GameStruct_156c,		0x156c
+.equ GameStruct_1570,		0x1570
 .equ GameStruct_1574,		0x1574
 .equ GameStruct_1578,		0x1578
 .equ GameStruct_157c,		0x157c
+.equ GameStruct_1580,		0x1580
+.equ GameStruct_1584,		0x1584
+.equ GameStruct_158c,		0x158c
+.equ GameStruct_1590,		0x1590
+.equ GameStruct_1594,		0x1594
 .equ GameStruct_1598,		0x1598
 .equ GameStruct_159c,		0x159c
 .equ GameStruct_15a0,		0x15a0
 .equ GameStruct_15a4,		0x15a4
 .equ GameStruct_15a8,		0x15a8
+.equ GameStruct_15ac,		0x15ac
+.equ GameStruct_15b4,		0x15b4
+.equ GameStruct_15b8,		0x15b8
+.equ GameStruct_15bc,		0x15bc
 .equ GameStruct_15c0,		0x15c0
+.equ GameStruct_15c4,		0x15c4
+.equ GameStruct_15cc,		0x15cc
+.equ GameStruct_15d0,		0x15d0
+.equ GameStruct_15d4,		0x15d4
 .equ GameStruct_15dc,		0x15dc
 .equ GameStruct_15de,		0x15de
+.equ GameStruct_15e0,		0x15e0
+.equ GameStruct_15e4,		0x15e4
+.equ GameStruct_15e8,		0x15e8
 .equ GameStruct_15ec,		0x15ec
 .equ GameStruct_15f0,		0x15f0
 .equ GameStruct_15f8,		0x15f8
@@ -906,78 +1095,122 @@
 .equ GameStruct_1606,		0x1606
 .equ GameStruct_1608,		0x1608
 .equ GameStruct_160a,		0x160a
+.equ GameStruct_160c,		0x160c
+.equ GameStruct_1610,		0x1610
+.equ GameStruct_1614,		0x1614
+.equ GameStruct_1618,		0x1618
+.equ GameStruct_161c,		0x161c
+.equ GameStruct_1620,		0x1620
+.equ GameStruct_1630,		0x1630
+.equ GameStruct_1634,		0x1634
+.equ GameStruct_1638,		0x1638
+.equ GameStruct_163c,		0x163c
+.equ GameStruct_1640,		0x1640
+.equ GameStruct_1644,		0x1644
+.equ GameStruct_1654,		0x1654
+.equ GameStruct_1658,		0x1658
+.equ GameStruct_165c,		0x165c
+.equ GameStruct_1660,		0x1660
+.equ GameStruct_1664,		0x1664
+.equ GameStruct_1668,		0x1668
+.equ GameStruct_1678,		0x1678
+.equ GameStruct_167c,		0x167c
+.equ GameStruct_1680,		0x1680
+.equ GameStruct_1684,		0x1684
+.equ GameStruct_1688,		0x1688
+.equ GameStruct_168c,		0x168c
+.equ GameStruct_169c,		0x169c
+.equ GameStruct_16a0,		0x16a0
+.equ GameStruct_16a4,		0x16a4
+.equ GameStruct_16a8,		0x16a8
+.equ GameStruct_16ac,		0x16ac
+.equ GameStruct_16b0,		0x16b0
 .equ GameStruct_16b4,		0x16b4
+.equ GameStruct_16b8,		0x16b8
+.equ GameStruct_16bc,		0x16bc
+.equ GameStruct_16c0,		0x16c0
 .equ GameStruct_16c4,		0x16c4
+.equ GameStruct_16c8,		0x16c8
 .equ GameStruct_16cc,		0x16cc
 .equ GameStruct_16ce,		0x16ce
 .equ GameStruct_16d0,		0x16d0
 .equ GameStruct_16d4,		0x16d4
+.equ GameStruct_16d8,		0x16d8
 .equ GameStruct_16dc,		0x16dc
 .equ GameStruct_16e0,		0x16e0
 .equ GameStruct_16e2,		0x16e2
 .equ GameStruct_16f2,		0x16f2
 .equ GameStruct_16f4,		0x16f4
+.equ GameStruct_1718,		0x1718 # size
 
 
-#801C269B 
-#801C27C7 
+#801C269B
 # RaceStruct at Unknown_0x801c2698_RaceStruct
-.equ RaceStruct_0,		0x0
-.equ RaceStruct_4,		0x4
-.equ RaceStruct_8,		0x8 # CurTrackSectionNr
-.equ RaceStruct_c,		0xc # NextTrackSectionNr
-.equ RaceStruct_10,		0x10
-.equ RaceStruct_1c,		0x1c
-.equ RaceStruct_20,		0x20
-.equ RaceStruct_24,		0x24
-.equ RaceStruct_28,		0x28
-.equ RaceStruct_12c,	0x12c
-.equ RaceStruct_130,	0x130
+.equ RaceStruct_Size,		0x378 # size of structure
+.equ RaceStruct_0,			0x0
+.equ RaceStruct_4,			0x4
+.equ RaceStruct_8,			0x8 # CurTrackSectionNr
+.equ RaceStruct_c,			0xc # NextTrackSectionNr
+.equ RaceStruct_10,			0x10
+.equ RaceStruct_1c,			0x1c
+.equ RaceStruct_20,			0x20
+.equ RaceStruct_24,			0x24
+.equ RaceStruct_28,			0x28
+.equ RaceStruct_PowerMeter,	0x12c # 801C27C4
+.equ RaceStruct_130,		0x130
 .equ RaceStruct_BuoyMisses,	0x134 # BuoyMisses
-.equ RaceStruct_138,	0x138
-.equ RaceStruct_13c,	0x13c
-.equ RaceStruct_160,	0x160
-.equ RaceStruct_164,	0x164
-.equ RaceStruct_168,	0x168
-.equ RaceStruct_16c,	0x16c
-.equ RaceStruct_170,	0x170
-.equ RaceStruct_174,	0x174
-.equ RaceStruct_178,	0x178
-.equ RaceStruct_198,	0x198
-.equ RaceStruct_19c,	0x19c
-.equ RaceStruct_2c4,	0x2c4
-.equ RaceStruct_2c8,	0x2c8
-.equ RaceStruct_2cc,	0x2cc
-.equ RaceStruct_2d0,	0x2d0
-.equ RaceStruct_2d4,	0x2d4
-.equ RaceStruct_2d8,	0x2d8
-.equ RaceStruct_2dc,	0x2dc
-.equ RaceStruct_2e0,	0x2e0
-.equ RaceStruct_2e4,	0x2e4
-.equ RaceStruct_2e8,	0x2e8 # 801C2980 Out of course timer
-.equ RaceStruct_2ec,	0x2ec
-.equ RaceStruct_2f0,	0x2f0
-.equ RaceStruct_2f4,	0x2f4
-.equ RaceStruct_2f8,	0x2f8
-.equ RaceStruct_2fc,	0x2fc
-.equ RaceStruct_300,	0x300
-.equ RaceStruct_304,	0x304
-.equ RaceStruct_308,	0x308
-.equ RaceStruct_30c,	0x30c
-.equ RaceStruct_310,	0x310
-.equ RaceStruct_314,	0x314
-.equ RaceStruct_318,	0x318
-.equ RaceStruct_31c,	0x31c
-.equ RaceStruct_320,	0x320
-.equ RaceStruct_324,	0x324
-.equ RaceStruct_328,	0x328
-.equ RaceStruct_32c,	0x32c
-.equ RaceStruct_330,	0x330
-.equ RaceStruct_334,	0x334
-.equ RaceStruct_338,	0x338
-.equ RaceStruct_33c,	0x33c
-.equ RaceStruct_350,	0x350
-.equ RaceStruct_378,	0x378 # size of structure
+.equ RaceStruct_138,		0x138
+.equ RaceStruct_13c,		0x13c
+.equ RaceStruct_140,		0x140
+.equ RaceStruct_144,		0x144
+.equ RaceStruct_148,		0x148
+.equ RaceStruct_14c,		0x14c
+.equ RaceStruct_150,		0x150
+.equ RaceStruct_160,		0x160
+.equ RaceStruct_164,		0x164
+.equ RaceStruct_168,		0x168
+.equ RaceStruct_16c,		0x16c
+.equ RaceStruct_170,		0x170
+.equ RaceStruct_174,		0x174
+.equ RaceStruct_178,		0x178
+.equ RaceStruct_17c,		0x17c
+.equ RaceStruct_180,		0x180
+.equ RaceStruct_184,		0x184
+.equ RaceStruct_188,		0x188
+.equ RaceStruct_198,		0x198
+.equ RaceStruct_19c,		0x19c
+.equ RaceStruct_2c4,		0x2c4
+.equ RaceStruct_2c8,		0x2c8
+.equ RaceStruct_2cc,		0x2cc
+.equ RaceStruct_2d0,		0x2d0
+.equ RaceStruct_2d4,		0x2d4
+.equ RaceStruct_2d8,		0x2d8
+.equ RaceStruct_2dc,		0x2dc
+.equ RaceStruct_2e0,		0x2e0
+.equ RaceStruct_2e4,		0x2e4
+.equ RaceStruct_2e8,		0x2e8 # 801C2980 Out of course timer
+.equ RaceStruct_2ec,		0x2ec
+.equ RaceStruct_2f0,		0x2f0
+.equ RaceStruct_2f4,		0x2f4
+.equ RaceStruct_2f8,		0x2f8
+.equ RaceStruct_2fc,		0x2fc
+.equ RaceStruct_300,		0x300
+.equ RaceStruct_304,		0x304
+.equ RaceStruct_308,		0x308
+.equ RaceStruct_30c,		0x30c
+.equ RaceStruct_310,		0x310
+.equ RaceStruct_314,		0x314
+.equ RaceStruct_318,		0x318
+.equ RaceStruct_31c,		0x31c
+.equ RaceStruct_320,		0x320
+.equ RaceStruct_324,		0x324
+.equ RaceStruct_328,		0x328
+.equ RaceStruct_32c,		0x32c
+.equ RaceStruct_330,		0x330
+.equ RaceStruct_334,		0x334
+.equ RaceStruct_338,		0x338
+.equ RaceStruct_33c,		0x33c
+.equ RaceStruct_350,		0x350
 
 
 .equ ObjStructRaw_0,	0x0
@@ -1038,11 +1271,11 @@
 
 
 .equ WaveDataStruct_1a,	0x1a # size
-.equ WaveDataStruct_0,	0x0
-.equ WaveDataStruct_2,	0x2
+.equ WaveDataStruct_XPos,		0x0
+.equ WaveDataStruct_YPos,		0x2
 .equ WaveDataStruct_4,	0x4
 .equ WaveDataStruct_6,	0x6
-.equ WaveDataStruct_8,	0x8 # wave height
+.equ WaveDataStruct_WaveHeight,	0x8
 .equ WaveDataStruct_a,	0xa
 .equ WaveDataStruct_c,	0xc
 .equ WaveDataStruct_e,	0xe
@@ -1052,6 +1285,26 @@
 .equ WaveDataStruct_16,	0x16
 .equ WaveDataStruct_18,	0x18
 .equ WaveDataStruct_1e,	0x1e
+
+# struct of loaded wave generators
+.equ WaveGenerator_Size,	0x40
+.equ WaveGenerator_XPos,	0x0
+.equ WaveGenerator_YPos,	0x4
+.equ WaveGenerator_8,	0x8
+.equ WaveGenerator_c,	0xc
+.equ WaveGenerator_10,	0x10
+.equ WaveGenerator_14,	0x14
+.equ WaveGenerator_WaveHeight,	0x18
+.equ WaveGenerator_1c,	0x1c
+.equ WaveGenerator_20,	0x20
+.equ WaveGenerator_24,	0x24
+.equ WaveGenerator_28,	0x28
+.equ WaveGenerator_2c,	0x2c
+.equ WaveGenerator_30,	0x30
+.equ WaveGenerator_34,	0x34
+.equ WaveGenerator_38,	0x38
+.equ WaveGenerator_3c,	0x3c
+
 
 # SBN yellow 8:5 red buoys
 .equ Obj_YellowBuoy_1,		0x1 # normal yellow buoy
@@ -1071,3 +1324,24 @@
 .equ Obj_14,				0x14
 .equ Obj_17,				0x17
 
+
+.equ DrawList_8,			0x8
+.equ DrawList_0,			0x0
+.equ DrawList_4,			0x4
+
+
+# Fast3D https://hack64.net/wiki/doku.php?id=super_mario_64:fast3d_display_list_commands
+#define UpperWord(dw)			(dw>>32)
+#define LowerWord(dw)			(dw&0xffffffff)
+#define G_MOVEMEM(n,o,i)		(0x3<<56|n<<48|o<<40|i<<32)
+#define G_DL(a,b)				(0x6<<56|a<<48|b<<0)
+#define G_RDPHALF_1				(0xb4<<56)
+#define G_MOVEWORD(i,o)			(0xbc<<56|i<<48|o<<32)
+#define G_RDPLOADSYNC			(0xe6<<56)
+#define G_RDPPIPESYNC			(0xe7<<56)
+#define G_SETSCISSOR(x,y,m,v,w)	(0xed<<56|x<<44|y<<32|m<<28|v<<12|w<<0)
+#define G_SETTILESIZE(w,h)		(0xf2<<56|w<<12|h<<0)
+#define G_LOADBLOCK(s,t,i,x,d)	(0xf3<<56|s<<44|t<<32|i<<24|x<<12|d<<0)
+#define G_LOADTILE(s,t,i,u,v)	(0xf4<<56|s<<44|t<<32|i<<24|u<<12|v<<0)
+#define G_SETTILE(f,i,n,m,t,p,c,a,s,d,b,u)	(0xf5<<56|f<<53|i<<51|n<<41|m<<32|t<<24|p<<20|c<<18|a<<14|s<<10|d<<8|b<<4|u<<0)
+#define G_SETTIMG(f,i)			(0xfd<<56|f<<53|i<<51)

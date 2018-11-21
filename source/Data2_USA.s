@@ -9,7 +9,10 @@
 
 .globl ROM_0x2e5d70
 ROM_0x2e5d70:
-.incbin "build/data/mio0/data_2e5d70.mio0" # 0x2e5d70
+.incbin "build/data/models/data_2e5d70.mio0" # 0x2e5d70
+.globl ROM_0x2e5d70_End
+ROM_0x2e5d70_End:
+
 .align 4, 0
 .globl ROM_0x2f99a0
 ROM_0x2f99a0:
@@ -266,7 +269,7 @@ ROM_TrackPreview_DolphinPark_End:
 .align 4, 0
 
 
-.incbin "build/data/mio0/DriverHayami1.mio0" # 0x373ec0
+.incbin "build/data/models/DriverHayami1.mio0" # 0x373ec0
 .align 4, 0
 .incbin "build/data/mio0/data_37cdc0.mio0" # 0x37cdc0
 .align 4, 0

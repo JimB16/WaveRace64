@@ -632,11 +632,11 @@ branch_0x80050a28:
 Function_0x80050b18: # 0x80050b18
     addiu   $sp, $sp, 0xff40
     sw      $ra, 0x3c($sp)
-    sdc1    $28, 0x30($29)
-    sdc1    $26, 0x28($29)
-    sdc1    $24, 0x20($29)
-    sdc1    $22, 0x18($29)
-    sdc1    $20, 0x10($29)
+    sdc1    $28, 0x30($sp)
+    sdc1    $26, 0x28($sp)
+    sdc1    $24, 0x20($sp)
+    sdc1    $22, 0x18($sp)
+    sdc1    $20, 0x10($sp)
     sw      $a1, 0xc4($sp)
     sw      $a2, 0xc8($sp)
     lui     $at, 0x4434
@@ -668,12 +668,12 @@ Function_0x80050b18: # 0x80050b18
     lwc1    $f18, 0x6c($a0)
     lwc1    $f24, 0x78($a0)
     div.s   $f20, $f6, $f8
-    swc1    $10, 0x54($29)
+    swc1    $10, 0x54($sp)
     lwc1    $f6, 0x54($sp)
     lwc1    $f10, 0x64($a0)
     mul.s   $f4, $f22, $f18
     lui     $at, 0x43a0
-    swc1    $10, 0x50($29)
+    swc1    $10, 0x50($sp)
     mul.s   $f8, $f24, $f6
     lwc1    $f26, 0x70($a0)
     lui     $t3, %hi(Unknown_0x801921b8_GeneralWaterLevel)
@@ -697,39 +697,39 @@ Function_0x80050b18: # 0x80050b18
     lwc1    $f8, 0x94($a0)
     mtc1    $at, $t2
     lui     $at, 0x4370
-    swc1    $8, 0x48($29)
+    swc1    $8, 0x48($sp)
     mul.s   $f8, $f20, $f10
     mtc1    $at, $t2
-    swc1    $20, 0xb0($29)
+    swc1    $20, 0xb0($sp)
     lui     $at, 0x800f
     div.s   $f28, $f8, $f10
     lwc1    $f8, 0x48($sp)
     add.s   $f0, $f8, $f28
-    swc1    $28, 0x64($29)
+    swc1    $28, 0x64($sp)
     mul.s   $f10, $f0, $f12
-    swc1    $10, 0x98($29)
+    swc1    $10, 0x98($sp)
     mul.s   $f10, $f0, $f14
-    swc1    $10, 0x94($29)
+    swc1    $10, 0x94($sp)
     mul.s   $f10, $f0, $f16
-    swc1    $10, 0x90($29)
+    swc1    $10, 0x90($sp)
     lwc1    $f10, 0x64($sp)
     sub.s   $f0, $f8, $f10
     mul.s   $f8, $f0, $f12
-    swc1    $8, 0xa4($29)
+    swc1    $8, 0xa4($sp)
     mul.s   $f10, $f0, $f14
-    swc1    $10, 0xa0($29)
+    swc1    $10, 0xa0($sp)
     mul.s   $f8, $f0, $f16
-    swc1    $8, 0x9c($29)
+    swc1    $8, 0x9c($sp)
     mul.s   $f10, $f2, $f4
     nop
     mul.s   $f8, $f2, $f6
     nop
     mul.s   $f4, $f2, $f18
-    swc1    $10, 0x74($29)
+    swc1    $10, 0x74($sp)
     mtc1    $t5, $t2
-    swc1    $8, 0x70($29)
+    swc1    $8, 0x70($sp)
     cvt.s.w $f6, $f10
-    swc1    $4, 0x6c($29)
+    swc1    $4, 0x6c($sp)
     mtc1    $t6, $a0
     lwc1    $f8, 0x50($a0)
     cvt.s.w $f10, $f4
@@ -741,7 +741,7 @@ Function_0x80050b18: # 0x80050b18
     lui     $at, 0xc0a0
     mul.s   $f4, $f6, $f8
     lwc1    $f6, 0x98($a0)
-    swc1    $6, 0x44($29)
+    swc1    $6, 0x44($sp)
     lwc1    $f8, 0x44($sp)
     lwc1    $f6, 0x74($sp)
     div.s   $f20, $f4, $f10

@@ -1,7 +1,7 @@
 
 
-.globl Function_0x80071e10
-Function_0x80071e10: # 0x80071e10
+.globl Function_0x80071e10_InitTrackObjects
+Function_0x80071e10_InitTrackObjects: # 0x80071e10
     addiu   $sp, $sp, -0xa0
     sw      $s4, 0x18($sp)
     lui     $s4, %hi(Unknown_0x801ce398)
@@ -59,13 +59,13 @@ branch_0x80071eb0_DrawNormalRaceObjects:
 	lui     $ra, %hi(TrackNr_0x800d7ef0)
     addiu   $ra, $ra, %lo(TrackNr_0x800d7ef0)
     lw      $t0, 0x0($ra)
-    lui     $t8, %hi(Unknown_0x800d51f0)
-    lui     $t9, %hi(Unknown_0x800d5220)
+    lui     $t8, %hi(TrackDLsTerrain_0x800d51f0)
+    lui     $t9, %hi(TrackDLsFences_0x800d5220)
     sll     $s0, $t0, 2				# TrackNr * 4
     addu    $t8, $t8, $s0
-    lw      $t8, %lo(Unknown_0x800d51f0)($t8)
+    lw      $t8, %lo(TrackDLsTerrain_0x800d51f0)($t8)
     addu    $t9, $t9, $s0
-    lw      $t9, %lo(Unknown_0x800d5220)($t9)
+    lw      $t9, %lo(TrackDLsFences_0x800d5220)($t9)
     lui     $at, %hi(Unknown_0x801c1a30)
     lui     $t6, %hi(Unknown_0x800d52b0)
     addu    $t6, $t6, $s0
@@ -366,13 +366,13 @@ branch_0x8007233c:
     addiu   $t5, $zero, 0xffff
     or      $a1, $v0, $zero
     beq     $t5, $t9, branch_0x80072458
-    lui     $at, %hi(0x45800000)
+    lui     $at, %hi(FLOAT_4096)
 
-    mtc1    $at, $t4
-    lui     $at, %hi(0x43b40000)
-    mtc1    $at, $v0
-    lui     $at, %hi(0x42800000)
-    mtc1    $at, $zero
+    mtc1    $at, $f12
+    lui     $at, %hi(FLOAT_360)
+    mtc1    $at, $f2
+    lui     $at, %hi(FLOAT_64)
+    mtc1    $at, $f0
     lw      $a2, 0x0($a3)
 branch_0x80072368:
     multu   $a2, $t4
@@ -382,12 +382,12 @@ branch_0x80072368:
     cvt.s.w $f10, $f8
     mflo    $t6
     addu    $a0, $t2, $t6
-    swc1    $f10, 0x0($4)
+    swc1    $f10, 0x0($a0)
     lh      $t8, 0x2($a1)
     mtc1    $t8, $s0
     nop
     cvt.s.w $f18, $f16
-    swc1    $f18, 0x4($4)
+    swc1    $f18, 0x4($a0)
     lh      $v1, 0x4($a1)
     mtc1    $v1, $a0
     nop
@@ -408,8 +408,8 @@ branch_0x80072368:
     mul.s   $f4, $f18, $f0
     lwc1    $f6, 0x0($t8)
     mul.s   $f8, $f6, $f0
-    swc1    $f4, 0x8($4)
-    swc1    $f8, 0xc($4)
+    swc1    $f4, 0x8($a0)
+    swc1    $f8, 0xc($a0)
     lh      $t9, 0x6($a1)
     bgez    $t9, branch_0x80072408
     sra     $t6, $t9, 6
@@ -424,7 +424,7 @@ branch_0x80072408:
     mtc1    $t7, $t2
     or      $a2, $t6, $zero
     cvt.s.w $f16, $f10
-    swc1    $f16, 0x10($4)
+    swc1    $f16, 0x10($a0)
     lh      $t8, 0xa($a1)
     sw      $t8, 0x14($a0)
     lh      $t9, 0xc($a1)
@@ -458,15 +458,16 @@ branch_0x8007245c:
     beq     $t5, $t9, branch_0x80072634
     sllv    $t2, $t8, $a3
 
-    lui     $a2, %hi(Unknown_0x801bf8d0)
-    addiu   $a2, $a2, %lo(Unknown_0x801bf8d0)
+    lui     $a2, %hi(Unknown_0x801bf8d0_WaveGenerators)
+    addiu   $a2, $a2, %lo(Unknown_0x801bf8d0_WaveGenerators)
     or      $a1, $s2, $zero
     lh      $v0, WaveDataStruct_18($a1)
-branch_0x800724a0:
+branch_0x800724a0_loopLoadWaves:
     lui     $t7, %hi(Unknown_0x800da8e8)
     and     $t6, $v0, $t2
     bnezl   $t6, branch_0x80072628
     lh      $t7, WaveDataStruct_1e($a1)
+
     lh      $t7, %lo(Unknown_0x800da8e8)($t7)
     lui     $t8, %hi(Unknown_0x800d7fd0)
     andi    $t9, $v0, 0x8
@@ -474,31 +475,35 @@ branch_0x800724a0:
     nop
     lw      $t8, %lo(Unknown_0x800d7fd0)($t8)
     beqzl   $t8, branch_0x800724dc
-    lh      $t7, WaveDataStruct_0($a1)
+    lh      $t7, WaveDataStruct_XPos($a1)
+
 branch_0x800724d0:
     bnezl   $t9, branch_0x80072628
     lh      $t7, WaveDataStruct_1e($a1)
-    lh      $t7, WaveDataStruct_0($a1)
+
+    lh      $t7, WaveDataStruct_XPos($a1)
 branch_0x800724dc:
     sll     $t6, $t1, 6
     addu    $a0, $a2, $t6
-    mtc1    $t7, $s2
+    mtc1    $t7, $f18
     nop
     cvt.s.w $f4, $f18
-    swc1    $f4, 0x0($a0)
-    lh      $t8, WaveDataStruct_2($a1)
-    mtc1    $t8, $a2
+    swc1    $f4, WaveGenerator_XPos($a0)
+
+    lh      $t8, WaveDataStruct_YPos($a1)
+    mtc1    $t8, $f6
     nop
     cvt.s.w $f8, $f6
-    swc1    $f8, 0x4($a0)
+    swc1    $f8, WaveGenerator_YPos($a0)
+
     lh      $v1, WaveDataStruct_4($a1)
-    mtc1    $v1, $t2
+    mtc1    $v1, $f10
     nop
     cvt.s.w $f16, $f10
     div.s   $f18, $f16, $f2
     mul.s   $f4, $f18, $f12
     trunc.w.s   $f6, $f4
-    mfc1    $v0, $a2
+    mfc1    $v0, $f6
     nop
     andi    $t6, $v0, 0xfff
     sll     $t7, $t6, 2
@@ -511,10 +516,10 @@ branch_0x800724dc:
     mul.s   $f10, $f8, $f0
     lwc1    $f16, 0x0($t8)
     mul.s   $f18, $f16, $f0
-    swc1    $f10, 0x10($a0)
-    swc1    $f18, 0x14($a0)
+    swc1    $f10, WaveGenerator_10($a0)
+    swc1    $f18, WaveGenerator_14($a0)
     lh      $v1, WaveDataStruct_6($a1)
-    mtc1    $v1, $a0
+    mtc1    $v1, $f4
     nop
     cvt.s.w $f6, $f4
     div.s   $f8, $f6, $f2
@@ -533,41 +538,44 @@ branch_0x800724dc:
     mul.s   $f4, $f18, $f0
     lwc1    $f6, 0x0($t8)
     mul.s   $f8, $f6, $f0
-    swc1    $f4, 0x8($a0)
-    swc1    $f8, 0xc($a0)
-    lh      $t9, WaveDataStruct_8($a1)
-    mtc1    $t9, $t2
+    swc1    $f4, WaveGenerator_8($a0)
+    swc1    $f8, WaveGenerator_c($a0)
+
+    lh      $t9, WaveDataStruct_WaveHeight($a1)
+    mtc1    $t9, $f10
     nop
     cvt.s.w $f16, $f10
-    swc1    $f16, 0x18($a0)
+    swc1    $f16, WaveGenerator_WaveHeight($a0)
+
     lh      $t6, WaveDataStruct_a($a1)
-    sw      $t6, 0x1c($a0)
+    sw      $t6, WaveGenerator_1c($a0)
     lh      $t7, WaveDataStruct_c($a1)
-    sw      $t7, 0x20($a0)
+    sw      $t7, WaveGenerator_20($a0)
     lh      $t8, WaveDataStruct_e($a1)
-    sw      $t8, 0x24($a0)
+    sw      $t8, WaveGenerator_24($a0)
     lh      $t9, WaveDataStruct_10($a1)
-    sw      $t9, 0x2c($a0)
+    sw      $t9, WaveGenerator_2c($a0)
     lh      $t6, WaveDataStruct_12($a1)
-    sw      $t6, 0x30($a0)
+    sw      $t6, WaveGenerator_30($a0)
     lh      $t7, WaveDataStruct_14($a1)
     addiu   $t6, $t1, 0x1
     slti    $at, $t6, 0x8
-    sw      $t7, 0x34($a0)
+    sw      $t7, WaveGenerator_34($a0)
     lh      $t8, WaveDataStruct_16($a1)
-    sw      $zero, 0x28($a0)
+    sw      $zero, WaveGenerator_28($a0)
     or      $t1, $t6, $zero
-    sw      $t8, 0x38($a0)
+    sw      $t8, WaveGenerator_38($a0)
     lh      $t9, WaveDataStruct_18($a1)
     sw      $t6, 0x0($s1)
     beqz    $at, branch_0x80072634
-    sh      $t9, 0x3c($a0)
+    sh      $t9, WaveGenerator_3c($a0)
 
     lh      $t7, WaveDataStruct_1e($a1)
 branch_0x80072628:
     addiu   $a1, $a1, WaveDataStruct_1a
-    bnel    $t5, $t7, branch_0x800724a0
+    bnel    $t5, $t7, branch_0x800724a0_loopLoadWaves
     lh      $v0, WaveDataStruct_18($a1)
+
 
 branch_0x80072634:
     lui     $t8, %hi(Unknown_0x800d5c54)
@@ -657,7 +665,7 @@ branch_0x80072720:
     mtc1    $t6, $t0
     nop
     cvt.s.w $f10, $f8
-    swc1    $f10, 0x0($17)
+    swc1    $f10, 0x0($s1)
 branch_0x80072780:
     addiu   $v0, $zero, 0x8
     beq     $v0, $s4, branch_0x800727b8
@@ -1153,7 +1161,7 @@ branch_0x80072d2c:
     nop
     cvt.s.w $f0, $f8
     div.s   $f10, $f0, $f2
-    swc1    $f0, 0x6c($4)
+    swc1    $f0, 0x6c($a0)
     mul.s   $f16, $f10, $f12
     trunc.w.s   $f18, $f16
     mfc1    $v0, $s2

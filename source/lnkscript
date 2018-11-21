@@ -9,6 +9,7 @@ MEMORY {
 	ram2	: ORIGIN = 0x230e60, LENGTH = 4M
 	rom0	: ORIGIN = 0x84000000, LENGTH = 4K
 	rom		: ORIGIN = 0x80046800, LENGTH = 8M
+	rom_0x800d4358		: ORIGIN = 0x800d4358, LENGTH = 8M
 	rom2	: ORIGIN = 0x801dad00, LENGTH = 8M
 	overlay0	: ORIGIN = 0x802c5800, LENGTH = 8M
 	overlay1	: ORIGIN = 0x802c5800, LENGTH = 8M
@@ -43,6 +44,14 @@ MEMORY {
 	trackdata10	: ORIGIN = 0x80306800, LENGTH = 8M
 	cartridge2	: ORIGIN = 0x2e5d70, LENGTH = 8M
 	data	: ORIGIN = 0x802c5800, LENGTH = 8M
+	sp_dmem	: ORIGIN = 0x04000000, LENGTH = 4K
+	sp_dmem2	: ORIGIN = 0x04000000, LENGTH = 4K
+	sp_dmem3	: ORIGIN = 0x04000000, LENGTH = 4K
+	sp_imem	: ORIGIN = 0x04001000, LENGTH = 4K
+	sp_imem2	: ORIGIN = 0x04001080, LENGTH = 4M
+	sp_imem3	: ORIGIN = 0x04001080, LENGTH = 4M
+	dl_track0	: ORIGIN = 0x0d000000, LENGTH = 4M
+	dl_track1	: ORIGIN = 0x0d000000, LENGTH = 4M
 }
 
 
@@ -64,11 +73,45 @@ SECTIONS
 	*(.glue_7t)
 	_end_text = .;
 } > rom
-.data ALIGN(64) : {
+__rspcode1_start = ADDR(.textmain) + SIZEOF(.textmain);
+.textrsp1 : AT (0x8c830) {
+	_start_text = .;
+	*(.textrsp1)
+	_end_text = .;
+} > sp_imem
+__rspcode1_end = __rspcode1_start + SIZEOF(.textrsp1);
+__rspcode2_start = __rspcode1_end;
+.textrsp2 : AT (0x8c900) {
+	_start_text = .;
+	*(.textrsp2)
+	_end_text = .;
+} > sp_imem2
+__rspcode2_end = __rspcode2_start + SIZEOF(.textrsp2);
+__rspcode3_start = __rspcode2_end;
+.textrsp3 : AT (0x8dd30) {
+	_start_text = .;
+	*(.textrsp3)
+	_end_text = .;
+} > sp_imem3
+__rspcode3_end = __rspcode3_start + SIZEOF(.textrsp3);
+.datamain : AT (0x8eb58) {
 	_start_data = .;
-	*(.data)
+	*(.datamain)
 	_end_data = .;
-} > rom
+} > rom_0x800d4358
+__rspdata2_start = __rspcode3_end + SIZEOF(.datamain);
+.datarsp2 : AT (0xA8870) {
+	_start_data = .;
+	*(.datarsp2)
+	_end_data = .;
+} > sp_dmem2
+__rspdata3_start = __rspdata2_start + SIZEOF(.datarsp2);
+.datarsp3 : AT (0xA9070) {
+	_start_data = .;
+	*(.datarsp3)
+	_end_data = .;
+} > sp_dmem3
+__datamain_end = __rspdata3_start + SIZEOF(.datarsp3);
 .bss : {
 	_start_bss = .;
 	*(.bss)
@@ -278,11 +321,7 @@ SECTIONS
 .cartridge : AT (0x1d0f90) {
 	_start_text = .;
 	/* Executable code */
-	*(.textmain)
-	*(.gnu.warning)
-	*(.gnu.linkonce.t*)
-	*(.glue_7)
-	*(.glue_7t)
+	*(.cartridge)
 	_end_text = .;
 } > cartridge
 __trackdata0_start = LOADADDR(.cartridge) + SIZEOF(.cartridge);

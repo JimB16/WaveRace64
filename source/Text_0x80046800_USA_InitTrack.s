@@ -1290,16 +1290,17 @@ branch_0x8007deb0:
     lw      $t2, 0x58($s0)
 branch_0x8007dec0:
     lw      $ra, 0x4c($sp)
-    ldc1    $20, 0x10($29)
-    ldc1    $22, 0x18($29)
-    ldc1    $24, 0x20($29)
-    ldc1    $26, 0x28($29)
-    ldc1    $28, 0x30($29)
-    ldc1    $30, 0x38($29)
+    ldc1    $20, 0x10($sp)
+    ldc1    $22, 0x18($sp)
+    ldc1    $24, 0x20($sp)
+    ldc1    $26, 0x28($sp)
+    ldc1    $28, 0x30($sp)
+    ldc1    $30, 0x38($sp)
     lw      $s0, 0x44($sp)
     lw      $s1, 0x48($sp)
     jr      $ra
     addiu   $sp, $sp, 0x50
+
 
 .globl Function_0x8007deec
 Function_0x8007deec: # 0x8007deec
@@ -1469,8 +1470,7 @@ branch_0x8007e0f8:
     b       branch_0x8007e848
     lw      $ra, 0x44($sp)
 
-.globl Function_0x8007e178
-Function_0x8007e178: # 0x8007e178
+# 0x8007e178
     lw      $t1, 0x98($v0)
 branch_0x8007e17c:
     bnel    $a1, $t1, branch_0x8007e4e0
@@ -1540,10 +1540,10 @@ branch_0x8007e17c:
     nop
     bc1f    branch_0x8007e2a4
     nop
-    swc1    $12, 0xc3c($4)
-    swc1    $14, 0x15b4($4)
-    swc1    $2, 0x15b8($4)
-    swc1    $16, 0x15bc($4)
+    swc1    $f12, 0xc3c($a0)
+    swc1    $f14, 0x15b4($a0)
+    swc1    $f2, 0x15b8($a0)
+    swc1    $f16, 0x15bc($a0)
     lwc1    $f26, 0x14($v1)
     lwc1    $f24, 0x10($v1)
     lwc1    $f22, 0xc($v1)
@@ -1555,21 +1555,21 @@ branch_0x8007e2a4:
     lw      $v0, 0x9c($sp)
     lw      $t0, 0xa0($sp)
     add.s   $f6, $f26, $f2
-    swc1    $f4, 0x10($3)
+    swc1    $f4, 0x10($v1)
     mfc1    $a2, $gp
     add.s   $f8, $f22, $f18
-    swc1    $f6, 0x14($3)
+    swc1    $f6, 0x14($v1)
     mfc1    $a3, $fp
-    swc1    $f8, 0xc($3)
+    swc1    $f8, 0xc($v1)
     lwc1    $f10, 0xc($v0)
     lwc1    $f4, 0x10($v0)
     add.s   $f8, $f10, $f18
     lwc1    $f10, 0x14($v0)
     add.s   $f6, $f4, $f0
-    swc1    $f8, 0xc($2)
+    swc1    $f8, 0xc($v0)
     add.s   $f8, $f10, $f2
-    swc1    $f6, 0x10($2)
-    swc1    $f8, 0x14($2)
+    swc1    $f6, 0x10($v0)
+    swc1    $f8, 0x14($v0)
     lwc1    $f4, 0xc($t0)
     lwc1    $f10, 0x10($t0)
     add.s   $f6, $f4, $f18
@@ -1606,10 +1606,10 @@ branch_0x8007e334:
     bc1fl   branch_0x8007e838
     addiu   $v0, $v0, 0xfefc
     sw      $a0, 0x88($sp)
-    swc1    $2, 0x7c($29)
-    swc1    $14, 0x80($29)
+    swc1    $f2, 0x7c($sp)
+    swc1    $f14, 0x80($sp)
     jal     sqrtf
-    swc1    $16, 0x78($29)
+    swc1    $f16, 0x78($sp)
     lui     $at, 0x3f80
     mtc1    $at, $a0
     lwc1    $f14, 0x80($sp)
@@ -1626,16 +1626,16 @@ branch_0x8007e334:
     mul.s   $f10, $f14, $f20
     nop
     mul.s   $f2, $f2, $f18
-    swc1    $10, 0x50($29)
+    swc1    $f10, 0x50($sp)
     lwc1    $f8, 0x50($sp)
     neg.s   $f10, $f14
     mul.s   $f4, $f2, $f20
-    swc1    $8, 0x74($29)
+    swc1    $f8, 0x74($sp)
     mul.s   $f16, $f16, $f18
-    swc1    $4, 0x4c($29)
+    swc1    $f4, 0x4c($sp)
     lwc1    $f28, 0x4c($sp)
     mul.s   $f6, $f16, $f20
-    swc1    $6, 0x48($29)
+    swc1    $f6, 0x48($sp)
     lwc1    $f22, 0xc($v1)
     lwc1    $f24, 0x10($v1)
     lwc1    $f26, 0x14($v1)
@@ -1650,10 +1650,10 @@ branch_0x8007e334:
     nop
     bc1f    branch_0x8007e450
     nop
-    swc1    $12, 0xc3c($4)
-    swc1    $14, 0x15b4($4)
-    swc1    $2, 0x15b8($4)
-    swc1    $16, 0x15bc($4)
+    swc1    $f12, 0xc3c($a0)
+    swc1    $f14, 0x15b4($a0)
+    swc1    $f2, 0x15b8($a0)
+    swc1    $f16, 0x15bc($a0)
     lwc1    $f26, 0x14($v1)
     lwc1    $f24, 0x10($v1)
     lwc1    $f22, 0xc($v1)
@@ -1665,21 +1665,21 @@ branch_0x8007e450:
     lw      $v0, 0x9c($sp)
     lw      $t0, 0xa0($sp)
     add.s   $f4, $f24, $f2
-    swc1    $6, 0x14($3)
+    swc1    $f6, 0x14($v1)
     mfc1    $a2, $gp
     add.s   $f10, $f22, $f18
-    swc1    $4, 0x10($3)
+    swc1    $f4, 0x10($v1)
     mfc1    $a3, $fp
-    swc1    $10, 0xc($3)
+    swc1    $f10, 0xc($v1)
     lwc1    $f8, 0xc($v0)
     lwc1    $f4, 0x10($v0)
     add.s   $f10, $f8, $f18
     lwc1    $f8, 0x14($v0)
     add.s   $f6, $f4, $f2
-    swc1    $10, 0xc($2)
+    swc1    $f10, 0xc($v0)
     add.s   $f10, $f8, $f0
-    swc1    $6, 0x10($2)
-    swc1    $10, 0x14($2)
+    swc1    $f6, 0x10($v0)
+    swc1    $f10, 0x14($v0)
     lwc1    $f4, 0xc($t0)
     lwc1    $f8, 0x10($t0)
     add.s   $f6, $f4, $f18
@@ -1717,10 +1717,10 @@ branch_0x8007e4e0:
     bc1fl   branch_0x8007e68c
     lwc1    $f10, 0x18($v0)
     sw      $a0, 0x88($sp)
-    swc1    $2, 0x7c($29)
-    swc1    $14, 0x80($29)
+    swc1    $2, 0x7c($sp)
+    swc1    $14, 0x80($sp)
     jal     sqrtf
-    swc1    $16, 0x78($29)
+    swc1    $16, 0x78($sp)
     lui     $at, 0x3f80
     mtc1    $at, $a0
     lwc1    $f14, 0x80($sp)
@@ -1737,16 +1737,16 @@ branch_0x8007e4e0:
     mul.s   $f8, $f14, $f20
     nop
     mul.s   $f2, $f2, $f18
-    swc1    $8, 0x50($29)
+    swc1    $8, 0x50($sp)
     lwc1    $f10, 0x50($sp)
     neg.s   $f8, $f14
     mul.s   $f4, $f2, $f20
-    swc1    $10, 0x74($29)
+    swc1    $10, 0x74($sp)
     mul.s   $f16, $f16, $f18
-    swc1    $4, 0x4c($29)
+    swc1    $4, 0x4c($sp)
     lwc1    $f28, 0x4c($sp)
     mul.s   $f6, $f16, $f20
-    swc1    $6, 0x48($29)
+    swc1    $6, 0x48($sp)
     lwc1    $f22, 0xc($v1)
     lwc1    $f24, 0x10($v1)
     lwc1    $f26, 0x14($v1)
@@ -1761,10 +1761,10 @@ branch_0x8007e4e0:
     nop
     bc1f    branch_0x8007e5fc
     nop
-    swc1    $12, 0xc3c($4)
-    swc1    $14, 0x15b4($4)
-    swc1    $2, 0x15b8($4)
-    swc1    $16, 0x15bc($4)
+    swc1    $12, 0xc3c($a0)
+    swc1    $14, 0x15b4($a0)
+    swc1    $2, 0x15b8($a0)
+    swc1    $16, 0x15bc($a0)
     lwc1    $f26, 0x14($v1)
     lwc1    $f24, 0x10($v1)
     lwc1    $f22, 0xc($v1)
@@ -1787,10 +1787,10 @@ branch_0x8007e5fc:
     add.s   $f8, $f10, $f18
     lwc1    $f10, 0x14($v0)
     add.s   $f6, $f4, $f0
-    swc1    $8, 0xc($2)
+    swc1    $8, 0xc($v0)
     add.s   $f8, $f10, $f2
-    swc1    $6, 0x10($2)
-    swc1    $8, 0x14($2)
+    swc1    $6, 0x10($v0)
+    swc1    $8, 0x14($v0)
     lwc1    $f4, 0xc($t0)
     lwc1    $f10, 0x10($t0)
     add.s   $f6, $f4, $f18
@@ -1827,10 +1827,10 @@ branch_0x8007e68c:
     bc1fl   branch_0x8007e838
     addiu   $v0, $v0, 0xfefc
     sw      $a0, 0x88($sp)
-    swc1    $2, 0x7c($29)
-    swc1    $14, 0x80($29)
+    swc1    $2, 0x7c($sp)
+    swc1    $14, 0x80($sp)
     jal     sqrtf
-    swc1    $16, 0x78($29)
+    swc1    $16, 0x78($sp)
     lui     $at, 0x3f80
     mtc1    $at, $a0
     lwc1    $f14, 0x80($sp)
@@ -1847,16 +1847,16 @@ branch_0x8007e68c:
     mul.s   $f10, $f14, $f20
     nop
     mul.s   $f2, $f2, $f18
-    swc1    $10, 0x50($29)
+    swc1    $10, 0x50($sp)
     lwc1    $f8, 0x50($sp)
     neg.s   $f10, $f14
     mul.s   $f4, $f2, $f20
-    swc1    $8, 0x74($29)
+    swc1    $8, 0x74($sp)
     mul.s   $f16, $f16, $f18
-    swc1    $4, 0x4c($29)
+    swc1    $4, 0x4c($sp)
     lwc1    $f28, 0x4c($sp)
     mul.s   $f6, $f16, $f20
-    swc1    $6, 0x48($29)
+    swc1    $6, 0x48($sp)
     lwc1    $f22, 0xc($v1)
     lwc1    $f24, 0x10($v1)
     lwc1    $f26, 0x14($v1)
@@ -1871,10 +1871,10 @@ branch_0x8007e68c:
     nop
     bc1f    branch_0x8007e7a8
     nop
-    swc1    $12, 0xc3c($4)
-    swc1    $14, 0x15b4($4)
-    swc1    $2, 0x15b8($4)
-    swc1    $16, 0x15bc($4)
+    swc1    $12, 0xc3c($a0)
+    swc1    $14, 0x15b4($a0)
+    swc1    $2, 0x15b8($a0)
+    swc1    $16, 0x15bc($a0)
     lwc1    $f26, 0x14($v1)
     lwc1    $f24, 0x10($v1)
     lwc1    $f22, 0xc($v1)
@@ -1897,10 +1897,10 @@ branch_0x8007e7a8:
     add.s   $f10, $f8, $f18
     lwc1    $f8, 0x14($v0)
     add.s   $f6, $f4, $f2
-    swc1    $10, 0xc($2)
+    swc1    $10, 0xc($v0)
     add.s   $f10, $f8, $f0
-    swc1    $6, 0x10($2)
-    swc1    $10, 0x14($2)
+    swc1    $6, 0x10($v0)
+    swc1    $10, 0x14($v0)
     lwc1    $f4, 0xc($t0)
     lwc1    $f8, 0x10($t0)
     add.s   $f6, $f4, $f18
@@ -1923,11 +1923,11 @@ branch_0x8007e838:
 branch_0x8007e844:
     lw      $ra, 0x44($sp)
 branch_0x8007e848:
-    ldc1    $20, 0x10($29)
-    ldc1    $22, 0x18($29)
-    ldc1    $24, 0x20($29)
-    ldc1    $26, 0x28($29)
-    ldc1    $28, 0x30($29)
-    ldc1    $30, 0x38($29)
+    ldc1    $20, 0x10($sp)
+    ldc1    $22, 0x18($sp)
+    ldc1    $24, 0x20($sp)
+    ldc1    $26, 0x28($sp)
+    ldc1    $28, 0x30($sp)
+    ldc1    $30, 0x38($sp)
     jr      $ra
     addiu   $sp, $sp, 0x88

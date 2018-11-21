@@ -1,12 +1,6 @@
 
-Unknown_0x800d2030_SpCodeStart: # 0x8c830
-.incbin "build/SpCode.bin"
 
-Unknown_0x800d2100_SpCodeEnd: # 0x8c900
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8c900, 0x8dd30 - 0x8c900
-
-Unknown_0x800d3530: # 0x8dd30
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8dd30, 0x8eb58 - 0x8dd30
+.section .datamain, "ax"
 
 Unknown_0x800d4358: # 0x8eb58
 .word 0
@@ -98,7 +92,10 @@ Unknown_0x800d46a4: # 0x8eea4
 .incbin "./roms/Wave Race 64 (USA).z64", 0x8eea4, 0x8eec4 - 0x8eea4
 
 Unknown_0x800d46c4: # 0x8eec4
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8eec4, 0x8eee4 - 0x8eec4
+.incbin "./roms/Wave Race 64 (USA).z64", 0x8eec4, 0x8eed0 - 0x8eec4
+
+Unknown_0x800d46d0: # 0x8eed0
+.incbin "./roms/Wave Race 64 (USA).z64", 0x8eed0, 0x8eee4 - 0x8eed0
 
 Unknown_0x800d46e4: # 0x8eee4
 .word 0
@@ -107,7 +104,10 @@ Unknown_0x800d46e8: # 0x8eee8
 .word 0x10000, 0x10000
 
 Unknown_0x800d46f0: # 0x8eef0
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8eef0, 0x8ef2c - 0x8eef0
+.incbin "./roms/Wave Race 64 (USA).z64", 0x8eef0, 0x8ef10 - 0x8eef0
+
+Unknown_0x800d4710: # 0x8ef10
+.incbin "./roms/Wave Race 64 (USA).z64", 0x8ef10, 0x8ef2c - 0x8ef10
 
 Unknown_0x800d472c: # 0x8ef2c
 .word 0x14
@@ -117,7 +117,13 @@ Unknown_0x800d4730: # 0x8ef30
 .word 0x14, 0x7F
 
 Unknown_0x800d4738: # 0x8ef38
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8ef38, 0x8f080 - 0x8ef38
+.incbin "./roms/Wave Race 64 (USA).z64", 0x8ef38, 0x8ef44 - 0x8ef38
+
+Unknown_0x800d4744: # 0x8ef44
+.incbin "./roms/Wave Race 64 (USA).z64", 0x8ef44, 0x8ef48 - 0x8ef44
+
+Unknown_0x800d4748: # 0x8ef48
+.incbin "./roms/Wave Race 64 (USA).z64", 0x8ef48, 0x8f080 - 0x8ef48
 
 Unknown_0x800d4880: # 0x8f080
 .word 0
@@ -129,7 +135,10 @@ Unknown_0x800d4888: # 0x8f088
 .word 1
 
 Unknown_0x800d488c: # 0x8f08c
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8f08c, 0x8f9c0 - 0x8f08c
+.incbin "./roms/Wave Race 64 (USA).z64", 0x8f08c, 0x8f9bc - 0x8f08c
+
+Unknown_0x800d51bc: # 0x8f9bc
+.incbin "./roms/Wave Race 64 (USA).z64", 0x8f9bc, 0x8f9c0 - 0x8f9bc
 
 Unknown_0x800d51c0: # 0x8f9c0
 .word 1
@@ -141,47 +150,68 @@ Unknown_0x800d51c8: # 0x8f9c8
 .word 0, 0
 
 Unknown_0x800d51d0: # 0x8f9d0
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8f9d0, 0x8f9f0 - 0x8f9d0
+.word 0, 0, 0xFFFFFFFF, 0
+.word 1, 1, 1, 3
 
-Unknown_0x800d51f0: # 0x8f9f0
+TrackDLsTerrain_0x800d51f0: # 0x8f9f0
 .word 0x0D028D10, 0x0D0154D0, 0x0D018D80, 0x0D01C478
 .word 0x0D00DBA0, 0x0D011748, 0x0D015DA0, 0x0D0122A8
 .word 0x0D016A78, 0x0, 0x0, 0x0
 
-Unknown_0x800d5220: # 0x8fa20
+TrackDLsFences_0x800d5220: # 0x8fa20
 .word 0x0D026F98, 0x0D0131D0, 0x0D016C98, 0x0D01A1D8
 .word 0x0D00C778, 0x0D00FEC8, 0x0D014640, 0x0D00FC40
 .word 0x0D0155A8, 0x0, 0x0, 0x0
 
 Unknown_0x800d5250: # 0x8fa50
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8fa50, 0x8fa80 - 0x8fa50
+.word 0x0, 0x0D0064D0, 0x0D004A78, 0x0D005DE8
+.word 0x0D007728, 0x0D007628, 0x0D006650, 0x0D00C5A0
+.word 0x0D006710, 0x0, 0x0, 0x0
 
 Unknown_0x800d5280: # 0x8fa80
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8fa80, 0x8fab0 - 0x8fa80
+.word 0x0, 0x0D0047E0, 0x0D003578, 0x0D004BA0
+.word 0x0D006558, 0x0D005F30, 0x0D0056C0, 0x0D00A298
+.word 0x0D005860, 0x0, 0x0, 0x0
 
 Unknown_0x800d52b0: # 0x8fab0
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8fab0, 0x8fae0 - 0x8fab0
+.word 0x0D02B1E8, 0x0D015A38, 0x0, 0x0
+.word 0x0D00E780, 0x0D011B08, 0x0, 0x0
+.word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800d52e0: # 0x8fae0
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8fae0, 0x8fb10 - 0x8fae0
+.word 0x0D02A170, 0x0D0158D8, 0x0, 0x0
+.word 0x0D00E738, 0x0D011B20, 0x0, 0x0
+.word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800d5310: # 0x8fb10
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8fb10, 0x8fb40 - 0x8fb10
+.word 0x0, 0x0, 0x0, 0x0
+.word 0x0D007F90, 0x0, 0x0, 0x0
+.word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800d5340: # 0x8fb40
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8fb40, 0x8fb70 - 0x8fb40
+.word 0x0, 0x0, 0x0, 0x0
+.word 0x0D007F50, 0x0, 0x0, 0x0
+.word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800d5370: # 0x8fb70
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8fb70, 0x8fba0 - 0x8fb70
+.word 0x0, 0x0, 0x0, 0x0
+.word 0x0, 0x0, 0x0D0172B0, 0x0
+.word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800d53a0: # 0x8fba0
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8fba0, 0x8fbd0 - 0x8fba0
+.word 0x0, 0x0, 0x0, 0x0
+.word 0x0, 0x0, 0x0D0164D8, 0x0
+.word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800d53d0: # 0x8fbd0
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8fbd0, 0x8FC00 - 0x8fbd0
+.word 0x0, 0x0, 0x0, 0x0
+.word 0x0, 0x0, 0x0D007008, 0x0
+.word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800d5400: # 0x8FC00
-.incbin "./roms/Wave Race 64 (USA).z64", 0x8FC00, 0x8FC30 - 0x8FC00
+.word 0x0, 0x0, 0x0, 0x0
+.word 0x0, 0x0, 0x0D006930, 0x0
+.word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800D5430: # 0x8FC30
 .word 0x0
@@ -554,8 +584,8 @@ Unknown_0x800d667c: # 0x90e7c
 
 ListOfWaveData_Unk: # 0x90ea4
 .word WaveData_DolphinParkUnk, WaveData_SunnyBeachUnk, WaveData_SunsetBayUnk, WaveData_MarineFortressUnk
-.word Unknown_0x800d8b24, Unknown_0x800d8b58, Unknown_0x800d8ba8, Unknown_0x800d8bf8
-.word Unknown_0x800d8c48, WaveData_Default
+.word WaveData_DrakeLakeUnk, WaveData_PortBlueUnk, WaveData_TwilightCityUnk, WaveData_SouthernIslandUnk
+.word WaveData_GlacierCoastUnk, WaveData_Default
 
 Unknown_0x800d66cc: # 0x90ecc
 .word Unknown_0x800d8c70, Unknown_0x800d8c80, Unknown_0x800d8c90, Unknown_0x800d8ca0
@@ -564,8 +594,8 @@ Unknown_0x800d66cc: # 0x90ecc
 
 ListOfWaveData_NotNormalMode: # 0x90ef4
 .word WaveData_DolphinParkNotNormal, WaveData_SunnyBeachNotNormal, WaveData_SunsetBayNotNormal, WaveData_MarineFortressNotNormal
-.word Unknown_0x800d8ea4, Unknown_0x800d8ec0, Unknown_0x800d8f10, Unknown_0x800d8f60
-.word Unknown_0x800d8fe4, WaveData_Default
+.word WaveData_DrakeLakeNotNormal, WaveData_PortBlueNotNormal, WaveData_TwilightCityNotNormal, WaveData_SouthernIslandNotNormal
+.word WaveData_GlacierCoastNotNormal, WaveData_Default
 
 
 
@@ -862,19 +892,19 @@ WaveData_SunsetBayUnk: # 0x93220
 WaveData_MarineFortressUnk: # 0x93288
 .incbin "./roms/Wave Race 64 (USA).z64", 0x93288, 0x93324 - 0x93288
 
-Unknown_0x800d8b24: # 0x93324
+WaveData_DrakeLakeUnk: # 0x93324
 .incbin "./roms/Wave Race 64 (USA).z64", 0x93324, 0x93358 - 0x93324
 
-Unknown_0x800d8b58: # 0x93358
+WaveData_PortBlueUnk: # 0x93358
 .incbin "./roms/Wave Race 64 (USA).z64", 0x93358, 0x933a8 - 0x93358
 
-Unknown_0x800d8ba8: # 0x933a8
+WaveData_TwilightCityUnk: # 0x933a8
 .incbin "./roms/Wave Race 64 (USA).z64", 0x933a8, 0x933f8 - 0x933a8
 
-Unknown_0x800d8bf8: # 0x933f8
+WaveData_SouthernIslandUnk: # 0x933f8
 .incbin "./roms/Wave Race 64 (USA).z64", 0x933f8, 0x93448 - 0x933f8
 
-Unknown_0x800d8c48: # 0x93448
+WaveData_GlacierCoastUnk: # 0x93448
 .incbin "./roms/Wave Race 64 (USA).z64", 0x93448, 0x93470 - 0x93448
 
 Unknown_0x800d8c70: # 0x93470
@@ -919,33 +949,163 @@ WaveData_SunsetBayNotNormal: # 0x935b8
 WaveData_MarineFortressNotNormal: # 0x93620
 .incbin "./roms/Wave Race 64 (USA).z64", 0x93620, 0x936a4 - 0x93620
 
-Unknown_0x800d8ea4: # 0x936a4
+WaveData_DrakeLakeNotNormal: # 0x936a4
 .incbin "./roms/Wave Race 64 (USA).z64", 0x936a4, 0x936c0 - 0x936a4
 
-Unknown_0x800d8ec0: # 0x936c0
+WaveData_PortBlueNotNormal: # 0x936c0
 .incbin "./roms/Wave Race 64 (USA).z64", 0x936c0, 0x93710 - 0x936c0
 
-Unknown_0x800d8f10: # 0x93710
+WaveData_TwilightCityNotNormal: # 0x93710
 .incbin "./roms/Wave Race 64 (USA).z64", 0x93710, 0x93760 - 0x93710
 
-Unknown_0x800d8f60: # 0x93760
+WaveData_SouthernIslandNotNormal: # 0x93760
 .incbin "./roms/Wave Race 64 (USA).z64", 0x93760, 0x937e4 - 0x93760
 
-Unknown_0x800d8fe4: # 0x937e4
+WaveData_GlacierCoastNotNormal: # 0x937e4
 .incbin "./roms/Wave Race 64 (USA).z64", 0x937e4, 0x93834 - 0x937e4
 
+
 Unknown_0x800d9034: # 0x93834
-.incbin "./roms/Wave Race 64 (USA).z64", 0x93834, 0x93bb0 - 0x93834
+.incbin "./roms/Wave Race 64 (USA).z64", 0x93834, 0x93950 - 0x93834
+
+Unknown_0x800d9150: # 0x93950
+.incbin "./roms/Wave Race 64 (USA).z64", 0x93950, 0x93960 - 0x93950
+
+Unknown_0x800d9160: # 0x93960
+.incbin "./roms/Wave Race 64 (USA).z64", 0x93960, 0x93970 - 0x93960
+
+Unknown_0x800d9170: # 0x93970
+.incbin "./roms/Wave Race 64 (USA).z64", 0x93970, 0x939a0 - 0x93970
+
+Unknown_0x800d91a0: # 0x939a0
+.incbin "./roms/Wave Race 64 (USA).z64", 0x939a0, 0x939b0 - 0x939a0
+
+Unknown_0x800d91b0: # 0x939b0
+.incbin "./roms/Wave Race 64 (USA).z64", 0x939b0, 0x939e0 - 0x939b0
+
+Unknown_0x800d91e0: # 0x939e0
+.float 41.7, 50.0, 39.0, 27.8
+
+Unknown_0x800d91f0: # 0x939f0
+.incbin "./roms/Wave Race 64 (USA).z64", 0x939f0, 0x93a10 - 0x939f0
+
+Unknown_0x800d9210: # 0x93a10
+.float 10.0, 15.0, 7.0, 10.0
+
+Unknown_0x800d9220: # 0x93a20
+.float 28.0, 27.0, 32.0, 33.0
+
+Unknown_0x800d9230: # 0x93a30
+.float 22.0, 21.0, 26.0, 27.0
+
+Unknown_0x800d9240: # 0x93a40
+.float 30.0, 27.455, 29.273, 30.0
+
+Unknown_0x800d9250: # 0x93a50
+.float 0.45, 0.4, 1.2, 0.7
+
+Unknown_0x800d9260: # 0x93a60
+.float 0.35, 0.3, 1.0, 0.4
+
+Unknown_0x800d9270: # 0x93a70
+.float 0.6, 0.28, 1.2, 0.7
+
+Unknown_0x800d9280: # 0x93a80
+.float 0.95, 0.94, 0.95, 0.95
+
+Unknown_0x800d9290: # 0x93a90
+.float 1.0, 1.0, 1.0, 1.0
+
+Unknown_0x800d92a0: # 0x93aa0
+.float 0.95, 0.94, 0.95, 0.95
+
+Unknown_0x800d92b0: # 0x93ab0
+.float 30.0, 80.0, 99.0, 30.0
+
+Unknown_0x800d92c0: # 0x93ac0
+.float 30.0, 80.0, 99.0, 30.0
+
+Unknown_0x800d92d0: # 0x93ad0
+.float 0.92, 0.95, 0.89, 0.91
+
+Unknown_0x800d92e0: # 0x93ae0
+.incbin "./roms/Wave Race 64 (USA).z64", 0x93ae0, 0x93b00 - 0x93ae0
+
+Unknown_0x800d9300: # 0x93b00
+.float 0.589, 0.5722, 0.5127, 0.575
+
+Unknown_0x800d9310: # 0x93b10
+.float 0.556, 0.5472, 0.4827, 0.545
+
+Unknown_0x800d9320: # 0x93b20
+.float 0.5, 0.605, 0.4827, 0.545
+
+Unknown_0x800d9330_SpeedValue: # 0x93b30
+.float 0.1, 0.16, 0.09, 0.11
+
+Unknown_0x800d9340: # 0x93b40
+.float 0.1, 0.1, 0.09, 0.11
+
+Unknown_0x800d9350: # 0x93b50
+.float 0.023, 0.008, 0.017, 0.009
+
+Unknown_0x800d9360: # 0x93b60
+.float 0.0317, 0.024, 0.0431, 0.019
+
+Unknown_0x800d9370: # 0x93b70
+.float 0.027, 0.03, 0.0431, 0.019
+
+Unknown_0x800d9380: # 0x93b80
+.float 0.033, 0.027, 0.033, 0.032
+
+Unknown_0x800d9390: # 0x93b90
+.float 0.0515, 0.0546, 0.067, 0.044
+
+Unknown_0x800d93a0: # 0x93ba0
+.float 0.066, 0.065, 0.067, 0.044
 
 Unknown_0x800d93b0: # 0x93bb0
 .incbin "./roms/Wave Race 64 (USA).z64", 0x93bb0, 0x93c24 - 0x93bb0
 
 .globl Unknown_0x800d9424
 Unknown_0x800d9424: # 0x93c24
-.incbin "./roms/Wave Race 64 (USA).z64", 0x93c24, 0x93ee4 - 0x93c24
+.incbin "./roms/Wave Race 64 (USA).z64", 0x93c24, 0x93e0c - 0x93c24
+
+Unknown_0x800d960c: # 0x93e0c
+.word 0x2000000
+
+Unknown_0x800d9610: # 0x93e10
+.word 0xB00000
+
+Unknown_0x800d9614: # 0x93e14
+.incbin "./roms/Wave Race 64 (USA).z64", 0x93e14, 0x93e94 - 0x93e14
+
+Unknown_0x800d9694: # 0x93e94
+.incbin "./roms/Wave Race 64 (USA).z64", 0x93e94, 0x93ee4 - 0x93e94
 
 Unknown_0x800d96e4: # 0x93ee4
-.incbin "./roms/Wave Race 64 (USA).z64", 0x93ee4, 0x94ea0 - 0x93ee4
+.incbin "./roms/Wave Race 64 (USA).z64", 0x93ee4, 0x94e30 - 0x93ee4
+
+Unknown_0x800da630: # 0x94e30
+.word 0
+
+Unknown_0x800da634: # 0x94e34
+.word 0x1, 0x13, 0x23
+
+Unknown_0x800da640: # 0x94e40
+.incbin "./roms/Wave Race 64 (USA).z64", 0x94e40, 0x94e50 - 0x94e40
+
+Unknown_0x800da650: # 0x94e50
+.incbin "./roms/Wave Race 64 (USA).z64", 0x94e50, 0x94e60 - 0x94e50
+
+Unknown_0x800da660: # 0x94e60
+.incbin "./roms/Wave Race 64 (USA).z64", 0x94e60, 0x94e70 - 0x94e60
+
+Unknown_0x800da670: # 0x94e70
+.incbin "./roms/Wave Race 64 (USA).z64", 0x94e70, 0x94e80 - 0x94e70
+
+Unknown_0x800da680: # 0x94e80
+.incbin "./roms/Wave Race 64 (USA).z64", 0x94e80, 0x94ea0 - 0x94e80
 
 Unknown_0x800da6a0: # 0x94ea0
 .word 0x0, 0x1F850, 0x345AC, 0x45DB8
@@ -1017,9 +1177,10 @@ Unknown_0x800da784: # 0x94f84
 Unknown_0x800da788: # 0x94f88
 .word 0, 0
 
-.globl Unknown_0x800da790
-Unknown_0x800da790: # 0x94f90
-.incbin "./roms/Wave Race 64 (USA).z64", 0x94f90, 0x94fd8 - 0x94f90
+.globl Unknown_0x800da790_TrackNameStringIDs
+Unknown_0x800da790_TrackNameStringIDs: # 0x94f90
+.word 0x8, 0x9, 0xA, 0xB, 0xC, 0xD, 0xE, 0xF, 0x10
+.word 0x8, 0x9, 0xA, 0xB, 0xC, 0xD, 0xE, 0xF, 0x16
 
 Unknown_0x800da7d8: # 0x94fd8
 .hword 0x0, 0xF2, 0xE4
@@ -1112,29 +1273,29 @@ Unknown_0x800da940: # 0x95140
 # http://en64.shoutwiki.com/wiki/N64_Compression
 # http://origami64.net/showthread.php?tid=113
 FileList_0x800da950: # 0x95150 Driver Graphics
-.word ROM_0x373ec0, ROM_0x37cdc0, 0x4, 0x0 # Hayami 1
-.word ROM_0x39d0c0, ROM_0x3a6300, 0x4, 0x0 # Mariner 1
-.word ROM_0x381800, ROM_0x38a6c0, 0x4, 0x0 # Stewart 1
-.word ROM_0x38f670, ROM_0x3985f0, 0x4, 0x0 # Jeter 1
+.word ROM_0x373ec0, ROM_0x37cdc0, FileData_8_4, 0x0 # Hayami 1
+.word ROM_0x39d0c0, ROM_0x3a6300, FileData_8_4, 0x0 # Mariner 1
+.word ROM_0x381800, ROM_0x38a6c0, FileData_8_4, 0x0 # Stewart 1
+.word ROM_0x38f670, ROM_0x3985f0, FileData_8_4, 0x0 # Jeter 1
 
-.word ROM_0x3aae20, ROM_0x3b3c70, 0x4, 0x0 # Hayami 2
-.word ROM_0x3d3850, ROM_0x3dcab0, 0x4, 0x0 # Mariner 2
-.word ROM_0x3b86c0, ROM_0x3c13b0, 0x4, 0x0 # Stewart 2
-.word ROM_0x3c6350, ROM_0x3cee60, 0x4, 0x0 # Jeter 2
+.word ROM_0x3aae20, ROM_0x3b3c70, FileData_8_4, 0x0 # Hayami 2
+.word ROM_0x3d3850, ROM_0x3dcab0, FileData_8_4, 0x0 # Mariner 2
+.word ROM_0x3b86c0, ROM_0x3c13b0, FileData_8_4, 0x0 # Stewart 2
+.word ROM_0x3c6350, ROM_0x3cee60, FileData_8_4, 0x0 # Jeter 2
 
-.word ROM_0x37cdc0, ROM_0x381800, 0x4, 0x0
-.word ROM_0x3a6300, ROM_0x3aae20, 0x4, 0x0
-.word ROM_0x38a6c0, ROM_0x38f670, 0x4, 0x0
-.word ROM_0x3985f0, ROM_0x39d0c0, 0x4, 0x0
+.word ROM_0x37cdc0, ROM_0x381800, FileData_8_4, 0x0
+.word ROM_0x3a6300, ROM_0x3aae20, FileData_8_4, 0x0
+.word ROM_0x38a6c0, ROM_0x38f670, FileData_8_4, 0x0
+.word ROM_0x3985f0, ROM_0x39d0c0, FileData_8_4, 0x0
 
-.word ROM_0x3b3c70, ROM_0x3b86c0, 0x4, 0x0
-.word ROM_0x3dcab0, ROM_0x3e1560, 0x4, 0x0
-.word ROM_0x3c13b0, ROM_0x3c6350, 0x4, 0x0
-.word ROM_0x3cee60, ROM_0x3d3850, 0x4, 0x0
+.word ROM_0x3b3c70, ROM_0x3b86c0, FileData_8_4, 0x0
+.word ROM_0x3dcab0, ROM_0x3e1560, FileData_8_4, 0x0
+.word ROM_0x3c13b0, ROM_0x3c6350, FileData_8_4, 0x0
+.word ROM_0x3cee60, ROM_0x3d3850, FileData_8_4, 0x0
 
 
-Unknown_0x800daa50: # 0x95250
-.word 0x080108A8, 0x080106F0, 0x08010DC0, 0x080102A0
+Unknown_0x800daa50_DriversDLOffsets: # 0x95250
+.word 0x080108A8, 0x080106F0, 0x08010DC0, 0x080102A0 # Hayami
 .word 0x0800FFB0, 0x0800FD80, 0x0800FC58, 0x0800F590
 .word 0x0800F848, 0x0800FB30, 0x0800F9E8, 0x0800F6A8
 .word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
@@ -1144,13 +1305,12 @@ Unknown_0x800daa50: # 0x95250
 .word 0x080060F0, 0x08006670, 0x08006410, 0x08005DD8
 .word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
 .word 0x0106F508
-/*
 .word 0x08007F60, 0x08007910, 0x08008598, 0x08007598
 .word 0x08007098, 0x08006CB0, 0x080069A8, 0x08005CE0
 .word 0x08006288, 0x08006788, 0x08006548, 0x08005F68
 .word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
 .word 0x0106F508
-.word 0x08010860, 0x080106A8, 0x08010D90, 0x080102B0
+.word 0x08010860, 0x080106A8, 0x08010D90, 0x080102B0 # Mariner
 .word 0x0800FEF8, 0x0800FC88, 0x0800FB30, 0x0800F450
 .word 0x0800F768, 0x0800F9D8, 0x0800F878, 0x0800F5B0
 .word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
@@ -1165,7 +1325,7 @@ Unknown_0x800daa50: # 0x95250
 .word 0x08006330, 0x08006800, 0x08006578, 0x080060A0
 .word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
 .word 0x0106F508
-.word 0x08011388, 0x080111B8, 0x080118B8, 0x08010D68
+.word 0x08011388, 0x080111B8, 0x080118B8, 0x08010D68 # Stewart
 .word 0x08010500, 0x080102E8, 0x08010160, 0x0800FA00
 .word 0x0800FCE8, 0x0800FFD8, 0x0800FE90, 0x0800FB48
 .word 0x08010810, 0x08010918, 0x08010A20, 0x08010B40
@@ -1180,7 +1340,7 @@ Unknown_0x800daa50: # 0x95250
 .word 0x08006F80, 0x080074E0, 0x08007240, 0x08006C60
 .word 0x08008128, 0x08008338, 0x08008560, 0x080087A0
 .word 0x080089C8
-.word 0x08010810, 0x08010640, 0x08010D40, 0x08010248
+.word 0x08010810, 0x08010640, 0x08010D40, 0x08010248 # Jeter
 .word 0x0800FF50, 0x0800FD20, 0x0800FBC8, 0x0800F480
 .word 0x0800F7E8, 0x0800FA58, 0x0800F8F8, 0x0800F640
 .word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
@@ -1195,7 +1355,7 @@ Unknown_0x800daa50: # 0x95250
 .word 0x08006268, 0x08006708, 0x08006498, 0x08005FD8
 .word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
 .word 0x0106F508
-.word 0x080108A8, 0x080106F0, 0x08010DC0, 0x080102A0
+.word 0x080108A8, 0x080106F0, 0x08010DC0, 0x080102A0 # Hayami
 .word 0x0800FFB0, 0x0800FD80, 0x0800FC58, 0x0800F590
 .word 0x0800F848, 0x0800FB30, 0x0800F9E8, 0x0800F6A8
 .word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
@@ -1210,11 +1370,54 @@ Unknown_0x800daa50: # 0x95250
 .word 0x08006288, 0x08006788, 0x08006548, 0x08005F68
 .word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
 .word 0x0106F508
-.word 0x08 01 08 60 08 01 06 A8 08 01 0D 90 08 01 02 B0 08 00 FE F8 08 00 FC 88 08 00 FB 30 08 00 F4 50 08 00 F7 68 08 00 F9 D8 08 00 F8 78 08 00 F5 B0 01 06 F5 08 01 06 F5 08 01 06 F5 08 01 06 F5 08 01 06 F5 08 08 00 7B D8 08 00 79 50 08 00 85 F0 08 00 74 40 08 00 6F 50 08 00 6B B8 08 00 69 38 08 00 5C A8 08 00 62 28 08 00 66 A0 08 00 64 28 08 00 5F 08 01 06 F5 08 01 06 F5 08 01 06 F5 08 01 06 F5 08 01 06 F5 08 08 00 80 D0 08 00 7A 98 08 00 87 08 08 00 77 38 08 00 71 D8 08 00 6D C8 08 00 6A 80 08 00 5D E0 08 00 63 30 08 00 68 00 08 00 65 78 08 00 60 A0 01 06 F5 08 01 06 F5 08 01 06 F5 08 01 06 F5 08 01 06 F5 08 08 01 13 70 08 01 11 B8 08 01 18 A0 08 01 0D 68 08 01 05 00 08 01 02 E8 08 01 01 60 08 00 FA 00 08 00 FC E8 08 00 FF D8 08 00 FE 90 08 00 FB 48 08 01 08 10 08 01 09 18 08 01 0A 20 08 01 0B 40 08 01 0C 60 08 00 92 D0 08 00 90 30 08 00 9C E8 08 00 8A D0 08 00 7C 48 08 00 78 C8 08 00 76 18 08 00 68 78 08 00 6D E8 08 00 73 68 08 00 71 08 08 00 6A D0 08 00 80 20 08 00 82 30 08 00 84 40 08 00 86 80 08 00 88 C0 08 00 97 C8 08 00 91 90 08 00 9E 00 08 00 8E 00 08 00 7E 98 08 00 7A C0 08 00 77 90 08 00 69 A8 08 00 6F 80 08 00 74 E0 08 00 72 40 08 00 6C 60 08 00 81 28 08 00 83 38 08 00 85 60 08 00 87 A0 08 00 89 C8 08 01 07 F8 08 01 06 40 08 01 0D 28 08 01 02 48 08 00 FF 50 08 00 FD 20 08 00 FB C8 08 00 F4 80 08 00 F7 E8 08 00 FA 58 08 00 F8 F8 08 00 F6 40 01 06 F5 08 01 06 F5 08 01 06 F5 08 01 06 F5 08 01 06 F5 08 08 00 79 A8 08 00 77 20 08 00 83 C0 08 00 72 38 08 00 6E 30 08 00 6A C0 08 00 68 40 08 00 5B E8 08 00 61 60 08 00 65 C0 08 00 63 60 08 00 5E 48 01 06 F5 08 01 06 F5 08 01 06 F5 08 01 06 F5 08 01 06 F5 08 08 00 7E A0 08 00 78 68 08 00 84 D8 08 00 75 08 08 00 70 68 08 00 6C A8 08 00 69 88 08 00 5D 20 08 00 62 68 08 00 67 08 08 00 64 98 08 00 5F D8 01 06 F5 08 01 06 F5 08 01 06 F5 08 01 06 F5 08 01 06 F5 08
-*/
-.incbin "./roms/Wave Race 64 (USA).z64", (0x95250+0x44*2), 0x958B0 - (0x95250+0x44*2)
+.word 0x08010860, 0x080106A8, 0x08010D90, 0x080102B0 # Mariner
+.word 0x0800FEF8, 0x0800FC88, 0x0800FB30, 0x0800F450
+.word 0x0800F768, 0x0800F9D8, 0x0800F878, 0x0800F5B0
+.word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
+.word 0x0106F508
+.word 0x08007BD8, 0x08007950, 0x080085F0, 0x08007440
+.word 0x08006F50, 0x08006BB8, 0x08006938, 0x08005CA8
+.word 0x08006228, 0x080066A0, 0x08006428, 0x08005F08
+.word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
+.word 0x0106F508
+.word 0x080080D0, 0x08007A98, 0x08008708, 0x08007738
+.word 0x080071D8, 0x08006DC8, 0x08006A80, 0x08005DE0
+.word 0x08006330, 0x08006800, 0x08006578, 0x080060A0
+.word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
+.word 0x0106F508
+.word 0x08011370, 0x080111B8, 0x080118A0, 0x08010D68 # Stewart
+.word 0x08010500, 0x080102E8, 0x08010160, 0x0800FA00
+.word 0x0800FCE8, 0x0800FFD8, 0x0800FE90, 0x0800FB48
+.word 0x08010810, 0x08010918, 0x08010A20, 0x08010B40
+.word 0x08010C60
+.word 0x080092D0, 0x08009030, 0x08009CE8, 0x08008AD0
+.word 0x08007C48, 0x080078C8, 0x08007618, 0x08006878
+.word 0x08006DE8, 0x08007368, 0x08007108, 0x08006AD0
+.word 0x08008020, 0x08008230, 0x08008440, 0x08008680
+.word 0x080088C0
+.word 0x080097C8, 0x08009190, 0x08009E00, 0x08008E00
+.word 0x08007E98, 0x08007AC0, 0x08007790, 0x080069A8
+.word 0x08006F80, 0x080074E0, 0x08007240, 0x08006C60
+.word 0x08008128, 0x08008338, 0x08008560, 0x080087A0
+.word 0x080089C8
+.word 0x080107F8, 0x08010640, 0x08010D28, 0x08010248 # Jeter
+.word 0x0800FF50, 0x0800FD20, 0x0800FBC8, 0x0800F480
+.word 0x0800F7E8, 0x0800FA58, 0x0800F8F8, 0x0800F640
+.word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
+.word 0x0106F508
+.word 0x080079A8, 0x08007720, 0x080083C0, 0x08007238
+.word 0x08006E30, 0x08006AC0, 0x08006840, 0x08005BE8
+.word 0x08006160, 0x080065C0, 0x08006360, 0x08005E48
+.word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
+.word 0x0106F508
+.word 0x08007EA0, 0x08007868, 0x080084D8, 0x08007508
+.word 0x08007068, 0x08006CA8, 0x08006988, 0x08005D20
+.word 0x08006268, 0x08006708, 0x08006498, 0x08005FD8
+.word 0x0106F508, 0x0106F508, 0x0106F508, 0x0106F508
+.word 0x0106F508
 
-Unknown_0x800db0b0: # 0x958B0
+
+Unknown_0x800db0b0_FilesListToLoad: # 0x958B0
 .zero 9*FileData_Size
 
 
@@ -1280,7 +1483,7 @@ FileList_0x800DB228: # 0x95a28
 
 ###############
 
-Unknown_0x800DB2B8: # 0x95aB8
+Unknown_0x800db2b8_ListOfFileData: # 0x800db2b8 0x95aB8
 .zero 3*FileData_Size
 
 .globl Unknown_0x800db2e8
@@ -1333,7 +1536,13 @@ Unknown_0x800db4e0: # 0x95ce0
 .word Unknown_0x800db498, Unknown_0x800db408
 
 Unknown_0x800db4f8: # 0x95cf8
-.incbin "./roms/Wave Race 64 (USA).z64", 0x95cf8, 0x95d64 - 0x95cf8
+.hword 0x1, 0x0, 0x0, 0x1, 0x0, 0x0, 0x1, 0x1
+.hword 0x0, 0x0, 0x1, 0x0, 0x1, 0x1, 0x0, 0x0
+.hword 0x1, 0x0, 0x1, 0x0, 0x1, 0x1, 0x1, 0x0
+.hword 0x1, 0x1, 0x0, 0x0, 0x1, 0x0, 0x1, 0x0
+.hword 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x0, 0x1
+.hword 0x1, 0x0, 0x1, 0x1, 0x0, 0x0, 0x1, 0x0
+.hword 0x1, 0x1, 0x0, 0x0, 0x1, 0x0
 
 FileList_DolphinParkTextures1: # 0x95d64
 .word ROM_0x361850, ROM_0x361960, 0x1, 0x0
@@ -1395,7 +1604,7 @@ FileList_PortBlueTextures1: # 0x95fe4
 .word ROM_0x371670, ROM_0x371F70, 0x1, 0x7400
 .word 0x0, 0x0, 0x0, 0x0
 
-FileList_0x800DB864: # 0x96064
+FileList_TwilightCityTextures1: # 0x96064
 .word ROM_0x361C80, ROM_0x361D70, 0x1, 0x0
 .word ROM_0x361C80, ROM_0x361D70, 0x1, 0x200
 .word ROM_0x365C80, ROM_0x366900, 0x1, 0xC00
@@ -1415,7 +1624,7 @@ FileList_SouthernIslandTextures1: # 0x960e4
 .word ROM_0x372870, ROM_0x373170, 0x1, 0x7400
 .word 0x0, 0x0, 0x0, 0x0
 
-FileList_0x800DB964: # 0x96164
+FileList_GlacierCoastTextures1: # 0x96164
 .word ROM_0x361850, ROM_0x361960, 0x1, 0x0
 .word ROM_0x361850, ROM_0x361960, 0x1, 0x200
 .word ROM_0x367790, ROM_0x368270, 0x1, 0xC00
@@ -1425,7 +1634,7 @@ FileList_0x800DB964: # 0x96164
 .word ROM_0x370CE0, ROM_0x371670, 0x1, 0x7400
 .word 0x0, 0x0, 0x0, 0x0
 
-FileList_0x800DB9E4: # 0x961e4
+FileList_DolphinParkTextures2: # 0x961e4
 .word ROM_0x361850, ROM_0x361960, 0x1, 0x0
 .word ROM_0x361850, ROM_0x361960, 0x1, 0x200
 .word ROM_0x368270, ROM_0x3686D0, 0x1, 0xC00
@@ -1435,7 +1644,7 @@ FileList_0x800DB9E4: # 0x961e4
 .word ROM_0x36E770, ROM_0x36F070, 0x1, 0x7400
 .word 0x0, 0x0, 0x0, 0x0
 
-FileList_0x800DBA64: # 0x96264
+FileList_SunnyBeachTextures2: # 0x96264
 .word ROM_0x361850, ROM_0x361960, 0x1, 0x0
 .word ROM_0x361850, ROM_0x361960, 0x1, 0x200
 .word ROM_0x368270, ROM_0x3686D0, 0x1, 0xC00
@@ -1445,7 +1654,7 @@ FileList_0x800DBA64: # 0x96264
 .word ROM_0x36E770, ROM_0x36F070, 0x1, 0x7400
 .word 0x0, 0x0, 0x0, 0x0
 
-FileList_0x800DBAE4: # 0x962e4
+FileList_SunsetBayTextures2: # 0x962e4
 .word ROM_0x361960, ROM_0x3619F0, 0x1, 0x0
 .word ROM_0x361960, ROM_0x3619F0, 0x1, 0x200
 .word ROM_0x3686D0, ROM_0x368D70, 0x1, 0xC00
@@ -1455,7 +1664,7 @@ FileList_0x800DBAE4: # 0x962e4
 .word ROM_0x36F070, ROM_0x36FB00, 0x1, 0x7400
 .word 0x0, 0x0, 0x0, 0x0
 
-FileList_0x800DBB64: # 0x96364
+FileList_MarineFortressTextures2: # 0x96364
 .word ROM_0x3619F0, ROM_0x361AE0, 0x1, 0x0
 .word ROM_0x3619F0, ROM_0x361AE0, 0x1, 0x200
 .word ROM_0x368D70, ROM_0x369280, 0x1, 0xC00
@@ -1465,7 +1674,7 @@ FileList_0x800DBB64: # 0x96364
 .word ROM_0x36FB00, ROM_0x370CE0, 0x1, 0x7400
 .word 0x0, 0x0, 0x0, 0x0
 
-FileList_0x800DBBE4: # 0x963e4
+FileList_DrakeLakeTextures2: # 0x963e4
 .word ROM_0x361AE0, ROM_0x361B70, 0x1, 0x0
 .word ROM_0x361850, ROM_0x361960, 0x1, 0x200
 .word ROM_0x369280, ROM_0x369710, 0x1, 0xC00
@@ -1475,7 +1684,7 @@ FileList_0x800DBBE4: # 0x963e4
 .word ROM_0x370CE0, ROM_0x371670, 0x1, 0x7400
 .word 0x0, 0x0, 0x0, 0x0
 
-FileList_0x800DBC64: # 0x96464
+FileList_PortBlueTextures2: # 0x96464
 .word ROM_0x361B70, ROM_0x361C80, 0x1, 0x0
 .word ROM_0x361B70, ROM_0x361C80, 0x1, 0x200
 .word ROM_0x369710, ROM_0x369CA0, 0x1, 0xC00
@@ -1485,7 +1694,7 @@ FileList_0x800DBC64: # 0x96464
 .word ROM_0x371670, ROM_0x371F70, 0x1, 0x7400
 .word 0x0, 0x0, 0x0, 0x0
 
-FileList_0x800DBCE4: # 0x964e4
+FileList_TwilightCityTextures2: # 0x964e4
 .word ROM_0x361C80, ROM_0x361D70, 0x1, 0x0
 .word ROM_0x361C80, ROM_0x361D70, 0x1, 0x200
 .word ROM_0x369CA0, ROM_0x36A270, 0x1, 0xC00
@@ -1495,7 +1704,7 @@ FileList_0x800DBCE4: # 0x964e4
 .word ROM_0x371F70, ROM_0x372870, 0x1, 0x7400
 .word 0x0, 0x0, 0x0, 0x0
 
-FileList_0x800DBD64: # 0x96564
+FileList_SouthernIslandTextures2: # 0x96564
 .word ROM_0x361D70, ROM_0x361E70, 0x1, 0x0
 .word ROM_0x361D70, ROM_0x361E70, 0x1, 0x200
 .word ROM_0x36A270, ROM_0x36A790, 0x1, 0xC00
@@ -1505,7 +1714,7 @@ FileList_0x800DBD64: # 0x96564
 .word ROM_0x372870, ROM_0x373170, 0x1, 0x7400
 .word 0x0, 0x0, 0x0, 0x0
 
-FileList_0x800DBDE4: # 0x965e4
+FileList_GlacierCoastTextures2: # 0x965e4
 .word ROM_0x361850, ROM_0x361960, 0x1, 0x0
 .word ROM_0x361850, ROM_0x361960, 0x1, 0x200
 .word ROM_0x36A790, ROM_0x36AC40, 0x1, 0xC00
@@ -1523,29 +1732,29 @@ FileListList_TrackTextures1: # 0x800dbe64 0x96664
 .word FileList_MarineFortressTextures1
 .word FileList_DrakeLakeTextures1
 .word FileList_PortBlueTextures1
-.word FileList_0x800DB864
+.word FileList_TwilightCityTextures1
 .word FileList_SouthernIslandTextures1
-.word FileList_0x800DB964
+.word FileList_GlacierCoastTextures1
 
 FileListList_TrackTextures2: # 0x800dbe88 0x96688
-.word FileList_0x800DB9E4
-.word FileList_0x800DBA64
-.word FileList_0x800DBAE4
-.word FileList_0x800DBB64
-.word FileList_0x800DBBE4
-.word FileList_0x800DBC64
-.word FileList_0x800DBCE4
-.word FileList_0x800DBD64
-.word FileList_0x800DBDE4
+.word FileList_DolphinParkTextures2
+.word FileList_SunnyBeachTextures2
+.word FileList_SunsetBayTextures2
+.word FileList_MarineFortressTextures2
+.word FileList_DrakeLakeTextures2
+.word FileList_PortBlueTextures2
+.word FileList_TwilightCityTextures2
+.word FileList_SouthernIslandTextures2
+.word FileList_GlacierCoastTextures2
 
 
 
-Unknown_0x800DBEAC: # 0x966ac
-.word ROM_0x29c8c0, ROM_0x29F5A0, 0x9, 0x0
+Unknown_0x800dbeac: # 0x966ac
+.word ROM_0x29c8c0, ROM_0x29c8c0_End, 0x9, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800dbecc: # 0x966cc
-.word ROM_0x29F5A0, ROM_0x2A1F10, 0x9, 0x0
+.word ROM_0x29F5A0, ROM_0x29F5A0_End, 0x9, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800dbeec: # 0x966ec
@@ -1554,105 +1763,105 @@ Unknown_0x800dbeec: # 0x966ec
 
 
 FileListList_0x800dbf0c: # 0x9670c
-.word Unknown_0x800DBEAC
-.word Unknown_0x800DBEAC
+.word Unknown_0x800dbeac
+.word Unknown_0x800dbeac
 .word Unknown_0x800dbecc
-.word Unknown_0x800DBEAC
-.word Unknown_0x800DBEAC
-.word Unknown_0x800DBEAC
-.word Unknown_0x800DBEAC
+.word Unknown_0x800dbeac
+.word Unknown_0x800dbeac
+.word Unknown_0x800dbeac
+.word Unknown_0x800dbeac
 .word Unknown_0x800dbeec
-.word Unknown_0x800DBEAC
+.word Unknown_0x800dbeac
 
 
 # Track Files
 
 TrackFiles_DolphinPark: # 0x96730
-.word ROM_0x1d0f90, ROM_0x1d0f90_End, FileData_8_5, 0x0
+.word ROM_Track_DolphinPark, ROM_Track_DolphinPark_End, FileData_8_5, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
 TrackFiles_SunnyBeach:
-.word ROM_0x1e5620, ROM_0x1e5620_End, FileData_8_5, 0x0
-.word ROM_0x257b00, ROM_0x262f90, FileData_8_8, 0x0
+.word ROM_Track_SunnyBeach1, ROM_Track_SunnyBeach1_End, FileData_8_5, 0x0
+.word ROM_Track_SunnyBeachTextures, ROM_Track_SunnyBeachTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
 TrackFiles_SunsetBay:
-.word ROM_0x1efab0, ROM_0x1efab0_End, FileData_8_5, 0x0
-.word ROM_0x262f90, ROM_0x267e00, FileData_8_8, 0x0
+.word ROM_Track_SunsetBay1, ROM_Track_SunsetBay1_End, FileData_8_5, 0x0
+.word ROM_Track_SunsetBayTextures, ROM_Track_SunsetBayTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
 TrackFiles_MarineFortress:
-.word ROM_0x1fb030, ROM_0x1fb030_End, FileData_8_5, 0x0
-.word ROM_0x267e00, ROM_0x271bc0, FileData_8_8, 0x0
+.word ROM_Track_MarineFortress1, ROM_Track_MarineFortress1_End, FileData_8_5, 0x0
+.word ROM_Track_MarineFortressTextures, ROM_Track_MarineFortressTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
 TrackFiles_DrakeLake:
-.word ROM_0x208740, ROM_0x208740_End, FileData_8_5, 0x0
-.word ROM_0x271bc0, ROM_0x2787a0, FileData_8_8, 0x0
+.word ROM_Track_DrakeLake1, ROM_Track_DrakeLake1_End, FileData_8_5, 0x0
+.word ROM_Track_DrakeLakeTextures, ROM_Track_DrakeLakeTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
 TrackFiles_PortBlue:
-.word ROM_0x20f700, ROM_0x20f700_End, FileData_8_5, 0x0
-.word ROM_0x2787a0, ROM_0x282760, FileData_8_8, 0x0
+.word ROM_Track_PortBlue1, ROM_Track_PortBlue1_End, FileData_8_5, 0x0
+.word ROM_Track_PortBlueTextures, ROM_Track_PortBlueTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
-Unknown_0x800dc040:
-.word ROM_0x2173f0, ROM_0x2173f0_End, FileData_8_5, 0x0
-.word ROM_0x282760, ROM_0x289330, FileData_8_8, 0x0
+TrackFiles_TwilightCity:
+.word ROM_Track_TwilightCity1, ROM_Track_TwilightCity1_End, FileData_8_5, 0x0
+.word ROM_Track_TwilightCityTextures, ROM_Track_TwilightCityTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
 TrackFiles_SouthernIsland:
-.word ROM_0x221820, ROM_0x221820_End, FileData_8_5, 0x0
-.word ROM_0x289330, ROM_0x295b70, FileData_8_8, 0x0
+.word ROM_Track_SouthernIsland1, ROM_Track_SouthernIsland1_End, FileData_8_5, 0x0
+.word ROM_Track_SouthernIslandTextures, ROM_Track_SouthernIslandTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
-Unknown_0x800dc0a0:
-.word ROM_0x2291a0, ROM_0x2341e0, FileData_8_5, 0x0
-.word ROM_0x295b70, ROM_0x29c8c0, FileData_8_8, 0x0
+TrackFiles_GlacierCoast:
+.word ROM_Track_GlacierCoast1, ROM_Track_GlacierCoast1_End, FileData_8_5, 0x0
+.word ROM_Track_GlacierCoastTextures, ROM_Track_GlacierCoastTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
-Unknown_0x800dc0d0:
-.word ROM_0x240e30, ROM_0x243300, FileData_8_5, 0x0
-.word ROM_0x257b00, ROM_0x262f90, FileData_8_8, 0x0
+TrackFiles2_SunnyBeach:
+.word ROM_Track_SunnyBeach2, ROM_Track_SunnyBeach2_End, FileData_8_5, 0x0
+.word ROM_Track_SunnyBeachTextures, ROM_Track_SunnyBeachTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
-Unknown_0x800dc100:
-.word ROM_0x243300, ROM_0x2451f0, FileData_8_5, 0x0
-.word ROM_0x262f90, ROM_0x267e00, FileData_8_8, 0x0
+TrackFiles2_SunsetBay:
+.word ROM_Track_SunsetBay2, ROM_Track_SunsetBay2_End, FileData_8_5, 0x0
+.word ROM_Track_SunsetBayTextures, ROM_Track_SunsetBayTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
-Unknown_0x800dc130:
-.word ROM_0x2451f0, ROM_0x2479e0, FileData_8_5, 0x0
-.word ROM_0x267e00, ROM_0x271bc0, FileData_8_8, 0x0
+TrackFiles2_MarineFortress:
+.word ROM_Track_MarineFortress2, ROM_Track_MarineFortress2_End, FileData_8_5, 0x0
+.word ROM_Track_MarineFortressTextures, ROM_Track_MarineFortressTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
-Unknown_0x800dc160:
-.word ROM_0x2479e0, ROM_0x24b200, FileData_8_5, 0x0
-.word ROM_0x271bc0, ROM_0x2787a0, FileData_8_8, 0x0
+TrackFiles2_DrakeLake:
+.word ROM_Track_DrakeLake2, ROM_Track_DrakeLake2_End, FileData_8_5, 0x0
+.word ROM_Track_DrakeLakeTextures, ROM_Track_DrakeLakeTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
-Unknown_0x800dc190:
-.word ROM_0x24b200, ROM_0x24e330, FileData_8_5, 0x0
-.word ROM_0x2787a0, ROM_0x282760, FileData_8_8, 0x0
+TrackFiles2_PortBlue:
+.word ROM_Track_PortBlue2, ROM_Track_PortBlue2_End, FileData_8_5, 0x0
+.word ROM_Track_PortBlueTextures, ROM_Track_PortBlueTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
-Unknown_0x800dc1c0:
-.word ROM_0x24e330, ROM_0x250a70, FileData_8_5, 0x0
-.word ROM_0x282760, ROM_0x289330, FileData_8_8, 0x0
+TrackFiles2_TwilightCity:
+.word ROM_Track_TwilightCity2, ROM_Track_TwilightCity2_End, FileData_8_5, 0x0
+.word ROM_Track_TwilightCityTextures, ROM_Track_TwilightCityTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
-Unknown_0x800dc1f0:
-.word ROM_0x250a70, ROM_0x254d30, FileData_8_5, 0x0
-.word ROM_0x289330, ROM_0x295b70, FileData_8_8, 0x0
+TrackFiles2_SouthernIsland:
+.word ROM_Track_SouthernIsland2, ROM_Track_SouthernIsland2_End, FileData_8_5, 0x0
+.word ROM_Track_SouthernIslandTextures, ROM_Track_SouthernIslandTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
-Unknown_0x800dc220:
-.word ROM_0x254d30, ROM_0x257b00, FileData_8_5, 0x0
-.word ROM_0x295b70, ROM_0x29c8c0, FileData_8_8, 0x0
+TrackFiles2_GlacierCoast:
+.word ROM_Track_GlacierCoast2, ROM_Track_GlacierCoast2_End, FileData_8_5, 0x0
+.word ROM_Track_GlacierCoastTextures, ROM_Track_GlacierCoastTextures_End, FileData_8_8, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
-Unknown_0x800dc250:
-.word ROM_0x2341e0, ROM_0x240e30, FileData_8_5, 0x0
+TrackFiles_Unknown:
+.word ROM_Track_Unknown, ROM_Track_Unknown_End, FileData_8_5, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
 
@@ -1663,20 +1872,20 @@ FileListList_TrackFiles: # 0x800dc270 0x96a70
 .word TrackFiles_MarineFortress
 .word TrackFiles_DrakeLake
 .word TrackFiles_PortBlue
-.word Unknown_0x800dc040
+.word TrackFiles_TwilightCity
 .word TrackFiles_SouthernIsland
-.word Unknown_0x800dc0a0
+.word TrackFiles_GlacierCoast
 
-FileListList_0x800DC294: # 0x96a94
-.word Unknown_0x800dc0d0
-.word Unknown_0x800dc0d0
-.word Unknown_0x800dc100
-.word Unknown_0x800dc130
-.word Unknown_0x800dc160
-.word Unknown_0x800dc190
-.word Unknown_0x800dc1c0
-.word Unknown_0x800dc1f0
-.word Unknown_0x800dc220
+FileListList_TrackFiles2: # 0x800dc294 0x96a94
+.word TrackFiles2_SunnyBeach
+.word TrackFiles2_SunnyBeach
+.word TrackFiles2_SunsetBay
+.word TrackFiles2_MarineFortress
+.word TrackFiles2_DrakeLake
+.word TrackFiles2_PortBlue
+.word TrackFiles2_TwilightCity
+.word TrackFiles2_SouthernIsland
+.word TrackFiles2_GlacierCoast
 
 
 TrackObjects_DolphinPark: # 0x96ab8
@@ -1748,7 +1957,7 @@ FileListList_TrackObjects2: # 0x96c3c
 
 
 FileList_BasicGraphics: # 0x96c60
-.word ROM_0x2e5d70, ROM_0x2f99a0, 0x1, 0x0
+.word ROM_0x2e5d70, ROM_0x2e5d70_End, 0x1, 0x0
 .word 0x0, 0x0, 0x0, 0x0
 
 FileListList_BasicGraphics: # 0x96c80
@@ -1761,12 +1970,12 @@ Unknown_0x800dc488: # 0x96c88
 
 
 Unknown_0x800dc4a8_LoadingStruct: # 0x96ca8
-.word Unknown_0x800db0b0
-.word Unknown_0x800DB2B8
+.word Unknown_0x800db0b0_FilesListToLoad
+.word Unknown_0x800db2b8_ListOfFileData
 .word TrackFiles_DolphinPark
 .word TrackObjects_DolphinPark
 .word FileList_DolphinParkTextures1
-.word Unknown_0x800DBEAC
+.word Unknown_0x800dbeac
 .word Unknown_0x800dc488
 .word 0x0
 
@@ -1802,45 +2011,45 @@ Unknown_0x800dc5c8: # 0x96dc8
 
 
 Unknown_0x800dc5e8: # 0x96de8
-.word Unknown_0x800db0b0
-.word Unknown_0x800DB2B8
+.word Unknown_0x800db0b0_FilesListToLoad
+.word Unknown_0x800db2b8_ListOfFileData
 .word TrackFiles_DolphinPark
 .word TrackObjects_DolphinPark
 .word FileList_DolphinParkTextures1
-.word Unknown_0x800DBEAC
+.word Unknown_0x800dbeac
 .word Unknown_0x800dc4d8
 .word Unknown_0x800dc4c8
 .word 0x0
 
 Unknown_0x800dc60c: # 0x96e0c
-.word Unknown_0x800db0b0
-.word Unknown_0x800DB2B8
+.word Unknown_0x800db0b0_FilesListToLoad
+.word Unknown_0x800db2b8_ListOfFileData
 .word TrackFiles_DolphinPark
 .word TrackObjects_DolphinPark
 .word FileList_DolphinParkTextures1
-.word Unknown_0x800DBEAC
+.word Unknown_0x800dbeac
 .word Unknown_0x800dc528
 .word Unknown_0x800dc4c8
 .word 0x0
 
 Unknown_0x800dc630: # 0x96e30
-.word Unknown_0x800db0b0
-.word Unknown_0x800DB2B8
+.word Unknown_0x800db0b0_FilesListToLoad
+.word Unknown_0x800db2b8_ListOfFileData
 .word TrackFiles_DolphinPark
 .word TrackObjects_DolphinPark
 .word FileList_DolphinParkTextures1
-.word Unknown_0x800DBEAC
+.word Unknown_0x800dbeac
 .word Unknown_0x800dc578
 .word Unknown_0x800dc4c8
 .word 0x0
 
 Unknown_0x800dc654: # 0x96e54
-.word Unknown_0x800db0b0
-.word Unknown_0x800DB2B8
+.word Unknown_0x800db0b0_FilesListToLoad
+.word Unknown_0x800db2b8_ListOfFileData
 .word TrackFiles_DolphinPark
 .word TrackObjects_DolphinPark
 .word FileList_DolphinParkTextures1
-.word Unknown_0x800DBEAC
+.word Unknown_0x800dbeac
 .word Unknown_0x800dc5c8
 .word 0x0
 
@@ -1860,7 +2069,7 @@ Unknown_0x800dc69c: # 0x96e9c
 
 
 Unknown_0x800dc6bc: # 0x96ebc
-.word Unknown_0x800db0b0
+.word Unknown_0x800db0b0_FilesListToLoad
 .word FileList_DolphinParkTextures1
 .word Unknown_0x800dc69c
 .word 0x0
@@ -1891,7 +2100,7 @@ Unknown_0x800dc788: # 0x96f88
 .word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800dc7b8: # 0x96fb8
-.word Unknown_0x800db0b0
+.word Unknown_0x800db0b0_FilesListToLoad
 
 Unknown_0x800dc7bc: # 0x96fbc
 .word FileList_DolphinParkTextures1, Unknown_0x800dc788, 0x0
@@ -1907,7 +2116,7 @@ Unknown_0x800dc7e8: # 0x96fe8
 .word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800dc814: # 0x97014
-.word Unknown_0x800db0b0, FileList_DolphinParkTextures1, Unknown_0x800dc788, 0x0
+.word Unknown_0x800db0b0_FilesListToLoad, FileList_DolphinParkTextures1, Unknown_0x800dc788, 0x0
 
 Unknown_0x800dc824: # 0x97024
 .word ROM_0x333C20, ROM_0x336550, 0x1, 0x47000
@@ -1962,12 +2171,12 @@ TrackPreviewFileListList: # 0x800dc964 0x97164
 .word Unknown_0x800dc944
 
 Unknown_0x800dc988_LoadingStruct: # 0x800dc988 0x97188
-.word Unknown_0x800db0b0
-.word Unknown_0x800DB2B8
+.word Unknown_0x800db0b0_FilesListToLoad
+.word Unknown_0x800db2b8_ListOfFileData
 .word TrackFiles_DolphinPark
 .word TrackObjects_DolphinPark
 .word FileList_DolphinParkTextures1
-.word Unknown_0x800DBEAC
+.word Unknown_0x800dbeac
 .word FileListTrackPreview_DolphinPark
 .word Unknown_0x800dc824
 .word 0x0
@@ -1985,14 +2194,19 @@ Unknown_0x800dc9d4: # 0x971d4
 .word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800dc9f4: # 0x971f4
-.word Unknown_0x800db0b0, FileList_DolphinParkTextures1, Unknown_0x800dc9d4, 0x0
+.word Unknown_0x800db0b0_FilesListToLoad
+.word FileList_DolphinParkTextures1
+.word Unknown_0x800dc9d4
+.word 0x0
 
 Unknown_0x800dca04: # 0x97204
 .word ROM_0x338230, ROM_0x339460, 0x1, 0x60000
 .word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800dca24: # 0x97224
-.word Unknown_0x800db0b0, Unknown_0x800dca04, 0x0
+.word Unknown_0x800db0b0_FilesListToLoad
+.word Unknown_0x800dca04
+.word 0x0
 
 Unknown_0x800dca30: # 0x97230
 .word ROM_0x339460, ROM_0x33AB00, 0x1, 0x10000
@@ -2020,7 +2234,7 @@ Unknown_0x800dcaa8: # 0x972a8
 .word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800dcac8: # 0x972c8
-.word Unknown_0x800db0b0, Unknown_0x800dcaa8, 0x0
+.word Unknown_0x800db0b0_FilesListToLoad, Unknown_0x800dcaa8, 0x0
 
 Unknown_0x800dcad4: # 0x972d4
 .word ROM_0x345B30, ROM_0x345B30_End, 0x1, 0x60000
@@ -2028,7 +2242,7 @@ Unknown_0x800dcad4: # 0x972d4
 .word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800dcb04: # 0x97304
-.word Unknown_0x800db0b0
+.word Unknown_0x800db0b0_FilesListToLoad
 
 Unknown_0x800dcb08: # 0x97308
 .word FileList_DolphinParkTextures1
@@ -2054,35 +2268,46 @@ Unknown_0x800dcb50: # 0x97350
 .word 0x0, 0x0, 0x0, 0x0
 
 Unknown_0x800dcb80: # 0x97380
-.word Unknown_0x800db0b0
-.word Unknown_0x800DB2B8
-.word Unknown_0x800dc250
+.word Unknown_0x800db0b0_FilesListToLoad
+.word Unknown_0x800db2b8_ListOfFileData
+.word TrackFiles_Unknown
 .word FileList_SouthernIslandTextures1
 .word Unknown_0x800DCB40
+.word 0x0
 
-.incbin "./roms/Wave Race 64 (USA).z64", 0x97394, 0x973bc - 0x97394
+
+# 0x97398 uncompressed sizes of ?
+.incbin "build/data/mio0/data_3e1560.mio0", 0x4, 4
+.incbin "build/data/mio0/data_3E8CA0.mio0", 0x4, 4
+.incbin "build/data/mio0/data_3EAAB0.mio0", 0x4, 4
+.incbin "build/data/mio0/data_3ECA20.mio0", 0x4, 4
+.incbin "build/data/mio0/data_3EE5F0.mio0", 0x4, 4
+.incbin "build/data/mio0/data_3EEDF0.mio0", 0x4, 4
+.incbin "build/data/mio0/data_3EF680.mio0", 0x4, 4
+.incbin "build/data/mio0/data_3F1190.mio0", 0x4, 4
+.incbin "build/data/mio0/data_3F44B0.mio0", 0x4, 4
 
 Unknown_0x800dcbbc_UncompressedTrackFileSizes: # 0x973bc uncompressed sizes of FileListList_TrackFiles
 .incbin "build/data/mio0/Track_DolphinPark.mio0", 0x4, 4
-.incbin "build/data/mio0/Track_SunnyBeach1.mio0", 0x4, 4
+.incbin "build/data/models/Track_SunnyBeach1.mio0", 0x4, 4
 .incbin "build/data/mio0/Track_SunsetBay1.mio0", 0x4, 4
 .incbin "build/data/mio0/Track_MarineFortress1.mio0", 0x4, 4
 .incbin "build/data/mio0/Track_DrakeLake1.mio0", 0x4, 4
 .incbin "build/data/mio0/Track_PortBlue1.mio0", 0x4, 4
-.incbin "build/data/mio0/data_2173f0.mio0", 0x4, 4
+.incbin "build/data/mio0/Track_TwilightCity1.mio0", 0x4, 4
 .incbin "build/data/mio0/Track_SouthernIsland1.mio0", 0x4, 4
-.incbin "build/data/mio0/data_2291a0.mio0", 0x4, 4
+.incbin "build/data/mio0/Track_GlacierCoast1.mio0", 0x4, 4
 
-Unknown_0x800dcbe0: # 0x973e0 uncompressed sizes of FileListList_0x800DC294
-.incbin "build/data/mio0/data_240e30.mio0", 0x4, 4
-.incbin "build/data/mio0/data_240e30.mio0", 0x4, 4
-.incbin "build/data/mio0/data_243300.mio0", 0x4, 4
-.incbin "build/data/mio0/data_2451f0.mio0", 0x4, 4
-.incbin "build/data/mio0/data_2479e0.mio0", 0x4, 4
-.incbin "build/data/mio0/data_24b200.mio0", 0x4, 4
-.incbin "build/data/mio0/data_24e330.mio0", 0x4, 4
-.incbin "build/data/mio0/data_250a70.mio0", 0x4, 4
-.word 0x16AD8 # it's not this uncompressed file size .incbin "build/data/mio0/data_254d30.mio0", 0x4, 4
+Unknown_0x800dcbe0_UncompressedTrackFile2Sizes: # 0x973e0 uncompressed sizes of FileListList_TrackFiles2
+.incbin "build/data/models/Track_SunnyBeach2.mio0", 0x4, 4
+.incbin "build/data/models/Track_SunnyBeach2.mio0", 0x4, 4
+.incbin "build/data/mio0/Track_SunsetBay2.mio0", 0x4, 4
+.incbin "build/data/mio0/Track_MarineFortress2.mio0", 0x4, 4
+.incbin "build/data/mio0/Track_DrakeLake2.mio0", 0x4, 4
+.incbin "build/data/mio0/Track_PortBlue2.mio0", 0x4, 4
+.incbin "build/data/mio0/Track_TwilightCity2.mio0", 0x4, 4
+.incbin "build/data/mio0/Track_SouthernIsland2.mio0", 0x4, 4
+.incbin "build/data/mio0/Track_GlacierCoast1.mio0", 0x4, 4
 
 Unknown_0x800dcc04: # 0x97404
 .word Unknown_0x80316800, RamForUncompressedTrackFiles_0x802d6800, Unknown_0x802ce800, Unknown_0x80410000, Unknown_0x802f6800
@@ -2090,8 +2315,9 @@ Unknown_0x800dcc04: # 0x97404
 Unknown_0x800dcc18: # 0x97418
 .word 0x08086070, 0x08086FD0, 0x0808AD80, 0x0808BCF8
 .word 0x08087BB0, 0x08088700, 0x080892E0, 0x0808A1A0
+.word 0, 0
 
-.incbin "./roms/Wave Race 64 (USA).z64", 0x97438, 0x9f450 - 0x97438
+.incbin "./roms/Wave Race 64 (USA).z64", 0x97440, 0x9f450 - 0x97440
 
 
 # Overlays
@@ -2131,7 +2357,7 @@ Overlay15_Data:
 Overlay16_Data:
 .word ROM_0x1cef40, ROM_0x1cf920, 0x802C5800, 0x802C60F0, 0x802C60F0, 0x802C61E0, 0x802C61E0, 0x802C61F0
 Overlay17_Data:
-.word ROM_0x1cf920, ROM_0x1d0f90, 0x802C5800, 0x802C6D50, 0x802C6D50, 0x802C6E70, 0x802C6E70, 0x802C6F50
+.word ROM_0x1cf920, ROM_0x1cf920_End, 0x802C5800, 0x802C6D50, 0x802C6D50, 0x802C6E70, 0x802C6E70, 0x802C6F50
 Overlay18_Data:
 .word ROM_0x1b5360, ROM_0x1b9200, 0x802C5800, 0x802C9440, 0x802C9440, 0x802C96A0, 0x802C96A0, 0x802C96E0 # Race Code
 
@@ -2145,55 +2371,57 @@ Unknown_0x800e4eb8: # 0x9f6b8
 
 Unknown_0x800e5e5c: # 0xa065c
 .word Function_0x8009a2f4, 0x7FFF0000
+
+Unknown_0x800e5e64: # 0xa0664
 .word Function_0x8009a44c, 0x7FFF0000
 .word Function_0x8009a548, 0x7FFF0000
 .word Function_0x8009a5e4, 0x7FFF0000
 .word Function_0x8009a694, 0x7FFF0000
-.word 0x8009AC34, 0x00140000
-.word 0x8009ACB4, 0xFFFF0000
-.word 0x8009ADD0, 0x00140000
-.word 0x8009AE68, 0xFFFF0000
-.word 0x8009AF3C, 0x3FFF0000
-.word 0x8009B0DC, 0x00080000
-.word 0x8009B194, 0x00070000
-.word 0x8009B24C, 0x00080000
-.word 0x8009B058, 0x00070000
-.word 0x8009AFF0, 0x00390000
-.word 0x8009B6B0, 0x00780000
-.word 0x8009B880, 0x00640000
-.word 0x8009B5C4, 0x00370000
-.word 0x8009B63C, 0x00520000
-.word 0x8009B7B4, 0x00640000
-.word 0x8009B938, 0x00640000
-.word 0x8009BA44, 0x3FFF0000
-.word 0x8009BC8C, 0x01480000
-.word 0x8009BD4C, 0x00540000
-.word 0x8009BCBC, 0x7FFF0000
-.word 0x8009BC5C, 0x01480000
-.word 0x8009BDE4, 0x007B0000
-.word 0x8009BE14, 0x00720000
-.word 0x8009BE44, 0x00910000
-.word 0x8009BE74, 0x7FFF0000
-.word 0x8009BC8C, 0x01480000
-.word 0x8009BD7C, 0x00580000
-.word 0x8009BCEC, 0x7FFF0000
-.word 0x8009BC5C, 0x01480000
-.word 0x8009BEA4, 0x00EE0000
-.word 0x8009BED4, 0x7FFF0000
-.word 0x8009BC8C, 0x01480000
-.word 0x8009BDAC, 0x00730000
-.word 0x8009BD1C, 0x7FFF0000
-.word 0x8009BC5C, 0x01480000
-.word 0x8009BF04, 0x00E80000
-.word 0x8009BF34, 0x7FFF0000
-.word 0x8009BC8C, 0x01480000
-.word 0x8009BF64, 0x7FFF0000
+.word Function_0x8009ac34, 0x00140000
+.word Function_0x8009acb4, 0xFFFF0000
+.word Function_0x8009add0, 0x00140000
+.word Function_0x8009ae68, 0xFFFF0000
+.word Function_0x8009af3c, 0x3FFF0000
+.word Function_0x8009b0dc, 0x00080000
+.word Function_0x8009b194, 0x00070000
+.word Function_0x8009b24c, 0x00080000
+.word Function_0x8009b058, 0x00070000
+.word Function_0x8009aff0, 0x00390000
+.word Function_0x8009b6b0, 0x00780000
+.word Function_0x8009b880, 0x00640000
+.word Function_0x8009b5c4, 0x00370000
+.word Function_0x8009b63c, 0x00520000
+.word Function_0x8009b7b4, 0x00640000
+.word Function_0x8009b938, 0x00640000
+.word Function_0x8009ba44, 0x3FFF0000
+.word Function_0x8009bc8c, 0x01480000
+.word Function_0x8009bd4c, 0x00540000
+.word Function_0x8009bcbc, 0x7FFF0000
+.word Function_0x8009bc5c, 0x01480000
+.word Function_0x8009bde4, 0x007B0000
+.word Function_0x8009be14, 0x00720000
+.word Function_0x8009be44, 0x00910000
+.word Function_0x8009be74, 0x7FFF0000
+.word Function_0x8009bc8c, 0x01480000
+.word Function_0x8009bd7c, 0x00580000
+.word Function_0x8009bcec, 0x7FFF0000
+.word Function_0x8009bc5c, 0x01480000
+.word Function_0x8009bea4, 0x00EE0000
+.word Function_0x8009bed4, 0x7FFF0000
+.word Function_0x8009bc8c, 0x01480000
+.word Function_0x8009bdac, 0x00730000
+.word Function_0x8009bd1c, 0x7FFF0000
+.word Function_0x8009bc5c, 0x01480000
+.word Function_0x8009bf04, 0x00E80000
+.word Function_0x8009bf34, 0x7FFF0000
+.word Function_0x8009bc8c, 0x01480000
+.word Function_0x8009bf64, 0x7FFF0000
 
 
 .incbin "./roms/Wave Race 64 (USA).z64", 0xa07bc, 0xa12e4 - 0xa07bc
 
 Unknown_0x800e6ae4: # 0xa12e4
-.incbin "./roms/Wave Race 64 (USA).z64", 0xa12e4, 0xa12e8 - 0xa12e4
+.word 0
 
 Unknown_0x800e6ae8: # 0xa12e8
 .incbin "./roms/Wave Race 64 (USA).z64", 0xa12e8, 0xa1350 - 0xa12e8
@@ -2208,58 +2436,60 @@ Unknown_0x800e6bf0:
 .incbin "./roms/Wave Race 64 (USA).z64", 0xa13f0, 0xA2214 - 0xa13f0
 
 Unknown_0x800e7a14:
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA2214, 0xA2218 - 0xA2214
+.word 0xFF000000
 
 Unknown_0x800e7a18:
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA2218, 0xA221C - 0xA2218
+.word 1
 
 Unknown_0x800e7a1c:
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA221C, 0xA2230 - 0xA221C
+.word 0, 0, 0, 0, 0
 
 Unknown_0x800e7a30:
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA2230, 0xA2244 - 0xA2230
+.word 0, 0, 0, 1, 1
 
 Unknown_0x800e7a44:
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA2244, 0xA2254 - 0xA2244
+.word 0, 0, 0, 0
 
 Unknown_0x800e7a54:
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA2254, 0xA2258 - 0xA2254
+.word 0
 
 Unknown_0x800e7a58:
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA2258, 0xA225C - 0xA2258
+.word 0
 
 Unknown_0x800e7a5c:
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA225C, 0xA2260 - 0xA225C
+.word 0
 
 Unknown_0x800e7a60:
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA2260, 0xA2264 - 0xA2260
+.word 0
 
 Unknown_0x800e7a64:
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA2264, 0xA2268 - 0xA2264
+.word 0
 
 Unknown_0x800e7a68:
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA2268, 0xA226C - 0xA2268
+.word 0
 
 Unknown_0x800e7a6c:
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA226C, 0xA2270 - 0xA226C
+.word 0
 
 Unknown_0x800e7a70:
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA2270, 0xA2274 - 0xA2270
+.word 0
 
 Unknown_0x800e7a74: # 0xA2274
 .incbin "./roms/Wave Race 64 (USA).z64", 0xA2274, 0xa2b78 - 0xA2274
 
 Unknown_0x800e8378: # 0xa2b78
-.incbin "./roms/Wave Race 64 (USA).z64", 0xa2b78, 0xa2b7c - 0xa2b78
+.word 0x801D7B90
 
 Unknown_0x800e837c: # 0xa2b7c
-.incbin "./roms/Wave Race 64 (USA).z64", 0xa2b7c, 0xa2b80 - 0xa2b7c
+.word 0x801D7BA8
 
 Unknown_0x800e8380: # 0xa2b80
-.incbin "./roms/Wave Race 64 (USA).z64", 0xa2b80, 0xa2b84 - 0xa2b80
+.word 0x801D7BC0
 
 Unknown_0x800e8384: # 0xa2b84
-.incbin "./roms/Wave Race 64 (USA).z64", 0xa2b84, 0xa2c10 - 0xa2b84
+.word 0x801D7BD8
+
+.incbin "./roms/Wave Race 64 (USA).z64", 0xa2b88, 0xa2c10 - 0xa2b88
 
 Unknown_0x800e8410: # 0xa2c10
 .incbin "./roms/Wave Race 64 (USA).z64", 0xa2c10, 0xa2cf0 - 0xa2c10
@@ -2324,22 +2554,28 @@ SwitchTable_0x800e8fa8: # 0xa37a8
 .word 0x80047FE4, 0x80047FFC, 0x80048014, 0x8004802C
 .word 0x80048044, 0x8004805C
 
-.incbin "./roms/Wave Race 64 (USA).z64", 0xa37c0, 0xa3878 - 0xa37c0
+.incbin "./roms/Wave Race 64 (USA).z64", 0xa37c0, 0xa3810 - 0xa37c0
+
+Unknown_0x800e9010: # 0xa3810
+.word 0x3F13CD3A
+
+Unknown_0x800e9014: # 0xa3814
+.incbin "./roms/Wave Race 64 (USA).z64", 0xa3814, 0xa3878 - 0xa3814
 
 Unknown_0x800e9078: # 0xa3878
 .incbin "./roms/Wave Race 64 (USA).z64", 0xa3878, 0xa3884 - 0xa3878
 
 Unknown_0x800e9084: # 0xa3884
-.incbin "./roms/Wave Race 64 (USA).z64", 0xa3884, 0xa3888 - 0xa3884
+.word 0x3F13CD3A
 
 Unknown_0x800e9088: # 0xa3888
-.incbin "./roms/Wave Race 64 (USA).z64", 0xa3888, 0xa388c - 0xa3888
+.word 0x3F93CD3A
 
 Unknown_0x800e908c: # 0xa388c
-.incbin "./roms/Wave Race 64 (USA).z64", 0xa388c, 0xa3890 - 0xa388c
+.word 0x3F5DB3D7
 
 Unknown_0x800e9090: # 0xa3890
-.incbin "./roms/Wave Race 64 (USA).z64", 0xa3890, 0xa3898 - 0xa3890
+.word 0x3F5DB3D7, 0x0
 
 Unknown_0x800e9098: # 0xa3898
 .incbin "./roms/Wave Race 64 (USA).z64", 0xa3898, 0xa38a0 - 0xa3898
@@ -2356,7 +2592,10 @@ SwitchTable_0x800e90e0: # 0xa38e0
 .word 0x80053E44, 0x80053CAC, 0x80053E44, 0x80053CF4
 .word 0x80053CAC
 
-.incbin "./roms/Wave Race 64 (USA).z64", 0xa3944, 0xa3bb4 - 0xa3944
+.incbin "./roms/Wave Race 64 (USA).z64", 0xa3944, 0xa3b30 - 0xa3944
+
+Unknown_0x800e9330: # 0xa3b30
+.incbin "./roms/Wave Race 64 (USA).z64", 0xa3b30, 0xa3bb4 - 0xa3b30
 
 SwitchTable_0x800e93b4: # 0xa3bb4
 .word 0x8005CDDC, 0x8005CDC4, 0x8005CDC4, 0x8005CDDC
@@ -2376,13 +2615,41 @@ SwitchTable_0x800e94a0: # 0xa3ca0
 .word 0x8005FCD4, 0x8005FCF0, 0x8005FE8C, 0x8005FEA8
 .word 0x8005FEC4, 0x8005FEC4
 
-.incbin "./roms/Wave Race 64 (USA).z64", 0xa3cb8, 0xa3d84 - 0xa3cb8
+.incbin "./roms/Wave Race 64 (USA).z64", 0xa3cb8, 0xa3ce0 - 0xa3cb8
+
+Unknown_0x800e94e0: # 0xa3ce0
+.incbin "./roms/Wave Race 64 (USA).z64", 0xa3ce0, 0xa3ce4 - 0xa3ce0
+
+Unknown_0x800e94e4: # 0xa3ce4
+.incbin "./roms/Wave Race 64 (USA).z64", 0xa3ce4, 0xa3ce8 - 0xa3ce4
+
+Unknown_0x800e94e8: # 0xa3ce8
+.incbin "./roms/Wave Race 64 (USA).z64", 0xa3ce8, 0xa3d48 - 0xa3ce8
+
+Unknown_0x800e9548: # 0xa3d48
+.incbin "./roms/Wave Race 64 (USA).z64", 0xa3d48, 0xa3d84 - 0xa3d48
 
 SwitchTable_0x800e9584: # 0xa3d84
 .word branch_0x8006474c, branch_0x800649cc, branch_0x8006496c, branch_0x80064a2c
 .word branch_0x80064a78
 
-.incbin "./roms/Wave Race 64 (USA).z64", 0xa3d98, 0xA3DF0 - 0xa3d98
+Unknown_0x800e9598: # 0xa3d98
+.incbin "./roms/Wave Race 64 (USA).z64", 0xa3d98, 0xa3dc8 - 0xa3d98
+
+Unknown_0x800e95c8: # 0xa3dc8
+.word 0x4031C71D, 0x00000000
+
+Unknown_0x800e95d0: # 0xa3dd0
+.word 0x3FC72003, 0xAB862B28
+
+Unknown_0x800e95d8: # 0xa3dd8
+.incbin "./roms/Wave Race 64 (USA).z64", 0xa3dd8, 0xa3de0 - 0xa3dd8
+
+Unknown_0x800e95e0: # 0xa3de0
+.word 0x40333333
+
+Unknown_0x800e95e4: # 0xa3de4
+.incbin "./roms/Wave Race 64 (USA).z64", 0xa3de4, 0xA3DF0 - 0xa3de4
 
 Unknown_0x800E95F0: # 0xA3DF0
 .float 1.0, 65.0, 0.0, -100.0
@@ -2824,12 +3091,4 @@ Unkown_800EE058: # 0xA8858
 
 Unknown_0x800ee060: # 0xA8860
 .incbin "./roms/Wave Race 64 (USA).z64", 0xA8860, 0xA8870 - 0xA8860
-
-Unknown_0x800ee070: # 0xA8870
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA8870, 0xA9070 - 0xA8870
-
-Unknown_0x800ee870: # 0xA9070
-.incbin "./roms/Wave Race 64 (USA).z64", 0xA9070, ROM_0xa9330 - 0xA9070
-
-Unknown_0x800eeb30: # ROM_0xa9330
 

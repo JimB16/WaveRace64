@@ -76,7 +76,7 @@ branch_0x802c58dc:
 branch_0x802c58ec:
     lw      $v1, 0x0($a1)
     lui     $at, 0x802c
-    ldc1    $4, 0x7700($1)
+    ldc1    $4, 0x7700($at)
     mtc1    $v1, $t2
     lui     $at, 0x4028
     mtc1    $at, $t1
@@ -2069,9 +2069,9 @@ Function_0x802c7510: # 0x802c7510
     lui     $at, %hi(Unknown_0x801ce398)
     addiu   $t8, $zero, 0x13
     sw      $t8, %lo(Unknown_0x801ce398)($at)
-    lui     $at, 0x801d
+    lui     $at, %hi(Unknown_0x801ce39c)
     addiu   $t9, $zero, 0x1
-    sw      $t9, -0x1c64($at)
+    sw      $t9, %lo(Unknown_0x801ce39c)($at)
     lui     $at, 0x801d
     sw      $zero, -0x1c60($at)
     lui     $at, 0x801d

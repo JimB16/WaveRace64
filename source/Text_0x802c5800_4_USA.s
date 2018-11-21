@@ -339,14 +339,18 @@ branch_0x802c5bc4:
     lui     $at, %hi(Unknown_0x800da8ac)
     jal     Function_0x8008f914
     sw      $zero, %lo(Unknown_0x800da8ac)($at)
+
     lui     $a1, %hi(TrackNr_0x800d7ef0)
     lw      $a1, %lo(TrackNr_0x800d7ef0)($a1)
     jal     Function_0x80094758
     or      $a0, $v0, $zero
+
     jal     Function_0x80090cf8_DrawWaterBG
     or      $a0, $v0, $zero
+
     jal     Function_0x802c5cdc_DrawCourseSelectMenu
     or      $a0, $v0, $zero
+
     addiu   $t9, $v0, 0x8
     sw      $t9, 0x18($sp)
     lui     $t1, %hi(0x106f168)
@@ -416,6 +420,9 @@ branch_0x802c5cd0:
     nop
 
 
+/* Input:
+a0:
+*/
 .globl Function_0x802c5cdc_DrawCourseSelectMenu
 Function_0x802c5cdc_DrawCourseSelectMenu: # 0x802c5cdc
     addiu   $sp, $sp, 0xff28
@@ -695,17 +702,20 @@ branch_0x802c5ff8:
     andi    $t6, $t7, 0xfff
     lui     $at, %hi(0xe4460000)
     addiu   $s0, $s0, 0x8
+
     or      $t8, $t6, $at
     lui     $at, %hi(0x278000)
     or      $a0, $s0, $zero
     sll     $t9, $a3, 2
     andi    $t7, $t9, 0xfff
     addiu   $s0, $s0, 0x8
+
     ori     $at, $at, %lo(0x278000)
     or      $t6, $t7, $at
     or      $a1, $s0, $zero
     sw      $t8, 0x0($a0)
     addiu   $s0, $s0, 0x8
+
     sw      $t6, 0x4($a0)
     or      $v0, $s0, $zero
     lui     $t8, %hi(0xb3000000)
@@ -749,9 +759,9 @@ branch_0x802c6128:
     sw      $t9, 0x10($sp)
     or      $a0, $v0, $zero
     addiu   $a1, $zero, 0x2
-    addiu   $a2, $zero, 0x4
+    addiu   $a2, $zero, StringID_4
     addiu   $a3, $zero, 0x40
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
 
     lui     $t7, %hi(Unknown_0x801ce368)
@@ -760,11 +770,12 @@ branch_0x802c6128:
     or      $a0, $v0, $zero
     bne     $s4, $t7, branch_0x802c6214
     or      $a1, $zero, $zero
+
     addiu   $t6, $zero, 0xba
     sw      $t6, 0x10($sp)
-    addiu   $a2, $zero, 0x1e
+    addiu   $a2, $zero, StringID_1e
     addiu   $a3, $zero, 0xbf
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
 
     lui     $s4, %hi(Unknown_0x800da750_TrackNr)
@@ -794,18 +805,18 @@ branch_0x802c6214:
     sw      $t9, 0x10($sp)
     or      $a0, $s0, $zero
     or      $a1, $zero, $zero
-    addiu   $a2, $zero, 0xe
+    addiu   $a2, $zero, StringID_e
     addiu   $a3, $zero, 0xc3
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
 
     addiu   $t7, $zero, 0xbe
     sw      $t7, 0x10($sp)
     or      $a0, $v0, $zero
     or      $a1, $zero, $zero
-    addiu   $a2, $zero, 0xd
+    addiu   $a2, $zero, StringID_d
     addiu   $a3, $zero, 0xc5
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
 
     lui     $t6, %hi(Unknown_4_0x802c754c_SelectedDifficulty)
@@ -893,7 +904,7 @@ branch_0x802c637c:
     addiu   $s2, $s2, %lo(Unknown_0x800da858)
     or      $s1, $zero, $zero
     addiu   $s3, $zero, 0x38
-branch_0x802c638c:
+branch_0x802c638c_loopDrawTrackNames:
     lw      $t9, 0x0($s4)
     or      $a0, $s0, $zero
     addiu   $a2, $zero, 0x80
@@ -934,26 +945,26 @@ branch_0x802c63d0:
     sw      $t7, 0x34($sp)
 
     lw      $v1, 0x0($s2)
-    lui     $a3, %hi(Unknown_4_0x802c7660)
-    lui     $a2, %hi(Unknown_0x800da790)
+    lui     $a3, %hi(Unknown_4_0x802c7660_TrackNameStringXOffsets)
+    lui     $a2, %hi(Unknown_0x800da790_TrackNameStringIDs)
     sll     $t6, $v1, 2
     addu    $a3, $a3, $t6
-    lw      $a3, %lo(Unknown_4_0x802c7660)($a3)
+    lw      $a3, %lo(Unknown_4_0x802c7660_TrackNameStringXOffsets)($a3)
     addu    $a2, $a2, $t6
-    lw      $a2, %lo(Unknown_0x800da790)($a2)
+    lw      $a2, %lo(Unknown_0x800da790_TrackNameStringIDs)($a2)
     or      $v1, $t6, $zero
     or      $a0, $v0, $zero
     addiu   $a1, $zero, 0x1
     sw      $s3, 0x10($sp)
     sw      $zero, 0x14($sp)
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     addiu   $a3, $a3, 0x30
 
     addiu   $s1, $s1, 0x1
     slti    $at, $s1, 0x9
     addiu   $s2, $s2, 0x4
     addiu   $s3, $s3, 0x12
-    bnez    $at, branch_0x802c638c
+    bnez    $at, branch_0x802c638c_loopDrawTrackNames
     or      $s0, $v0, $zero
 
     lui     $t8, %hi(Unknown_4_0x802c7548)
@@ -1011,9 +1022,9 @@ branch_0x802c64c4:
     sw      $t8, 0x10($sp)
     or      $a0, $v0, $zero
     or      $a1, $zero, $zero
-    addiu   $a2, $zero, 0x20
+    addiu   $a2, $zero, StringID_20
     addiu   $a3, $zero, 0xc3
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
 
     lui     $s2, %hi(Unknown_4_0x802c7650)
@@ -1067,7 +1078,7 @@ branch_0x802c6580:
     sw      $t7, 0x10($sp)
     or      $a0, $v0, $zero
     addiu   $a1, $zero, 0x1
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     addiu   $a3, $a3, 0xc1
 
     addiu   $s1, $s1, 0x1
@@ -1080,15 +1091,15 @@ branch_0x802c6580:
 branch_0x802c65fc:
     lui     $t6, %hi(Unknown_4_0x802c76d0)
     lw      $t6, %lo(Unknown_4_0x802c76d0)($t6)
-    lui     $s2, %hi(Unknown_4_0x802c7630)
-    addiu   $s2, $s2, %lo(Unknown_4_0x802c7630)
+    lui     $s2, %hi(Unknown_4_0x802c7630_DifficultyStringData)
+    addiu   $s2, $s2, %lo(Unknown_4_0x802c7630_DifficultyStringData)
     blez    $t6, branch_0x802c6754
     or      $s1, $zero, $zero # Difficulty_0
 
     lw      $t8, 0xc8($sp)
     addu    $s3, $t8, $v0
     addiu   $s3, $s3, 0x14
-branch_0x802c6620:
+loopDrawDifficultyOptions:
     lui     $t9, %hi(Unknown_4_0x802c7550)
     lw      $t9, %lo(Unknown_4_0x802c7550)($t9)
     or      $a0, $s0, $zero
@@ -1163,13 +1174,13 @@ branch_0x802c66d4:
     jal     Function_0x801e91f4_changePalette
     sw      $t7, 0x34($sp)
 
-    lh      $a3, 0x0($s2)
-    lw      $a2, 0x4($s2)
+    lh      $a3, 0x0($s2) # X-Offset
+    lw      $a2, 0x4($s2) # String ID
     sw      $zero, 0x14($sp)
     sw      $s3, 0x10($sp)
     or      $a0, $v0, $zero
     addiu   $a1, $zero, 0x1
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     addiu   $a3, $a3, 0xc2
 
     lui     $t6, %hi(Unknown_4_0x802c76d0)
@@ -1178,7 +1189,7 @@ branch_0x802c66d4:
     addiu   $s3, $s3, 0xf
     slt     $at, $s1, $t6
     addiu   $s2, $s2, 0x8
-    bnez    $at, branch_0x802c6620
+    bnez    $at, loopDrawDifficultyOptions
     or      $s0, $v0, $zero
 
 branch_0x802c6754:
@@ -1194,6 +1205,9 @@ branch_0x802c6758:
     addiu   $sp, $sp, 0xd8
 
 
+/* Input:
+a0:
+*/
 Function_0x802c6778_DrawTrackPreview: # 0x802c6778
     lui     $t6, %hi(Unknown_0x800da750_TrackNr)
     lw      $t6, %lo(Unknown_0x800da750_TrackNr)($t6)
@@ -1462,6 +1476,7 @@ branch_0x802c6a6c:
     sw      $t9, 0x4($v1)
     bne     $t2, $at, branch_0x802c6a58
     addiu   $a0, $a0, 0x8
+
     lw      $ra, 0x2c($sp)
     lw      $s0, 0x8($sp)
     lw      $s1, 0xc($sp)
@@ -2262,14 +2277,21 @@ Unknown_4_0x802c757c: # 0x1bfbec
 Unknown_4_0x802c760c: # 0x1bfc7c
 .incbin "./roms/Wave Race 64 (USA).z64", 0x1bfc7c, 0x1bfca0 - 0x1bfc7c
 
-Unknown_4_0x802c7630: # 0x1bfca0
-.incbin "./roms/Wave Race 64 (USA).z64", 0x1bfca0, 0x1bfcc0 - 0x1bfca0
+Unknown_4_0x802c7630_DifficultyStringData: # 0x1bfca0
+.hword 0x0, 0x0
+.word 0x16
+.hword 0x8, 0x0
+.word 0x17
+.hword 0x0, 0x0
+.word 0x18
+
+.incbin "./roms/Wave Race 64 (USA).z64", 0x1bfcb8, 0x1bfcc0 - 0x1bfcb8
 
 Unknown_4_0x802c7650: # 0x1bfcc0
 .incbin "./roms/Wave Race 64 (USA).z64", 0x1bfcc0, 0x1bfcd0 - 0x1bfcc0
 
-Unknown_4_0x802c7660: # 0x1bfcd0
-.incbin "./roms/Wave Race 64 (USA).z64", 0x1bfcd0, 0x1bfd00 - 0x1bfcd0
+Unknown_4_0x802c7660_TrackNameStringXOffsets: # 0x1bfcd0
+.word 0, 2, 6, -9, 6, 10, 1, -9, -3, 0, 0, 0
 
 Unknown_4_0x802c7690: # 0x1bfd00
 .incbin "./roms/Wave Race 64 (USA).z64", 0x1bfd00, ROM_0x1bfd10 - 0x1bfd00

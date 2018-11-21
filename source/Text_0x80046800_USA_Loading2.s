@@ -71,9 +71,9 @@ branch_0x80093f1c:
     sw      $t1, 0x4($v0)
 
 branch_0x80093f48:
-    lui     $t2, %hi(FileListList_0x800DC294)
+    lui     $t2, %hi(FileListList_TrackFiles2)
     addu    $t2, $t2, $a0
-    lw      $t2, %lo(FileListList_0x800DC294)($t2)
+    lw      $t2, %lo(FileListList_TrackFiles2)($t2)
     sw      $t2, 0x4($v0)
 
 branch_0x80093f58:
@@ -808,7 +808,7 @@ branch_0x800948f8:
 branch_0x8009490c:
     slt     $at, $v0, $a0
     bnez    $at, branch_0x800948a0
-    addiu   $a1, $a1, RaceStruct_378
+    addiu   $a1, $a1, RaceStruct_Size
 branch_0x80094918:
     or      $v1, $t1, $zero
     slti    $at, $v1, 0x4
@@ -1121,8 +1121,8 @@ branch_0x80094d4c:
     addiu   $t5, $t5, 0x4
     or      $v1, $t1, $zero
 branch_0x80094d68:
-    addiu   $a0, $a0, RaceStruct_378
-    sw      $v0, (RaceStruct_338-RaceStruct_378)($a0)
+    addiu   $a0, $a0, RaceStruct_Size
+    sw      $v0, (RaceStruct_338-RaceStruct_Size)($a0)
     bne     $t1, $t3, branch_0x80094d40
     addiu   $t1, $t1, 0x1
     lw      $s0, 0x8($sp)
@@ -1145,8 +1145,8 @@ Function_0x80094d88: # 0x80094d88
     lui     $at, %hi(Unknown_0x801ce398)
     sw      $t7, %lo(Unknown_0x801ce398)($at)
     addiu   $v1, $zero, 0x1
-    lui     $at, 0x801d
-    sw      $v1, -0x1c64($at)
+    lui     $at, %hi(Unknown_0x801ce39c)
+    sw      $v1, %lo(Unknown_0x801ce39c)($at)
     lui     $at, 0x801d
     sw      $zero, -0x1c60($at)
     lui     $at, 0x801d
@@ -1337,9 +1337,9 @@ branch_0x80094fdc:
 # 0x80094fe8
     sll     $v0, $a0, 2
 branch_0x80094fec:
-    lui     $t4, %hi(FileListList_0x800DC294)
+    lui     $t4, %hi(FileListList_TrackFiles2)
     addu    $t4, $t4, $v0
-    lw      $t4, %lo(FileListList_0x800DC294)($t4)
+    lw      $t4, %lo(FileListList_TrackFiles2)($t4)
     lui     $v1, %hi(Unknown_0x800dc654)
     addiu   $a3, $v1, %lo(Unknown_0x800dc654)
     lui     $t5, %hi(FileListList_TrackObjects2)
@@ -1399,7 +1399,7 @@ branch_0x800950a0:
     slti    $at, $a0, NrOfTracks
     bnez    $at, branch_0x800950b0
     addiu   $v0, $v0, %lo(Unknown_0x800dc77c)
-    addiu   $a0, $zero, 0x8
+    addiu   $a0, $zero, Track_8
 branch_0x800950b0:
     sll     $t9, $a0, 2
     lui     $t2, %hi(FileListList_TrackTextures1)
@@ -1423,7 +1423,7 @@ branch_0x800950f0:
     slti    $at, $a0, NrOfTracks
     bnez    $at, branch_0x80095100
     lui     $t4, %hi(FileListList_TrackTextures1)
-    addiu   $a0, $zero, 0x8
+    addiu   $a0, $zero, Track_8
 branch_0x80095100:
     sll     $t3, $a0, 2
     addu    $t4, $t4, $t3
@@ -1450,7 +1450,7 @@ branch_0x8009514c:
     slti    $at, $a0, NrOfTracks
     bnez    $at, branch_0x8009515c
     lui     $t7, %hi(FileListList_TrackTextures1)
-    addiu   $a0, $zero, 0x8
+    addiu   $a0, $zero, Track_8
 branch_0x8009515c:
     sll     $t6, $a0, 2
     addu    $t7, $t7, $t6
@@ -1474,7 +1474,7 @@ branch_0x80095198:
     slti    $at, $a0, NrOfTracks
     bnez    $at, branch_0x800951a8
     lui     $t8, %hi(FileListList_TrackFiles)
-    addiu   $a0, $zero, 0x8
+    addiu   $a0, $zero, Track_8
 branch_0x800951a8:
     sll     $v0, $a0, 2
     addu    $t8, $t8, $v0
@@ -1714,7 +1714,7 @@ branch_0x8009549c:
     jal     Function_0x800957c8_LoadUncompressFiles
     sw      $v0, 0x18($sp)
     lw      $v0, 0x18($sp)
-    lw      $v1, LoadingStruct_4($v0)
+    lw      $v1, 0x4($v0)
     addiu   $v0, $v0, 0x4
     bnezl   $v1, branch_0x8009549c
     or      $a0, $v1, $zero
@@ -1978,7 +1978,7 @@ branch_0x80095830:
     addiu   $a2, $a2, 0x1
     and     $t7, $a2, $at
     addiu   $at, $zero, FileData_8_6
-    bne     $v0, $at, branch_0x80095868
+    bne     $v0, $at, branch_0x80095868_notFileType6
     or      $a2, $t7, $zero
 
     lui     $a1, %hi(RamAddrForObjFile_0x800d436c)
@@ -1987,9 +1987,9 @@ branch_0x80095830:
     b       branch_0x80095a48_checkForFileType0
     lw      $v0, (FileData_Size+FileData_8)($s2)
 
-branch_0x80095868:
+branch_0x80095868_notFileType6:
     lw      $t8, %lo(MainState_0x800da8a4)($t8)
-    bne     $s3, $t8, branch_0x80095884 # MainState != 1
+    bne     $s3, $t8, branch_0x80095884_notState1 # MainState != 1
     nop
 
     jal     Function_0x80097d14_CopyFromCartToRamInChuncks
@@ -1997,7 +1997,7 @@ branch_0x80095868:
     b       branch_0x80095890_checkForFileType5
     lw      $v0, FileData_8($s2)
 
-branch_0x80095884:
+branch_0x80095884_notState1:
     jal     Function_0x80097d14_CopyFromCartToRamInChuncks
     lui     $a1, %hi(RamForCompressedTrackFiles_0x802a0000)
     lw      $v0, FileData_8($s2)
@@ -2025,11 +2025,11 @@ branch_0x80095890_checkForFileType5: # Handle Track Files
 
 branch_0x800958d0:
     lw      $t2, %lo(TrackNr_0x800d7ef0)($t2)
-    lui     $fp, %hi(Unknown_0x800dcbe0)
+    lui     $fp, %hi(Unknown_0x800dcbe0_UncompressedTrackFile2Sizes)
     sll     $t3, $t2, 2
     addu    $fp, $fp, $t3
     b       branch_0x80095930_uncompressData
-    lw      $fp, %lo(Unknown_0x800dcbe0)($fp)
+    lw      $fp, %lo(Unknown_0x800dcbe0_UncompressedTrackFile2Sizes)($fp)
 
 
 # 0x800958e8
@@ -2039,7 +2039,7 @@ branch_0x800958ec_checkForFileType8: # Handle the file after Track Files
     lui     $t4, %hi(RamAddrForTrackFile_0x800d4364)
 
     lw      $t4, %lo(RamAddrForTrackFile_0x800d4364)($t4)
-    addu    $a0, $t4, $fp			# add size of uncpmressed track file
+    addu    $a0, $t4, $fp			# add size of uncompressed track file
     jal     osVirtualToPhysical
     sw      $a0, 0x0($s7)
     lui     $at, %hi(Unknown_0x801ce448)
@@ -2106,14 +2106,15 @@ branch_0x8009597c:
     lw      $v0, (FileData_Size+FileData_8)($s2)
 
 
-branch_0x800959b4_checkforFileType4:
+branch_0x800959b4_checkforFileType4: # driver file type
     addiu   $at, $zero, FileData_8_4
     bnel    $v0, $at, branch_0x800959e8_checkForFileType7
     addiu   $at, $zero, FileData_8_7
+
     jal     osWritebackDCacheAll
     nop
     or      $a0, $s0, $zero
-    jal     Function_0x80095a88
+    jal     Function_0x80095a88_GetDriverDLOffsets
     lw      $a1, 0x0($s4)
     lw      $t2, 0x0($s4)
     addiu   $t3, $t2, 0x1
@@ -2126,6 +2127,7 @@ branch_0x800959b4_checkforFileType4:
 branch_0x800959e8_checkForFileType7:
     bnel    $v0, $at, branch_0x80095a18_checkForFileTypeA
     addiu   $at, $zero, FileData_8_a
+
     jal     osWritebackDCacheAll
     nop
     or      $a0, $s0, $zero
@@ -2142,6 +2144,7 @@ branch_0x800959e8_checkForFileType7:
 branch_0x80095a18_checkForFileTypeA:
     bnel    $v0, $at, branch_0x80095a48_checkForFileType0
     lw      $v0, (FileData_Size+FileData_8)($s2)
+
     jal     osWritebackDCacheAll
     nop
     or      $a0, $s0, $zero
@@ -2176,8 +2179,12 @@ branch_0x80095a58:
     addiu   $sp, $sp, 0x50
 
 
-.globl Function_0x80095a88
-Function_0x80095a88: # 0x80095a88
+/* Input:
+a0:
+a1: some increasing nr
+*/
+.globl Function_0x80095a88_GetDriverDLOffsets
+Function_0x80095a88_GetDriverDLOffsets: # 0x80095a88
     addiu   $sp, $sp, 0xff90
     sw      $s7, 0x34($sp)
     lui     $t6, %hi(Unknown_0x801ce4a0)
@@ -2196,9 +2203,11 @@ Function_0x80095a88: # 0x80095a88
     sw      $s0, 0x18($sp)
     beqz    $t7, branch_0x80095adc
     sw      $a0, 0x70($sp)
+
     addiu   $t8, $zero, 0x2
     b       branch_0x80095ae4
     sw      $t8, 0x60($sp)
+
 branch_0x80095adc:
     addiu   $t9, $zero, 0x1
     sw      $t9, 0x60($sp)
@@ -2209,8 +2218,8 @@ branch_0x80095ae4:
     blez    $t0, branch_0x80095db8
     addiu   $s6, $zero, 0x2
     lui     $s4, 0xff
-    lui     $s2, %hi(Unknown_0x800daa50)
-    addiu   $s2, $s2, %lo(Unknown_0x800daa50)
+    lui     $s2, %hi(Unknown_0x800daa50_DriversDLOffsets)
+    addiu   $s2, $s2, %lo(Unknown_0x800daa50_DriversDLOffsets)
     ori     $s4, $s4, 0xffff
     addiu   $s3, $zero, 0x44
     lw      $s1, 0x58($sp)
@@ -2376,13 +2385,17 @@ branch_0x80095CE4:
 branch_0x80095cfc:
     bne     $v0, $fp, branch_0x80095d14
     nop
+
     bne     $v1, $fp, branch_0x80095d30
     nop
+
     b       branch_0x80095d98
     addiu   $s5, $s5, 0x1
+
 branch_0x80095d14:
     bne     $v0, $s6, branch_0x80095d30
     nop
+
     lh      $v0, 0x0($a2)
     addiu   $at, $zero, 0x6
     beq     $s6, $v0, branch_0x80095d30
@@ -2395,25 +2408,30 @@ branch_0x80095d30:
     lui     $a1, %hi(Unknown_0x800da920)
     beq     $a3, $v0, branch_0x80095d50
     addu    $a0, $t7, $s1
+
     bne     $s6, $v0, branch_0x80095d5c
     addiu   $at, $zero, 0x4
+
 branch_0x80095d50:
     addu    $a1, $a1, $s7
     b       branch_0x80095d7c
     lw      $a1, %lo(Unknown_0x800da920)($a1)
+
 branch_0x80095d5c:
     bne     $v0, $at, branch_0x80095d74
     lui     $a1, %hi(Unknown_0x800da910)
+
     lui     $a1, %hi(Unknown_0x800da940)
     addu    $a1, $a1, $s7
     b       branch_0x80095d7c
     lw      $a1, %lo(Unknown_0x800da940)($a1)
+
 branch_0x80095d74:
     addu    $a1, $a1, $s7
     lw      $a1, %lo(Unknown_0x800da910)($a1)
 branch_0x80095d7c:
     sw      $v1, 0x68($sp)
-    jal     Function_0x8009658c
+    jal     Function_0x8009658c_UpdateDisplayList
     sw      $a2, 0x44($sp)
     lw      $v1, 0x68($sp)
     lw      $a2, 0x44($sp)
@@ -2424,6 +2442,7 @@ branch_0x80095d98:
     addiu   $at, $zero, 0x11
     bnel    $s5, $at, branch_0x80095b34
     sltiu   $at, $s5, 0x11
+
     lw      $t8, 0x60($sp)
     addiu   $v1, $v1, 0x1
     bnel    $v1, $t8, branch_0x80095b18
@@ -2500,7 +2519,7 @@ branch_0x80095e78:
     nop
 
 branch_0x80095eb4:
-    jal     Function_0x8009658c
+    jal     Function_0x8009658c_UpdateDisplayList
     addu    $a0, $t5, $s6
     addu    $t6, $s0, $s5
     sw      $t6, 0x8($s1)
@@ -2935,8 +2954,8 @@ branch_0x80096488:
     subu    $t0, $t0, $v0
     subu    $t8, $t8, $v0
     lui     $t9, %hi(Unknown_0x800db4f8)
-    lui     $t1, 0x801d
-    addiu   $t1, $t1, 0xe548
+    lui     $t1, %hi(Unknown_0x801ce548)
+    addiu   $t1, $t1, %lo(Unknown_0x801ce548)
     addiu   $t9, $t9, %lo(Unknown_0x800db4f8)
     sll     $t8, $t8, 2
     sll     $t0, $t0, 4
@@ -2949,7 +2968,7 @@ branch_0x80096488:
     addu    $s1, $t0, $t1
     addu    $s5, $t8, $t9
     or      $s4, $zero, $zero
-    lui     $s6, 0x800
+    lui     $s6, %hi(0x8000000)
 branch_0x800964d8:
     lh      $t3, 0x0($s5)
     lw      $s0, 0x0($s3)
@@ -2967,15 +2986,16 @@ branch_0x800964d8:
     sw      $t9, 0x18($s1)
     lw      $t0, 0x0($s0)
     and     $t1, $t0, $s2
-    jal     Function_0x8009658c
+    jal     Function_0x8009658c_UpdateDisplayList
     addu    $a0, $t1, $s7
     lw      $t2, 0x4($s0)
     or      $a1, $fp, $zero
     and     $t3, $t2, $s2
-    jal     Function_0x8009658c
+    jal     Function_0x8009658c_UpdateDisplayList
     addu    $a0, $t3, $s7
     b       branch_0x80096548
     addiu   $s4, $s4, 0x2
+
 branch_0x8009653c:
     sw      $zero, 0x0($s1)
     sw      $zero, 0x18($s1)
@@ -2986,6 +3006,7 @@ branch_0x80096548:
     addiu   $s5, $s5, 0x2
     bne     $s4, $at, branch_0x800964d8
     addiu   $s1, $s1, 0x4
+
     lw      $ra, 0x3c($sp)
     lw      $s0, 0x18($sp)
     lw      $s1, 0x1c($sp)
@@ -2999,34 +3020,45 @@ branch_0x80096548:
     jr      $ra
     addiu   $sp, $sp, 0x58
 
-.globl Function_0x8009658c
-Function_0x8009658c: # 0x8009658c
+
+/* Input:
+a0: source
+a1: 
+*/
+.globl Function_0x8009658c_UpdateDisplayList
+Function_0x8009658c_UpdateDisplayList: # 0x8009658c
     or      $v0, $a0, $zero
-    addiu   $t0, $zero, 0xfd
-    addiu   $a3, $zero, 0x4
-    addiu   $a2, $zero, 0xb8
+    addiu   $t0, $zero, 0xfd # G_SETTIMG (Sets the texture image offset)
+    addiu   $a3, $zero, 0x4 # G_VTX
+    addiu   $a2, $zero, 0xb8 # G_ENDDL (End of Display List)
 branch_0x8009659c:
     lw      $v1, 0x0($v0)
     srl     $t6, $v1, 24
-    beq     $t6, $a2, branch_0x800965e4
+    beq     $t6, $a2, branch_0x800965e4_EndOfDL
     or      $v1, $t6, $zero
-    bne     $t6, $a3, branch_0x800965bc
+
+    bne     $t6, $a3, branch_0x800965bc_NotGVTX
     or      $a0, $zero, $zero
-    b       branch_0x800965c8
+
+    b       branch_0x800965c8_NotGSETTIMG
     addiu   $a0, $zero, 0x1
-branch_0x800965bc:
-    bne     $v1, $t0, branch_0x800965c8
+
+branch_0x800965bc_NotGVTX:
+    bne     $v1, $t0, branch_0x800965c8_NotGSETTIMG
     nop
+
     addiu   $a0, $zero, 0x2
-branch_0x800965c8:
+branch_0x800965c8_NotGSETTIMG:
     beqz    $a0, branch_0x800965dc
     addiu   $v1, $v0, 0x4
+
     lw      $t7, 0x0($v1)
     addu    $t8, $t7, $a1
     sw      $t8, 0x0($v1)
 branch_0x800965dc:
     b       branch_0x8009659c
     addiu   $v0, $v0, 0x8
-branch_0x800965e4:
+
+branch_0x800965e4_EndOfDL:
     jr      $ra
     nop

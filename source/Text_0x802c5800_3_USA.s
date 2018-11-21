@@ -8,8 +8,8 @@
 
 
 Function_0x802c5800: # 0x802c5800
-    lui     $t6, 0x801d
-    lw      $t6, -0x1c64($t6)
+    lui     $t6, %hi(Unknown_0x801ce39c)
+    lw      $t6, %lo(Unknown_0x801ce39c)($t6)
     addiu   $sp, $sp, 0xffe8
     sw      $ra, 0x14($sp)
     beqz    $t6, branch_0x802c5a9c
@@ -240,10 +240,11 @@ Function_0x802c5af0: # 0x802c5af0
     jr      $ra
     nop
 
+
 .globl Function_3_0x802c5b40
 Function_3_0x802c5b40: # 0x802c5b40
-    lui     $v0, 0x801d
-    addiu   $v0, $v0, 0xe39c
+    lui     $v0, %hi(Unknown_0x801ce39c)
+    addiu   $v0, $v0, %lo(Unknown_0x801ce39c)
     lw      $t6, 0x0($v0)
     addiu   $sp, $sp, 0xffe8
     sw      $ra, 0x14($sp)
@@ -745,10 +746,11 @@ branch_0x802c615c:
     sw      $t4, 0x10($sp)
     or      $a0, $v0, $zero
     addiu   $a1, $zero, 0x2
-    addiu   $a2, $zero, 0x22
+    addiu   $a2, $zero, StringID_22
     addiu   $a3, $zero, 0x48
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
+
     lui     $a2, 0x802c
     addiu   $t5, $zero, 0xff
     addiu   $t6, $zero, 0xff
@@ -792,8 +794,9 @@ branch_0x802c631c:
     lw      $a2, 0x4($v0)
     sw      $zero, 0x14($sp)
     sw      $t7, 0x10($sp)
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     addiu   $a3, $a3, 0x32
+
     lw      $ra, 0x3c($sp)
     addiu   $sp, $sp, 0x40
     jr      $ra
@@ -1041,8 +1044,9 @@ branch_0x802c66bc:
     sw      $t7, 0x10($sp)
     lw      $a2, 0x6f90($a2)
     addiu   $a1, $zero, 0x1
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     addiu   $a3, $zero, 0x25
+
     lui     $v1, %hi(Unknown_0x801cb090)
     lw      $v1, %lo(Unknown_0x801cb090)($v1)
     or      $a0, $v0, $zero
@@ -1056,48 +1060,54 @@ branch_0x802c66f0:
     lw      $a2, -0x584c($a2)
     addiu   $a1, $zero, 0x2
     sw      $zero, 0x14($sp)
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     addiu   $a3, $a3, 0x67
+
     addiu   $t7, $zero, 0x3e
     sw      $t7, 0x10($sp)
     or      $a0, $v0, $zero
     or      $a1, $zero, $zero
-    addiu   $a2, $zero, 0x16
+    addiu   $a2, $zero, StringID_16
     addiu   $a3, $zero, 0xc3
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
+
     addiu   $t8, $zero, 0x58
     sw      $t8, 0x10($sp)
     or      $a0, $v0, $zero
     or      $a1, $zero, $zero
-    addiu   $a2, $zero, 0xe
+    addiu   $a2, $zero, StringID_e
     addiu   $a3, $zero, 0xd4
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
+
     addiu   $t9, $zero, 0x88
     sw      $t9, 0x10($sp)
     or      $a0, $v0, $zero
     or      $a1, $zero, $zero
-    addiu   $a2, $zero, 0xd
+    addiu   $a2, $zero, StringID_d
     addiu   $a3, $zero, 0xd4
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
+
     addiu   $t6, $zero, 0xb5
     or      $a0, $v0, $zero
     sw      $t6, 0x10($sp)
     addiu   $a1, $zero, 0x1
-    addiu   $a2, $zero, 0x6
+    addiu   $a2, $zero, StringID_6
     addiu   $a3, $zero, 0x22
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
+
     addiu   $t7, $zero, 0xc2
     or      $a0, $v0, $zero
     sw      $t7, 0x10($sp)
     addiu   $a1, $zero, 0x1
-    addiu   $a2, $zero, 0x7
+    addiu   $a2, $zero, StringID_7
     addiu   $a3, $zero, 0x22
-    jal     Function_0x801e3c40_DrawCourseNames
+    jal     Function_0x801e3c40_DrawStrings
     sw      $zero, 0x14($sp)
+
     lui     $v1, %hi(Unknown_0x801cb090)
     lw      $v1, %lo(Unknown_0x801cb090)($v1)
     or      $a0, $v0, $zero
@@ -1576,8 +1586,8 @@ Function_0x802c6e9c: # 0x802c6e9c
     addiu   $t8, $zero, 0x8
     sw      $t8, -0x1c68($at)
     addiu   $v1, $zero, 0x1
-    lui     $at, 0x801d
-    sw      $v1, -0x1c64($at)
+    lui     $at, %hi(Unknown_0x801ce39c)
+    sw      $v1, %lo(Unknown_0x801ce39c)($at)
     lui     $at, 0x801d
     sw      $zero, -0x1c60($at)
     lui     $at, 0x801d

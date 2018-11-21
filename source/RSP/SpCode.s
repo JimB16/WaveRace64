@@ -1,26 +1,18 @@
 
 
 .include "source/constants.s"
+.include "source/RSP/constantsRSP.s"
 
 
-.equ DMA_CACHE,			$0
-.equ DMA_DRAM,			$1
-.equ DMA_READ_LENGTH,	$2
-.equ DMA_WRITE_LENGTH,	$3
-.equ SP_STATUS,			$4
-.equ DMA_FULL,			$5
-.equ DMA_BUSY,			$6
-.equ SP_RESERVED,		$7
-.equ CMD_STATUS,		$11
-
+# Init code of the RSP (0x800d2030 - 0x8c830)
 
 .set noreorder
 
-.text
+.section .textrsp1, "ax"
 
 
-.globl _start
-_start: # 0x4001000
+.globl Function_0x4001000
+Function_0x4001000: # 0x4001000
     ori     $at, $at, 0x1
     j       Function_0x4001068_LoadData
     addi    $at, $zero, (0x1000-SpTask_Size)
@@ -55,6 +47,9 @@ branch_0x4001054:
     ori     $t0, $zero, 0x5200
     mtc0    $t0, SP_STATUS
     break   0x0
+
+.globl Function_0x4001064
+Function_0x4001064: # 0x4001064
     nop
 
 
